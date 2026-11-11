@@ -33,8 +33,8 @@ struct ItemEditView: View {
             Form {
                 if let entry {
                     Section {
-                        HStack(alignment: .top, spacing: 12) {
-                            if let url = item?.imageURL { ProductImage(url: url).frame(width: 56, height: 56) }
+                        HStack(alignment: .center, spacing: 14) {
+                            if let item { ItemArt(item: item, size: 76) }
                             Text(entry.hint).font(.subheadline).foregroundStyle(.secondary)
                         }
                     }

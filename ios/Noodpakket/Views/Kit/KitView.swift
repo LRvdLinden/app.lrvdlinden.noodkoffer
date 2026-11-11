@@ -24,69 +24,55 @@ struct KitView: View {
     var body: some View {
         let summary = KitSummary(items: items, household: household)
         NavigationStack {
-            List {
-                Section {
-                    header(summary)
-                        .listRowInsets(EdgeInsets())
-                        .listRowBackground(Color.clear)
+            BrandPage {
+                HeroHeader(title: "Emergency kit", subtitle: householdLine, art: ["water", "radio", "food"]) {
+                    meter(summary)
+                } actions: {
+                    HeaderButton(symbol: "barcode.viewfinder", label: "Scan barcode") { scanning = true }
+                    HeaderButton(symbol: "plus", label: "Add item") { addingItem = true }
                 }
+            } sheet: {
+                alert(summary)
                 if let check = plans.first?.nextCheck, check <= .now {
-                    Section {
-                        CheckDueCard { plans.first?.scheduleNextCheck() }
-                    }
+                    CheckDueCard { plans.first?.scheduleNextCheck() }.padding(.bottom, 12)
                 }
+                searchField
                 ForEach(KitCategory.allCases) { category in
                     let rows = visibleItems.filter { $0.category == category }
                     if !rows.isEmpty {
-                        Section {
-                            ForEach(rows) { item in
-                                Button { editing = item } label: { KitItemRow(item: item, household: household) }
-                                    .buttonStyle(.plain)
-                                    .swipeActions(edge: .leading) {
-                                        Button {
-                                            item.quantity = item.required(for: household)
-                                            item.updatedAt = .now
-                                        } label: { Label("Complete", systemImage: "checkmark") }
-                                        .tint(Theme.accent)
-                                    }
-                                    .swipeActions(edge: .trailing) {
-                                        if item.entry == nil {
-                                            Button(role: .destructive) { context.delete(item) } label: {
-                                                Label("Delete", systemImage: "trash")
-                                            }
+                        SheetSectionTitle(title: Text(category.title))
+                        ForEach(rows) { item in
+                            Button { editing = item } label: { KitItemRow(item: item, household: household) }
+                                .buttonStyle(.plain)
+                                .contextMenu {
+                                    Button {
+                                        item.quantity = item.required(for: household)
+                                        item.updatedAt = .now
+                                    } label: { Label("Complete", systemImage: "checkmark") }
+                                    if item.entry == nil {
+                                        Button(role: .destructive) { context.delete(item) } label: {
+                                            Label("Delete", systemImage: "trash")
                                         }
                                     }
-                            }
-                        } header: {
-                            Label { Text(category.title) } icon: { Image(systemName: category.symbol) }
+                                }
                         }
                     }
                 }
                 let hidden = items.filter(\.isHidden)
                 if !hidden.isEmpty {
-                    Section {
-                        ForEach(hidden) { item in
-                            Button { editing = item } label: {
+                    SheetSectionTitle(title: Text("Not needed"))
+                    ForEach(hidden) { item in
+                        Button { editing = item } label: {
+                            CardRow {
+                                ItemArt(item: item, size: 40).saturation(0).opacity(0.6)
                                 Text(item.displayName).foregroundStyle(.secondary)
+                                Spacer()
                             }
                         }
-                    } header: {
-                        Text("Not needed")
-                    } footer: {
-                        Text("These items do not count towards your kit. Tap one to use it again.")
+                        .buttonStyle(.plain)
                     }
-                }
-            }
-            .searchable(text: $search, prompt: Text("Search the kit"))
-            .navigationTitle("Emergency kit")
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button { addingItem = true } label: { Image(systemName: "plus") }
-                        .accessibilityLabel(Text("Add item"))
-                }
-                ToolbarItem(placement: .primaryAction) {
-                    Button { scanning = true } label: { Image(systemName: "barcode.viewfinder") }
-                        .accessibilityLabel(Text("Scan barcode"))
+                    Text("These items do not count towards your kit. Tap one to use it again.")
+                        .font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4)
                 }
             }
             .sheet(item: $editing) { item in ItemEditView(item: item, household: household) }
@@ -95,28 +81,67 @@ struct KitView: View {
         }
     }
 
-    private func header(_ summary: KitSummary) -> some View {
-        HStack(spacing: 20) {
-            ProgressRing(percent: summary.completeness)
-                .frame(width: 112, height: 112)
-            VStack(alignment: .leading, spacing: 6) {
-                Text(summary.completeness == 100 ? "Your kit is complete" : "Keep going")
-                    .font(.headline)
-                Text("\(summary.itemCount) items for \(household.people) people")
-                    .font(.subheadline).foregroundStyle(.secondary)
-                if !summary.expired.isEmpty {
-                    Label("\(summary.expired.count) expired", systemImage: "exclamationmark.triangle.fill")
-                        .font(.subheadline.weight(.semibold)).foregroundStyle(Theme.danger)
-                } else if let next = summary.next, let days = next.daysLeft() {
-                    Label("\(next.displayName) in \(days) days", systemImage: "calendar")
-                        .font(.subheadline).foregroundStyle(Theme.expiryColor(daysLeft: days))
-                }
+    private var householdLine: Text {
+        Text("For \(household.people) people · \(household.days) days")
+    }
+
+    /// Big percentage in yellow with a bar underneath.
+    private func meter(_ summary: KitSummary) -> some View {
+        let missing = visibleItems.filter { $0.status(for: household) != .have }.count
+        return VStack(alignment: .leading, spacing: 10) {
+            Text(verbatim: "\(summary.completeness)%")
+                .font(.system(size: 60, weight: .heavy, design: .rounded))
+                .foregroundStyle(Theme.yellow)
+                .monospacedDigit()
+                .contentTransition(.numericText())
+                .animation(.easeOut, value: summary.completeness)
+            FillBar(fraction: Double(summary.completeness) / 100, color: Theme.yellow,
+                    track: .white.opacity(0.16), height: 10)
+                .frame(width: 210)
+            Group {
+                if summary.completeness == 100 { Text("Your kit is complete") } else { Text("\(missing) items to go") }
             }
-            Spacer(minLength: 0)
+            .font(.subheadline.weight(.medium)).foregroundStyle(.white.opacity(0.85))
         }
-        .padding(18)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .padding(.vertical, 4)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text("Kit \(summary.completeness) percent complete"))
+    }
+
+    /// Yellow notice for the most urgent expiry.
+    @ViewBuilder private func alert(_ summary: KitSummary) -> some View {
+        if let item = summary.expired.first ?? summary.expiringSoon.first, let days = item.daysLeft() {
+            Button { editing = item } label: {
+                HStack(spacing: 12) {
+                    ItemArt(item: item, size: 44)
+                    Group {
+                        if days < 0 { Text("\(item.displayName) has expired. Replace it soon.") }
+                        else { Text("\(item.displayName) expires in \(days) days.") }
+                    }
+                    .font(.subheadline.weight(.bold))
+                    .multilineTextAlignment(.leading)
+                    Spacer(minLength: 0)
+                    Image(systemName: "chevron.right").font(.footnote.weight(.bold))
+                }
+                .foregroundStyle(Color(light: 0x3C175B, dark: 0x3C175B))
+                .padding(12)
+                .background(Theme.yellow, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+            }
+            .buttonStyle(.plain)
+            .padding(.bottom, 12)
+        }
+    }
+
+    private var searchField: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "magnifyingglass").foregroundStyle(.secondary)
+            TextField("Search the kit", text: $search)
+            if !search.isEmpty {
+                Button { search = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(.secondary) }
+                    .accessibilityLabel(Text("Clear"))
+            }
+        }
+        .padding(.horizontal, 12).padding(.vertical, 10)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 }
 
@@ -126,21 +151,25 @@ struct KitItemRow: View {
 
     var body: some View {
         let status = item.status(for: household)
-        HStack(spacing: 12) {
-            Image(systemName: status == .have ? "checkmark.circle.fill" : (status == .partial ? "circle.lefthalf.filled" : "circle"))
-                .font(.title2)
-                .foregroundStyle(status == .have ? Theme.accent : (status == .partial ? Theme.warning : Color.secondary))
-                .accessibilityHidden(true)
-            if let url = item.imageURL {
-                ProductImage(url: url).frame(width: 36, height: 36)
-            }
-            VStack(alignment: .leading, spacing: 2) {
-                Text(item.displayName).font(.body.weight(.medium))
-                Text(verbatim: "\(item.unit.format(item.quantity)) / \(item.unit.format(item.required(for: household)))")
+        let need = item.required(for: household)
+        CardRow {
+            ItemArt(item: item, size: 56)
+            VStack(alignment: .leading, spacing: 3) {
+                Text(item.displayName).font(.body.weight(.semibold)).foregroundStyle(Theme.ink)
+                Text(verbatim: "\(item.unit.format(item.quantity)) / \(item.unit.format(need))")
                     .font(.footnote).foregroundStyle(.secondary).monospacedDigit()
+                FillBar(fraction: need > 0 ? item.quantity / need : 1,
+                        color: status == .have ? Theme.ok : Theme.yellow)
+                    .padding(.top, 3)
             }
-            Spacer()
-            if let days = item.daysLeft() { ExpiryBadge(daysLeft: days) }
+            Spacer(minLength: 4)
+            if let days = item.daysLeft() {
+                ExpiryBadge(daysLeft: days)
+            } else if status == .missing {
+                Pill(text: Text("Missing"), color: Theme.danger)
+            } else if status == .have {
+                Image(systemName: "checkmark.circle.fill").font(.title3).foregroundStyle(Theme.ok)
+            }
         }
         .contentShape(Rectangle())
         .accessibilityElement(children: .combine)
@@ -151,14 +180,16 @@ private struct CheckDueCard: View {
     var onDone: () -> Void
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: "checklist").font(.title2).foregroundStyle(Theme.warning)
+            Image(systemName: "checklist").font(.title2).foregroundStyle(Theme.accent)
             VStack(alignment: .leading, spacing: 2) {
                 Text("Time for your half-yearly check").font(.subheadline.weight(.semibold))
                 Text("Check quantities and dates, and charge the power bank.").font(.footnote).foregroundStyle(.secondary)
             }
             Spacer()
-            Button("Done") { done.toggle(); onDone() }.buttonStyle(.bordered)
+            Button("Done") { done.toggle(); onDone() }.buttonStyle(.bordered).tint(Theme.accent)
         }
+        .padding(14)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
         .sensoryFeedback(.success, trigger: done)
     }
     @State private var done = false

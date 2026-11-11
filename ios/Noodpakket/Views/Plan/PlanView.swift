@@ -32,7 +32,15 @@ private struct PlanForm: View {
             Section("What to do when…") {
                 ForEach(InfoTopic.all) { topic in
                     NavigationLink(value: topic.id) {
-                        Label { Text(topic.title) } icon: { Image(systemName: topic.symbol).foregroundStyle(Theme.accent) }
+                        Label {
+                            Text(topic.title)
+                        } icon: {
+                            Image(systemName: topic.symbol)
+                                .font(.footnote.weight(.bold))
+                                .foregroundStyle(Theme.purple)
+                                .frame(width: 30, height: 30)
+                                .background(Theme.yellow, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
+                        }
                     }
                 }
             }
@@ -75,6 +83,8 @@ private struct PlanForm: View {
                 }
             }
         }
+        .tint(Theme.accent)
+        .brandNavigationBar()
         .onChange(of: plan.plainText) { _, _ in pdfURL = nil }
     }
 
@@ -112,8 +122,9 @@ private struct PlanPrintView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 12) {
-                ShieldMark(shieldColor: Color(red: 0x1B / 255, green: 0x9A / 255, blue: 0x5E / 255), textColor: .white)
+                Image("AppIconDisplay").resizable()
                     .frame(width: 44, height: 44)
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 Text("Emergency plan").font(.system(size: 28, weight: .bold))
             }
             ForEach(Array(plan.fields.enumerated()), id: \.offset) { _, field in

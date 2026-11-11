@@ -51,7 +51,10 @@ struct InfoDetailView: View {
             Section {
                 ForEach(Array(topic.steps.enumerated()), id: \.offset) { index, step in
                     HStack(alignment: .firstTextBaseline, spacing: 12) {
-                        Text(verbatim: "\(index + 1)").font(.headline).foregroundStyle(Theme.accent).frame(width: 20)
+                        Text(verbatim: "\(index + 1)")
+                            .font(.subheadline.weight(.heavy)).foregroundStyle(Theme.purple)
+                            .frame(width: 28, height: 28)
+                            .background(Theme.yellow, in: Circle())
                         Text(step)
                     }
                     .padding(.vertical, 2)
@@ -60,6 +63,7 @@ struct InfoDetailView: View {
                 Text("Based on the advice of the Dutch government (denkvooruit.nl). Noodpakket is an independent app.")
             }
         }
+        .brandNavigationBar()
         .navigationTitle(Text(topic.title))
     }
 }

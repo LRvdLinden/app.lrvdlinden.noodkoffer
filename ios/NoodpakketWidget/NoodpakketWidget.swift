@@ -56,7 +56,7 @@ struct KitWidgetView: View {
             }
         } else {
             VStack(spacing: 6) {
-                Image(systemName: "shield.lefthalf.filled").font(.title).foregroundStyle(Theme.accent)
+                Image(systemName: "checklist").font(.title).foregroundStyle(Theme.yellow)
                 Text("Open Noodpakket to set up your kit").font(.caption).multilineTextAlignment(.center)
             }
         }
@@ -64,7 +64,7 @@ struct KitWidgetView: View {
 
     private func ring(_ s: WidgetSnapshot) -> some View {
         ZStack {
-            Circle().stroke(.quaternary, lineWidth: 9)
+            Circle().stroke(.white.opacity(0.18), lineWidth: 9)
             Circle().trim(from: 0, to: CGFloat(s.completeness) / 100)
                 .stroke(Theme.completenessColor(s.completeness), style: StrokeStyle(lineWidth: 9, lineCap: .round))
                 .rotationEffect(.degrees(-90))
@@ -81,7 +81,7 @@ struct KitWidgetView: View {
                 Text("\(days) days").font(.caption.weight(.semibold)).foregroundStyle(Theme.expiryColor(daysLeft: days))
             }
         } else {
-            Text("Everything is in date").font(.caption).foregroundStyle(Theme.accent)
+            Text("Everything is in date").font(.caption).foregroundStyle(Theme.yellow)
         }
     }
 }
@@ -91,7 +91,10 @@ struct NoodpakketWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "NoodpakketWidget", provider: KitProvider()) { entry in
             KitWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .environment(\.colorScheme, .dark)
+                .containerBackground(for: .widget) {
+                    LinearGradient(colors: [Theme.purple, Theme.purpleDeep], startPoint: .top, endPoint: .bottom)
+                }
                 .widgetURL(URL(string: "noodpakket://kit"))
         }
         .configurationDisplayName("Emergency kit")

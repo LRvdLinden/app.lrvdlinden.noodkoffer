@@ -36,6 +36,10 @@ struct ScanFlowView: View {
             }
             .navigationTitle("Scan barcode")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Theme.purple, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .tint(Theme.accent)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 if phase == .form {
@@ -72,7 +76,7 @@ struct ScanFlowView: View {
             HStack {
                 TextField("Barcode number", text: $manualCode).keyboardType(.numberPad)
                     .textFieldStyle(.roundedBorder)
-                Button("Look up") { handle(manualCode) }.buttonStyle(.borderedProminent)
+                Button("Look up") { handle(manualCode) }.buttonStyle(.borderedProminent).tint(Theme.purple)
                     .disabled(manualCode.filter(\.isNumber).count < 8)
             }
             .padding()
@@ -118,7 +122,8 @@ struct ScanFlowView: View {
             if let r = result {
                 Section {
                     HStack(spacing: 14) {
-                        ProductImage(url: r.imageURL).frame(width: 64, height: 64)
+                        ProductImage(url: r.imageURL, fallbackKey: targetKey.isEmpty ? "other" : (target?.catalogKey ?? "other"))
+                            .frame(width: 96, height: 96)
                         VStack(alignment: .leading, spacing: 3) {
                             Text(r.name.isEmpty ? String(localized: "Unknown product") : r.name).font(.headline)
                             if let brand = r.brand, !brand.isEmpty { Text(brand).font(.subheadline).foregroundStyle(.secondary) }
@@ -238,15 +243,23 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
 /// Product photo from Open Food Facts, with a neutral placeholder.
 struct ProductImage: View {
     let url: String?
+    var fallbackKey = "other"
     var body: some View {
-        AsyncImage(url: url.flatMap(URL.init(string:))) { image in
-            image.resizable().scaledToFit()
-        } placeholder: {
-            Image(systemName: "shippingbox").font(.title2).foregroundStyle(.secondary)
+        Group {
+            if let link = url.flatMap(URL.init(string:)) {
+                AsyncImage(url: link) { image in
+                    image.resizable().scaledToFit().padding(6)
+                } placeholder: {
+                    ProgressView()
+                }
+                .background(Theme.card)
+            } else {
+                ArtImage(key: fallbackKey).padding(10).background(Theme.cream)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(.black.opacity(0.06)))
         .accessibilityHidden(true)
     }
 }

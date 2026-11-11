@@ -21,54 +21,54 @@ struct ShoppingView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
-                if missing.isEmpty {
-                    ContentUnavailableView {
-                        Label("Nothing to buy", systemImage: "checkmark.seal.fill")
-                    } description: {
-                        Text("Your kit is complete. Items that run out or expire show up here.")
+            BrandPage {
+                HeroHeader(title: "Shopping list",
+                           subtitle: missing.isEmpty ? Text("Nothing to buy") : Text("\(missing.count) items to buy"),
+                           art: ["food", "cash", "batteries"]) {
+                    EmptyView()
+                } actions: {
+                    HeaderButton(symbol: "barcode.viewfinder", label: "Scan barcode") { scanning = true }
+                    if !missing.isEmpty {
+                        ShareLink(item: shareText) {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.headline).foregroundStyle(Theme.purple)
+                                .frame(width: 40, height: 40)
+                                .background(Theme.yellow, in: Circle())
+                        }
+                        .accessibilityLabel(Text("Share list"))
                     }
+                }
+                .frame(minHeight: 190, alignment: .top)
+            } sheet: {
+                if missing.isEmpty {
+                    EmptyCard(art: "water", category: .waterFood, title: "Nothing to buy",
+                              text: "Your kit is complete. Items that run out or expire show up here.")
                 } else {
-                    List {
-                        Section {
-                            ForEach(missing) { item in
-                                HStack(spacing: 12) {
-                                    Button {
-                                        withAnimation {
-                                            item.quantity = item.required(for: household)
-                                            item.updatedAt = .now
-                                        }
-                                        bought.toggle()
-                                    } label: {
-                                        Image(systemName: "circle").font(.title2).foregroundStyle(.secondary)
-                                    }
-                                    .buttonStyle(.plain)
-                                    .accessibilityLabel(Text("Put \(item.displayName) in stock"))
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        Text(item.displayName).font(.body.weight(.medium))
-                                        Text("Still needed: \(item.unit.format(item.shortfall(for: household)))")
-                                            .font(.footnote).foregroundStyle(.secondary)
-                                    }
-                                    Spacer()
-                                    Image(systemName: item.category.symbol).foregroundStyle(Theme.accent).accessibilityHidden(true)
+                    ForEach(missing) { item in
+                        CardRow {
+                            Button {
+                                withAnimation {
+                                    item.quantity = item.required(for: household)
+                                    item.updatedAt = .now
                                 }
+                                bought.toggle()
+                            } label: {
+                                Image(systemName: "circle").font(.title2.weight(.semibold)).foregroundStyle(Theme.accent)
+                                    .frame(width: 36, height: 44)
                             }
-                        } footer: {
-                            Text("Tick an item when you have bought it: it moves into your kit.")
+                            .buttonStyle(.plain)
+                            .accessibilityLabel(Text("Put \(item.displayName) in stock"))
+                            ItemArt(item: item, size: 52)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(item.displayName).font(.body.weight(.semibold)).foregroundStyle(Theme.ink)
+                                Text("Still needed: \(item.unit.format(item.shortfall(for: household)))")
+                                    .font(.footnote).foregroundStyle(.secondary)
+                            }
+                            Spacer()
                         }
                     }
-                }
-            }
-            .navigationTitle("Shopping list")
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button { scanning = true } label: { Image(systemName: "barcode.viewfinder") }
-                        .accessibilityLabel(Text("Scan barcode"))
-                }
-                if !missing.isEmpty {
-                    ToolbarItem(placement: .secondaryAction) {
-                        ShareLink(item: shareText) { Label("Share list", systemImage: "square.and.arrow.up") }
-                    }
+                    Text("Tick an item when you have bought it: it moves into your kit.")
+                        .font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4)
                 }
             }
             .sheet(isPresented: $scanning) { ScanFlowView(household: household) }

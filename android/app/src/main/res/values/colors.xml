@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="brand_green">#1B9A5E</color>
-    <color name="window_background">#F6F8F7</color>
+    <color name="brand_purple">#3C175B</color>
+    <color name="brand_yellow">#F4B943</color>
+    <color name="window_background">#F2F5F9</color>
 </resources>

@@ -71,6 +71,8 @@ struct SettingsView: View {
                         .listRowBackground(Color.clear)
                 }
             }
+            .tint(Theme.accent)
+            .brandNavigationBar()
             .navigationTitle("Settings")
             .sheet(isPresented: $showWhatsNew) { WhatsNewView() }
         }
@@ -91,6 +93,7 @@ struct WhatsNewView: View {
                     Label("What to do during a power cut, NL-Alert and more", systemImage: "info.circle")
                     Label("Emergency plan as PDF", systemImage: "doc.richtext")
                     Label("Widget for your home screen", systemImage: "square.grid.2x2")
+                    Label("New look with pictures of every item", systemImage: "photo.on.rectangle")
                 }
             }
             .navigationTitle("What's new")

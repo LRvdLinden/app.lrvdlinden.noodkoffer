@@ -64,7 +64,7 @@
     cash: `<defs>${g('cs1', '#7EDC9E', '#2FA864', 1, 1)}${g('cs2', '#FFD66B', '#E5A400')}</defs>${shadow(56, 42)}
       <g transform="rotate(-10 56 60)"><rect x="14" y="38" width="80" height="44" rx="6" fill="#1F8A50"/></g>
       <g transform="rotate(-3 56 64)"><rect x="16" y="44" width="80" height="44" rx="6" fill="url(#cs1)"/>
-      <circle cx="56" cy="66" r="11" fill="none" stroke="#fff" stroke-width="3" opacity=".85"/><text x="56" y="71" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#fff" text-anchor="middle">€</text>
+      <circle cx="56" cy="66" r="11" fill="none" stroke="#fff" stroke-width="3" opacity=".85"/><path d="M61.5 61.2a6.2 6.2 0 1 0 0 9.6M49.5 64.6h8.5M49.5 67.8h8.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
       <path d="M24 52h10M78 80h10" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".6"/></g>
       <ellipse cx="92" cy="98" rx="14" ry="5" fill="#C78C00"/><rect x="78" y="88" width="28" height="10" fill="#C78C00"/><ellipse cx="92" cy="88" rx="14" ry="5" fill="url(#cs2)"/>`,
     documents: `<defs>${g('do1', '#3F66C8', '#26449A', 1, 1)}</defs>${shadow(60, 40)}

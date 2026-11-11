@@ -76,6 +76,10 @@
 			isa = PBXBuildFile;
 			fileRef = 7A5FE41098C478C487A6EE26;
 		};
+		6CA02128A376E243C75EFFFE = {
+			isa = PBXBuildFile;
+			fileRef = 8965633ED6A14FB1B63F39FD;
+		};
 		71755A2AA8463D6EEB3A8593 = {
 			isa = PBXBuildFile;
 			fileRef = 31109720BA7987D5EB2881FB;
@@ -303,6 +307,12 @@
 			path = ProductLookup.swift;
 			sourceTree = "<group>";
 		};
+		8965633ED6A14FB1B63F39FD = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Art.swift;
+			sourceTree = "<group>";
+		};
 		8A6F88C168E85EED43DE9A69 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.json.xcstrings;
@@ -460,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				ED5583159D3A1D10DB8E4020,
+				8965633ED6A14FB1B63F39FD,
 				085C9C671E0DAEB7682B40B1,
 				45DE2FF9607DD6AA0B70AAA6,
 			);
@@ -722,6 +733,7 @@
 				77F358C245C4C1F802AE96A3,
 				59AFD041E1CC3CA23B58E255,
 				AFC2A302CA4B7FFA788F0570,
+				6CA02128A376E243C75EFFFE,
 				C0BE91826ED4705C2E2B3F14,
 				44F82268ECBFF1F5BA1D4579,
 				51F3BA0BDD8989F530D30CF4,

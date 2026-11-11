@@ -21,6 +21,26 @@
         }
       }
     },
+    "%@ expires in %lld days.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ verloopt over %lld dagen."
+          }
+        }
+      }
+    },
+    "%@ has expired. Replace it soon.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ is verlopen. Vervang het snel."
+          }
+        }
+      }
+    },
     "%@ in %lld days": {
       "localizations": {
         "nl": {
@@ -87,6 +107,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$lld items voor %2$lld personen"
+          }
+        }
+      }
+    },
+    "%lld items to buy": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld dingen te kopen"
+          }
+        }
+      }
+    },
+    "%lld items to go": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nog %lld te gaan"
           }
         }
       }
@@ -471,6 +511,16 @@
         }
       }
     },
+    "Clear": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wissen"
+          }
+        }
+      }
+    },
     "Complete": {
       "localizations": {
         "nl": {
@@ -787,6 +837,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eten dat houdbaar is zonder koelkast: één dag eten per persoon per dag."
+          }
+        }
+      }
+    },
+    "For %lld people · %lld days": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voor %lld personen · %lld dagen"
           }
         }
       }
@@ -1141,6 +1201,16 @@
         }
       }
     },
+    "Missing": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ontbreekt"
+          }
+        }
+      }
+    },
     "Money and documents": {
       "localizations": {
         "nl": {
@@ -1227,6 +1297,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nieuw item"
+          }
+        }
+      }
+    },
+    "New look with pictures of every item": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nieuw uiterlijk met een afbeelding bij elk onderdeel"
           }
         }
       }
@@ -1547,6 +1627,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Herinneringen komen 30 en 7 dagen voordat een item verloopt, op de dag zelf en bij je halfjaarlijkse checkmoment."
+          }
+        }
+      }
+    },
+    "Replace things before they expire": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vervang spullen voordat ze verlopen"
           }
         }
       }

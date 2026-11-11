@@ -23,27 +23,30 @@ struct OnboardingView: View {
             } label: {
                 Text(page < 2 ? "Next" : "Get started")
                     .font(.headline)
+                    .foregroundStyle(Theme.purple)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 6)
+                    .padding(.vertical, 16)
+                    .background(Theme.yellow, in: Capsule())
             }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
             .padding(.horizontal, 24)
             .padding(.bottom, 24)
             .sensoryFeedback(.selection, trigger: page)
         }
+        .background(LinearGradient(colors: [Theme.purple, Theme.purpleDeep], startPoint: .top, endPoint: .bottom).ignoresSafeArea())
+        .environment(\.colorScheme, .dark)
+        .tint(Theme.yellow)
         .interactiveDismissDisabled()
     }
 
     private var welcome: some View {
-        OnboardingPage(symbol: nil,
+        OnboardingPage(art: ["water", "radio", "food"], showsIcon: true,
                        title: "Ready for 72 hours",
                        text: "If the power, water or internet fails, you need to manage on your own for the first three days. Noodpakket helps you build and maintain your emergency kit.")
     }
 
     private var household: some View {
         VStack(spacing: 20) {
-            OnboardingPage(symbol: "person.3.fill",
+            OnboardingPage(art: ["blankets", "petfood"],
                            title: "Who is in your household?",
                            text: "The app calculates how much water, food and cash you need.")
             if let h = households.first {
@@ -64,7 +67,7 @@ struct OnboardingView: View {
                     .padding(.vertical, 10)
                 }
                 .padding(.horizontal, 16)
-                .background(.background.secondary, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .padding(.horizontal, 24)
             }
             Spacer(minLength: 40)
@@ -73,12 +76,12 @@ struct OnboardingView: View {
 
     private var notifications: some View {
         VStack(spacing: 20) {
-            OnboardingPage(symbol: "bell.badge.fill",
+            OnboardingPage(art: ["batteries", "medicines"],
                            title: "Never miss an expiry date",
                            text: "Get a reminder 30 and 7 days before water, batteries or medicines expire, and at your half-yearly check.")
             Toggle("Reminders", isOn: $notificationsOn)
                 .padding(16)
-                .background(.background.secondary, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .padding(.horizontal, 24)
                 .onChange(of: notificationsOn) { _, on in
                     Task {
@@ -92,30 +95,36 @@ struct OnboardingView: View {
 }
 
 private struct OnboardingPage: View {
-    let symbol: String?
+    let art: [String]
+    var showsIcon = false
     let title: LocalizedStringKey
     let text: LocalizedStringKey
 
     var body: some View {
         VStack(spacing: 18) {
-            Spacer(minLength: 30)
-            Group {
-                if let symbol {
-                    Image(systemName: symbol).font(.system(size: 54)).foregroundStyle(Theme.accent)
+            Spacer(minLength: 20)
+            ZStack {
+                if art.count > 1 {
+                    ArtImage(key: art[1]).frame(width: 110).rotationEffect(.degrees(8)).offset(x: 70, y: 18)
+                }
+                if art.count > 2 {
+                    ArtImage(key: art[2]).frame(width: 96).rotationEffect(.degrees(-6)).offset(x: -78, y: 26)
+                }
+                if showsIcon {
+                    Image("AppIconDisplay").resizable()
+                        .frame(width: 112, height: 112)
+                        .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
+                        .shadow(color: .black.opacity(0.3), radius: 16, y: 10)
+                        .offset(y: -6)
                 } else {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 28, style: .continuous)
-                            .fill(LinearGradient(colors: [Color(light: 0x2FB673, dark: 0x2FB673), Theme.accentDeep],
-                                                 startPoint: .topLeading, endPoint: .bottomTrailing))
-                        ShieldMark().padding(10)
-                    }
-                    .frame(width: 120, height: 120)
+                    ArtImage(key: art[0]).frame(width: 120).rotationEffect(.degrees(-6)).offset(x: -40)
                 }
             }
-            .frame(height: 120)
+            .frame(height: 170)
             .accessibilityHidden(true)
-            Text(title).font(.largeTitle.bold()).multilineTextAlignment(.center)
-            Text(text).font(.body).foregroundStyle(.secondary).multilineTextAlignment(.center)
+            Text(title).font(.system(.largeTitle, design: .rounded).weight(.heavy)).multilineTextAlignment(.center)
+                .foregroundStyle(.white)
+            Text(text).font(.body).foregroundStyle(.white.opacity(0.8)).multilineTextAlignment(.center)
                 .padding(.horizontal, 28)
         }
     }

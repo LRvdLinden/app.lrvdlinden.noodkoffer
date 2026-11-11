@@ -31,11 +31,7 @@ struct ExpiryBadge: View {
     let daysLeft: Int
 
     var body: some View {
-        Text(label)
-            .font(.caption.weight(.semibold))
-            .padding(.horizontal, 8).padding(.vertical, 3)
-            .foregroundStyle(Theme.expiryColor(daysLeft: daysLeft))
-            .background(Theme.expiryColor(daysLeft: daysLeft).opacity(0.14), in: Capsule())
+        Pill(text: Text(label), color: Theme.expiryColor(daysLeft: daysLeft))
     }
 
     private var label: LocalizedStringKey {
