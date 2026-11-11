@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root { --green: #1B9A5E; --amber: #F5A524; --red: #E5484D; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: var(--homey-font-family, -apple-system, system-ui, sans-serif);
+      color: var(--homey-text-color, #121726);
+      display: flex; align-items: center; gap: 16px; padding: 16px; box-sizing: border-box;
+    }
+    .ring { position: relative; width: 108px; height: 108px; flex: none; }
+    .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .ring .track { stroke: var(--homey-line-color, rgba(127,127,127,.2)); }
+    .ring .value { stroke: var(--green); }
+    .ring .label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .pct { font-size: 26px; font-weight: 700; line-height: 1; }
+    .sub { font-size: 12px; color: var(--homey-text-color-light, #5D6578); margin-top: 4px; }
+    .info { min-width: 0; }
+    .caption { font-size: 12px; color: var(--homey-text-color-light, #5D6578); text-transform: uppercase; letter-spacing: .04em; }
+    .item { font-size: 17px; font-weight: 600; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .when { font-size: 14px; margin-top: 2px; }
+    .warn { color: var(--amber); } .bad { color: var(--red); } .good { color: var(--green); }
+    .empty { font-size: 15px; color: var(--homey-text-color-light, #5D6578); }
+    [dir="rtl"] .ring svg { transform: rotate(-90deg) scaleY(-1); }
+  </style>
+</head>
+<body>
+  <div class="ring" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <circle class="track" cx="60" cy="60" r="50" fill="none" stroke-width="12"/>
+      <circle class="value" id="arc" cx="60" cy="60" r="50" fill="none" stroke-width="12"
+              stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="314.16"/>
+    </svg>
+    <div class="label"><span class="pct" id="pct">–</span><span class="sub" id="sub"></span></div>
+  </div>
+  <div class="info" id="info"></div>
+
+  <script>
+    function onHomeyReady(Homey) {
+      var lang = (Homey.i18n && Homey.i18n.getLanguage && Homey.i18n.getLanguage()) || 'en';
+      if (lang === 'ar') document.documentElement.setAttribute('dir', 'rtl');
+      document.getElementById('sub').textContent = Homey.__('widget.complete');
+
+      function esc(text) {
+        var d = document.createElement('div'); d.textContent = text; return d.innerHTML;
+      }
+
+      function render(s) {
+        var info = document.getElementById('info');
+        if (!s || !s.linked) {
+          document.getElementById('pct').textContent = '–';
+          info.innerHTML = '<div class="empty">' + esc(Homey.__('widget.not_linked')) + '</div>';
+          return;
+        }
+        var pct = Math.max(0, Math.min(100, s.completeness));
+        document.getElementById('pct').textContent = pct + '%';
+        var arc = document.getElementById('arc');
+        arc.style.strokeDashoffset = String(314.16 * (1 - pct / 100));
+        arc.style.stroke = pct === 100 ? 'var(--green)' : (pct >= 60 ? 'var(--amber)' : 'var(--red)');
+
+        if (s.next) {
+          var cls = s.next.daysLeft <= 7 ? 'bad' : (s.next.daysLeft <= 30 ? 'warn' : 'good');
+          info.innerHTML =
+            '<div class="caption">' + esc(Homey.__('widget.next')) + '</div>' +
+            '<div class="item">' + esc(s.next.name) + '</div>' +
+            '<div class="when ' + cls + '">' + esc(Homey.__('widget.days', { days: s.next.daysLeft })) + ' · ' + esc(s.next.date) + '</div>';
+        } else {
+          info.innerHTML = '<div class="item good">' + esc(Homey.__('widget.all_good')) + '</div>';
+        }
+      }
+
+      function load() {
+        Homey.api('GET', '/', {}).then(render).catch(function () { render(null); });
+      }
+
+      load();
+      setInterval(load, 5 * 60 * 1000);
+      Homey.ready();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "title": "비상 키트",
+    "intro": "iPhone에서 Noodkoffer 앱을 열고 설정 → Homey로 이동해 이 코드를 입력하세요. iPhone은 Homey와 같은 네트워크에 있어야 합니다.",
+    "code": "연결 코드",
+    "regenerate": "새 코드",
+    "status": "상태",
+    "last_sync": "iPhone 마지막 업데이트",
+    "never": "아직 연결되지 않음",
+    "items": "항목",
+    "notifications": "유통기한 타임라인 알림",
+    "saved": "저장됨"
+  },
+  "more_apps": {
+    "section": "둘러보기",
+    "title": "개발자의 다른 앱",
+    "subtitle": "iPhone, iPad, Apple TV 및 Homey용 앱",
+    "action": "보기",
+    "a11y": "lrvdlinden.app 열기"
+  },
+  "footer": {
+    "version": "버전"
+  },
+  "widget": {
+    "complete": "완성",
+    "next": "다음 만료",
+    "all_good": "모두 유통기한 이내",
+    "not_linked": "앱 설정에서 iPhone을 연결하세요",
+    "days": "__days__일"
+  },
+  "notify": {
+    "soon": "__item__ 항목이 __days__일 후 만료됩니다 (__date__).",
+    "expired": "__item__ 항목이 만료되었습니다. 키트에서 교체하세요.",
+    "check": "비상 키트 반기 점검 시간입니다."
+  },
+  "device": {
+    "unavailable": "Noodkoffer 앱의 데이터를 기다리는 중"
+  },
+  "pair": {
+    "only_one": "비상 키트가 이미 추가되었습니다."
+  },
+  "tokens": {
+    "plan": "비상 계획",
+    "next": "다음 만료 항목"
+  }
+}

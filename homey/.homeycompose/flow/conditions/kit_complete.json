@@ -1,0 +1,33 @@
+{
+  "id": "kit_complete",
+  "title": {
+    "en": "Kit is complete",
+    "nl": "Pakket is compleet",
+    "de": "Paket ist vollständig",
+    "fr": "Le kit est complet",
+    "it": "Il kit è completo",
+    "sv": "Lådan är komplett",
+    "no": "Pakken er komplett",
+    "es": "El kit está completo",
+    "da": "Pakken er komplet",
+    "ru": "Набор полный",
+    "pl": "Zestaw jest kompletny",
+    "ko": "키트가 완성됨",
+    "ar": "الحقيبة مكتملة"
+  },
+  "titleFormatted": {
+    "en": "Kit !{{is|is not}} complete",
+    "nl": "Pakket !{{is|is niet}} compleet",
+    "de": "Paket !{{ist|ist nicht}} vollständig",
+    "fr": "Le kit !{{est|n’est pas}} complet",
+    "it": "Il kit !{{è|non è}} completo",
+    "sv": "Lådan !{{är|är inte}} komplett",
+    "no": "Pakken !{{er|er ikke}} komplett",
+    "es": "El kit !{{está|no está}} completo",
+    "da": "Pakken !{{er|er ikke}} komplet",
+    "ru": "Набор !{{полный|неполный}}",
+    "pl": "Zestaw !{{jest|nie jest}} kompletny",
+    "ko": "키트가 !{{완성됨|완성되지 않음}}",
+    "ar": "الحقيبة !{{مكتملة|غير مكتملة}}"
+  }
+}

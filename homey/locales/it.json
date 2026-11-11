@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "title": "Kit di emergenza",
+    "intro": "Apri l’app Noodkoffer su iPhone, vai su Impostazioni → Homey e inserisci questo codice. L’iPhone deve essere sulla stessa rete di Homey.",
+    "code": "Codice di abbinamento",
+    "regenerate": "Nuovo codice",
+    "status": "Stato",
+    "last_sync": "Ultimo aggiornamento da iPhone",
+    "never": "Non ancora collegato",
+    "items": "Articoli",
+    "notifications": "Notifiche nella timeline per le scadenze",
+    "saved": "Salvato"
+  },
+  "more_apps": {
+    "section": "Scopri",
+    "title": "Altre app dello sviluppatore",
+    "subtitle": "App per iPhone, iPad, Apple TV e Homey",
+    "action": "Vedi",
+    "a11y": "Apri lrvdlinden.app"
+  },
+  "footer": {
+    "version": "Versione"
+  },
+  "widget": {
+    "complete": "completo",
+    "next": "Prossima scadenza",
+    "all_good": "Tutto è ancora valido",
+    "not_linked": "Collega l’iPhone nelle impostazioni dell’app",
+    "days": "__days__ giorni"
+  },
+  "notify": {
+    "soon": "__item__ scade tra __days__ giorni (__date__).",
+    "expired": "__item__ è scaduto. Sostituiscilo nel kit.",
+    "check": "È ora del controllo semestrale del kit."
+  },
+  "device": {
+    "unavailable": "In attesa dei dati dall’app Noodkoffer"
+  },
+  "pair": {
+    "only_one": "Il kit di emergenza è già stato aggiunto."
+  },
+  "tokens": {
+    "plan": "Piano di emergenza",
+    "next": "Prossimo articolo in scadenza"
+  }
+}

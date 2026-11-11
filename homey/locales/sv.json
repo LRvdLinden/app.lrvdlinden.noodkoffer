@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "title": "Nödlåda",
+    "intro": "Öppna Noodkoffer-appen på iPhone, gå till Inställningar → Homey och ange koden. iPhone måste vara på samma nätverk som Homey.",
+    "code": "Kopplingskod",
+    "regenerate": "Ny kod",
+    "status": "Status",
+    "last_sync": "Senaste uppdatering från iPhone",
+    "never": "Inte kopplad än",
+    "items": "Artiklar",
+    "notifications": "Tidslinjeaviseringar för utgångsdatum",
+    "saved": "Sparat"
+  },
+  "more_apps": {
+    "section": "Upptäck",
+    "title": "Fler appar från utvecklaren",
+    "subtitle": "Appar för iPhone, iPad, Apple TV och Homey",
+    "action": "Visa",
+    "a11y": "Öppna lrvdlinden.app"
+  },
+  "footer": {
+    "version": "Version"
+  },
+  "widget": {
+    "complete": "komplett",
+    "next": "Nästa utgång",
+    "all_good": "Allt är inom datum",
+    "not_linked": "Koppla din iPhone i appinställningarna",
+    "days": "__days__ dagar"
+  },
+  "notify": {
+    "soon": "__item__ går ut om __days__ dagar (__date__).",
+    "expired": "__item__ har gått ut. Byt ut den i nödlådan.",
+    "check": "Dags för halvårskontrollen av nödlådan."
+  },
+  "device": {
+    "unavailable": "Väntar på data från Noodkoffer-appen"
+  },
+  "pair": {
+    "only_one": "Nödlådan har redan lagts till."
+  },
+  "tokens": {
+    "plan": "Nödplan",
+    "next": "Nästa artikel som går ut"
+  }
+}

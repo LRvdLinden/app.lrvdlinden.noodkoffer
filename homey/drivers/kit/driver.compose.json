@@ -1,0 +1,82 @@
+{
+  "name": {
+    "en": "Emergency kit",
+    "nl": "Noodpakket",
+    "de": "Notfallpaket",
+    "fr": "Kit d’urgence",
+    "it": "Kit di emergenza",
+    "sv": "Nödlåda",
+    "no": "Nødpakke",
+    "es": "Kit de emergencia",
+    "da": "Nødpakke",
+    "ru": "Аварийный набор",
+    "pl": "Zestaw awaryjny",
+    "ko": "비상 키트",
+    "ar": "حقيبة الطوارئ"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "kit_completeness",
+    "kit_days_to_expiry",
+    "alarm_generic.expired",
+    "alarm_generic.incomplete"
+  ],
+  "capabilitiesOptions": {
+    "alarm_generic.expired": {
+      "title": {
+        "en": "Expired items",
+        "nl": "Verlopen items",
+        "de": "Abgelaufene Artikel",
+        "fr": "Articles périmés",
+        "it": "Articoli scaduti",
+        "sv": "Utgångna artiklar",
+        "no": "Utløpte artikler",
+        "es": "Artículos caducados",
+        "da": "Udløbne varer",
+        "ru": "Просроченные предметы",
+        "pl": "Przeterminowane rzeczy",
+        "ko": "만료된 항목",
+        "ar": "عناصر منتهية الصلاحية"
+      }
+    },
+    "alarm_generic.incomplete": {
+      "title": {
+        "en": "Kit incomplete",
+        "nl": "Pakket incompleet",
+        "de": "Paket unvollständig",
+        "fr": "Kit incomplet",
+        "it": "Kit incompleto",
+        "sv": "Lådan ofullständig",
+        "no": "Pakken ufullstendig",
+        "es": "Kit incompleto",
+        "da": "Pakken ufuldstændig",
+        "ru": "Набор неполный",
+        "pl": "Zestaw niekompletny",
+        "ko": "키트 미완성",
+        "ar": "الحقيبة غير مكتملة"
+      }
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

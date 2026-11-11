@@ -5,6 +5,7 @@ Noodpakket-app voor 72 uur zelfredzaamheid: checklist, houdbaarheid en noodplan,
 - `ios/` — iOS-app (`app.lrvdlinden.noodkoffer`)
 - `homey/` — Homey Pro-app (`app.lrvdlinden.noodkoffer`)
 - `website/` — noodkoffer.lrvdlinden.app
-- `design/icon-concepts/` — icoonvoorstellen A–H
+- `design/icon-concepts/` — icoonvoorstellen A–H (gekozen: C, schild 72)
+- `design/mockups/` — app-schermen (HTML) voor website en App Store
 
 https://lrvdlinden.app

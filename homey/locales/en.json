@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "title": "Emergency kit",
+    "intro": "Open the Noodkoffer app on your iPhone, go to Settings → Homey and enter this code. Your iPhone must be on the same network as Homey.",
+    "code": "Pairing code",
+    "regenerate": "New code",
+    "status": "Status",
+    "last_sync": "Last update from iPhone",
+    "never": "Not linked yet",
+    "items": "Items",
+    "notifications": "Timeline notifications for expiry dates",
+    "saved": "Saved"
+  },
+  "more_apps": {
+    "section": "Discover",
+    "title": "More apps from the developer",
+    "subtitle": "Apps for iPhone, iPad, Apple TV and Homey",
+    "action": "View",
+    "a11y": "Open lrvdlinden.app"
+  },
+  "footer": {
+    "version": "Version"
+  },
+  "widget": {
+    "complete": "complete",
+    "next": "Next expiry",
+    "all_good": "Everything is in date",
+    "not_linked": "Link your iPhone in the app settings",
+    "days": "__days__ days"
+  },
+  "notify": {
+    "soon": "__item__ expires in __days__ days (__date__).",
+    "expired": "__item__ has expired. Replace it in your emergency kit.",
+    "check": "Time for your half-yearly emergency kit check."
+  },
+  "device": {
+    "unavailable": "Waiting for data from the Noodkoffer iPhone app"
+  },
+  "pair": {
+    "only_one": "The emergency kit has already been added."
+  },
+  "tokens": {
+    "plan": "Emergency plan",
+    "next": "Next expiring item"
+  }
+}

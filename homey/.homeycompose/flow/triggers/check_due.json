@@ -1,0 +1,18 @@
+{
+  "id": "check_due",
+  "title": {
+    "en": "The half-yearly kit check is due",
+    "nl": "Het halfjaarlijkse checkmoment is aangebroken",
+    "de": "Die halbjährliche Prüfung ist fällig",
+    "fr": "Le contrôle semestriel est dû",
+    "it": "È ora del controllo semestrale",
+    "sv": "Halvårskontrollen är dags",
+    "no": "Halvårskontrollen er nå",
+    "es": "Toca la revisión semestral",
+    "da": "Halvårstjekket er nu",
+    "ru": "Пора полугодовой проверки",
+    "pl": "Czas na półroczny przegląd",
+    "ko": "반기 점검 시기가 됨",
+    "ar": "حان موعد الفحص نصف السنوي"
+  }
+}

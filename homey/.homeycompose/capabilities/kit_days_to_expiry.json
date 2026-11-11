@@ -1,0 +1,39 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Days until first expiry",
+    "nl": "Dagen tot eerste verloopdatum",
+    "de": "Tage bis zum ersten Ablauf",
+    "fr": "Jours avant la première péremption",
+    "it": "Giorni alla prima scadenza",
+    "sv": "Dagar till första utgång",
+    "no": "Dager til første utløp",
+    "es": "Días hasta la primera caducidad",
+    "da": "Dage til første udløb",
+    "ru": "Дней до первого истечения",
+    "pl": "Dni do pierwszego terminu",
+    "ko": "첫 만료까지 남은 일수",
+    "ar": "أيام حتى أول انتهاء"
+  },
+  "units": {
+    "en": "d",
+    "nl": "d",
+    "de": "d",
+    "fr": "d",
+    "it": "d",
+    "sv": "d",
+    "no": "d",
+    "es": "d",
+    "da": "d",
+    "ru": "d",
+    "pl": "d",
+    "ko": "d",
+    "ar": "d"
+  },
+  "decimals": 0,
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "uiComponent": "sensor",
+  "icon": "/assets/capability-days.svg"
+}

@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "title": "Nødpakke",
+    "intro": "Åbn Noodkoffer-appen på iPhone, gå til Indstillinger → Homey, og indtast koden. iPhone skal være på samme netværk som Homey.",
+    "code": "Parringskode",
+    "regenerate": "Ny kode",
+    "status": "Status",
+    "last_sync": "Seneste opdatering fra iPhone",
+    "never": "Ikke forbundet endnu",
+    "items": "Varer",
+    "notifications": "Tidslinjenotifikationer for udløbsdatoer",
+    "saved": "Gemt"
+  },
+  "more_apps": {
+    "section": "Opdag",
+    "title": "Flere apps fra udvikleren",
+    "subtitle": "Apps til iPhone, iPad, Apple TV og Homey",
+    "action": "Vis",
+    "a11y": "Åbn lrvdlinden.app"
+  },
+  "footer": {
+    "version": "Version"
+  },
+  "widget": {
+    "complete": "komplet",
+    "next": "Næste udløb",
+    "all_good": "Alt er inden for dato",
+    "not_linked": "Forbind din iPhone i appindstillingerne",
+    "days": "__days__ dage"
+  },
+  "notify": {
+    "soon": "__item__ udløber om __days__ dage (__date__).",
+    "expired": "__item__ er udløbet. Udskift den i nødpakken.",
+    "check": "Tid til halvårstjek af nødpakken."
+  },
+  "device": {
+    "unavailable": "Venter på data fra Noodkoffer-appen"
+  },
+  "pair": {
+    "only_one": "Nødpakken er allerede tilføjet."
+  },
+  "tokens": {
+    "plan": "Nødplan",
+    "next": "Næste vare der udløber"
+  }
+}

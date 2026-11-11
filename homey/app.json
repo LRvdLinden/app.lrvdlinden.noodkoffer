@@ -1,0 +1,812 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "app.lrvdlinden.noodkoffer",
+  "version": "0.1.0",
+  "compatibility": ">=12.3.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Noodkoffer",
+    "nl": "Noodkoffer",
+    "de": "Noodkoffer",
+    "fr": "Noodkoffer",
+    "it": "Noodkoffer",
+    "sv": "Noodkoffer",
+    "no": "Noodkoffer",
+    "es": "Noodkoffer",
+    "da": "Noodkoffer",
+    "ru": "Noodkoffer",
+    "pl": "Noodkoffer",
+    "ko": "Noodkoffer",
+    "ar": "Noodkoffer"
+  },
+  "description": {
+    "en": "Keep your emergency kit complete and never miss an expiry date",
+    "nl": "Houd je noodpakket compleet en mis nooit meer een houdbaarheidsdatum",
+    "de": "Halte dein Notfallpaket vollständig und verpasse kein Ablaufdatum",
+    "fr": "Gardez votre kit d’urgence complet et ne ratez aucune date de péremption",
+    "it": "Mantieni completo il kit di emergenza e non perdere mai una scadenza",
+    "sv": "Håll din nödlåda komplett och missa aldrig ett bäst före-datum",
+    "no": "Hold nødpakken komplett og gå aldri glipp av en utløpsdato",
+    "es": "Mantén completo tu kit de emergencia y no te pierdas ninguna caducidad",
+    "da": "Hold din nødpakke komplet, og gå aldrig glip af en udløbsdato",
+    "ru": "Держите аварийный набор полным и не пропускайте сроки годности",
+    "pl": "Utrzymuj zestaw awaryjny w komplecie i nie przegap żadnej daty ważności",
+    "ko": "비상 키트를 완벽하게 유지하고 유통기한을 놓치지 마세요",
+    "ar": "حافظ على اكتمال حقيبة الطوارئ ولا تفوّت أي تاريخ انتهاء صلاحية"
+  },
+  "category": [
+    "tools"
+  ],
+  "tags": {
+    "en": [
+      "emergency kit",
+      "72 hours",
+      "preparedness",
+      "expiry date",
+      "checklist",
+      "power outage",
+      "safety"
+    ],
+    "nl": [
+      "noodpakket",
+      "72 uur",
+      "denk vooruit",
+      "houdbaarheid",
+      "checklist",
+      "stroomuitval",
+      "zelfredzaam"
+    ],
+    "de": [
+      "Notfallpaket",
+      "72 Stunden",
+      "Vorsorge",
+      "Ablaufdatum",
+      "Checkliste",
+      "Stromausfall"
+    ],
+    "fr": [
+      "kit d’urgence",
+      "72 heures",
+      "préparation",
+      "péremption",
+      "liste de contrôle",
+      "panne de courant"
+    ],
+    "it": [
+      "kit di emergenza",
+      "72 ore",
+      "preparazione",
+      "scadenza",
+      "checklist",
+      "blackout"
+    ],
+    "sv": [
+      "nödlåda",
+      "72 timmar",
+      "krisberedskap",
+      "bäst före",
+      "checklista",
+      "strömavbrott"
+    ],
+    "no": [
+      "nødpakke",
+      "72 timer",
+      "beredskap",
+      "utløpsdato",
+      "sjekkliste",
+      "strømbrudd"
+    ],
+    "es": [
+      "kit de emergencia",
+      "72 horas",
+      "preparación",
+      "caducidad",
+      "lista de control",
+      "apagón"
+    ],
+    "da": [
+      "nødpakke",
+      "72 timer",
+      "beredskab",
+      "udløbsdato",
+      "tjekliste",
+      "strømsvigt"
+    ],
+    "ru": [
+      "аварийный набор",
+      "72 часа",
+      "готовность",
+      "срок годности",
+      "чек-лист",
+      "отключение электричества"
+    ],
+    "pl": [
+      "zestaw awaryjny",
+      "72 godziny",
+      "przygotowanie",
+      "data ważności",
+      "lista kontrolna",
+      "awaria prądu"
+    ],
+    "ko": [
+      "비상 키트",
+      "72시간",
+      "재난 대비",
+      "유통기한",
+      "체크리스트",
+      "정전"
+    ],
+    "ar": [
+      "حقيبة الطوارئ",
+      "72 ساعة",
+      "الاستعداد",
+      "تاريخ الانتهاء",
+      "قائمة تحقق",
+      "انقطاع الكهرباء"
+    ]
+  },
+  "permissions": [],
+  "brandColor": "#1B9A5E",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Léon van der Linden",
+    "email": "homey@vdlinden.xyz"
+  },
+  "homepage": "https://lrvdlinden.app",
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "lrvdlinden"
+      },
+      "bunq": {
+        "username": "lrvdlinden"
+      }
+    }
+  },
+  "api": {
+    "getStatus": {
+      "method": "GET",
+      "path": "/status"
+    },
+    "regenerateCode": {
+      "method": "POST",
+      "path": "/code"
+    },
+    "setSetting": {
+      "method": "PUT",
+      "path": "/settings"
+    },
+    "getInfo": {
+      "method": "GET",
+      "path": "/info",
+      "public": true
+    },
+    "putInventory": {
+      "method": "PUT",
+      "path": "/inventory",
+      "public": true
+    }
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "check_due",
+        "title": {
+          "en": "The half-yearly kit check is due",
+          "nl": "Het halfjaarlijkse checkmoment is aangebroken",
+          "de": "Die halbjährliche Prüfung ist fällig",
+          "fr": "Le contrôle semestriel est dû",
+          "it": "È ora del controllo semestrale",
+          "sv": "Halvårskontrollen är dags",
+          "no": "Halvårskontrollen er nå",
+          "es": "Toca la revisión semestral",
+          "da": "Halvårstjekket er nu",
+          "ru": "Пора полугодовой проверки",
+          "pl": "Czas na półroczny przegląd",
+          "ko": "반기 점검 시기가 됨",
+          "ar": "حان موعد الفحص نصف السنوي"
+        }
+      },
+      {
+        "id": "completeness_below",
+        "title": {
+          "en": "Kit completeness drops below a percentage",
+          "nl": "Compleetheid zakt onder een percentage",
+          "de": "Vollständigkeit fällt unter einen Prozentwert",
+          "fr": "La complétude passe sous un pourcentage",
+          "it": "La completezza scende sotto una percentuale",
+          "sv": "Fullständigheten sjunker under en procentsats",
+          "no": "Fullstendigheten faller under en prosent",
+          "es": "La completitud baja de un porcentaje",
+          "da": "Fuldstændigheden falder under en procentdel",
+          "ru": "Укомплектованность ниже процента",
+          "pl": "Kompletność spada poniżej procentu",
+          "ko": "완성도가 비율 아래로 떨어짐",
+          "ar": "ينخفض الاكتمال عن نسبة مئوية"
+        },
+        "titleFormatted": {
+          "en": "Kit completeness drops below [[percent]]%",
+          "nl": "Compleetheid zakt onder [[percent]]%",
+          "de": "Vollständigkeit fällt unter [[percent]]%",
+          "fr": "La complétude passe sous [[percent]] %",
+          "it": "La completezza scende sotto il [[percent]]%",
+          "sv": "Fullständigheten sjunker under [[percent]] %",
+          "no": "Fullstendigheten faller under [[percent]] %",
+          "es": "La completitud baja del [[percent]] %",
+          "da": "Fuldstændigheden falder under [[percent]] %",
+          "ru": "Укомплектованность ниже [[percent]]%",
+          "pl": "Kompletność spada poniżej [[percent]]%",
+          "ko": "완성도가 [[percent]]% 아래로 떨어짐",
+          "ar": "ينخفض الاكتمال عن [[percent]]%"
+        },
+        "args": [
+          {
+            "type": "range",
+            "name": "percent",
+            "title": {
+              "en": "Percentage",
+              "nl": "Percentage",
+              "de": "Prozent",
+              "fr": "Pourcentage",
+              "it": "Percentuale",
+              "sv": "Procent",
+              "no": "Prosent",
+              "es": "Porcentaje",
+              "da": "Procent",
+              "ru": "Процент",
+              "pl": "Procent",
+              "ko": "비율",
+              "ar": "النسبة"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "label": "%",
+            "labelDecimals": 0
+          }
+        ],
+        "tokens": [
+          {
+            "type": "number",
+            "name": "completeness",
+            "title": {
+              "en": "Completeness",
+              "nl": "Compleetheid",
+              "de": "Vollständigkeit",
+              "fr": "Complétude",
+              "it": "Completezza",
+              "sv": "Fullständighet",
+              "no": "Fullstendighet",
+              "es": "Completitud",
+              "da": "Fuldstændighed",
+              "ru": "Укомплектованность",
+              "pl": "Kompletność",
+              "ko": "완성도",
+              "ar": "الاكتمال"
+            },
+            "example": 80
+          }
+        ]
+      },
+      {
+        "id": "item_expired",
+        "title": {
+          "en": "An item has expired",
+          "nl": "Een item is verlopen",
+          "de": "Ein Artikel ist abgelaufen",
+          "fr": "Un article est périmé",
+          "it": "Un articolo è scaduto",
+          "sv": "En artikel har gått ut",
+          "no": "En artikkel er utløpt",
+          "es": "Un artículo ha caducado",
+          "da": "En vare er udløbet",
+          "ru": "Срок годности предмета истёк",
+          "pl": "Rzecz straciła ważność",
+          "ko": "항목이 만료됨",
+          "ar": "انتهت صلاحية عنصر"
+        },
+        "tokens": [
+          {
+            "type": "string",
+            "name": "item",
+            "title": {
+              "en": "Item",
+              "nl": "Item",
+              "de": "Artikel",
+              "fr": "Article",
+              "it": "Articolo",
+              "sv": "Artikel",
+              "no": "Artikkel",
+              "es": "Artículo",
+              "da": "Vare",
+              "ru": "Предмет",
+              "pl": "Rzecz",
+              "ko": "항목",
+              "ar": "العنصر"
+            },
+            "example": {
+              "en": "Drinking water",
+              "nl": "Drinkwater"
+            }
+          },
+          {
+            "type": "string",
+            "name": "date",
+            "title": {
+              "en": "Expiry date",
+              "nl": "Houdbaarheidsdatum",
+              "de": "Ablaufdatum",
+              "fr": "Date de péremption",
+              "it": "Data di scadenza",
+              "sv": "Bäst före-datum",
+              "no": "Utløpsdato",
+              "es": "Fecha de caducidad",
+              "da": "Udløbsdato",
+              "ru": "Срок годности",
+              "pl": "Data ważności",
+              "ko": "유통기한",
+              "ar": "تاريخ الانتهاء"
+            },
+            "example": {
+              "en": "2027-01-31",
+              "nl": "2027-01-31",
+              "de": "2027-01-31",
+              "fr": "2027-01-31",
+              "it": "2027-01-31",
+              "sv": "2027-01-31",
+              "no": "2027-01-31",
+              "es": "2027-01-31",
+              "da": "2027-01-31",
+              "ru": "2027-01-31",
+              "pl": "2027-01-31",
+              "ko": "2027-01-31",
+              "ar": "2027-01-31"
+            }
+          }
+        ]
+      },
+      {
+        "id": "item_expires_soon",
+        "title": {
+          "en": "An item expires within the set number of days",
+          "nl": "Een item verloopt binnen het ingestelde aantal dagen",
+          "de": "Ein Artikel läuft innerhalb der Tage ab",
+          "fr": "Un article expire dans le nombre de jours défini",
+          "it": "Un articolo scade entro i giorni impostati",
+          "sv": "En artikel går ut inom angivet antal dagar",
+          "no": "En artikkel utløper innen angitt antall dager",
+          "es": "Un artículo caduca dentro de los días indicados",
+          "da": "En vare udløber inden for det angivne antal dage",
+          "ru": "Предмет истекает в течение заданных дней",
+          "pl": "Rzecz traci ważność w ciągu podanej liczby dni",
+          "ko": "항목이 설정한 일수 안에 만료됨",
+          "ar": "ينتهي عنصر خلال عدد الأيام المحدد"
+        },
+        "titleFormatted": {
+          "en": "An item expires within [[days]] days",
+          "nl": "Een item verloopt binnen [[days]] dagen",
+          "de": "Ein Artikel läuft in [[days]] Tagen ab",
+          "fr": "Un article expire dans [[days]] jours",
+          "it": "Un articolo scade entro [[days]] giorni",
+          "sv": "En artikel går ut inom [[days]] dagar",
+          "no": "En artikkel utløper innen [[days]] dager",
+          "es": "Un artículo caduca en [[days]] días",
+          "da": "En vare udløber inden for [[days]] dage",
+          "ru": "Предмет истекает через [[days]] дн.",
+          "pl": "Rzecz traci ważność w ciągu [[days]] dni",
+          "ko": "항목이 [[days]]일 안에 만료됨",
+          "ar": "ينتهي عنصر خلال [[days]] يومًا"
+        },
+        "args": [
+          {
+            "type": "number",
+            "name": "days",
+            "title": {
+              "en": "Days",
+              "nl": "Dagen",
+              "de": "Tage",
+              "fr": "Jours",
+              "it": "Giorni",
+              "sv": "Dagar",
+              "no": "Dager",
+              "es": "Días",
+              "da": "Dage",
+              "ru": "Дни",
+              "pl": "Dni",
+              "ko": "일",
+              "ar": "أيام"
+            },
+            "placeholder": {
+              "en": "30",
+              "nl": "30",
+              "de": "30",
+              "fr": "30",
+              "it": "30",
+              "sv": "30",
+              "no": "30",
+              "es": "30",
+              "da": "30",
+              "ru": "30",
+              "pl": "30",
+              "ko": "30",
+              "ar": "30"
+            },
+            "min": 1,
+            "max": 365,
+            "step": 1
+          }
+        ],
+        "tokens": [
+          {
+            "type": "string",
+            "name": "item",
+            "title": {
+              "en": "Item",
+              "nl": "Item",
+              "de": "Artikel",
+              "fr": "Article",
+              "it": "Articolo",
+              "sv": "Artikel",
+              "no": "Artikkel",
+              "es": "Artículo",
+              "da": "Vare",
+              "ru": "Предмет",
+              "pl": "Rzecz",
+              "ko": "항목",
+              "ar": "العنصر"
+            },
+            "example": {
+              "en": "Drinking water",
+              "nl": "Drinkwater"
+            }
+          },
+          {
+            "type": "string",
+            "name": "date",
+            "title": {
+              "en": "Expiry date",
+              "nl": "Houdbaarheidsdatum",
+              "de": "Ablaufdatum",
+              "fr": "Date de péremption",
+              "it": "Data di scadenza",
+              "sv": "Bäst före-datum",
+              "no": "Utløpsdato",
+              "es": "Fecha de caducidad",
+              "da": "Udløbsdato",
+              "ru": "Срок годности",
+              "pl": "Data ważności",
+              "ko": "유통기한",
+              "ar": "تاريخ الانتهاء"
+            },
+            "example": {
+              "en": "2027-01-31",
+              "nl": "2027-01-31",
+              "de": "2027-01-31",
+              "fr": "2027-01-31",
+              "it": "2027-01-31",
+              "sv": "2027-01-31",
+              "no": "2027-01-31",
+              "es": "2027-01-31",
+              "da": "2027-01-31",
+              "ru": "2027-01-31",
+              "pl": "2027-01-31",
+              "ko": "2027-01-31",
+              "ar": "2027-01-31"
+            }
+          },
+          {
+            "type": "number",
+            "name": "days_left",
+            "title": {
+              "en": "Days left",
+              "nl": "Dagen over",
+              "de": "Verbleibende Tage",
+              "fr": "Jours restants",
+              "it": "Giorni rimasti",
+              "sv": "Dagar kvar",
+              "no": "Dager igjen",
+              "es": "Días restantes",
+              "da": "Dage tilbage",
+              "ru": "Осталось дней",
+              "pl": "Pozostałe dni",
+              "ko": "남은 일수",
+              "ar": "الأيام المتبقية"
+            },
+            "example": 7
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "has_expired_items",
+        "title": {
+          "en": "There are expired items",
+          "nl": "Er zijn verlopen items",
+          "de": "Es gibt abgelaufene Artikel",
+          "fr": "Il y a des articles périmés",
+          "it": "Ci sono articoli scaduti",
+          "sv": "Det finns utgångna artiklar",
+          "no": "Det finnes utløpte artikler",
+          "es": "Hay artículos caducados",
+          "da": "Der er udløbne varer",
+          "ru": "Есть просроченные предметы",
+          "pl": "Są przeterminowane rzeczy",
+          "ko": "만료된 항목이 있음",
+          "ar": "توجد عناصر منتهية الصلاحية"
+        },
+        "titleFormatted": {
+          "en": "There !{{are|are no}} expired items",
+          "nl": "Er !{{zijn|zijn geen}} verlopen items",
+          "de": "Es gibt !{{|keine}} abgelaufene Artikel",
+          "fr": "Il !{{y a des|n’y a pas d’}} articles périmés",
+          "it": "!{{Ci sono|Non ci sono}} articoli scaduti",
+          "sv": "Det finns !{{|inga}} utgångna artiklar",
+          "no": "Det finnes !{{|ingen}} utløpte artikler",
+          "es": "!{{Hay|No hay}} artículos caducados",
+          "da": "Der er !{{|ingen}} udløbne varer",
+          "ru": "Просроченные предметы !{{есть|отсутствуют}}",
+          "pl": "!{{Są|Nie ma}} przeterminowanych rzeczy",
+          "ko": "만료된 항목이 !{{있음|없음}}",
+          "ar": "!{{توجد|لا توجد}} عناصر منتهية الصلاحية"
+        }
+      },
+      {
+        "id": "kit_complete",
+        "title": {
+          "en": "Kit is complete",
+          "nl": "Pakket is compleet",
+          "de": "Paket ist vollständig",
+          "fr": "Le kit est complet",
+          "it": "Il kit è completo",
+          "sv": "Lådan är komplett",
+          "no": "Pakken er komplett",
+          "es": "El kit está completo",
+          "da": "Pakken er komplet",
+          "ru": "Набор полный",
+          "pl": "Zestaw jest kompletny",
+          "ko": "키트가 완성됨",
+          "ar": "الحقيبة مكتملة"
+        },
+        "titleFormatted": {
+          "en": "Kit !{{is|is not}} complete",
+          "nl": "Pakket !{{is|is niet}} compleet",
+          "de": "Paket !{{ist|ist nicht}} vollständig",
+          "fr": "Le kit !{{est|n’est pas}} complet",
+          "it": "Il kit !{{è|non è}} completo",
+          "sv": "Lådan !{{är|är inte}} komplett",
+          "no": "Pakken !{{er|er ikke}} komplett",
+          "es": "El kit !{{está|no está}} completo",
+          "da": "Pakken !{{er|er ikke}} komplet",
+          "ru": "Набор !{{полный|неполный}}",
+          "pl": "Zestaw !{{jest|nie jest}} kompletny",
+          "ko": "키트가 !{{완성됨|완성되지 않음}}",
+          "ar": "الحقيبة !{{مكتملة|غير مكتملة}}"
+        }
+      }
+    ],
+    "actions": [
+      {
+        "id": "mark_check_done",
+        "title": {
+          "en": "Mark the kit check as done",
+          "nl": "Markeer checkmoment als gedaan",
+          "de": "Prüfung als erledigt markieren",
+          "fr": "Marquer le contrôle comme fait",
+          "it": "Segna il controllo come fatto",
+          "sv": "Markera kontrollen som klar",
+          "no": "Merk kontrollen som utført",
+          "es": "Marcar la revisión como hecha",
+          "da": "Markér tjekket som udført",
+          "ru": "Отметить проверку выполненной",
+          "pl": "Oznacz przegląd jako wykonany",
+          "ko": "점검 완료로 표시",
+          "ar": "وضع علامة على اكتمال الفحص"
+        }
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Emergency kit",
+        "nl": "Noodpakket",
+        "de": "Notfallpaket",
+        "fr": "Kit d’urgence",
+        "it": "Kit di emergenza",
+        "sv": "Nödlåda",
+        "no": "Nødpakke",
+        "es": "Kit de emergencia",
+        "da": "Nødpakke",
+        "ru": "Аварийный набор",
+        "pl": "Zestaw awaryjny",
+        "ko": "비상 키트",
+        "ar": "حقيبة الطوارئ"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "kit_completeness",
+        "kit_days_to_expiry",
+        "alarm_generic.expired",
+        "alarm_generic.incomplete"
+      ],
+      "capabilitiesOptions": {
+        "alarm_generic.expired": {
+          "title": {
+            "en": "Expired items",
+            "nl": "Verlopen items",
+            "de": "Abgelaufene Artikel",
+            "fr": "Articles périmés",
+            "it": "Articoli scaduti",
+            "sv": "Utgångna artiklar",
+            "no": "Utløpte artikler",
+            "es": "Artículos caducados",
+            "da": "Udløbne varer",
+            "ru": "Просроченные предметы",
+            "pl": "Przeterminowane rzeczy",
+            "ko": "만료된 항목",
+            "ar": "عناصر منتهية الصلاحية"
+          }
+        },
+        "alarm_generic.incomplete": {
+          "title": {
+            "en": "Kit incomplete",
+            "nl": "Pakket incompleet",
+            "de": "Paket unvollständig",
+            "fr": "Kit incomplet",
+            "it": "Kit incompleto",
+            "sv": "Lådan ofullständig",
+            "no": "Pakken ufullstendig",
+            "es": "Kit incompleto",
+            "da": "Pakken ufuldstændig",
+            "ru": "Набор неполный",
+            "pl": "Zestaw niekompletny",
+            "ko": "키트 미완성",
+            "ar": "الحقيبة غير مكتملة"
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [],
+      "images": {
+        "small": "/drivers/kit/assets/images/small.png",
+        "large": "/drivers/kit/assets/images/large.png",
+        "xlarge": "/drivers/kit/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "kit"
+    }
+  ],
+  "widgets": {
+    "status": {
+      "name": {
+        "en": "Emergency kit status",
+        "nl": "Noodpakket-status",
+        "de": "Notfallpaket-Status",
+        "fr": "État du kit d’urgence",
+        "it": "Stato del kit di emergenza",
+        "sv": "Status för nödlådan",
+        "no": "Status for nødpakken",
+        "es": "Estado del kit de emergencia",
+        "da": "Status for nødpakken",
+        "ru": "Состояние аварийного набора",
+        "pl": "Stan zestawu awaryjnego",
+        "ko": "비상 키트 상태",
+        "ar": "حالة حقيبة الطوارئ"
+      },
+      "height": 170,
+      "transparent": false,
+      "settings": [],
+      "api": {
+        "getStatus": {
+          "method": "GET",
+          "path": "/"
+        }
+      },
+      "id": "status"
+    }
+  },
+  "capabilities": {
+    "kit_completeness": {
+      "type": "number",
+      "title": {
+        "en": "Kit completeness",
+        "nl": "Compleetheid pakket",
+        "de": "Vollständigkeit",
+        "fr": "Complétude du kit",
+        "it": "Completezza kit",
+        "sv": "Fullständighet",
+        "no": "Fullstendighet",
+        "es": "Completitud del kit",
+        "da": "Fuldstændighed",
+        "ru": "Укомплектованность",
+        "pl": "Kompletność zestawu",
+        "ko": "키트 완성도",
+        "ar": "اكتمال الحقيبة"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%",
+        "de": "%",
+        "fr": "%",
+        "it": "%",
+        "sv": "%",
+        "no": "%",
+        "es": "%",
+        "da": "%",
+        "ru": "%",
+        "pl": "%",
+        "ko": "%",
+        "ar": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "decimals": 0,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor",
+      "icon": "/assets/capability-completeness.svg"
+    },
+    "kit_days_to_expiry": {
+      "type": "number",
+      "title": {
+        "en": "Days until first expiry",
+        "nl": "Dagen tot eerste verloopdatum",
+        "de": "Tage bis zum ersten Ablauf",
+        "fr": "Jours avant la première péremption",
+        "it": "Giorni alla prima scadenza",
+        "sv": "Dagar till första utgång",
+        "no": "Dager til første utløp",
+        "es": "Días hasta la primera caducidad",
+        "da": "Dage til første udløb",
+        "ru": "Дней до первого истечения",
+        "pl": "Dni do pierwszego terminu",
+        "ko": "첫 만료까지 남은 일수",
+        "ar": "أيام حتى أول انتهاء"
+      },
+      "units": {
+        "en": "d",
+        "nl": "d",
+        "de": "d",
+        "fr": "d",
+        "it": "d",
+        "sv": "d",
+        "no": "d",
+        "es": "d",
+        "da": "d",
+        "ru": "d",
+        "pl": "d",
+        "ko": "d",
+        "ar": "d"
+      },
+      "decimals": 0,
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor",
+      "icon": "/assets/capability-days.svg"
+    }
+  }
+}

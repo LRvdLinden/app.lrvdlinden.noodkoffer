@@ -1,0 +1,1646 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ L": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ L"
+          }
+        }
+      }
+    },
+    "%@ days": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ dagen"
+          }
+        }
+      }
+    },
+    "%@ in %lld days": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ over %2$lld dagen"
+          }
+        }
+      }
+    },
+    "%@ packs": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ pakken"
+          }
+        }
+      }
+    },
+    "%@ pcs": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ st."
+          }
+        }
+      }
+    },
+    "%@. %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@. %2$@"
+          }
+        }
+      }
+    },
+    "%lld days": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld dagen"
+          }
+        }
+      }
+    },
+    "%lld expired": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld verlopen"
+          }
+        }
+      }
+    },
+    "%lld items for %lld people": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld items voor %2$lld personen"
+          }
+        }
+      }
+    },
+    "3 litres per person per day, for 3 days.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 liter per persoon per dag, voor 3 dagen."
+          }
+        }
+      }
+    },
+    "6-digit code": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Code van 6 cijfers"
+          }
+        }
+      }
+    },
+    "A torch per household, preferably a wind-up or battery model.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Een zaklamp per huishouden, liefst een opwind- of batterijmodel."
+          }
+        }
+      }
+    },
+    "Add expiry dates to water, food, batteries and medicines in your kit.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voeg houdbaarheidsdatums toe aan water, eten, batterijen en medicijnen in je pakket."
+          }
+        }
+      }
+    },
+    "Add item": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Item toevoegen"
+          }
+        }
+      }
+    },
+    "Adults": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volwassenen"
+          }
+        }
+      }
+    },
+    "Adults: %lld": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volwassenen: %lld"
+          }
+        }
+      }
+    },
+    "Agree on this together and keep a printed copy with your kit. Phones may not work during an emergency.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spreek dit samen af en bewaar een geprinte versie bij je noodpakket. In een noodsituatie werkt je telefoon misschien niet."
+          }
+        }
+      }
+    },
+    "Also wet wipes and hand gel.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ook vochtige doekjes en handgel."
+          }
+        }
+      }
+    },
+    "Anything else": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wat verder belangrijk is"
+          }
+        }
+      }
+    },
+    "Appearance": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weergave"
+          }
+        }
+      }
+    },
+    "Arrangements": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afspraken"
+          }
+        }
+      }
+    },
+    "Automatic": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatisch"
+          }
+        }
+      }
+    },
+    "Based on %lld adults, %lld children and %lld pets.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Op basis van %lld volwassenen, %lld kinderen en %lld huisdieren."
+          }
+        }
+      }
+    },
+    "Batteries": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Batterijen"
+          }
+        }
+      }
+    },
+    "Battery or wind-up radio to follow the news when phones are down.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Radio op batterijen of met opwinder, om het nieuws te volgen als telefoons niet werken."
+          }
+        }
+      }
+    },
+    "Blankets and warm clothes": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dekens en warme kleding"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annuleer"
+          }
+        }
+      }
+    },
+    "Candles and matches": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaarsen en lucifers"
+          }
+        }
+      }
+    },
+    "Cash": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contant geld"
+          }
+        }
+      }
+    },
+    "Category": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categorie"
+          }
+        }
+      }
+    },
+    "Check quantities and dates, and charge the power bank.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controleer aantallen en datums en laad de powerbank op."
+          }
+        }
+      }
+    },
+    "Checklist based on the government's 72-hour advice": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checklist op basis van het 72-uursadvies van de overheid"
+          }
+        }
+      }
+    },
+    "Children": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kinderen"
+          }
+        }
+      }
+    },
+    "Children: %lld": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kinderen: %lld"
+          }
+        }
+      }
+    },
+    "Complete": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compleet"
+          }
+        }
+      }
+    },
+    "Contacts": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contacten"
+          }
+        }
+      }
+    },
+    "Copies of ID documents": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopie van ID-bewijzen"
+          }
+        }
+      }
+    },
+    "Copies of passports or ID cards and important papers.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kopieën van paspoorten of ID-kaarten en belangrijke papieren."
+          }
+        }
+      }
+    },
+    "Create PDF": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maak PDF"
+          }
+        }
+      }
+    },
+    "Dark": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Donker"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwijder"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klaar"
+          }
+        }
+      }
+    },
+    "Drinking water": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Drinkwater"
+          }
+        }
+      }
+    },
+    "Emergency kit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodpakket"
+          }
+        }
+      }
+    },
+    "Emergency kit check": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checkmoment noodpakket"
+          }
+        }
+      }
+    },
+    "Emergency plan": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodplan"
+          }
+        }
+      }
+    },
+    "Emergency plan as PDF": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodplan als PDF"
+          }
+        }
+      }
+    },
+    "Emergency radio": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodradio"
+          }
+        }
+      }
+    },
+    "Everything is in date": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles is nog houdbaar"
+          }
+        }
+      }
+    },
+    "Expired": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verlopen"
+          }
+        }
+      }
+    },
+    "Expires in %lld days (%@).": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verloopt over %lld dagen (%@)."
+          }
+        }
+      }
+    },
+    "Expires on": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verloopt op"
+          }
+        }
+      }
+    },
+    "Expires today. Replace it in your emergency kit.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verloopt vandaag. Vervang het in je noodpakket."
+          }
+        }
+      }
+    },
+    "Expiry": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houdbaar"
+          }
+        }
+      }
+    },
+    "Expiry date": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houdbaarheidsdatum"
+          }
+        }
+      }
+    },
+    "Expiry dates": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houdbaarheid"
+          }
+        }
+      }
+    },
+    "Expiry reminders": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houdbaarheidsherinneringen"
+          }
+        }
+      }
+    },
+    "Expiry reminders and date scanning": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herinneringen voor houdbaarheid en datum scannen"
+          }
+        }
+      }
+    },
+    "First aid kit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EHBO-doos"
+          }
+        }
+      }
+    },
+    "Food and water for your pets for 3 days.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voer en water voor je huisdieren voor 3 dagen."
+          }
+        }
+      }
+    },
+    "Food that keeps without a fridge, for 3 days per person.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eten dat houdbaar is zonder koelkast, voor 3 dagen per persoon."
+          }
+        }
+      }
+    },
+    "For example 192.168.1.20": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bijvoorbeeld 192.168.1.20"
+          }
+        }
+      }
+    },
+    "For example the neighbours at number 12, or the community centre": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bijvoorbeeld de buren op nummer 12, of het buurthuis"
+          }
+        }
+      }
+    },
+    "For example where it is stored": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bijvoorbeeld waar het ligt"
+          }
+        }
+      }
+    },
+    "Fully charged; check the charge every six months.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volledig opgeladen; controleer de lading elk halfjaar."
+          }
+        }
+      }
+    },
+    "Get a reminder 30 and 7 days before water, batteries or medicines expire, and at your half-yearly check.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Krijg een herinnering 30 en 7 dagen voordat water, batterijen of medicijnen verlopen, en bij je halfjaarlijkse checkmoment."
+          }
+        }
+      }
+    },
+    "Get started": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aan de slag"
+          }
+        }
+      }
+    },
+    "Half-yearly check": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halfjaarlijks checkmoment"
+          }
+        }
+      }
+    },
+    "Has an expiry date": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heeft een houdbaarheidsdatum"
+          }
+        }
+      }
+    },
+    "Health": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gezondheid"
+          }
+        }
+      }
+    },
+    "Homey": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homey"
+          }
+        }
+      }
+    },
+    "Homey address and pairing code": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homey-adres en koppelcode"
+          }
+        }
+      }
+    },
+    "Homey cannot be reached. Are you on your home network?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homey is niet bereikbaar. Zit je op je thuisnetwerk?"
+          }
+        }
+      }
+    },
+    "Homey did not accept the data.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homey heeft de gegevens niet geaccepteerd."
+          }
+        }
+      }
+    },
+    "Household": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huishouden"
+          }
+        }
+      }
+    },
+    "Hygiene": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hygiëne"
+          }
+        }
+      }
+    },
+    "If the power, water or internet fails, you need to manage on your own for the first three days. Noodkoffer helps you build and maintain your emergency kit.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Als stroom, water of internet uitvalt, moet je je de eerste drie dagen zelf redden. Noodkoffer helpt je je noodpakket samen te stellen en bij te houden."
+          }
+        }
+      }
+    },
+    "In the kit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In het pakket"
+          }
+        }
+      }
+    },
+    "Information": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informatie"
+          }
+        }
+      }
+    },
+    "Install the Noodkoffer app on your Homey Pro. Its settings page shows the pairing code and Homey's address.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Installeer de Noodkoffer-app op je Homey Pro. De instellingenpagina toont de koppelcode en het adres van Homey."
+          }
+        }
+      }
+    },
+    "Invalid Homey address": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ongeldig Homey-adres"
+          }
+        }
+      }
+    },
+    "Item": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Item"
+          }
+        }
+      }
+    },
+    "Keep going": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bijna zover"
+          }
+        }
+      }
+    },
+    "Kit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pakket"
+          }
+        }
+      }
+    },
+    "Kit %lld percent complete": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pakket %lld procent compleet"
+          }
+        }
+      }
+    },
+    "Last sent %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laatst verstuurd %@"
+          }
+        }
+      }
+    },
+    "Later": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Later"
+          }
+        }
+      }
+    },
+    "Light": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licht"
+          }
+        }
+      }
+    },
+    "Light and power": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licht en stroom"
+          }
+        }
+      }
+    },
+    "Link with Homey": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koppeling met Homey"
+          }
+        }
+      }
+    },
+    "Linked": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gekoppeld"
+          }
+        }
+      }
+    },
+    "Long-life food": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houdbaar eten"
+          }
+        }
+      }
+    },
+    "Made with Noodkoffer · noodkoffer.lrvdlinden.app": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gemaakt met Noodkoffer · noodkoffer.lrvdlinden.app"
+          }
+        }
+      }
+    },
+    "Mark as complete": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Markeer als compleet"
+          }
+        }
+      }
+    },
+    "Medicines": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medicijnen"
+          }
+        }
+      }
+    },
+    "Meeting point": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verzamelpunt"
+          }
+        }
+      }
+    },
+    "Money and documents": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geld en documenten"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naam"
+          }
+        }
+      }
+    },
+    "Names and phone numbers, also on paper": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Namen en telefoonnummers, ook op papier"
+          }
+        }
+      }
+    },
+    "Needed": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nodig"
+          }
+        }
+      }
+    },
+    "Never leave burning candles unattended.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laat brandende kaarsen nooit alleen."
+          }
+        }
+      }
+    },
+    "Never miss an expiry date": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mis nooit meer een houdbaarheidsdatum"
+          }
+        }
+      }
+    },
+    "New item": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nieuw item"
+          }
+        }
+      }
+    },
+    "Next": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volgende"
+          }
+        }
+      }
+    },
+    "Next check": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volgende check"
+          }
+        }
+      }
+    },
+    "Next expiry": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eerstvolgende verloopdatum"
+          }
+        }
+      }
+    },
+    "No expiry dates yet": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nog geen houdbaarheidsdatums"
+          }
+        }
+      }
+    },
+    "Not linked": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niet gekoppeld"
+          }
+        }
+      }
+    },
+    "Notes": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notities"
+          }
+        }
+      }
+    },
+    "One blanket or sleeping bag per person.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Een deken of slaapzak per persoon."
+          }
+        }
+      }
+    },
+    "Open Noodkoffer to set up your kit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Noodkoffer om je pakket in te stellen"
+          }
+        }
+      }
+    },
+    "Other": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overig"
+          }
+        }
+      }
+    },
+    "Pet food": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dierenvoer"
+          }
+        }
+      }
+    },
+    "Pets": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huisdieren"
+          }
+        }
+      }
+    },
+    "Pets: %lld": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huisdieren: %lld"
+          }
+        }
+      }
+    },
+    "Plan": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodplan"
+          }
+        }
+      }
+    },
+    "Plasters, bandages and disinfectant.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pleisters, verband en ontsmettingsmiddel."
+          }
+        }
+      }
+    },
+    "Power bank": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Powerbank"
+          }
+        }
+      }
+    },
+    "Privacy policy": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacyverklaring"
+          }
+        }
+      }
+    },
+    "Quantity": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoeveelheid"
+          }
+        }
+      }
+    },
+    "Ready for 72 hours": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klaar voor 72 uur"
+          }
+        }
+      }
+    },
+    "Ready to sync": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klaar om te synchroniseren"
+          }
+        }
+      }
+    },
+    "Reminders": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herinneringen"
+          }
+        }
+      }
+    },
+    "Reminders and Homey": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herinneringen en Homey"
+          }
+        }
+      }
+    },
+    "Reminders arrive 30 and 7 days before an item expires, on the day itself and at your half-yearly check.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herinneringen komen 30 en 7 dagen voordat een item verloopt, op de dag zelf en bij je halfjaarlijkse checkmoment."
+          }
+        }
+      }
+    },
+    "Save": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bewaar"
+          }
+        }
+      }
+    },
+    "Scan date from packaging": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scan datum van verpakking"
+          }
+        }
+      }
+    },
+    "Search the kit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoek in het pakket"
+          }
+        }
+      }
+    },
+    "See how complete your kit is and what expires next.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zie hoe compleet je pakket is en wat als eerste verloopt."
+          }
+        }
+      }
+    },
+    "Sending to Homey…": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versturen naar Homey…"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instellingen"
+          }
+        }
+      }
+    },
+    "Share or print PDF": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deel of print PDF"
+          }
+        }
+      }
+    },
+    "Show the welcome screen": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toon het welkomstscherm"
+          }
+        }
+      }
+    },
+    "Spare batteries for the torch and radio.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reservebatterijen voor zaklamp en radio."
+          }
+        }
+      }
+    },
+    "Support": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support"
+          }
+        }
+      }
+    },
+    "Support development": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Steun de ontwikkeling"
+          }
+        }
+      }
+    },
+    "Test and sync now": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Test en synchroniseer nu"
+          }
+        }
+      }
+    },
+    "The app calculates how much water, food and cash you need.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De app berekent hoeveel water, eten en contant geld je nodig hebt."
+          }
+        }
+      }
+    },
+    "The pairing code is not correct.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De koppelcode klopt niet."
+          }
+        }
+      }
+    },
+    "Time for your half-yearly check": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tijd voor je halfjaarlijkse check"
+          }
+        }
+      }
+    },
+    "Time for your half-yearly check. Go through your kit in a few minutes.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tijd voor je halfjaarlijkse check. Loop je noodpakket in een paar minuten na."
+          }
+        }
+      }
+    },
+    "Today": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vandaag"
+          }
+        }
+      }
+    },
+    "Toilet paper and bin bags": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wc-papier en vuilniszakken"
+          }
+        }
+      }
+    },
+    "Too many wrong codes. Try again in 15 minutes.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Te vaak een verkeerde code. Probeer het over 15 minuten opnieuw."
+          }
+        }
+      }
+    },
+    "Torch": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaklamp"
+          }
+        }
+      }
+    },
+    "Unit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eenheid"
+          }
+        }
+      }
+    },
+    "Unlink Homey": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ontkoppel Homey"
+          }
+        }
+      }
+    },
+    "Version 1.0": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versie 1.0"
+          }
+        }
+      }
+    },
+    "Warmth and shelter": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warmte en beschutting"
+          }
+        }
+      }
+    },
+    "Water and food": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Water en eten"
+          }
+        }
+      }
+    },
+    "Water, gas and electricity": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Water, gas en stroom"
+          }
+        }
+      }
+    },
+    "What's new": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wat is nieuw"
+          }
+        }
+      }
+    },
+    "Where the main tap, gas valve and fuse box are": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waar de hoofdkraan, gaskraan en meterkast zitten"
+          }
+        }
+      }
+    },
+    "Who is in your household?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wie hoort bij je huishouden?"
+          }
+        }
+      }
+    },
+    "Who picks up the children, who checks on the neighbours": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wie haalt de kinderen op, wie kijkt bij de buren"
+          }
+        }
+      }
+    },
+    "Widget for your home screen": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Widget voor je beginscherm"
+          }
+        }
+      }
+    },
+    "Within 30 days": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Binnen 30 dagen"
+          }
+        }
+      }
+    },
+    "You get a reminder on this day to go through your kit.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Op deze dag krijg je een herinnering om je pakket na te lopen."
+          }
+        }
+      }
+    },
+    "Your iPhone and Homey must be on the same network. The kit is sent to Homey when you open the app and after every change.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je iPhone en Homey moeten op hetzelfde netwerk zitten. Het pakket gaat naar Homey als je de app opent en na elke wijziging."
+          }
+        }
+      }
+    },
+    "Your kit is complete": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je noodpakket is compleet"
+          }
+        }
+      }
+    },
+    "Your own medicines for at least 3 days, and a list of them.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je eigen medicijnen voor minstens 3 dagen, en een lijst ervan."
+          }
+        }
+      }
+    },
+    "complete": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "compleet"
+          }
+        }
+      }
+    },
+    "lrvdlinden.app": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lrvdlinden.app"
+          }
+        }
+      }
+    },
+    "€70 per adult and €30 per child, in small notes.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "€ 70 per volwassene en € 30 per kind, in kleine coupures."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

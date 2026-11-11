@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "title": "حقيبة الطوارئ",
+    "intro": "افتح تطبيق Noodkoffer على iPhone، وانتقل إلى الإعدادات ← Homey وأدخل هذا الرمز. يجب أن يكون iPhone على نفس شبكة Homey.",
+    "code": "رمز الربط",
+    "regenerate": "رمز جديد",
+    "status": "الحالة",
+    "last_sync": "آخر تحديث من iPhone",
+    "never": "لم يتم الربط بعد",
+    "items": "العناصر",
+    "notifications": "إشعارات الخط الزمني لتواريخ الانتهاء",
+    "saved": "تم الحفظ"
+  },
+  "more_apps": {
+    "section": "اكتشف",
+    "title": "المزيد من تطبيقات المطوّر",
+    "subtitle": "تطبيقات لـ iPhone وiPad وApple TV وHomey",
+    "action": "عرض",
+    "a11y": "فتح lrvdlinden.app"
+  },
+  "footer": {
+    "version": "الإصدار"
+  },
+  "widget": {
+    "complete": "مكتمل",
+    "next": "أقرب انتهاء",
+    "all_good": "كل شيء ضمن الصلاحية",
+    "not_linked": "اربط iPhone من إعدادات التطبيق",
+    "days": "__days__ يومًا"
+  },
+  "notify": {
+    "soon": "تنتهي صلاحية __item__ بعد __days__ يومًا (__date__).",
+    "expired": "انتهت صلاحية __item__. استبدله في حقيبة الطوارئ.",
+    "check": "حان وقت الفحص نصف السنوي لحقيبة الطوارئ."
+  },
+  "device": {
+    "unavailable": "بانتظار البيانات من تطبيق Noodkoffer"
+  },
+  "pair": {
+    "only_one": "تمت إضافة حقيبة الطوارئ بالفعل."
+  },
+  "tokens": {
+    "plan": "خطة الطوارئ",
+    "next": "العنصر التالي المنتهي"
+  }
+}

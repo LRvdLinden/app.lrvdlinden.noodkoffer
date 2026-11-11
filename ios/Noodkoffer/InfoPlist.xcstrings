@@ -1,0 +1,36 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "CFBundleDisplayName": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodkoffer"
+          }
+        }
+      }
+    },
+    "NSCameraUsageDescription": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodkoffer gebruikt de camera om houdbaarheidsdatums van verpakkingen te lezen."
+          }
+        }
+      }
+    },
+    "NSLocalNetworkUsageDescription": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodkoffer stuurt je noodpakket naar Homey op je thuisnetwerk."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
