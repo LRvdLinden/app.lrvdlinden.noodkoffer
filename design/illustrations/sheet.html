@@ -1,0 +1,3 @@
+<!doctype html><meta charset="utf-8"><script src="illustrations.js"></script>
+<body style="margin:0;background:#fff;font-family:Inter"><div id="g" style="display:grid;grid-template-columns:repeat(5,200px);gap:16px;padding:16px"></div>
+<script>const {ART,CAT,ITEM_CAT,svg}=NP_ART;document.getElementById('g').innerHTML=Object.keys(ART).map(k=>{const c=CAT[ITEM_CAT[k]];return `<div style="background:linear-gradient(160deg,${c.a},${c.b});border-radius:28px;padding:20px;text-align:center">${svg(k,150)}<div style="font-weight:700;color:${c.ink}">${k}</div></div>`}).join('')</script>
