@@ -20,16 +20,6 @@
           }
         }
       }
-    },
-    "NSLocalNetworkUsageDescription": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noodkoffer stuurt je noodpakket naar Homey op je thuisnetwerk."
-          }
-        }
-      }
     }
   },
   "version": "1.0"

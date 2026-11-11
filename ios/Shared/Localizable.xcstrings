@@ -101,16 +101,6 @@
         }
       }
     },
-    "6-digit code": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Code van 6 cijfers"
-          }
-        }
-      }
-    },
     "A torch per household, preferably a wind-up or battery model.": {
       "localizations": {
         "nl": {
@@ -611,16 +601,6 @@
         }
       }
     },
-    "For example 192.168.1.20": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bijvoorbeeld 192.168.1.20"
-          }
-        }
-      }
-    },
     "For example the neighbours at number 12, or the community centre": {
       "localizations": {
         "nl": {
@@ -701,46 +681,6 @@
         }
       }
     },
-    "Homey": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Homey"
-          }
-        }
-      }
-    },
-    "Homey address and pairing code": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Homey-adres en koppelcode"
-          }
-        }
-      }
-    },
-    "Homey cannot be reached. Are you on your home network?": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Homey is niet bereikbaar. Zit je op je thuisnetwerk?"
-          }
-        }
-      }
-    },
-    "Homey did not accept the data.": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Homey heeft de gegevens niet geaccepteerd."
-          }
-        }
-      }
-    },
     "Household": {
       "localizations": {
         "nl": {
@@ -791,26 +731,6 @@
         }
       }
     },
-    "Install the Noodkoffer app on your Homey Pro. Its settings page shows the pairing code and Homey's address.": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Installeer de Noodkoffer-app op je Homey Pro. De instellingenpagina toont de koppelcode en het adres van Homey."
-          }
-        }
-      }
-    },
-    "Invalid Homey address": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ongeldig Homey-adres"
-          }
-        }
-      }
-    },
     "Item": {
       "localizations": {
         "nl": {
@@ -851,16 +771,6 @@
         }
       }
     },
-    "Last sent %@": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Laatst verstuurd %@"
-          }
-        }
-      }
-    },
     "Later": {
       "localizations": {
         "nl": {
@@ -887,26 +797,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Licht en stroom"
-          }
-        }
-      }
-    },
-    "Link with Homey": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Koppeling met Homey"
-          }
-        }
-      }
-    },
-    "Linked": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gekoppeld"
           }
         }
       }
@@ -1071,16 +961,6 @@
         }
       }
     },
-    "Not linked": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Niet gekoppeld"
-          }
-        }
-      }
-    },
     "Notes": {
       "localizations": {
         "nl": {
@@ -1211,32 +1091,12 @@
         }
       }
     },
-    "Ready to sync": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Klaar om te synchroniseren"
-          }
-        }
-      }
-    },
     "Reminders": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Herinneringen"
-          }
-        }
-      }
-    },
-    "Reminders and Homey": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Herinneringen en Homey"
           }
         }
       }
@@ -1287,16 +1147,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Zie hoe compleet je pakket is en wat als eerste verloopt."
-          }
-        }
-      }
-    },
-    "Sending to Homey…": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Versturen naar Homey…"
           }
         }
       }
@@ -1361,32 +1211,12 @@
         }
       }
     },
-    "Test and sync now": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Test en synchroniseer nu"
-          }
-        }
-      }
-    },
     "The app calculates how much water, food and cash you need.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "De app berekent hoeveel water, eten en contant geld je nodig hebt."
-          }
-        }
-      }
-    },
-    "The pairing code is not correct.": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De koppelcode klopt niet."
           }
         }
       }
@@ -1431,16 +1261,6 @@
         }
       }
     },
-    "Too many wrong codes. Try again in 15 minutes.": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Te vaak een verkeerde code. Probeer het over 15 minuten opnieuw."
-          }
-        }
-      }
-    },
     "Torch": {
       "localizations": {
         "nl": {
@@ -1457,16 +1277,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eenheid"
-          }
-        }
-      }
-    },
-    "Unlink Homey": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ontkoppel Homey"
           }
         }
       }
@@ -1577,16 +1387,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Op deze dag krijg je een herinnering om je pakket na te lopen."
-          }
-        }
-      }
-    },
-    "Your iPhone and Homey must be on the same network. The kit is sent to Homey when you open the app and after every change.": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Je iPhone en Homey moeten op hetzelfde netwerk zitten. Het pakket gaat naar Homey als je de app opent en na elke wijziging."
           }
         }
       }

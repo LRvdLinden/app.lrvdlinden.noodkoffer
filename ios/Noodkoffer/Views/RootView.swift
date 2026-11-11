@@ -58,7 +58,7 @@ struct RootView: View {
         }
     }
 
-    /// Changes whenever something that matters for notifications, widget or Homey changes.
+    /// Changes whenever something that matters for notifications or the widget changes.
     private var changeToken: Int {
         var hasher = Hasher()
         for item in items {
@@ -70,7 +70,7 @@ struct RootView: View {
         return hasher.finalize()
     }
 
-    /// Debounced, so typing in a field does not send a request per keystroke.
+    /// Debounced, so typing in a field does not reschedule on every keystroke.
     private func scheduleRefresh() {
         refreshTask?.cancel()
         refreshTask = Task { @MainActor in

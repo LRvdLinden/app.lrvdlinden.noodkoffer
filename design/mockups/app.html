@@ -125,21 +125,14 @@ const screens = {
       <div class="row"><span class="grow name" style="font-weight:400">Volwassenen</span><span class="val">2</span><div class="stepper"><span>−</span><span>+</span></div></div>
       <div class="row"><span class="grow name" style="font-weight:400">Kinderen</span><span class="val">1</span><div class="stepper"><span>−</span><span>+</span></div></div>
     </div>
-    <h4>Herinneringen en Homey</h4><div class="group plain">
+    <h4>Herinneringen</h4><div class="group plain">
       <div class="row"><span class="grow name" style="font-weight:400">Houdbaarheidsherinneringen</span><div class="toggle"></div></div>
-      <div class="row"><span class="grow name" style="font-weight:400">⌂ Homey</span><span class="val">Gekoppeld</span><span class="chev">›</span></div>
     </div>
     <h4>Ontdekken</h4>
     <div class="more"><svg width="56" height="56" viewBox="0 0 512 512" style="border-radius:13px;flex:none"><rect width="512" height="512" rx="116" fill="#121726"/><path d="M132 146v224h100M292 370V146h48a62 62 0 0 1 0 124h-48M338 270l52 100" fill="none" stroke="#fff" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/><circle cx="404" cy="126" r="34" fill="#4C6BFF" stroke="#121726" stroke-width="14"/></svg>
       <div class="grow"><div class="t">Meer apps van de ontwikkelaar</div><div class="s">Apps voor iPhone, iPad, Apple TV en Homey</div></div><span class="pill">Bekijk</span></div>
     <div class="foot">${appIcon(64)}Versie: 1.0.0 (1)<br>© 2026 Noodkoffer</div></div>${tabs('set')}`,
 
-  homey: () => `${status}<div class="nav"><h1 style="font-size:17px;width:100%;text-align:center">Homey</h1></div>
-    <div class="sec"><div class="group plain"><div class="field" style="font-size:15px;color:var(--mut)">Installeer de Noodkoffer-app op je Homey Pro. De instellingenpagina toont de koppelcode en het adres van Homey.</div></div>
-    <h4>Homey-adres en koppelcode</h4><div class="group plain"><div class="field">192.168.1.20</div><div class="row field" style="padding:12px 16px">482 913</div></div>
-    <div class="cap" style="margin-top:-16px">Je iPhone en Homey moeten op hetzelfde netwerk zitten. Het pakket gaat naar Homey als je de app opent en na elke wijziging.</div>
-    <div class="group plain"><div class="row btnrow">⟳  Test en synchroniseer nu</div><div class="row"><span class="ok">✔︎</span><span class="name" style="font-weight:400">Laatst verstuurd 2 minuten geleden</span></div></div>
-    <div class="group plain"><div class="row" style="color:var(--red)">Ontkoppel Homey</div></div></div>${tabs('set')}`,
 };
 document.getElementById('root').innerHTML = `<div class="phone">${screens[screen]()}</div>`;
 </script>

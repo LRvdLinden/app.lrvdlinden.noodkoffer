@@ -78,7 +78,7 @@ final class EmergencyPlan {
     var nextCheck: Date?
     init() {}
 
-    /// Plain text version for Homey's TTS token and sharing.
+    /// Plain text version for sharing.
     var plainText: String {
         [(String(localized: "Meeting point"), meetingPoint),
          (String(localized: "Contacts"), contacts),

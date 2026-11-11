@@ -1,7 +1,0 @@
-node_modules/
-/app.json.bak
-/.homeybuild/
-env.json
-.env
-.DS_Store
-*.zip

@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import WidgetKit
 
-/// Derived state of the kit, shared by the views, the widget, notifications and Homey.
+/// Derived state of the kit, shared by the views, the widget and notifications.
 struct KitSummary {
     let completeness: Int
     let itemCount: Int
@@ -26,7 +26,7 @@ struct KitSummary {
     }
 }
 
-/// Keeps notifications, the widget and Homey in step with the store.
+/// Keeps notifications and the widget in step with the store.
 @MainActor
 enum KitSync {
 
@@ -67,6 +67,5 @@ enum KitSync {
         WidgetCenter.shared.reloadAllTimelines()
 
         await NotificationScheduler.reschedule(items: items, household: household, nextCheck: plan?.nextCheck)
-        await HomeySync.shared.push(items: items, household: household, plan: plan)
     }
 }

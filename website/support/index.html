@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Support – Noodkoffer</title>
-  <meta name="description" content="Hulp bij de Noodkoffer-app en de koppeling met Homey.">
+  <meta name="description" content="Hulp bij de Noodkoffer-app voor iPhone en Android, ook bij het installeren van de APK.">
   <link rel="canonical" href="https://noodkoffer.lrvdlinden.app/support/">
   <meta name="theme-color" content="#1B9A5E">
   <link rel="icon" href="../img/icon.svg" type="image/svg+xml">
@@ -20,19 +20,19 @@
   <main class="doc">
     <h1>Support</h1>
     <p>Hulp nodig bij Noodkoffer? Hieronder staan de meest gestelde vragen. Kom je er niet uit, mail dan naar <a href="mailto:homey@vdlinden.xyz?subject=Noodkoffer">homey@vdlinden.xyz</a>.</p>
-    <h2>De koppeling met Homey werkt niet</h2>
+    <h2 id="android">De Android-app installeren</h2>
     <ul>
-      <li>Installeer de Noodkoffer-app op je Homey Pro en open de instellingenpagina van de app. Daar staan de koppelcode en het adres van Homey.</li>
-      <li>Vul in de iPhone-app bij Instellingen → Homey het adres en de code van 6 cijfers in.</li>
-      <li>Je iPhone moet op hetzelfde wifi-netwerk zitten als Homey, en Noodkoffer moet toegang hebben tot het lokale netwerk (Instellingen → Privacy en beveiliging → Lokaal netwerk).</li>
-      <li>Na 10 verkeerde codes wacht Homey 15 minuten. Maak eventueel een nieuwe code op de instellingenpagina.</li>
+      <li>Download <a href="https://github.com/LRvdLinden/app.lrvdlinden.noodkoffer/releases/latest/download/noodkoffer.apk">noodkoffer.apk</a> op je Android-telefoon (Android 8 of nieuwer).</li>
+      <li>Open het gedownloade bestand. Vraagt Android om toestemming, sta dan <em>installeren uit deze bron</em> toe voor je browser of bestandsbeheer.</li>
+      <li>Een nieuwe versie installeer je op dezelfde manier. Elke versie is met dezelfde sleutel ondertekend, dus de update gaat over de vorige heen en je gegevens blijven staan.</li>
+      <li>Meldt Android dat de app niet geïnstalleerd kan worden omdat hij conflicteert met een bestaande app? Dan heb je een versie van ergens anders. Verwijder die eerst.</li>
     </ul>
     <h2>Ik krijg geen herinneringen</h2>
-    <p>Zet in de app Instellingen → Houdbaarheidsherinneringen aan en controleer in iOS-instellingen → Meldingen → Noodkoffer dat meldingen zijn toegestaan.</p>
+    <p>Zet in de app Instellingen → Houdbaarheidsherinneringen aan en controleer in de instellingen van je telefoon dat meldingen voor Noodkoffer zijn toegestaan.</p>
     <h2>Mijn gegevens staan niet op mijn iPad</h2>
     <p>Synchronisatie gaat via iCloud. Controleer dat je op beide apparaten met dezelfde Apple-account bent ingelogd en dat iCloud Drive aan staat. Het kan even duren voordat alles is gesynchroniseerd.</p>
-    <h2>Welke Homey heb ik nodig?</h2>
-    <p>De Homey-app werkt op Homey Pro (2019 en 2023, firmware 12.3 of nieuwer). Homey Cloud wordt niet ondersteund, omdat de iPhone rechtstreeks via je thuisnetwerk met Homey praat.</p>
+    <h2>Kan ik mijn gegevens van iPhone naar Android overzetten?</h2>
+    <p>Nog niet. De iPhone-app synchroniseert via iCloud; de Android-app bewaart alles op je telefoon.</p>
   </main>
   <footer class="site"><div class="wrap"><div class="fine">
     <nav><a href="../">Home</a><a href="../privacy/">Privacyverklaring</a><a href="../support/">Support</a><a href="https://lrvdlinden.app">Meer apps</a></nav>

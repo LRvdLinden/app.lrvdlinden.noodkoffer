@@ -46,9 +46,6 @@ targets:
           - CFBundleURLName: app.lrvdlinden.noodkoffer
             CFBundleURLSchemes: [noodkoffer]
         NSCameraUsageDescription: Noodkoffer uses the camera to read expiry dates from packaging.
-        NSLocalNetworkUsageDescription: Noodkoffer sends your emergency kit to Homey on your home network.
-        NSAppTransportSecurity:
-          NSAllowsLocalNetworking: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: app.lrvdlinden.noodkoffer

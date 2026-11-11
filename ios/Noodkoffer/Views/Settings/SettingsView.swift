@@ -7,7 +7,6 @@ struct SettingsView: View {
     @AppStorage("onboarding.done") private var onboardingDone = true
     @AppStorage(NotificationScheduler.enabledKey) private var notificationsOn = false
     @State private var showWhatsNew = false
-    private var homey: HomeySync { .shared }
 
     static let privacyURL = URL(string: "https://noodkoffer.lrvdlinden.app/privacy")!
     static let supportURL = URL(string: "https://noodkoffer.lrvdlinden.app/support")!
@@ -35,17 +34,8 @@ struct SettingsView: View {
                         if on { Task { notificationsOn = await NotificationScheduler.requestAuthorization() } }
                         else { notificationsOn = false }
                     }))
-                    NavigationLink {
-                        HomeySettingsView()
-                    } label: {
-                        LabeledContent {
-                            Text(homey.isConfigured ? "Linked" : "Not linked")
-                        } label: {
-                            Label("Homey", systemImage: "house.fill")
-                        }
-                    }
                 } header: {
-                    Text("Reminders and Homey")
+                    Text("Reminders")
                 } footer: {
                     Text("Reminders arrive 30 and 7 days before an item expires, on the day itself and at your half-yearly check.")
                 }
@@ -91,7 +81,6 @@ struct WhatsNewView: View {
                     Label("Checklist based on the government's 72-hour advice", systemImage: "checklist")
                     Label("Expiry reminders and date scanning", systemImage: "calendar.badge.clock")
                     Label("Emergency plan as PDF", systemImage: "doc.richtext")
-                    Label("Link with Homey", systemImage: "house.fill")
                     Label("Widget for your home screen", systemImage: "square.grid.2x2")
                 }
             }
