@@ -76,7 +76,7 @@ fun PlanScreen(state: KitState, repo: KitRepository, modifier: Modifier = Modifi
     Scaffold(
         modifier = modifier.nestedScroll(scroll.nestedScrollConnection),
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
-        topBar = { LargeTopAppBar(title = { Text(stringResource(R.string.title_plan)) }, scrollBehavior = scroll) },
+        topBar = { LargeTopAppBar(title = { Text(stringResource(R.string.title_plan)) }, scrollBehavior = scroll, colors = brandTopBarColors()) },
     ) { inner ->
         Column(
             Modifier.fillMaxSize().padding(inner).verticalScroll(rememberScrollState()).padding(horizontal = 16.dp),

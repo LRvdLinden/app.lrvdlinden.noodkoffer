@@ -52,33 +52,30 @@ class KitWidget : GlanceAppWidget() {
 
     @Composable
     private fun Content(context: Context, summary: KitSummary, nextLine: String?, hasItems: Boolean) {
-        val green = Color(0xFF1B9A5E)
-        val amber = Color(0xFFC77A00)
-        val red = Color(0xFFD33A3F)
-        val tone = when {
-            summary.completeness >= 100 -> green
-            summary.completeness >= 60 -> amber
-            else -> red
-        }
+        val purple = Color(0xFF3C175B)
+        val yellow = Color(0xFFF4B943)
+        val green = Color(0xFF3CCB86)
+        val white = ColorProvider(Color.White, Color.White)
+        val muted = ColorProvider(Color(0xCCFFFFFF), Color(0xCCFFFFFF))
+        val tone = if (summary.completeness >= 100) green else yellow
         Column(
-            GlanceModifier.fillMaxSize().background(GlanceTheme.colors.widgetBackground).cornerRadius(20.dp)
+            GlanceModifier.fillMaxSize().background(ColorProvider(purple, Color(0xFF2A0E42))).cornerRadius(20.dp)
                 .padding(14.dp).clickable(actionStartActivity<MainActivity>()),
         ) {
-            Text(context.getString(R.string.widget_name),
-                style = TextStyle(color = GlanceTheme.colors.onSurfaceVariant, fontSize = 12.sp))
+            Text(context.getString(R.string.widget_name), style = TextStyle(color = muted, fontSize = 12.sp))
             Spacer(GlanceModifier.height(4.dp))
             if (!hasItems) {
-                Text(context.getString(R.string.widget_empty), style = TextStyle(color = GlanceTheme.colors.onSurface, fontSize = 13.sp))
+                Text(context.getString(R.string.widget_empty), style = TextStyle(color = white, fontSize = 13.sp))
                 return@Column
             }
             Text("${summary.completeness}%", style = TextStyle(color = ColorProvider(tone, tone), fontSize = 30.sp, fontWeight = FontWeight.Bold))
-            Text(context.getString(R.string.complete_lower), style = TextStyle(color = GlanceTheme.colors.onSurfaceVariant, fontSize = 12.sp))
+            Text(context.getString(R.string.complete_lower), style = TextStyle(color = muted, fontSize = 12.sp))
             Spacer(GlanceModifier.height(8.dp))
             LinearProgressIndicator(
                 progress = summary.completeness / 100f,
                 modifier = GlanceModifier.fillMaxWidth().height(6.dp),
                 color = ColorProvider(tone, tone),
-                backgroundColor = GlanceTheme.colors.surfaceVariant,
+                backgroundColor = ColorProvider(Color(0x29FFFFFF), Color(0x29FFFFFF)),
             )
             Spacer(GlanceModifier.height(8.dp))
             val text = when {
@@ -86,7 +83,7 @@ class KitWidget : GlanceAppWidget() {
                 nextLine != null -> nextLine
                 else -> context.getString(R.string.all_in_date)
             }
-            Text(text, maxLines = 2, style = TextStyle(color = GlanceTheme.colors.onSurface, fontSize = 13.sp, fontWeight = FontWeight.Medium))
+            Text(text, maxLines = 2, style = TextStyle(color = white, fontSize = 13.sp, fontWeight = FontWeight.Medium))
         }
     }
 }

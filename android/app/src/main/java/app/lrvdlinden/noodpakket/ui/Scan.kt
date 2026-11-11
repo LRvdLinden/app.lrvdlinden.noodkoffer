@@ -166,7 +166,7 @@ fun ScanSheet(rawCode: String, state: KitState, repo: KitRepository, onDismiss: 
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-                ProductImage(r.imageUrl, 64.dp)
+                ProductImage(r.imageUrl, 96.dp)
                 Column(Modifier.weight(1f)) {
                     Text(r.name.ifBlank { stringResource(R.string.scan_unknown) }, style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold)
@@ -281,13 +281,14 @@ private fun TargetPicker(state: KitState, selected: String, onPick: (String) -> 
 @Composable
 fun ProductImage(url: String?, size: Dp) {
     Box(
-        Modifier.size(size).clip(RoundedCornerShape(12.dp)).background(MaterialTheme.colorScheme.surfaceVariant),
+        Modifier.size(size).clip(RoundedCornerShape(18.dp))
+            .background(if (url != null) MaterialTheme.colorScheme.surfaceContainer else Brand.cream),
         contentAlignment = Alignment.Center,
     ) {
         if (url != null) {
-            AsyncImage(model = url, contentDescription = null, contentScale = ContentScale.Fit, modifier = Modifier.size(size))
+            AsyncImage(model = url, contentDescription = null, contentScale = ContentScale.Fit, modifier = Modifier.padding(6.dp).size(size))
         } else {
-            Icon(Icons.Outlined.Inventory2, null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+            ArtImage("other", Modifier.padding(10.dp).size(size))
         }
     }
 }

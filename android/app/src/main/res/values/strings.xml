@@ -68,6 +68,14 @@
     <string name="tab_expiry">Expiry</string>
     <string name="tab_plan">Plan</string>
     <string name="tab_settings">Settings</string>
+    <string name="kit_for_people_days">For %1$d people · %2$d days</string>
+    <string name="kit_items_to_go">%1$d items to go</string>
+    <string name="kit_alert_expired">%1$s has expired. Replace it soon.</string>
+    <string name="kit_alert_expires">%1$s expires in %2$d days.</string>
+    <string name="missing">Missing</string>
+    <string name="search_kit">Search the kit</string>
+    <string name="expiry_subtitle">Replace things before they expire</string>
+    <string name="shopping_items_to_buy">%1$d items to buy</string>
     <string name="title_kit">Emergency kit</string>
     <string name="add_item">Add item</string>
     <string name="kit_complete">Your kit is complete</string>
@@ -139,7 +147,7 @@
     <string name="link_welcome">Show the welcome screen</string>
     <string name="link_donate">Support development</string>
     <string name="whats_new_title">What\'s new in 1.0</string>
-    <string name="whats_new_text">• Scan barcodes: the app fills in the product\n• Shopping list for what is missing\n• Choose how many days of supplies\n• What to do during a power cut, NL-Alert and more\n• Expiry reminders and date scanning\n• Emergency plan as PDF\n• Backup and widget</string>
+    <string name="whats_new_text">• Scan barcodes: the app fills in the product\n• Shopping list for what is missing\n• Choose how many days of supplies\n• What to do during a power cut, NL-Alert and more\n• Expiry reminders and date scanning\n• Emergency plan as PDF\n• Backup and widget\n• New look with pictures of every item</string>
     <string name="onb_title_1">Ready for 72 hours</string>
     <string name="onb_text_1">If the power, water or internet fails, you need to manage on your own for the first three days. Noodpakket helps you build and maintain your emergency kit.</string>
     <string name="onb_title_2">Who is in your household?</string>

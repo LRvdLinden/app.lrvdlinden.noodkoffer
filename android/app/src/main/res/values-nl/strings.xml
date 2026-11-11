@@ -67,6 +67,14 @@
     <string name="tab_expiry">Houdbaar</string>
     <string name="tab_plan">Noodplan</string>
     <string name="tab_settings">Instellingen</string>
+    <string name="kit_for_people_days">Voor %1$d personen · %2$d dagen</string>
+    <string name="kit_items_to_go">Nog %1$d te gaan</string>
+    <string name="kit_alert_expired">%1$s is verlopen. Vervang het snel.</string>
+    <string name="kit_alert_expires">%1$s verloopt over %2$d dagen.</string>
+    <string name="missing">Ontbreekt</string>
+    <string name="search_kit">Zoek in het pakket</string>
+    <string name="expiry_subtitle">Vervang spullen voordat ze verlopen</string>
+    <string name="shopping_items_to_buy">%1$d dingen te kopen</string>
     <string name="title_kit">Noodpakket</string>
     <string name="add_item">Item toevoegen</string>
     <string name="kit_complete">Je noodpakket is compleet</string>
@@ -138,7 +146,7 @@
     <string name="link_welcome">Toon het welkomstscherm</string>
     <string name="link_donate">Steun de ontwikkeling</string>
     <string name="whats_new_title">Wat is nieuw in 1.0</string>
-    <string name="whats_new_text">• Scan barcodes: de app vult het product voor je in\n• Boodschappenlijst voor wat ontbreekt\n• Kies voor hoeveel dagen je voorraad wilt\n• Wat te doen bij stroomuitval, NL-Alert en meer\n• Houdbaarheid met herinneringen en datum scannen\n• Noodplan als PDF\n• Back-up en widget</string>
+    <string name="whats_new_text">• Scan barcodes: de app vult het product voor je in\n• Boodschappenlijst voor wat ontbreekt\n• Kies voor hoeveel dagen je voorraad wilt\n• Wat te doen bij stroomuitval, NL-Alert en meer\n• Houdbaarheid met herinneringen en datum scannen\n• Noodplan als PDF\n• Back-up en widget\n• Nieuw uiterlijk met een afbeelding bij elk onderdeel</string>
     <string name="onb_title_1">Klaar voor 72 uur</string>
     <string name="onb_text_1">Als stroom, water of internet uitvalt, moet je je de eerste drie dagen zelf redden. Noodpakket helpt je je noodpakket samen te stellen en bij te houden.</string>
     <string name="onb_title_2">Wie hoort bij je huishouden?</string>

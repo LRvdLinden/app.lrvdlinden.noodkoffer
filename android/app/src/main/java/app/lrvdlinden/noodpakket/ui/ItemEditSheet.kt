@@ -96,7 +96,7 @@ fun ItemEditSheet(
             )
             if (entry != null) {
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    base.imageUrl?.let { ProductImage(it, 56.dp) }
+                    ItemArt(base, 72.dp)
                     Text(stringResource(entry.hint), color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             } else {

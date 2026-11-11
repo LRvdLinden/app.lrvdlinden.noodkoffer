@@ -1,7 +1,9 @@
 package app.lrvdlinden.noodpakket
 
 import android.os.Bundle
+import android.graphics.Color
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.getValue
@@ -17,7 +19,8 @@ import app.lrvdlinden.noodpakket.ui.NoodpakketTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        // Every screen starts with a purple header, so the status bar always has light icons.
+        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
         val repo = KitRepository.get(this)
         val prefs = getSharedPreferences("ui", MODE_PRIVATE)
         setContent {

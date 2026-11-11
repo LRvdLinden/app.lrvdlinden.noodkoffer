@@ -88,7 +88,7 @@ fun SettingsScreen(
     Scaffold(
         modifier = modifier.nestedScroll(scroll.nestedScrollConnection),
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
-        topBar = { LargeTopAppBar(title = { Text(stringResource(R.string.title_settings)) }, scrollBehavior = scroll) },
+        topBar = { LargeTopAppBar(title = { Text(stringResource(R.string.title_settings)) }, scrollBehavior = scroll, colors = brandTopBarColors()) },
     ) { inner ->
         Column(Modifier.fillMaxSize().padding(inner).verticalScroll(rememberScrollState()).padding(horizontal = 16.dp)) {
             SectionHeader(stringResource(R.string.settings_household))

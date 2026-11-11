@@ -19,7 +19,7 @@ struct RootView: View {
         ZStack {
             TabView(selection: $tab) {
                 KitView()
-                    .tabItem { Label("Kit", systemImage: "shield.lefthalf.filled") }
+                    .tabItem { Label("Kit", systemImage: "checklist") }
                     .tag(AppTab.kit)
                 ExpiryView()
                     .tabItem { Label("Expiry", systemImage: "calendar.badge.clock") }

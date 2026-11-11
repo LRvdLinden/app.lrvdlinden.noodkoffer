@@ -3,6 +3,7 @@ package app.lrvdlinden.noodpakket.ui
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -35,6 +37,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -79,45 +82,19 @@ fun ExpiryBadge(daysLeft: Int) {
         daysLeft == 0 -> stringResource(R.string.badge_today)
         else -> stringResource(R.string.badge_days, daysLeft)
     }
-    Text(
-        text, color = color, style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.SemiBold,
-        modifier = Modifier.clip(CircleShape).background(color.copy(alpha = 0.14f)).padding(horizontal = 8.dp, vertical = 3.dp),
-    )
+    Pill(text, color)
 }
 
-/** The app mark: shield with "72", drawn on a 1024 grid. */
-@Composable
-fun ShieldMark(modifier: Modifier = Modifier, shield: Color = Color.White, digits: Color = Brand.deep) {
-    Canvas(modifier) {
-        val s = size.width / 1024f
-        fun p(x: Float, y: Float) = Offset(x * s, y * s)
-        val body = Path().apply {
-            moveTo(512 * s, 196 * s); lineTo(792 * s, 296 * s); lineTo(792 * s, 516 * s)
-            cubicTo(792 * s, 686 * s, 674 * s, 806 * s, 512 * s, 856 * s)
-            cubicTo(350 * s, 806 * s, 232 * s, 686 * s, 232 * s, 516 * s)
-            lineTo(232 * s, 296 * s); close()
-        }
-        drawPath(body, shield)
-        val stroke = Stroke(50 * s, cap = StrokeCap.Round, join = StrokeJoin.Round)
-        val seven = Path().apply { moveTo(372 * s, 432 * s); lineTo(492 * s, 432 * s); lineTo(406 * s, 642 * s) }
-        drawPath(seven, digits, style = stroke)
-        val two = Path().apply {
-            moveTo(548 * s, 470 * s)
-            arcTo(androidx.compose.ui.geometry.Rect(p(548f, 420f), Size(100 * s, 100 * s)), 180f, 180f, false)
-            cubicTo(648 * s, 520 * s, 548 * s, 570 * s, 538 * s, 642 * s)
-            lineTo(658 * s, 642 * s)
-        }
-        drawPath(two, digits, style = stroke)
-    }
-}
-
-/** App icon as shown in the footer: green gradient tile with the shield. */
+/** App icon as shown in onboarding and the footer: purple tile with the 72-hour ring. */
 @Composable
 fun AppIconTile(size: Dp) {
     Box(
         Modifier.size(size).clip(RoundedCornerShape(size * 0.2237f))
-            .background(Brush.linearGradient(listOf(Color(0xFF2FB673), Brand.deep))),
-    ) { ShieldMark(Modifier.size(size)) }
+            .background(Brush.verticalGradient(listOf(Brand.purpleMid, Brand.purpleDeep))),
+        contentAlignment = Alignment.Center,
+    ) {
+        Image(painterResource(R.drawable.ic_launcher_foreground), contentDescription = null, modifier = Modifier.requiredSize(size * 1.2f))
+    }
 }
 
 /** "More apps from the developer" card, same design as MoreAppsCard.swift (Homey Store). */

@@ -3,36 +3,25 @@ package app.lrvdlinden.noodpakket.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.outlined.Add
-import androidx.compose.material.icons.outlined.Circle
-import androidx.compose.material.icons.outlined.Contrast
 import androidx.compose.material.icons.outlined.QrCodeScanner
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -40,12 +29,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import app.lrvdlinden.noodpakket.R
 import app.lrvdlinden.noodpakket.data.ItemStatus
 import app.lrvdlinden.noodpakket.data.KitCategory
@@ -55,73 +48,78 @@ import app.lrvdlinden.noodpakket.data.KitState
 import app.lrvdlinden.noodpakket.data.KitSummary
 import java.time.LocalDate
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun KitScreen(state: KitState, repo: KitRepository, modifier: Modifier = Modifier) {
     val summary = KitSummary.of(state)
     var editing by remember { mutableStateOf<KitItem?>(null) }
     var adding by remember { mutableStateOf(false) }
     var scanned by remember { mutableStateOf<String?>(null) }
+    var search by remember { mutableStateOf("") }
     val context = LocalContext.current
-    val scroll = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     val visible = state.items.sortedBy { it.sortOrder }
         .filter { !it.hidden && (it.required(state.household) > 0.0 || it.entry == null) }
+        .filter { search.isBlank() || it.displayName(context).contains(search, ignoreCase = true) }
+    val toGo = visible.count { it.status(state.household) != ItemStatus.HAVE }
 
-    Scaffold(
-        modifier = modifier.nestedScroll(scroll.nestedScrollConnection),
-        contentWindowInsets = WindowInsets(0, 0, 0, 0),
-        topBar = {
-            LargeTopAppBar(
-                title = { Text(stringResource(R.string.title_kit)) }, scrollBehavior = scroll,
-                actions = {
-                    IconButton(onClick = { scanBarcode(context) { scanned = it } }) {
-                        Icon(Icons.Outlined.QrCodeScanner, stringResource(R.string.scan_title))
-                    }
-                },
-            )
-        },
-        floatingActionButton = {
-            FloatingActionButton(onClick = { adding = true }) {
-                Icon(Icons.Outlined.Add, contentDescription = stringResource(R.string.add_item))
+    BrandPage(modifier, header = {
+        HeroHeader(
+            title = stringResource(R.string.title_kit),
+            subtitle = stringResource(R.string.kit_for_people_days, state.household.people, state.household.days),
+            art = listOf("water", "radio", "food"),
+            actions = {
+                HeaderButton(Icons.Outlined.QrCodeScanner, stringResource(R.string.scan_title)) { scanBarcode(context) { scanned = it } }
+                HeaderButton(Icons.Outlined.Add, stringResource(R.string.add_item)) { adding = true }
+            },
+        ) { Meter(summary.completeness, toGo) }
+    }) {
+        val urgent = summary.expired.firstOrNull() ?: summary.next?.takeIf { (it.daysLeft() ?: 99) <= 30 }
+        if (urgent != null) item(key = "alert") { SheetRow { Alert(urgent) { editing = urgent } } }
+        val nextCheck = state.plan.nextCheck?.let { runCatching { LocalDate.parse(it) }.getOrNull() }
+        if (nextCheck != null && !nextCheck.isAfter(LocalDate.now())) {
+            item(key = "check") { SheetRow { CheckDue { repo.update { s -> s.copy(plan = s.plan.withNextCheck()) } } } }
+        }
+        item(key = "search") {
+            SheetRow {
+                OutlinedTextField(
+                    value = search, onValueChange = { search = it }, singleLine = true,
+                    placeholder = { Text(stringResource(R.string.search_kit)) },
+                    leadingIcon = { Icon(Icons.Outlined.Search, null) },
+                    shape = RoundedCornerShape(14.dp),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainer,
+                        focusedContainerColor = MaterialTheme.colorScheme.surfaceContainer,
+                        unfocusedBorderColor = Color.Transparent,
+                    ),
+                    modifier = Modifier.fillMaxWidth(),
+                )
             }
-        },
-    ) { inner ->
-        LazyColumn(Modifier.fillMaxSize().padding(inner).padding(horizontal = 16.dp)) {
-            item { Header(summary, state) }
-            val nextCheck = state.plan.nextCheck?.let { runCatching { LocalDate.parse(it) }.getOrNull() }
-            if (nextCheck != null && !nextCheck.isAfter(LocalDate.now())) {
-                item { CheckDue { repo.update { s -> s.copy(plan = s.plan.withNextCheck()) } } }
+        }
+        KitCategory.entries.forEach { category ->
+            val rows = visible.filter { it.category == category }
+            if (rows.isNotEmpty()) {
+                item(key = "h-$category") { SheetRow { SheetTitle(stringResource(category.title)) } }
+                rows.forEach { row -> item(key = row.id) { SheetRow { ItemRow(row, state) { editing = row } } } }
             }
-            KitCategory.entries.forEach { category ->
-                val rows = visible.filter { it.category == category }
-                if (rows.isNotEmpty()) {
-                    item(key = "h-$category") { SectionHeader(stringResource(category.title)) }
-                    item(key = "g-$category") {
-                        Card {
-                            rows.forEachIndexed { index, row ->
-                                if (index > 0) HorizontalDivider(Modifier.padding(start = 56.dp))
-                                ItemRow(row, state) { editing = row }
-                            }
+        }
+        val hidden = state.items.filter { it.hidden }
+        if (hidden.isNotEmpty()) {
+            item(key = "h-hidden") { SheetRow { SheetTitle(stringResource(R.string.not_needed)) } }
+            hidden.forEach { row ->
+                item(key = "x-" + row.id) {
+                    SheetRow {
+                        CardRow(Modifier.clickable { editing = row }) {
+                            Box(Modifier.alpha(0.5f)) { ItemArt(row, 40.dp) }
+                            Text(row.displayName(context), color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.weight(1f))
                         }
                     }
                 }
             }
-            val hidden = state.items.filter { it.hidden }
-            if (hidden.isNotEmpty()) {
-                item(key = "h-hidden") { SectionHeader(stringResource(R.string.not_needed)) }
-                item(key = "g-hidden") {
-                    Card {
-                        hidden.forEachIndexed { index, row ->
-                            if (index > 0) HorizontalDivider(Modifier.padding(start = 16.dp))
-                            Text(row.displayName(context), color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.fillMaxWidth().clickable { editing = row }.padding(16.dp))
-                        }
-                    }
+            item(key = "f-hidden") {
+                SheetRow {
+                    Text(stringResource(R.string.not_needed_footer), style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(4.dp))
                 }
-                item { Text(stringResource(R.string.not_needed_footer), style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(16.dp, 6.dp)) }
             }
-            item { Spacer(Modifier.height(96.dp)) }
         }
     }
 
@@ -137,36 +135,37 @@ fun KitScreen(state: KitState, repo: KitRepository, modifier: Modifier = Modifie
     }
 }
 
+/** Big yellow percentage with a bar. */
 @Composable
-private fun Header(summary: KitSummary, state: KitState) {
+private fun Meter(percent: Int, toGo: Int) {
+    val label = stringResource(R.string.a11y_percent_complete, percent)
+    Column(Modifier.semantics(mergeDescendants = true) { contentDescription = label }, verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Text("$percent%", color = Brand.yellow, fontSize = 60.sp, fontWeight = FontWeight.ExtraBold, lineHeight = 62.sp)
+        FillBar(percent / 100.0, Brand.yellow, Modifier.width(210.dp), track = Color.White.copy(alpha = 0.16f), height = 10.dp)
+        Text(
+            if (percent == 100) stringResource(R.string.kit_complete) else stringResource(R.string.kit_items_to_go, toGo),
+            color = Color.White.copy(alpha = 0.85f), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Medium,
+        )
+    }
+}
+
+/** Yellow notice for the most urgent expiry. */
+@Composable
+private fun Alert(item: KitItem, onClick: () -> Unit) {
     val context = LocalContext.current
+    val days = item.daysLeft() ?: 0
     Row(
-        Modifier.fillMaxWidth().padding(top = 4.dp, bottom = 4.dp).clip(RoundedCornerShape(22.dp))
-            .background(MaterialTheme.colorScheme.surfaceContainer).padding(18.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(20.dp),
+        Modifier.fillMaxWidth().padding(bottom = 12.dp).clip(RoundedCornerShape(18.dp)).background(Brand.yellow)
+            .clickable(onClick = onClick).padding(12.dp),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        ProgressRing(summary.completeness, Modifier.size(112.dp))
-        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text(
-                stringResource(if (summary.completeness == 100) R.string.kit_complete else R.string.kit_keep_going),
-                style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold,
-            )
-            Text(stringResource(R.string.kit_items_for_people, summary.itemCount, state.household.people),
-                color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
-            val next = summary.next
-            if (summary.expired.isNotEmpty()) {
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Icon(Icons.Filled.Warning, null, tint = dangerColor(), modifier = Modifier.size(16.dp))
-                    Text(stringResource(R.string.kit_expired_count, summary.expired.size), color = dangerColor(),
-                        style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
-                }
-            } else if (next != null) {
-                val days = next.daysLeft() ?: 0
-                Text(stringResource(R.string.kit_next_in_days, next.displayName(context), days), color = expiryColor(days),
-                    style = MaterialTheme.typography.bodyMedium)
-            }
-        }
+        ItemArt(item, 44.dp)
+        Text(
+            if (days < 0) stringResource(R.string.kit_alert_expired, item.displayName(context))
+            else stringResource(R.string.kit_alert_expires, item.displayName(context), days),
+            color = Brand.purple, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.weight(1f),
+        )
     }
 }
 
@@ -174,33 +173,32 @@ private fun Header(summary: KitSummary, state: KitState) {
 fun ItemRow(item: KitItem, state: KitState, onClick: () -> Unit) {
     val context = LocalContext.current
     val status = item.status(state.household)
-    Row(
-        Modifier.fillMaxWidth().clickable(onClick = onClick).padding(horizontal = 16.dp, vertical = 12.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-        val (icon, tint) = when (status) {
-            ItemStatus.HAVE -> Icons.Filled.CheckCircle to MaterialTheme.colorScheme.primary
-            ItemStatus.PARTIAL -> Icons.Outlined.Contrast to warningColor()
-            ItemStatus.MISSING -> Icons.Outlined.Circle to MaterialTheme.colorScheme.outline
-        }
-        Icon(icon, contentDescription = null, tint = tint, modifier = Modifier.size(26.dp))
-        item.imageUrl?.let { ProductImage(it, 36.dp) }
-        Column(Modifier.weight(1f)) {
-            Text(item.displayName(context), style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Medium)
+    val need = item.required(state.household)
+    CardRow(Modifier.clickable(onClick = onClick)) {
+        ItemArt(item, 56.dp)
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            Text(item.displayName(context), style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
             Text(
-                "${formatAmount(context, item, item.quantity)} / ${formatAmount(context, item, item.required(state.household))}",
+                "${formatAmount(context, item, item.quantity)} / ${formatAmount(context, item, need)}",
                 style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            FillBar(if (need > 0) item.quantity / need else 1.0, if (status == ItemStatus.HAVE) okColor() else Brand.yellow,
+                Modifier.fillMaxWidth().padding(top = 3.dp))
         }
-        item.daysLeft()?.let { ExpiryBadge(it) }
+        val days = item.daysLeft()
+        when {
+            days != null -> ExpiryBadge(days)
+            status == ItemStatus.MISSING -> Pill(stringResource(R.string.missing), dangerColor())
+            status == ItemStatus.HAVE -> Icon(Icons.Filled.CheckCircle, null, tint = okColor(), modifier = Modifier.size(24.dp))
+            else -> {}
+        }
     }
 }
 
 @Composable
 private fun CheckDue(onDone: () -> Unit) {
     Row(
-        Modifier.fillMaxWidth().padding(top = 12.dp).clip(RoundedCornerShape(16.dp))
+        Modifier.fillMaxWidth().padding(bottom = 12.dp).clip(RoundedCornerShape(18.dp))
             .background(MaterialTheme.colorScheme.surfaceContainer).padding(16.dp),
         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {

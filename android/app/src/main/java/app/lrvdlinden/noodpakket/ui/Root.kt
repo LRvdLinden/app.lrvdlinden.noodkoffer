@@ -6,7 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Assignment
 import androidx.compose.material.icons.outlined.CalendarMonth
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.outlined.Shield
+import androidx.compose.material.icons.outlined.Checklist
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -26,7 +26,7 @@ import app.lrvdlinden.noodpakket.data.KitRepository
 import app.lrvdlinden.noodpakket.data.KitState
 
 private enum class Tab(val label: Int, val icon: ImageVector) {
-    KIT(R.string.tab_kit, Icons.Outlined.Shield),
+    KIT(R.string.tab_kit, Icons.Outlined.Checklist),
     EXPIRY(R.string.tab_expiry, Icons.Outlined.CalendarMonth),
     SHOPPING(R.string.tab_shopping, Icons.Outlined.ShoppingCart),
     PLAN(R.string.tab_plan, Icons.AutoMirrored.Outlined.Assignment),

@@ -67,5 +67,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
     implementation("com.google.mlkit:text-recognition:16.0.1")
     implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation("io.coil-kt:coil-svg:2.7.0")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

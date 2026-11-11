@@ -19,11 +19,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Groups
-import androidx.compose.material.icons.outlined.NotificationsActive
 import androidx.compose.material.icons.outlined.Remove
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -39,8 +38,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -60,7 +59,8 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
         Reminders.setEnabled(context, granted); reminders = granted
     }
 
-    Surface(Modifier.fillMaxSize()) {
+    BrandDarkTheme {
+    Surface(Modifier.fillMaxSize(), color = Brand.purple) {
         Column(Modifier.fillMaxSize().safeDrawingPadding().padding(24.dp)) {
             AnimatedContent(targetState = page, modifier = Modifier.weight(1f), label = "onboarding") { p ->
                 Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
@@ -70,7 +70,7 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
                             Page(R.string.onb_title_1, R.string.onb_text_1)
                         }
                         1 -> {
-                            Symbol(Icons.Outlined.Groups)
+                            ArtImage("blankets", Modifier.size(140.dp))
                             Page(R.string.onb_title_2, R.string.onb_text_2)
                             Spacer(Modifier.height(20.dp))
                             Card {
@@ -82,7 +82,7 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
                             }
                         }
                         else -> {
-                            Symbol(Icons.Outlined.NotificationsActive)
+                            ArtImage("batteries", Modifier.size(140.dp))
                             Page(R.string.onb_title_3, R.string.onb_text_3)
                             Spacer(Modifier.height(20.dp))
                             Card {
@@ -104,13 +104,17 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
             Row(Modifier.fillMaxWidth().padding(vertical = 16.dp), horizontalArrangement = Arrangement.Center) {
                 repeat(3) { i ->
                     Box(Modifier.padding(4.dp).size(8.dp).clip(CircleShape)
-                        .background(if (i == page) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant))
+                        .background(if (i == page) Brand.yellow else Color.White.copy(alpha = 0.3f)))
                 }
             }
-            Button(onClick = { if (page < 2) page++ else onDone() }, modifier = Modifier.fillMaxWidth().height(52.dp)) {
-                Text(stringResource(if (page < 2) R.string.next else R.string.get_started))
+            Button(
+                onClick = { if (page < 2) page++ else onDone() }, modifier = Modifier.fillMaxWidth().height(54.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Brand.yellow, contentColor = Brand.purple),
+            ) {
+                Text(stringResource(if (page < 2) R.string.next else R.string.get_started), fontWeight = FontWeight.Bold)
             }
         }
+    }
     }
 }
 
@@ -120,14 +124,6 @@ private fun Page(title: Int, text: Int) {
     Text(stringResource(title), style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
     Spacer(Modifier.height(12.dp))
     Text(stringResource(text), color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
-}
-
-@Composable
-private fun Symbol(icon: ImageVector) {
-    Box(Modifier.size(120.dp).clip(RoundedCornerShape(28.dp)).background(MaterialTheme.colorScheme.primaryContainer),
-        contentAlignment = Alignment.Center) {
-        Icon(icon, null, Modifier.size(56.dp), tint = MaterialTheme.colorScheme.primary)
-    }
 }
 
 @Composable
