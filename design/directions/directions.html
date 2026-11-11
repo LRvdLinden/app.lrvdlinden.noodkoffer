@@ -1,0 +1,131 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../illustrations/illustrations.js"></script>
+<style>
+@font-face { font-family: "Brico"; src: url(../appstore-src/fonts/bricolage-grotesque-latin-800-normal.woff2); font-weight: 800; }
+:root { --paars: #3C175B; --paars2: #5A2E85; --geel: #F4B943; --creme: #FCF2DB; --grijs: #F2F5F9; --ink: #1E1428; --mute: #7A6E86; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #E9E4EF; font-family: Inter, -apple-system, sans-serif; padding: 40px; display: flex; gap: 48px; align-items: flex-start; }
+.col { text-align: center; }
+.col h2 { font: 800 30px Brico, Inter; color: var(--paars); margin-bottom: 6px; }
+.col p.lab { color: var(--mute); font-size: 16px; margin-bottom: 20px; }
+.phone { width: 390px; height: 844px; border-radius: 54px; overflow: hidden; position: relative; box-shadow: 0 30px 70px -30px rgba(40,10,60,.5), 0 0 0 10px #15101A; text-align: left; }
+.sb { height: 50px; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 30px 8px; font-weight: 600; font-size: 16px; }
+.tabs { position: absolute; left: 0; right: 0; bottom: 0; height: 84px; display: flex; justify-content: space-around; padding-top: 10px; font-size: 10px; font-weight: 600; border-top: 1px solid rgba(0,0,0,.06); }
+.tabs div { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 70px; }
+.tabs i { width: 24px; height: 24px; border-radius: 7px; display: block; }
+.ring { position: relative; }
+.ring svg { transform: rotate(-90deg); display: block; }
+.ring b { position: absolute; inset: 0; display: grid; place-items: center; font: 800 24px Brico, Inter; }
+.pill { display: inline-block; border-radius: 999px; font-size: 11px; font-weight: 700; padding: 3px 8px; }
+.ok { background: #DDF3E6; color: #1B7A47; } .warn { background: #FFF0CC; color: #8A5A00; } .bad { background: #FFE0DD; color: #B4302A; }
+.bar { height: 6px; border-radius: 3px; background: rgba(60,23,91,.1); overflow: hidden; } .bar i { display: block; height: 100%; border-radius: 3px; }
+
+/* A */
+.A { background: var(--creme); color: var(--ink); }
+.A .hero { margin: 6px 16px 0; background: var(--paars); color: #fff; border-radius: 26px; padding: 18px; display: flex; gap: 16px; align-items: center; position: relative; overflow: hidden; }
+.A .hero .t { font: 800 22px Brico, Inter; line-height: 1.1; }
+.A .hero small { display: block; opacity: .8; font-size: 13px; margin-top: 6px; }
+.A .hero .warnline { margin-top: 10px; background: rgba(244,185,67,.18); color: var(--geel); border-radius: 10px; padding: 6px 10px; font-size: 12px; font-weight: 700; display: inline-block; }
+.A h1 { font: 800 32px Brico, Inter; color: var(--paars); padding: 6px 20px 10px; display: flex; justify-content: space-between; align-items: center; }
+.A .scan { width: 40px; height: 40px; border-radius: 14px; background: var(--geel); display: grid; place-items: center; }
+.A .chips { display: flex; gap: 8px; padding: 14px 16px 10px; overflow: hidden; }
+.A .chips span { white-space: nowrap; padding: 8px 12px; border-radius: 999px; background: #fff; font-size: 13px; font-weight: 700; color: var(--paars); box-shadow: 0 1px 0 rgba(60,23,91,.08); }
+.A .chips span.on { background: var(--paars); color: #fff; }
+.A .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 16px; }
+.A .card { background: #fff; border-radius: 22px; padding: 10px 12px 12px; box-shadow: 0 2px 0 rgba(60,23,91,.06); }
+.A .card .art { border-radius: 16px; height: 96px; display: grid; place-items: center; margin-bottom: 8px; position: relative; }
+.A .card .art .pill { position: absolute; top: 8px; right: 8px; }
+.A .card b { font-size: 14px; display: block; } .A .card small { color: var(--mute); font-size: 12px; display: block; margin: 2px 0 8px; }
+.A .tabs { background: rgba(252,242,219,.95); color: var(--mute); } .A .tabs .on { color: var(--paars); } .A .tabs i { background: currentColor; opacity: .25; } .A .tabs .on i { opacity: 1; background: var(--paars); }
+
+/* B */
+.B { background: var(--paars); color: #fff; }
+.B .top { padding: 4px 20px 0; position: relative; height: 300px; }
+.B .top h1 { font: 800 30px Brico, Inter; }
+.B .top .sub { opacity: .75; font-size: 14px; margin-top: 4px; }
+.B .top .big { position: absolute; right: 8px; top: 40px; }
+.B .meter { margin-top: 18px; width: 200px; }
+.B .meter .num { font: 800 54px Brico, Inter; color: var(--geel); line-height: 1; }
+.B .meter .bar { height: 10px; background: rgba(255,255,255,.15); margin-top: 10px; } .B .meter .bar i { background: var(--geel); }
+.B .meter small { display: block; margin-top: 8px; font-size: 13px; opacity: .8; }
+.B .sheet { position: absolute; top: 330px; left: 0; right: 0; bottom: 0; background: var(--grijs); border-radius: 30px 30px 0 0; color: var(--ink); padding: 18px 16px 0; }
+.B .alert { background: var(--geel); color: var(--paars); border-radius: 18px; padding: 12px 14px; display: flex; gap: 12px; align-items: center; font-weight: 700; font-size: 14px; margin-bottom: 14px; }
+.B .alert .ic { width: 40px; height: 40px; background: #fff; border-radius: 12px; display: grid; place-items: center; flex: none; }
+.B .sec { font-size: 12px; font-weight: 800; letter-spacing: .06em; color: var(--mute); margin: 6px 4px 8px; text-transform: uppercase; }
+.B .row { background: #fff; border-radius: 18px; padding: 8px 12px 8px 8px; display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+.B .row .art { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; flex: none; }
+.B .row .m { flex: 1; } .B .row b { font-size: 15px; } .B .row small { color: var(--mute); font-size: 12px; display: block; margin: 2px 0 6px; }
+.B .tabs { background: #fff; color: var(--mute); } .B .tabs .on { color: var(--paars); } .B .tabs i { background: currentColor; opacity: .25; } .B .tabs .on i { opacity: 1; }
+
+/* C */
+.C { background: #fff; color: var(--ink); }
+.C .head { background: var(--geel); padding: 0 20px 18px; }
+.C .head .sb { padding-left: 10px; padding-right: 10px; }
+.C .head h1 { font: 800 30px Brico, Inter; color: var(--paars); display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+.C .head .search { margin-top: 12px; background: #fff; border-radius: 14px; padding: 12px 14px; color: var(--mute); font-size: 14px; display: flex; justify-content: space-between; }
+.C .stat { display: flex; gap: 10px; padding: 16px 16px 6px; }
+.C .stat div { flex: 1; background: var(--creme); border-radius: 18px; padding: 12px; }
+.C .stat div.p { background: var(--paars); color: #fff; }
+.C .stat b { font: 800 24px Brico, Inter; display: block; } .C .stat small { font-size: 12px; opacity: .8; }
+.C .cat { padding: 12px 0 0 16px; }
+.C .cat h3 { font: 800 19px Brico, Inter; color: var(--paars); display: flex; justify-content: space-between; padding-right: 16px; }
+.C .cat h3 span { font: 600 13px Inter; color: var(--mute); }
+.C .car { display: flex; gap: 10px; margin-top: 10px; }
+.C .tile { width: 132px; flex: none; }
+.C .tile .art { height: 120px; border-radius: 20px; display: grid; place-items: center; position: relative; }
+.C .tile .art .chk { position: absolute; left: 8px; top: 8px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 14px; font-weight: 800; }
+.C .tile b { font-size: 13px; display: block; margin-top: 6px; } .C .tile small { font-size: 12px; color: var(--mute); }
+.C .tabs { background: #fff; color: var(--mute); } .C .tabs .on { color: var(--paars); } .C .tabs i { background: currentColor; opacity: .25; } .C .tabs .on i { opacity: 1; }
+.icon { width: 84px; height: 84px; border-radius: 20px; }
+.icons { display: flex; gap: 14px; justify-content: center; margin-top: 22px; align-items: center; color: var(--mute); font-size: 13px; }
+</style></head><body>
+<div class="col"><h2>A · Voorraadkast</h2><p class="lab">Crème, kaarten met grote productbeelden</p><div class="phone A" id="A"></div></div>
+<div class="col"><h2>B · Paars dashboard</h2><p class="lab">Rustig paars, meter + lijst met beelden</p><div class="phone B" id="B"></div></div>
+<div class="col"><h2>C · Geel & schappen</h2><p class="lab">Gele kop, per categorie een rij om te swipen</p><div class="phone C" id="C"></div></div>
+<script>
+const { svg, CAT, ITEM_CAT } = NP_ART;
+const items = [
+  { k: 'water', n: 'Drinkwater', s: '27 / 27 L', p: 1, st: ['ok', '412 d'] },
+  { k: 'food', n: 'Houdbaar eten', s: '6 / 9 dagen', p: .67, st: ['warn', '3 dgn kort'] },
+  { k: 'medicines', n: 'Medicijnen', s: '1 / 1 pak', p: 1, st: ['warn', '27 d'] },
+  { k: 'firstaid', n: 'EHBO-doos', s: '1 / 1', p: 1, st: ['ok', '741 d'] },
+  { k: 'flashlight', n: 'Zaklamp', s: '1 / 1', p: 1, st: ['ok', 'Klaar'] },
+  { k: 'batteries', n: 'Batterijen', s: '2 / 2 pakken', p: 1, st: ['bad', '23 d'] },
+  { k: 'radio', n: 'Noodradio', s: '0 / 1', p: 0, st: ['bad', 'Ontbreekt'] },
+  { k: 'cash', n: 'Contant geld', s: '€ 120 / 170', p: .7, st: ['warn', '€ 50 kort'] },
+];
+const tile = k => `background:linear-gradient(160deg,${CAT[ITEM_CAT[k]].a},${CAT[ITEM_CAT[k]].b})`;
+const ring = (p, size, sw, track, color, txtColor) => { const r = (size - sw) / 2, c = 2 * Math.PI * r;
+  return `<div class="ring" style="width:${size}px;height:${size}px"><svg width="${size}" height="${size}"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${track}" stroke-width="${sw}"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p)}"/></svg><b style="color:${txtColor}">${Math.round(p*100)}%</b></div>`; };
+const sb = c => `<div class="sb" style="color:${c}"><span>9:41</span><span>●●● ▮</span></div>`;
+const tabs = ['Pakket', 'Houdbaar', 'Boodschappen', 'Noodplan', 'Instellingen'].map((t, i) => `<div class="${i ? '' : 'on'}"><i></i>${t}</div>`).join('');
+const scanIc = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3C175B" stroke-width="2.4" stroke-linecap="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 9v6M11 9v6M14 9v6M17 9v6"/></svg>`;
+
+document.getElementById('A').innerHTML = sb('#1E1428') + `
+  <h1>Noodpakket <span class="scan">${scanIc}</span></h1>
+  <div class="hero">${ring(.85, 96, 11, 'rgba(255,255,255,.15)', '#F4B943', '#fff')}
+    <div><div class="t">Bijna klaar voor 72 uur</div><small>13 van 15 onderdelen · 3 personen</small><span class="warnline">Batterijen verlopen over 23 dagen</span></div></div>
+  <div class="chips"><span class="on">Alles</span><span>💧 Water & eten</span><span>⛑ Gezondheid</span><span>🔦 Licht</span></div>
+  <div class="grid">${items.slice(0, 6).map(i => `<div class="card"><div class="art" style="${tile(i.k)}">${svg(i.k, 84)}<span class="pill ${i.st[0]}">${i.st[1]}</span></div><b>${i.n}</b><small>${i.s}</small><div class="bar"><i style="width:${i.p*100}%;background:${i.p>=1?'#1B9A5E':'#F4B943'}"></i></div></div>`).join('')}</div>
+  <div class="tabs">${tabs}</div>`;
+
+document.getElementById('B').innerHTML = sb('#fff') + `
+  <div class="top"><h1>Noodpakket</h1><div class="sub">Voor 2 volwassenen en 1 kind · 3 dagen</div>
+    <div class="meter"><div class="num">85%</div><div class="bar"><i style="width:85%"></i></div><small>Nog 2 onderdelen te gaan</small></div>
+    <div class="big">${svg('water', 110).replace('<svg', '<svg style="position:absolute;right:96px;top:70px;transform:rotate(-8deg)"')}${svg('radio', 120).replace('<svg', '<svg style="position:absolute;right:0;top:120px;transform:rotate(6deg)"')}${svg('food', 96).replace('<svg', '<svg style="position:absolute;right:20px;top:-10px"')}</div></div>
+  <div class="sheet"><div class="alert"><span class="ic">${svg('batteries', 34)}</span>Batterijen verlopen over 23 dagen. Zet ze op je lijst.</div>
+    <div class="sec">Water en eten</div>
+    ${items.slice(0, 2).map(i => `<div class="row"><div class="art" style="${tile(i.k)}">${svg(i.k, 48)}</div><div class="m"><b>${i.n}</b><small>${i.s}</small><div class="bar"><i style="width:${i.p*100}%;background:${i.p>=1?'#1B9A5E':'#F4B943'}"></i></div></div><span class="pill ${i.st[0]}">${i.st[1]}</span></div>`).join('')}
+    <div class="sec">Licht en stroom</div>
+    ${items.slice(5, 7).map(i => `<div class="row"><div class="art" style="${tile(i.k)}">${svg(i.k, 48)}</div><div class="m"><b>${i.n}</b><small>${i.s}</small><div class="bar"><i style="width:${i.p*100}%;background:${i.p>=1?'#1B9A5E':'#F4B943'}"></i></div></div><span class="pill ${i.st[0]}">${i.st[1]}</span></div>`).join('')}
+  </div><div class="tabs">${tabs}</div>`;
+
+const cats = [['Water en eten', ['water', 'food']], ['Gezondheid', ['medicines', 'firstaid']], ['Licht en stroom', ['flashlight', 'batteries', 'radio']]];
+const by = Object.fromEntries(items.map(i => [i.k, i]));
+document.getElementById('C').innerHTML = `<div class="head">${sb('#3C175B')}<h1>Noodpakket <span>${scanIc}</span></h1><div class="search"><span>Zoek of scan een product</span><span>⌕</span></div></div>
+  <div class="stat"><div class="p"><b>85%</b><small>compleet voor 72 uur</small></div><div><b>2</b><small>verloopt binnenkort</small></div><div><b>3</b><small>op je lijst</small></div></div>
+  ${cats.map(([t, ks]) => `<div class="cat"><h3>${t}<span>${ks.length} items ›</span></h3><div class="car">${ks.map(k => { const i = by[k]; const col = i.p >= 1 ? '#1B9A5E' : i.p > 0 ? '#F4B943' : '#D9534F';
+    return `<div class="tile"><div class="art" style="${tile(k)}"><span class="chk" style="background:${col}">${i.p >= 1 ? '✓' : i.p > 0 ? '…' : '!'}</span>${svg(k, 92)}</div><b>${i.n}</b><small>${i.s}</small></div>`; }).join('')}</div></div>`).join('')}
+  <div class="tabs">${tabs}</div>`;
+</script></body></html>
