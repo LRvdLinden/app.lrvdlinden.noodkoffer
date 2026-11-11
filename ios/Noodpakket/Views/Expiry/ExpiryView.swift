@@ -22,14 +22,12 @@ struct ExpiryView: View {
         let later = dated.filter { ($0.daysLeft() ?? 0) > 30 }
         NavigationStack {
             BrandPage {
-                HeroHeader(title: "Expiry dates", subtitle: Text("Replace things before they expire"),
-                           art: ["batteries", "medicines", "water"]) {
+                HeroHeader(title: "Expiry dates", subtitle: Text("Replace things before they expire")) {
                     HStack(spacing: 10) {
                         stat(expired.count, "Expired", Theme.danger)
                         stat(soon.count, "Within 30 days", Theme.yellow)
                         stat(later.count, "Later", .white)
                     }
-                    .padding(.trailing, 110)
                 } actions: { EmptyView() }
             } sheet: {
                 if dated.isEmpty {

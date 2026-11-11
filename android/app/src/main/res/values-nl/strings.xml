@@ -69,8 +69,8 @@
     <string name="tab_settings">Instellingen</string>
     <string name="kit_for_people_days">Voor %1$d personen · %2$d dagen</string>
     <string name="kit_items_to_go">Nog %1$d te gaan</string>
-    <string name="kit_alert_expired">%1$s is verlopen. Vervang het snel.</string>
-    <string name="kit_alert_expires">%1$s verloopt over %2$d dagen.</string>
+    <string name="kit_alert_expired">%1$s: verlopen. Vervang het snel.</string>
+    <string name="kit_alert_expires">%1$s: verloopt over %2$d dagen.</string>
     <string name="missing">Ontbreekt</string>
     <string name="search_kit">Zoek in het pakket</string>
     <string name="expiry_subtitle">Vervang spullen voordat ze verlopen</string>

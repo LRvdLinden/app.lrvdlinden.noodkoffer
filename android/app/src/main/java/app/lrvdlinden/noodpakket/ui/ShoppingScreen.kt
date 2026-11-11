@@ -43,7 +43,7 @@ fun ShoppingScreen(state: KitState, repo: KitRepository, modifier: Modifier = Mo
     }
 
     BrandPage(modifier, header = {
-        Column(Modifier.heightIn(min = 230.dp)) {
+        Column {
             HeroHeader(
                 title = stringResource(R.string.title_shopping),
                 subtitle = if (missing.isEmpty()) stringResource(R.string.shopping_empty_title)

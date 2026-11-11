@@ -38,7 +38,6 @@ struct ShoppingView: View {
                         .accessibilityLabel(Text("Share list"))
                     }
                 }
-                .frame(minHeight: 190, alignment: .top)
             } sheet: {
                 if missing.isEmpty {
                     EmptyCard(art: "water", category: .waterFood, title: "Nothing to buy",

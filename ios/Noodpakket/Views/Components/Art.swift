@@ -96,7 +96,7 @@ struct HeroHeader<Content: View, Actions: View>: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            if !art.isEmpty { heroArt.offset(x: 8, y: 34) }
+            if !art.isEmpty { heroArt.padding(.top, 56).offset(x: 8) }
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
                     Text(title)
@@ -119,12 +119,12 @@ struct HeroHeader<Content: View, Actions: View>: View {
 
     /// Up to three illustrations, slightly rotated, on the right of the header.
     private var heroArt: some View {
-        ZStack {
-            if art.count > 2 { ArtImage(key: art[2]).frame(width: 84).rotationEffect(.degrees(4)).offset(x: -10, y: -14) }
-            if art.count > 1 { ArtImage(key: art[1]).frame(width: 104).rotationEffect(.degrees(7)).offset(x: 0, y: 92) }
-            ArtImage(key: art[0]).frame(width: 92).rotationEffect(.degrees(-8)).offset(x: -86, y: 52)
+        ZStack(alignment: .topTrailing) {
+            if art.count > 2 { ArtImage(key: art[2]).frame(width: 76).rotationEffect(.degrees(5)).offset(x: -4, y: 0) }
+            if art.count > 1 { ArtImage(key: art[1]).frame(width: 100).rotationEffect(.degrees(7)).offset(y: 96) }
+            ArtImage(key: art[0]).frame(width: 88).rotationEffect(.degrees(-8)).offset(x: -74, y: 42)
         }
-        .frame(width: 190, height: 200, alignment: .topTrailing)
+        .frame(width: 170, height: 200, alignment: .topTrailing)
         .allowsHitTesting(false)
         .accessibilityHidden(true)
     }

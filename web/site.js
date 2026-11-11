@@ -68,15 +68,15 @@
   const arc = $('arc'), pct = $('pct'), headline = $('headline'), toast = $('toast');
   const rowWater = $('row-water'), dotWater = $('dot-water'), waterSub = $('water-sub');
   const fields = Array.from(document.querySelectorAll('.field [data-type]'));
-  const CIRC = 207.3;
-  const setRing = (p, color) => { arc.style.strokeDashoffset = String(CIRC * (1 - p / 100)); arc.style.stroke = color; };
+  // The big percentage with its bar in the purple header of the app.
+  const setRing = p => { arc.style.width = p + '%'; };
 
   function reset() {
     sheet.classList.remove('open'); viewfinder.classList.remove('done'); product.classList.remove('in');
     toast.classList.remove('in'); rowWater.classList.remove('flash');
     fields.forEach(f => { f.textContent = ''; f.classList.remove('caret'); });
     dotWater.className = 'dot half'; waterSub.textContent = '18 L / 27 L';
-    setRing(76, '#E39A12'); pct.textContent = '76%'; headline.textContent = 'Bijna zover';
+    setRing(76); pct.textContent = '76%'; headline.textContent = 'Nog 3 te gaan';
   }
 
   async function type(el, text) {
@@ -114,10 +114,10 @@
       await sleep(450);
       rowWater.classList.add('flash'); dotWater.className = 'dot ok'; waterSub.textContent = '27 L / 27 L';
       toast.classList.add('in');
-      setRing(91, '#E39A12'); countRing(76, 91, 1200);
+      setRing(91); countRing(76, 91, 1200);
       await sleep(1300);
       toast.classList.remove('in');
-      headline.textContent = 'Bijna klaar!';
+      headline.textContent = 'Nog 2 te gaan';
       await sleep(3200);
     }
     running = false;
@@ -132,7 +132,7 @@
     } else { demo(); }
   } else if (sheet) {
     // Reduced motion: show the end state of the demo
-    dotWater.className = 'dot ok'; waterSub.textContent = '27 L / 27 L'; setRing(91, '#E39A12'); pct.textContent = '91%';
+    dotWater.className = 'dot ok'; waterSub.textContent = '27 L / 27 L'; setRing(91); pct.textContent = '91%'; headline.textContent = 'Nog 2 te gaan';
   }
 
   // Expiry timeline: days count down; batteries expire, a notification appears, then they are renewed

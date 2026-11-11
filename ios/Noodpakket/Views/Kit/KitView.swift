@@ -97,7 +97,7 @@ struct KitView: View {
                 .animation(.easeOut, value: summary.completeness)
             FillBar(fraction: Double(summary.completeness) / 100, color: Theme.yellow,
                     track: .white.opacity(0.16), height: 10)
-                .frame(width: 210)
+                .frame(width: 190)
             Group {
                 if summary.completeness == 100 { Text("Your kit is complete") } else { Text("\(missing) items to go") }
             }
@@ -114,8 +114,8 @@ struct KitView: View {
                 HStack(spacing: 12) {
                     ItemArt(item: item, size: 44)
                     Group {
-                        if days < 0 { Text("\(item.displayName) has expired. Replace it soon.") }
-                        else { Text("\(item.displayName) expires in \(days) days.") }
+                        if days < 0 { Text("\(item.displayName): expired. Replace it soon.") }
+                        else { Text("\(item.displayName): expires in \(days) days.") }
                     }
                     .font(.subheadline.weight(.bold))
                     .multilineTextAlignment(.leading)

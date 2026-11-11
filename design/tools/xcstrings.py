@@ -3,8 +3,8 @@ import json, re, os, glob, sys
 NL = {
 "For %lld people · %lld days": "Voor %lld personen · %lld dagen",
 "%lld items to go": "Nog %lld te gaan",
-"%@ has expired. Replace it soon.": "%@ is verlopen. Vervang het snel.",
-"%@ expires in %lld days.": "%@ verloopt over %lld dagen.",
+"%@: expired. Replace it soon.": "%@: verlopen. Vervang het snel.",
+"%@: expires in %lld days.": "%@: verloopt over %lld dagen.",
 "Clear": "Wissen",
 "Missing": "Ontbreekt",
 "Replace things before they expire": "Vervang spullen voordat ze verlopen",

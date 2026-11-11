@@ -48,9 +48,8 @@ fun ExpiryScreen(state: KitState, repo: KitRepository, modifier: Modifier = Modi
         HeroHeader(
             title = stringResource(R.string.title_expiry),
             subtitle = stringResource(R.string.expiry_subtitle),
-            art = listOf("batteries", "medicines", "water"),
         ) {
-            Row(Modifier.padding(end = 110.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 Stat(expired.size, stringResource(R.string.group_expired), Brand.redDark, Modifier.weight(1f))
                 Stat(soon.size, stringResource(R.string.group_30_days), Brand.yellow, Modifier.weight(1f))
                 Stat(later.size, stringResource(R.string.group_later), Color.White, Modifier.weight(1f))

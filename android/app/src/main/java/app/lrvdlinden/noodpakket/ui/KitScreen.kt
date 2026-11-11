@@ -141,7 +141,7 @@ private fun Meter(percent: Int, toGo: Int) {
     val label = stringResource(R.string.a11y_percent_complete, percent)
     Column(Modifier.semantics(mergeDescendants = true) { contentDescription = label }, verticalArrangement = Arrangement.spacedBy(10.dp)) {
         Text("$percent%", color = Brand.yellow, fontSize = 60.sp, fontWeight = FontWeight.ExtraBold, lineHeight = 62.sp)
-        FillBar(percent / 100.0, Brand.yellow, Modifier.width(210.dp), track = Color.White.copy(alpha = 0.16f), height = 10.dp)
+        FillBar(percent / 100.0, Brand.yellow, Modifier.width(190.dp), track = Color.White.copy(alpha = 0.16f), height = 10.dp)
         Text(
             if (percent == 100) stringResource(R.string.kit_complete) else stringResource(R.string.kit_items_to_go, toGo),
             color = Color.White.copy(alpha = 0.85f), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Medium,

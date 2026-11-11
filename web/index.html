@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Scan je spullen, zie wat ontbreekt en mis nooit meer een houdbaarheidsdatum. Gratis voor iPhone, iPad en Android.">
   <meta name="twitter:image" content="https://noodpakket.lrvdlinden.app/og/home-nl.png">
   <meta name="twitter:image:alt" content="Noodpakket: scan het, klaar. Je noodpakket altijd compleet, met de app op twee iPhones.">
-  <meta name="theme-color" content="#1B9A5E">
+  <meta name="theme-color" content="#3C175B">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="img/icon.svg" type="image/svg+xml">
   <link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
@@ -55,7 +55,7 @@
     <section class="hero">
       <div class="wrap">
         <div>
-          <span class="eyebrow enter" style="--d:0"><i></i>72 uur zelfredzaam · Denk vooruit</span>
+          <span class="eyebrow enter" style="--d:0"><i></i>72 uur zelfredzaam</span>
           <h1 class="enter" style="--d:1">Scan het. <em>Klaar.</em><br>Je noodpakket, altijd compleet.</h1>
           <p class="lead enter" style="--d:2">Scan de barcode van je water, batterijen of blikken en Noodpakket vult de rest in. De app houdt bij wat er nog ontbreekt, waarschuwt voordat iets verloopt en zet je noodplan klaar, ook op papier.</p>
           <div class="cta-row enter" style="--d:3">
@@ -79,29 +79,33 @@
               <div class="notch"></div>
               <div class="s-status"><span>9:41</span><span>●●● ▮</span></div>
               <div class="toast" id="toast">Drinkwater +9 L toegevoegd</div>
-              <div class="s-title"><b>Noodpakket</b>
-                <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V4h3M18 4h3v3M21 17v3h-3M6 20H3v-3M7 8v8M10 8v8M13 8v8M17 8v8"/></svg><b style="font-size:24px;font-weight:400">+</b></span>
-              </div>
-              <div class="s-head">
-                <div class="ring">
-                  <svg width="78" height="78" viewBox="0 0 78 78"><circle cx="39" cy="39" r="33" fill="none" stroke="#E5E5EA" stroke-width="9"/>
-                    <circle class="arc" id="arc" cx="39" cy="39" r="33" fill="none" stroke="#E39A12" stroke-width="9" stroke-linecap="round" stroke-dasharray="207.3" stroke-dashoffset="49.8"/></svg>
-                  <div class="lbl" id="pct">76%</div>
+              <div class="s-hero">
+                <div class="s-art" aria-hidden="true">
+                  <img src="img/art/food.svg" alt="" style="right:4px;top:46px;width:56px;rotate:5deg">
+                  <img src="img/art/water.svg" alt="" style="right:52px;top:78px;width:62px;rotate:-8deg">
+                  <img src="img/art/radio.svg" alt="" style="right:0;top:112px;width:70px;rotate:7deg">
                 </div>
-                <div><strong id="headline">Bijna zover</strong><small>13 items voor 3 personen</small><small style="color:#B26B00">Batterijen over 23 dagen</small></div>
+                <div class="s-title"><b>Noodpakket</b>
+                  <span class="s-btns"><i><svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 9v6M11 9v6M14 9v6M17 9v6"/></svg></i><i><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i></span>
+                </div>
+                <div class="s-sub">Voor 3 personen · 3 dagen</div>
+                <div class="s-pct" id="pct">76%</div>
+                <div class="s-bar"><i id="arc"></i></div>
+                <div class="s-togo" id="headline">Nog 3 te gaan</div>
               </div>
+              <div class="s-sheet">
               <div class="s-list">
-                <div class="s-row" id="row-water"><span class="dot half" id="dot-water"></span><span class="grow">Drinkwater<span class="sub" id="water-sub">18 L / 27 L</span></span><span class="pill">412 d</span><span class="plus-pop">+9 L</span></div>
-                <div class="s-row"><span class="dot ok"></span><span class="grow">Houdbaar eten<span class="sub">9 dagen / 9 dagen</span></span><span class="pill">188 d</span></div>
-                <div class="s-row"><span class="dot ok"></span><span class="grow">EHBO-doos<span class="sub">1 st. / 1 st.</span></span></div>
-                <div class="s-row"><span class="dot half"></span><span class="grow">Batterijen<span class="sub">1 pakken / 2 pakken</span></span><span class="pill warn">23 d</span></div>
-                <div class="s-row"><span class="dot ok"></span><span class="grow">Zaklamp<span class="sub">1 st. / 1 st.</span></span></div>
-                <div class="s-row"><span class="dot"></span><span class="grow">Noodradio<span class="sub">0 st. / 1 st.</span></span></div>
+                <div class="s-row" id="row-water"><img src="img/art/water.svg" alt="" style="background:linear-gradient(135deg,#E6F3FF,#CFE6FF)"><span class="grow">Drinkwater<span class="sub" id="water-sub">18 L / 27 L</span></span><span class="pill">412 d</span><span class="dot half" id="dot-water"></span><span class="plus-pop">+9 L</span></div>
+                <div class="s-row"><img src="img/art/food.svg" alt="" style="background:linear-gradient(135deg,#E6F3FF,#CFE6FF)"><span class="grow">Houdbaar eten<span class="sub">9 dagen / 9 dagen</span></span><span class="pill">188 d</span><span class="dot ok"></span></div>
+                <div class="s-row"><img src="img/art/firstaid.svg" alt="" style="background:linear-gradient(135deg,#FFECEC,#FFD6D3)"><span class="grow">EHBO-doos<span class="sub">1 st. / 1 st.</span></span><span class="dot ok"></span></div>
+                <div class="s-row"><img src="img/art/batteries.svg" alt="" style="background:linear-gradient(135deg,#FFF6D6,#FFE9A8)"><span class="grow">Batterijen<span class="sub">1 pakken / 2 pakken</span></span><span class="pill warn">23 d</span><span class="dot half"></span></div>
+                <div class="s-row"><img src="img/art/radio.svg" alt="" style="background:linear-gradient(135deg,#FFEEDF,#FFDCBF)"><span class="grow">Noodradio<span class="sub">0 st. / 1 st.</span></span><span class="dot"></span></div>
+              </div>
               </div>
               <div class="sheet" id="sheet">
                 <div class="grab"></div>
                 <div class="viewfinder" id="viewfinder"><div class="bars"></div><div class="laser"></div><i class="corner a"></i><i class="corner b"></i><i class="corner c"></i><i class="corner d"></i></div>
-                <div class="product" id="product"><div class="thumb">💧</div><div><b>Mineraalwater 6 × 1,5 L</b><small>8712345678906 · Open Food Facts</small></div></div>
+                <div class="product" id="product"><div class="thumb"><img src="img/art/water.svg" alt=""></div><div><b>Mineraalwater 6 × 1,5 L</b><small>8712345678906 · Open Food Facts</small></div></div>
                 <div class="fields">
                   <div class="field"><span>Toevoegen aan</span><span data-type="Drinkwater"></span></div>
                   <div class="field"><span>Hoeveelheid</span><span data-type="9 L"></span></div>
@@ -117,16 +121,16 @@
 
     <div class="band" aria-label="Wat er in een noodpakket hoort">
       <div class="marquee">
-        <span class="chip"><b>💧</b>Drinkwater</span><span class="chip"><b>🥫</b>Houdbaar eten</span><span class="chip"><b>💊</b>Medicijnen</span>
-        <span class="chip"><b>🩹</b>EHBO-doos</span><span class="chip"><b>🔦</b>Zaklamp</span><span class="chip"><b>🔋</b>Batterijen</span>
-        <span class="chip"><b>📻</b>Noodradio</span><span class="chip"><b>🔌</b>Powerbank</span><span class="chip"><b>💶</b>Contant geld</span>
-        <span class="chip"><b>🪪</b>Kopie ID-bewijs</span><span class="chip"><b>🧣</b>Dekens</span><span class="chip"><b>🕯️</b>Kaarsen en lucifers</span>
-        <span class="chip"><b>🧻</b>Wc-papier</span><span class="chip"><b>🐾</b>Dierenvoer</span>
-        <span class="chip" aria-hidden="true"><b>💧</b>Drinkwater</span><span class="chip" aria-hidden="true"><b>🥫</b>Houdbaar eten</span><span class="chip" aria-hidden="true"><b>💊</b>Medicijnen</span>
-        <span class="chip" aria-hidden="true"><b>🩹</b>EHBO-doos</span><span class="chip" aria-hidden="true"><b>🔦</b>Zaklamp</span><span class="chip" aria-hidden="true"><b>🔋</b>Batterijen</span>
-        <span class="chip" aria-hidden="true"><b>📻</b>Noodradio</span><span class="chip" aria-hidden="true"><b>🔌</b>Powerbank</span><span class="chip" aria-hidden="true"><b>💶</b>Contant geld</span>
-        <span class="chip" aria-hidden="true"><b>🪪</b>Kopie ID-bewijs</span><span class="chip" aria-hidden="true"><b>🧣</b>Dekens</span><span class="chip" aria-hidden="true"><b>🕯️</b>Kaarsen en lucifers</span>
-        <span class="chip" aria-hidden="true"><b>🧻</b>Wc-papier</span><span class="chip" aria-hidden="true"><b>🐾</b>Dierenvoer</span>
+        <span class="chip"><img src="img/art/water.svg" alt="">Drinkwater</span><span class="chip"><img src="img/art/food.svg" alt="">Houdbaar eten</span><span class="chip"><img src="img/art/medicines.svg" alt="">Medicijnen</span>
+        <span class="chip"><img src="img/art/firstaid.svg" alt="">EHBO-doos</span><span class="chip"><img src="img/art/flashlight.svg" alt="">Zaklamp</span><span class="chip"><img src="img/art/batteries.svg" alt="">Batterijen</span>
+        <span class="chip"><img src="img/art/radio.svg" alt="">Noodradio</span><span class="chip"><img src="img/art/powerbank.svg" alt="">Powerbank</span><span class="chip"><img src="img/art/cash.svg" alt="">Contant geld</span>
+        <span class="chip"><img src="img/art/documents.svg" alt="">Kopie ID-bewijs</span><span class="chip"><img src="img/art/blankets.svg" alt="">Dekens</span><span class="chip"><img src="img/art/candles.svg" alt="">Kaarsen en lucifers</span>
+        <span class="chip"><img src="img/art/hygiene.svg" alt="">Wc-papier</span><span class="chip"><img src="img/art/petfood.svg" alt="">Dierenvoer</span>
+        <span class="chip" aria-hidden="true"><img src="img/art/water.svg" alt="">Drinkwater</span><span class="chip" aria-hidden="true"><img src="img/art/food.svg" alt="">Houdbaar eten</span><span class="chip" aria-hidden="true"><img src="img/art/medicines.svg" alt="">Medicijnen</span>
+        <span class="chip" aria-hidden="true"><img src="img/art/firstaid.svg" alt="">EHBO-doos</span><span class="chip" aria-hidden="true"><img src="img/art/flashlight.svg" alt="">Zaklamp</span><span class="chip" aria-hidden="true"><img src="img/art/batteries.svg" alt="">Batterijen</span>
+        <span class="chip" aria-hidden="true"><img src="img/art/radio.svg" alt="">Noodradio</span><span class="chip" aria-hidden="true"><img src="img/art/powerbank.svg" alt="">Powerbank</span><span class="chip" aria-hidden="true"><img src="img/art/cash.svg" alt="">Contant geld</span>
+        <span class="chip" aria-hidden="true"><img src="img/art/documents.svg" alt="">Kopie ID-bewijs</span><span class="chip" aria-hidden="true"><img src="img/art/blankets.svg" alt="">Dekens</span><span class="chip" aria-hidden="true"><img src="img/art/candles.svg" alt="">Kaarsen en lucifers</span>
+        <span class="chip" aria-hidden="true"><img src="img/art/hygiene.svg" alt="">Wc-papier</span><span class="chip" aria-hidden="true"><img src="img/art/petfood.svg" alt="">Dierenvoer</span>
       </div>
     </div>
 
@@ -163,10 +167,10 @@
         <div class="reveal">
           <div class="timeline" id="timeline" aria-label="Voorbeeld van houdbaarheid in de app">
             <div class="notif" id="notif"><img src="img/icon.svg" alt=""><div><b>Batterijen</b>Verloopt over 7 dagen. Vervang ze in je noodpakket.</div></div>
-            <div class="t-item" data-days="412" data-life="730"><span class="t-ic">💧</span><div><div class="t-name">Drinkwater</div><div class="meter"><i></i></div></div><span class="t-days">412 dagen</span><span class="stamp">Verlopen</span></div>
-            <div class="t-item" data-days="188" data-life="365"><span class="t-ic">🥫</span><div><div class="t-name">Houdbaar eten</div><div class="meter"><i></i></div></div><span class="t-days">188 dagen</span><span class="stamp">Verlopen</span></div>
-            <div class="t-item" id="t-batt" data-days="23" data-life="365"><span class="t-ic">🔋</span><div><div class="t-name">Batterijen</div><div class="meter"><i></i></div></div><span class="t-days">23 dagen</span><span class="stamp">Verlopen</span></div>
-            <div class="t-item" data-days="62" data-life="365"><span class="t-ic">💊</span><div><div class="t-name">Medicijnen</div><div class="meter"><i></i></div></div><span class="t-days">62 dagen</span><span class="stamp">Verlopen</span></div>
+            <div class="t-item" data-days="412" data-life="730"><span class="t-ic"><img src="img/art/water.svg" alt=""></span><div><div class="t-name">Drinkwater</div><div class="meter"><i></i></div></div><span class="t-days">412 dagen</span><span class="stamp">Verlopen</span></div>
+            <div class="t-item" data-days="188" data-life="365"><span class="t-ic"><img src="img/art/food.svg" alt=""></span><div><div class="t-name">Houdbaar eten</div><div class="meter"><i></i></div></div><span class="t-days">188 dagen</span><span class="stamp">Verlopen</span></div>
+            <div class="t-item" id="t-batt" data-days="23" data-life="365"><span class="t-ic"><img src="img/art/batteries.svg" alt=""></span><div><div class="t-name">Batterijen</div><div class="meter"><i></i></div></div><span class="t-days">23 dagen</span><span class="stamp">Verlopen</span></div>
+            <div class="t-item" data-days="62" data-life="365"><span class="t-ic"><img src="img/art/medicines.svg" alt=""></span><div><div class="t-name">Medicijnen</div><div class="meter"><i></i></div></div><span class="t-days">62 dagen</span><span class="stamp">Verlopen</span></div>
           </div>
         </div>
       </div>
@@ -203,7 +207,7 @@
           <h2>Rustig, overzichtelijk, in licht en donker</h2>
         </div>
         <div class="shots reveal">
-          <figure><img src="img/kit.webp" alt="Noodpakket met voortgangsring en checklist" loading="lazy" width="780" height="1688"><figcaption>Je pakket</figcaption></figure>
+          <figure><img src="img/kit.webp" alt="Noodpakket met voortgang en een checklist met productafbeeldingen" loading="lazy" width="780" height="1688"><figcaption>Je pakket</figcaption></figure>
           <figure><img src="img/scan.webp" alt="Gescand product dat automatisch is ingevuld" loading="lazy" width="780" height="1688"><figcaption>Scannen</figcaption></figure>
           <figure><img src="img/shop.webp" alt="Boodschappenlijst met wat nog ontbreekt" loading="lazy" width="780" height="1688"><figcaption>Boodschappen</figcaption></figure>
           <figure><img src="img/exp.webp" alt="Overzicht van houdbaarheidsdatums" loading="lazy" width="780" height="1688"><figcaption>Houdbaarheid</figcaption></figure>
@@ -225,7 +229,7 @@
             <h3>Android</h3>
             <p>Download de APK. Elke update is met dezelfde sleutel ondertekend en installeert over de vorige versie heen.</p>
             <a class="btn" href="https://github.com/LRvdLinden/app.lrvdlinden.noodkoffer/releases/latest/download/noodpakket.apk">Download APK</a>
-            <a href="support/#android" style="color:#fff;margin-left:14px;font-weight:600">Zo installeer je hem</a>
+            <a href="support/#android" style="color:inherit;margin-left:14px;font-weight:700">Zo installeer je hem</a>
           </div>
         </div>
       </div>
@@ -244,7 +248,7 @@
 
     <section class="cta reveal">
       <div class="wrap">
-        <h2>Denk vooruit.<br>Begin vandaag.</h2>
+        <h2>Klaar voor 72 uur?<br>Begin vandaag.</h2>
         <p>In een paar minuten weet je wat je hebt, wat je mist en wat binnenkort verloopt.</p>
         <div class="cta-row">
           <a class="btn green" href="https://github.com/LRvdLinden/app.lrvdlinden.noodkoffer/releases/latest/download/noodpakket.apk">Download voor Android</a>

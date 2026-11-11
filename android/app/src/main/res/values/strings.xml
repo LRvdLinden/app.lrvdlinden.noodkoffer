@@ -70,8 +70,8 @@
     <string name="tab_settings">Settings</string>
     <string name="kit_for_people_days">For %1$d people · %2$d days</string>
     <string name="kit_items_to_go">%1$d items to go</string>
-    <string name="kit_alert_expired">%1$s has expired. Replace it soon.</string>
-    <string name="kit_alert_expires">%1$s expires in %2$d days.</string>
+    <string name="kit_alert_expired">%1$s: expired. Replace it soon.</string>
+    <string name="kit_alert_expires">%1$s: expires in %2$d days.</string>
     <string name="missing">Missing</string>
     <string name="search_kit">Search the kit</string>
     <string name="expiry_subtitle">Replace things before they expire</string>

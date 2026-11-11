@@ -21,26 +21,6 @@
         }
       }
     },
-    "%@ expires in %lld days.": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ verloopt over %lld dagen."
-          }
-        }
-      }
-    },
-    "%@ has expired. Replace it soon.": {
-      "localizations": {
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ is verlopen. Vervang het snel."
-          }
-        }
-      }
-    },
     "%@ in %lld days": {
       "localizations": {
         "nl": {
@@ -77,6 +57,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@. %2$@"
+          }
+        }
+      }
+    },
+    "%@: expired. Replace it soon.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: verlopen. Vervang het snel."
+          }
+        }
+      }
+    },
+    "%@: expires in %lld days.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: verloopt over %lld dagen."
           }
         }
       }

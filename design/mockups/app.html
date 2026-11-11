@@ -3,226 +3,223 @@
 <head>
 <meta charset="utf-8">
 <title>Noodpakket – app-schermen</title>
+<script src="../illustrations/illustrations.js"></script>
 <style>
-  /* Visual mockups of the iOS screens (same content, colours and layout as the SwiftUI code). */
-  :root { --g: #1B9A5E; --gd: #0F7A4A; --amber: #C77A00; --red: #D33A3F; --bg: #F2F2F7; --card: #fff; --ink: #000; --mut: #8A8A8E; --sep: #E5E5EA; }
-  .dark { --g: #3CCB86; --gd: #2FB673; --amber: #F5B731; --red: #FF6B6F; --bg: #000; --card: #1C1C1E; --ink: #fff; --mut: #8D8D93; --sep: #38383A; }
-  * { box-sizing: border-box; }
-  body { margin: 0; font-family: -apple-system, "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif; }
-  .phone { width: 390px; height: 844px; background: var(--bg); color: var(--ink); position: relative; overflow: hidden; }
-  .status { height: 54px; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 30px 8px 36px; font-weight: 600; font-size: 16px; }
+  /* Visual mockups of the app screens: same content, colours and layout as the SwiftUI/Compose code.
+     ?s=kit|exp|shop|scan|plan|set  ?lang=en  ?dark=1  ?w=&h= (iPad) */
+  :root { --purple: #3C175B; --deep: #2E0F47; --accent: #5A2E85; --yellow: #F4B943; --cream: #FCF2DB; --canvas: #F2F5F9; --card: #fff;
+          --ink: #1E1428; --mut: #7A6E86; --ok: #1B9A5E; --warn: #B86E00; --bad: #C8372F; --sep: #E7E3EC; }
+  .dark { --purple: #2A0E42; --deep: #1C0830; --accent: #C9A6F0; --cream: #2B2233; --canvas: #121016; --card: #1E1A24;
+          --ink: #F2EEF6; --mut: #A79DB3; --ok: #3CCB86; --warn: #F5B731; --bad: #FF6B6F; --sep: #2E2836; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif; }
+  .phone { width: 390px; height: 844px; position: relative; overflow: hidden; color: var(--ink);
+           background: linear-gradient(var(--purple), var(--deep) 520px, var(--canvas) 520px); }
+  .status { height: 54px; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 30px 8px 36px; font-weight: 600; font-size: 16px; color: #fff; }
   .status i { font-style: normal; letter-spacing: 2px; font-size: 12px; }
-  .nav { padding: 6px 16px 10px; display: flex; justify-content: space-between; align-items: flex-end; }
-  .nav h1 { font-size: 34px; margin: 0; font-weight: 700; letter-spacing: .3px; }
-  .plus { color: var(--g); font-size: 30px; font-weight: 300; line-height: 1; }
-  .search { margin: 0 16px 14px; background: rgba(118,118,128,.12); border-radius: 10px; height: 36px; display: flex; align-items: center; padding: 0 10px; color: var(--mut); font-size: 17px; gap: 6px; }
-  .hdr { margin: 0 16px 18px; background: var(--card); border-radius: 22px; padding: 18px; display: flex; gap: 20px; align-items: center; }
-  .ring { width: 112px; height: 112px; position: relative; flex: none; }
-  .ring svg { transform: rotate(-90deg); }
-  .ring .lbl { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .ring b { font-size: 28px; } .ring span { font-size: 12px; color: var(--mut); }
-  .hdr h3 { margin: 0 0 6px; font-size: 17px; } .hdr p { margin: 0 0 6px; color: var(--mut); font-size: 15px; }
-  .hdr .warn { color: var(--amber); font-size: 15px; }
-  .sec { margin: 0 16px; } .sec h4 { margin: 0 0 6px 16px; font-size: 13px; font-weight: 500; color: var(--mut); text-transform: uppercase; display: flex; gap: 6px; align-items: center; }
-  .group { background: var(--card); border-radius: 12px; margin-bottom: 22px; overflow: hidden; }
-  .row { display: flex; align-items: center; gap: 12px; padding: 11px 16px; position: relative; min-height: 44px; }
-  .row + .row::before { content: ""; position: absolute; top: 0; left: 56px; right: 0; border-top: .5px solid var(--sep); }
-  .plain .row + .row::before { left: 16px; }
-  .ico { width: 26px; height: 26px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; }
-  .have { background: var(--g); color: #fff; font-size: 15px; font-weight: 700; }
-  .part { border: 2.5px solid var(--amber); background: linear-gradient(90deg, var(--amber) 50%, transparent 50%); }
-  .miss { border: 2px solid #C7C7CC; }
-  .name { font-size: 17px; font-weight: 500; } .sub { font-size: 13px; color: var(--mut); margin-top: 1px; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .hero { position: relative; padding: 8px 20px 34px; color: #fff; min-height: 150px; }
+  .hero h1 { font: 800 34px/1.1 ui-rounded, "SF Pro Rounded", Inter, sans-serif; letter-spacing: -.01em; }
+  .hero .top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+  .hero .subt { opacity: .75; font-size: 15px; margin-top: 4px; position: relative; z-index: 2; }
+  .hbtns { display: flex; gap: 10px; }
+  .hbtn { width: 40px; height: 40px; border-radius: 50%; background: var(--yellow); display: grid; place-items: center; }
+  .hbtn svg { width: 20px; height: 20px; stroke: #3C175B; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .art { position: absolute; right: 12px; top: 64px; width: 170px; height: 200px; pointer-events: none; }
+  .hero.has-art { min-height: 290px; }
+  .art svg { position: absolute; }
+  .num { font: 800 60px/1 ui-rounded, "SF Pro Rounded", Inter, sans-serif; color: var(--yellow); margin-top: 14px; position: relative; z-index: 2; }
+  .meterbar { width: 190px; height: 10px; border-radius: 5px; background: rgba(255,255,255,.16); margin-top: 10px; overflow: hidden; }
+  .meterbar i { display: block; height: 100%; background: var(--yellow); border-radius: 5px; }
+  .togo { margin-top: 10px; font-size: 15px; font-weight: 500; opacity: .85; }
+  .stats { display: flex; gap: 10px; margin-top: 18px; position: relative; z-index: 2; }
+  .stats div { flex: 1; background: rgba(255,255,255,.1); border-radius: 14px; padding: 10px; }
+  .stats b { display: block; font: 800 28px ui-rounded, Inter, sans-serif; } .stats small { font-size: 11px; font-weight: 600; opacity: .75; }
+  .sheet { background: var(--canvas); border-radius: 30px 30px 0 0; padding: 18px 16px 120px; min-height: 900px; }
+  .alert { display: flex; gap: 12px; align-items: center; background: var(--yellow); color: #3C175B; border-radius: 18px; padding: 12px; font-weight: 700; font-size: 15px; margin-bottom: 12px; }
+  .alert .chev { margin-left: auto; font-weight: 800; }
+  .search { display: flex; gap: 8px; align-items: center; background: var(--card); border-radius: 14px; padding: 10px 12px; color: var(--mut); font-size: 17px; }
+  .st { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--mut); padding: 14px 4px 8px; }
+  .row { display: flex; gap: 12px; align-items: center; background: var(--card); border-radius: 18px; padding: 8px 14px 8px 8px; margin-bottom: 8px; }
+  .tile { flex: none; display: grid; place-items: center; }
+  .tile svg { width: 88%; height: 88%; }
   .grow { flex: 1; min-width: 0; }
-  .badge { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
-  .b-g { color: var(--g); background: color-mix(in srgb, var(--g) 14%, transparent); }
-  .b-a { color: var(--amber); background: color-mix(in srgb, var(--amber) 14%, transparent); }
-  .b-r { color: var(--red); background: color-mix(in srgb, var(--red) 14%, transparent); }
-  .tabs { position: absolute; bottom: 0; left: 0; right: 0; height: 83px; background: color-mix(in srgb, var(--card) 92%, transparent); border-top: .5px solid var(--sep); display: flex; justify-content: space-around; padding-top: 7px; backdrop-filter: blur(20px); }
-  .tab { display: flex; flex-direction: column; align-items: center; font-size: 10px; color: var(--mut); gap: 3px; width: 74px; }
-  .tab.on { color: var(--g); } .tab svg { width: 26px; height: 24px; }
-  .catico { width: 28px; color: var(--g); text-align: center; font-size: 16px; }
-  .field { padding: 12px 16px; font-size: 17px; } .ph { color: var(--mut); }
-  .cap { font-size: 13px; color: var(--mut); margin: -16px 16px 22px 32px; line-height: 1.35; }
-  .btnrow { color: var(--g); font-size: 17px; }
+  .name { font-size: 17px; font-weight: 600; } .sub { font-size: 13px; color: var(--mut); margin-top: 2px; }
+  .bar { height: 6px; border-radius: 3px; background: color-mix(in srgb, var(--accent) 12%, transparent); margin-top: 6px; overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 3px; }
+  .pill { font-size: 12px; font-weight: 700; padding: 4px 9px; border-radius: 99px; white-space: nowrap; }
+  .p-ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent); }
+  .p-warn { color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+  .p-bad { color: var(--bad); background: color-mix(in srgb, var(--bad) 14%, transparent); }
+  .check { width: 24px; height: 24px; border-radius: 50%; background: var(--ok); color: #fff; display: grid; place-items: center; font-size: 14px; font-weight: 800; flex: none; }
+  .tick { width: 26px; height: 26px; border-radius: 50%; border: 2.5px solid var(--accent); flex: none; margin-left: 6px; }
+  .foot { font-size: 13px; color: var(--mut); padding: 4px 4px 0; }
+  .tabs { position: absolute; bottom: 0; left: 0; right: 0; height: 83px; background: color-mix(in srgb, var(--card) 94%, transparent); border-top: .5px solid var(--sep); display: flex; justify-content: center; gap: 0; padding-top: 7px; backdrop-filter: blur(20px); z-index: 5; }
+  .tab { display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: 500; color: #8E8A94; gap: 3px; width: 76px; }
+  .tab.on { color: var(--accent); } .tab svg { width: 26px; height: 24px; }
+  /* form screens */
+  .navbar { background: var(--purple); color: #fff; padding: 0 16px 12px; }
+  .navbar h1 { font: 700 34px Inter, -apple-system, sans-serif; letter-spacing: .2px; padding-top: 6px; }
+  .navbar.inline { display: flex; justify-content: space-between; align-items: center; padding: 6px 16px 12px; font-size: 17px; }
+  .navbar.inline b { font-weight: 600; } .navbar.inline span { color: #E3D2F7; }
+  .form { background: var(--canvas); padding: 18px 16px 120px; min-height: 900px; }
+  .fh { font-size: 13px; color: var(--mut); text-transform: uppercase; margin: 0 0 6px 16px; }
+  .grp { background: var(--card); border-radius: 12px; margin-bottom: 22px; overflow: hidden; }
+  .fr { display: flex; align-items: center; gap: 12px; padding: 11px 16px; min-height: 44px; font-size: 17px; position: relative; }
+  .fr + .fr::before { content: ""; position: absolute; top: 0; left: 16px; right: 0; border-top: .5px solid var(--sep); }
+  .ic + .grow, .fr.ico::before { left: 58px !important; }
+  .ic { width: 30px; height: 30px; border-radius: 9px; background: var(--yellow); color: #3C175B; display: grid; place-items: center; font-size: 14px; font-weight: 800; flex: none; }
+  .val { color: var(--mut); } .chev { color: #C4C4C7; font-size: 20px; }
+  .link { color: var(--accent); }
+  .stepper { display: flex; border-radius: 8px; background: rgba(118,118,128,.12); font-size: 20px; } .stepper span { width: 47px; text-align: center; padding: 2px 0; } .stepper span + span { border-left: 1px solid var(--sep); }
+  .toggle { width: 51px; height: 31px; border-radius: 99px; background: var(--ok); position: relative; flex: none; }
+  .toggle::after { content: ""; position: absolute; right: 2px; top: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
+  .datebtn { background: rgba(118,118,128,.12); padding: 6px 11px; border-radius: 8px; }
+  .cap { font-size: 13px; color: var(--mut); margin: -16px 16px 22px; line-height: 1.35; }
+  .primary { background: var(--purple); color: #fff; text-align: center; font-weight: 600; font-size: 17px; padding: 15px; border-radius: 14px; }
   .more { margin: 0 0 22px; background: var(--card); border: 1px solid var(--sep); border-radius: 22px; padding: 16px; display: flex; gap: 14px; align-items: center; }
   .more .t { color: #2747E8; font-weight: 600; font-size: 17px; } .dark .more .t { color: #8A9DFF; }
   .more .s { color: var(--mut); font-size: 15px; }
-  .pill { background: #2747E8; color: #fff; font-weight: 700; font-size: 15px; padding: 6px 14px; border-radius: 99px; } .dark .pill { background: #8A9DFF; color: #0D1018; }
-  .foot { text-align: center; color: var(--mut); font-size: 15px; padding: 6px 0 24px; } .foot img, .foot svg { display: block; margin: 0 auto 14px; border-radius: 14px; }
-  .toggle { width: 51px; height: 31px; border-radius: 99px; background: var(--g); position: relative; flex: none; }
-  .toggle::after { content: ""; position: absolute; right: 2px; top: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
-  .val { color: var(--mut); font-size: 17px; }
-  .chev { color: #C4C4C7; font-size: 20px; }
-  .stepper { display: flex; border-radius: 8px; background: rgba(118,118,128,.12); font-size: 20px; } .stepper span { width: 47px; text-align: center; padding: 2px 0; } .stepper span + span { border-left: 1px solid var(--sep); }
-  .ok { color: var(--g); }
+  .more .b { background: #2747E8; color: #fff; font-weight: 700; font-size: 15px; padding: 6px 14px; border-radius: 99px; } .dark .more .b { background: #8A9DFF; color: #0D1018; }
+  .appfoot { text-align: center; color: var(--mut); font-size: 15px; padding: 6px 0 24px; } .appfoot img { display: block; margin: 0 auto 14px; width: 64px; height: 64px; border-radius: 14px; }
+  .prod { display: flex; gap: 14px; align-items: center; padding: 14px 16px; }
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script>
-const p = new URLSearchParams(location.search);
-const screen = p.get('s') || 'kit';
-if (p.get('dark') === '1') document.body.classList.add('dark');
-
-const shield = (s, fg = '#0F7A4A', bg = '#fff') => `<svg width="${s}" height="${s}" viewBox="0 0 1024 1024"><path d="M512 196l280 100v220c0 170-118 290-280 340-162-50-280-170-280-340V296z" fill="${bg}"/><path d="M372 432h120l-86 210" fill="none" stroke="${fg}" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/><path d="M548 470a50 50 0 0 1 100 0c0 50-100 100-110 172h120" fill="none" stroke="${fg}" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const appIcon = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 1024 1024" style="border-radius:${s*0.2237}px"><defs><linearGradient id="ai" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2FB673"/><stop offset="1" stop-color="#0F7A4A"/></linearGradient></defs><rect width="1024" height="1024" fill="url(#ai)"/><g>${shield(1024).replace(/^<svg[^>]*>|<\/svg>$/g,'')}</g></svg>`;
-
-const icons = {
-  kit: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5z"/></svg>',
+const P = new URLSearchParams(location.search);
+const screen = P.get('s') || 'kit';
+const EN = P.get('lang') === 'en';
+if (EN) document.documentElement.lang = 'en';
+if (P.get('dark') === '1') document.body.classList.add('dark');
+const t = (nl, en) => EN ? en : nl;
+const { svg, CAT, ITEM_CAT } = NP_ART;
+const dark = P.get('dark') === '1';
+const tileBg = k => { const c = CAT[ITEM_CAT[k] || 'hygiene']; return dark ? '#2A2532' : `linear-gradient(135deg,${c.a},${c.b})`; };
+const tile = (k, s = 56) => `<div class="tile" style="width:${s}px;height:${s}px;border-radius:${s * .26}px;background:${tileBg(k)}">${svg(k)}</div>`;
+const status = `<div class="status"><span>9:41</span><i>●●●● ▮</i></div>`;
+const I = {
+  scan: '<svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 9v6M11 9v6M14 9v6M17 9v6"/></svg>',
+  plus: '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+  share: '<svg viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>',
+};
+const tabIcons = {
+  kit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg>',
   exp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  shop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11L21 7H6"/></svg>',
   plan: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 4h6v3H9zM8 12h8M8 16h6"/></svg>',
   set: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>',
-  shop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11L21 7H6"/></svg>',
 };
-const tabs = (on) => `<div class="tabs">${[['kit','Pakket'],['exp','Houdbaar'],['shop','Boodschappen'],['plan','Noodplan'],['set','Instellingen']].map(([k,l]) => `<div class="tab ${k===on?'on':''}">${icons[k]}${l}</div>`).join('')}</div>`;
-const status = `<div class="status"><span>9:41</span><i>●●●● ▮</i></div>`;
-const ring = (pct, color) => `<div class="ring"><svg width="112" height="112" viewBox="0 0 112 112"><circle cx="56" cy="56" r="49" fill="none" stroke="rgba(120,120,128,.16)" stroke-width="14"/><circle cx="56" cy="56" r="49" fill="none" stroke="${color}" stroke-width="14" stroke-linecap="round" stroke-dasharray="${(2*Math.PI*49).toFixed(1)}" stroke-dashoffset="${(2*Math.PI*49*(1-pct/100)).toFixed(1)}"/></svg><div class="lbl"><b>${pct}%</b><span>compleet</span></div></div>`;
-const item = (st, name, sub, badge) => `<div class="row"><div class="ico ${st}">${st==='have'?'✓':''}</div><div class="grow"><div class="name">${name}</div><div class="sub">${sub}</div></div>${badge||''}</div>`;
-const B = (cls, t) => `<span class="badge ${cls}">${t}</span>`;
+const tabs = on => `<div class="tabs">${[['kit', t('Pakket', 'Kit')], ['exp', t('Houdbaar', 'Expiry')], ['shop', t('Boodschappen', 'Shopping')], ['plan', t('Noodplan', 'Plan')], ['set', t('Instellingen', 'Settings')]]
+  .map(([k, l]) => `<div class="tab ${k === on ? 'on' : ''}">${tabIcons[k]}${l}</div>`).join('')}</div>`;
+const heroArt = keys => `<div class="art">
+  ${keys[2] ? svg(keys[2], 76).replace('<svg', '<svg style="right:4px;top:0;transform:rotate(5deg)"') : ''}
+  ${keys[1] ? svg(keys[1], 100).replace('<svg', '<svg style="right:0;top:96px;transform:rotate(7deg)"') : ''}
+  ${svg(keys[0], 88).replace('<svg', '<svg style="right:74px;top:42px;transform:rotate(-8deg)"')}</div>`;
+const hero = (title, sub, art, body, btns = []) => `<div class="hero${art ? ' has-art' : ''}">${art ? heroArt(art) : ''}
+  <div class="top"><h1>${title}</h1><div class="hbtns">${btns.map(b => `<div class="hbtn">${I[b]}</div>`).join('')}</div></div>
+  ${sub ? `<div class="subt">${sub}</div>` : ''}${body || ''}</div>`;
+const pill = (cls, txt) => `<span class="pill p-${cls}">${txt}</span>`;
+const days = n => n < 0 ? t('Verlopen', 'Expired') : t(`${n} dagen`, `${n} days`);
+const dcls = n => n <= 7 ? 'bad' : n <= 30 ? 'warn' : 'ok';
+const U = { L: ' L', d: t(' dagen', ' days'), pk: t(' pakken', ' packs'), st: t(' st.', ' pcs') };
+
+// The demo kit: [key, NL name, EN name, have, need, unit, daysLeft|null]
+const kit = [
+  ['water', 'Drinkwater', 'Drinking water', 27, 27, 'L', 412],
+  ['food', 'Houdbaar eten', 'Long-life food', 6, 9, 'd', 188],
+  ['medicines', 'Medicijnen', 'Medicines', 1, 1, 'pk', 27],
+  ['firstaid', 'EHBO-doos', 'First aid kit', 1, 1, 'st', 741],
+  ['flashlight', 'Zaklamp', 'Torch', 1, 1, 'st', null],
+  ['batteries', 'Batterijen', 'Batteries', 2, 2, 'pk', 23],
+  ['powerbank', 'Powerbank', 'Power bank', 1, 1, 'st', null],
+  ['candles', 'Kaarsen en lucifers', 'Candles and matches', 0, 1, 'pk', null],
+  ['radio', 'Noodradio', 'Emergency radio', 0, 1, 'st', null],
+  ['cash', 'Contant geld', 'Cash', 120, 170, '€', null],
+  ['documents', 'Kopie van ID-bewijzen', 'Copies of ID documents', 1, 1, 'st', null],
+  ['blankets', 'Dekens en warme kleding', 'Blankets and warm clothes', 3, 3, 'st', null],
+  ['hygiene', 'Wc-papier en vuilniszakken', 'Toilet paper and bin bags', 1, 1, 'pk', null],
+];
+const cats = [['waterFood', 'Water en eten', 'Water and food'], ['health', 'Gezondheid', 'Health'], ['lightPower', 'Licht en stroom', 'Light and power'],
+  ['information', 'Informatie', 'Information'], ['documents', 'Geld en documenten', 'Money and documents'], ['warmth', 'Warmte en beschutting', 'Warmth and shelter'], ['hygiene', 'Hygiëne', 'Hygiene']];
+const fmt = (v, u) => u === '€' ? `€ ${v}` : `${v}${U[u]}`;
+const row = ([k, nl, en, have, need, u, d]) => {
+  const full = have >= need;
+  const end = d != null ? pill(dcls(d), days(d)) : have === 0 ? pill('bad', t('Ontbreekt', 'Missing')) : full ? '<span class="check">✓</span>' : '';
+  return `<div class="row">${tile(k)}<div class="grow"><div class="name">${t(nl, en)}</div><div class="sub">${fmt(have, u)} / ${fmt(need, u)}</div>
+    <div class="bar"><i style="width:${Math.max(3, Math.min(100, have / need * 100))}%;background:${full ? 'var(--ok)' : 'var(--yellow)'}${have === 0 ? ';opacity:0' : ''}"></i></div></div>${end}</div>`;
+};
 
 const screens = {
-  shop: () => `${status}<div class="nav"><h1>Boodschappen</h1><span class="plus" style="font-size:22px">⤴︎</span></div>
-    <div class="sec"><div class="group">
-      ${['Batterijen|Nog nodig: 1 pakken','Houdbaar eten|Nog nodig: 3 dagen','Noodradio|Nog nodig: 1 st.','Contant geld|Nog nodig: € 70','Kaarsen en lucifers|Nog nodig: 1 pakken'].map(x=>{const [n,t]=x.split('|');return `<div class="row"><div class="ico miss"></div><div class="grow"><div class="name">${n}</div><div class="sub">${t}</div></div></div>`}).join('')}
-    </div><div class="cap" style="margin-top:-14px">Vink een item af als je het gekocht hebt: het gaat dan je pakket in.</div></div>${tabs('shop')}`,
+  kit: () => `${status}<div class="wrap">${hero(t('Noodpakket', 'Emergency kit'), t('Voor 3 personen · 3 dagen', 'For 3 people · 3 days'), ['water', 'radio', 'food'],
+      `<div class="num">85%</div><div class="meterbar"><i style="width:85%"></i></div><div class="togo">${t('Nog 4 te gaan', '4 items to go')}</div>`, ['scan', 'plus'])}
+    <div class="sheet">
+      <div class="alert">${tile('batteries', 44)}<span>${t('Batterijen: verloopt over 23 dagen.', 'Batteries: expires in 23 days.')}</span><span class="chev">›</span></div>
+      <div class="search">⌕ ${t('Zoek in het pakket', 'Search the kit')}</div>
+      ${cats.map(([c, nl, en]) => { const r = kit.filter(x => ITEM_CAT[x[0]] === c); return r.length ? `<div class="st">${t(nl, en)}</div>${r.map(row).join('')}` : ''; }).join('')}
+    </div></div>${tabs('kit')}`,
 
-  scan: () => `${status}<div class="nav" style="justify-content:center"><h1 style="font-size:17px">Scan barcode</h1></div>
-    <div class="sec">
-      <div class="group"><div class="row" style="gap:14px;padding:14px 16px">
-        <div style="width:64px;height:64px;border-radius:12px;background:linear-gradient(160deg,#E3F1FF,#BFDDFB);display:grid;place-items:center;font-size:30px">💧</div>
-        <div class="grow"><div class="name" style="font-weight:600">Natuurlijk mineraalwater 6 × 1,5 L</div><div class="sub">Huismerk · 8712345678906</div></div></div></div>
-      <div class="cap" style="margin-top:-16px">Productgegevens: Open Food Facts (ODbL)</div>
-      <h4>Toevoegen aan</h4><div class="group plain">
-        <div class="row"><span class="grow name" style="font-weight:400">Item</span><span class="val" style="color:var(--g)">Drinkwater ⌄</span></div>
-        <div class="row"><span class="grow name" style="font-weight:400">Hoeveelheid</span><span class="val">9 L</span><div class="stepper"><span>−</span><span>+</span></div></div>
-        <div class="row"><span class="grow name" style="font-weight:400">Na toevoegen</span><span class="val">27 L / 27 L</span></div>
-      </div>
-      <h4>Houdbaarheidsdatum</h4><div class="group plain">
-        <div class="row"><span class="grow name" style="font-weight:400">Heeft een houdbaarheidsdatum</span><div class="toggle"></div></div>
-        <div class="row"><span class="grow name" style="font-weight:400">Verloopt op</span><span class="badge" style="background:rgba(118,118,128,.12);font-size:17px;font-weight:400;padding:6px 11px;border-radius:8px">14 jan 2028</span></div>
-        <div class="row btnrow">⌗ Scan datum van verpakking</div>
-      </div>
-      <div style="margin:4px 0;background:var(--g);color:#fff;text-align:center;font-weight:600;font-size:17px;padding:14px;border-radius:14px">Voeg toe</div>
-    </div>`,
+  exp: () => {
+    const list = [['firstaid', 'Pleisters', 'Plasters', '2 november 2026', 'November 2, 2026', -9], ['batteries', 'Batterijen', 'Batteries', '4 december 2026', 'December 4, 2026', 23],
+      ['medicines', 'Medicijnen', 'Medicines', '8 december 2026', 'December 8, 2026', 27], ['food', 'Houdbaar eten', 'Long-life food', '18 mei 2027', 'May 18, 2027', 188],
+      ['petfood', 'Dierenvoer', 'Pet food', '1 augustus 2027', 'August 1, 2027', 263], ['water', 'Drinkwater', 'Drinking water', '28 december 2027', 'December 28, 2027', 412]];
+    const sec = (title, f) => { const r = list.filter(f); return r.length ? `<div class="st">${title}</div>${r.map(([k, nl, en, dn, de, d]) => `<div class="row">${tile(k, 52)}<div class="grow"><div class="name">${t(nl, en)}</div><div class="sub">${t(dn, de)}</div></div>${pill(dcls(d), days(d))}</div>`).join('')}` : ''; };
+    return `${status}<div class="wrap">${hero(t('Houdbaarheid', 'Expiry dates'), t('Vervang spullen voordat ze verlopen', 'Replace things before they expire'), null,
+      `<div class="stats"><div><b style="color:#FF8A84">1</b><small>${t('Verlopen', 'Expired')}</small></div><div><b style="color:var(--yellow)">2</b><small>${t('Binnen 30 dagen', 'Within 30 days')}</small></div><div><b>3</b><small>${t('Later', 'Later')}</small></div></div>`)}
+      <div class="sheet">${sec(t('Verlopen', 'Expired'), x => x[5] < 0)}${sec(t('Binnen 30 dagen', 'Within 30 days'), x => x[5] >= 0 && x[5] <= 30)}${sec(t('Later', 'Later'), x => x[5] > 30)}</div></div>${tabs('exp')}`;
+  },
 
-  kit: () => `${status}<div class="nav"><h1>Noodpakket</h1><span class="plus" style="display:flex;gap:18px;align-items:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V4h3M18 4h3v3M21 17v3h-3M6 20H3v-3M7 8v8M10 8v8M13 8v8M17 8v8"/></svg>+</span></div>
-    <div class="search">⌕ Zoek in het pakket</div>
-    <div class="hdr">${ring(85, 'var(--amber)')}<div><h3>Bijna zover</h3><p>13 items voor 3 personen</p><div class="warn">📅 Batterijen over 23 dagen</div></div></div>
-    <div class="sec"><h4>💧 Water en eten</h4><div class="group">
-      ${item('have','Drinkwater','27 L / 27 L', B('b-g','412 dagen'))}
-      ${item('part','Houdbaar eten','6 dagen / 9 dagen', B('b-g','188 dagen'))}
-    </div>
-    <h4>✚ Gezondheid</h4><div class="group">
-      ${item('have','Medicijnen','1 pakken / 1 pakken', B('b-a','27 dagen'))}
-      ${item('have','EHBO-doos','1 st. / 1 st.', B('b-g','741 dagen'))}
-    </div>
-    <h4>🔦 Licht en stroom</h4><div class="group">
-      ${item('have','Zaklamp','1 st. / 1 st.')}
-      ${item('part','Batterijen','1 pakken / 2 pakken', B('b-a','23 dagen'))}
-      ${item('have','Powerbank','1 st. / 1 st.')}
-    </div>
-    <h4>📻 Informatie</h4><div class="group">${item('miss','Noodradio','0 st. / 1 st.')}</div>
-    <h4>📄 Geld en documenten</h4><div class="group">${item('part','Contant geld','€ 100 / € 170')}${item('have','Kopie van ID-bewijzen','1 st. / 1 st.')}</div>
-    <h4>🔥 Warmte en beschutting</h4><div class="group">${item('have','Dekens en warme kleding','3 st. / 3 st.')}</div>
-    <h4>🧼 Hygiëne</h4><div class="group">${item('have','Wc-papier en vuilniszakken','1 pakken / 1 pakken')}</div>
-    </div>${tabs('kit')}`,
+  shop: () => {
+    const list = [['radio', 'Noodradio', 'Emergency radio', t('1 st.', '1 pcs')], ['food', 'Houdbaar eten', 'Long-life food', t('3 dagen', '3 days')],
+      ['candles', 'Kaarsen en lucifers', 'Candles and matches', t('1 pakken', '1 packs')], ['cash', 'Contant geld', 'Cash', '€ 50'], ['batteries', 'Batterijen', 'Batteries', t('1 pakken', '1 packs')]];
+    return `${status}<div class="wrap">${hero(t('Boodschappen', 'Shopping list'), t('5 dingen te kopen', '5 items to buy'), ['food', 'cash', 'batteries'], '', ['scan', 'share'])}
+      <div class="sheet">${list.map(([k, nl, en, q]) => `<div class="row"><span class="tick"></span>${tile(k, 52)}<div class="grow"><div class="name">${t(nl, en)}</div><div class="sub">${t('Nog nodig: ', 'Still needed: ')}${q}</div></div></div>`).join('')}
+      <div class="foot">${t('Vink een item af als je het gekocht hebt: het gaat dan je pakket in.', 'Tick an item when you have bought it: it moves into your kit.')}</div></div></div>${tabs('shop')}`;
+  },
 
-  exp: () => `${status}<div class="nav"><h1>Houdbaarheid</h1></div>
-    <div class="sec"><h4>Verlopen</h4><div class="group">
-      <div class="row"><span class="catico">✚</span><div class="grow"><div class="name">Pleisters</div><div class="sub">2 november 2026</div></div>${B('b-r','Verlopen')}</div>
-    </div>
-    <h4>Binnen 30 dagen</h4><div class="group">
-      <div class="row"><span class="catico">🔦</span><div class="grow"><div class="name">Batterijen</div><div class="sub">4 december 2026</div></div>${B('b-a','23 dagen')}</div>
-      <div class="row"><span class="catico">✚</span><div class="grow"><div class="name">Medicijnen</div><div class="sub">8 december 2026</div></div>${B('b-a','27 dagen')}</div>
-    </div>
-    <h4>Later</h4><div class="group">
-      <div class="row"><span class="catico">💧</span><div class="grow"><div class="name">Houdbaar eten</div><div class="sub">18 mei 2027</div></div>${B('b-g','188 dagen')}</div>
-      <div class="row"><span class="catico">🐾</span><div class="grow"><div class="name">Dierenvoer</div><div class="sub">1 augustus 2027</div></div>${B('b-g','263 dagen')}</div>
-      <div class="row"><span class="catico">💧</span><div class="grow"><div class="name">Drinkwater</div><div class="sub">28 december 2027</div></div>${B('b-g','412 dagen')}</div>
-    </div></div>${tabs('exp')}`,
+  scan: () => `${status}<div class="navbar inline"><span>${t('Annuleer', 'Cancel')}</span><b>${t('Scan barcode', 'Scan barcode')}</b><span style="color:var(--yellow);font-weight:600">${t('Voeg toe', 'Add')}</span></div>
+    <div class="form" style="background:var(--canvas)"><div class="wrap">
+      <div class="grp"><div class="prod">
+        <div style="width:96px;height:96px;border-radius:18px;background:#fff;border:1px solid rgba(0,0,0,.06);display:grid;place-items:center;flex:none">${svg('water', 84)}</div>
+        <div class="grow"><div class="name" style="font-size:18px">${t('Natuurlijk mineraalwater 6 × 1,5 L', 'Natural mineral water 6 × 1.5 L')}</div><div class="sub" style="font-size:15px">${t('Huismerk', 'Store brand')}</div><div class="sub">8712345678906</div></div></div></div>
+      <div class="cap">${t('Productgegevens: Open Food Facts (ODbL)', 'Product data: Open Food Facts (ODbL)')}</div>
+      <div class="fh">${t('Toevoegen aan', 'Add to')}</div><div class="grp">
+        <div class="fr"><span class="grow">${t('Item', 'Item')}</span><span class="link">${t('Drinkwater', 'Drinking water')} ⌄</span></div>
+        <div class="fr"><span class="grow">${t('Hoeveelheid', 'Amount')}</span><span class="val">9 L</span><div class="stepper"><span>−</span><span>+</span></div></div>
+        <div class="fr"><span class="grow">${t('Na toevoegen', 'After adding')}</span><span class="val">27 L / 27 L</span></div></div>
+      <div class="fh">${t('Houdbaarheidsdatum', 'Expiry date')}</div><div class="grp">
+        <div class="fr"><span class="grow">${t('Heeft een houdbaarheidsdatum', 'Has an expiry date')}</span><div class="toggle"></div></div>
+        <div class="fr"><span class="grow">${t('Verloopt op', 'Expires on')}</span><span class="datebtn">${t('14 jan 2028', 'Jan 14, 2028')}</span></div>
+        <div class="fr link">⌗ ${t('Scan datum van verpakking', 'Scan date from packaging')}</div></div>
+      <div class="primary">${t('Voeg toe', 'Add')}</div></div></div>`,
 
-  plan: () => `${status}<div class="nav"><h1>Noodplan</h1></div>
-    <div class="sec"><h4>Wat te doen bij…</h4><div class="group">
-      <div class="row"><span class="catico">⚠︎</span><span class="grow name" style="font-weight:400">NL-Alert of sirene</span><span class="chev">›</span></div>
-      <div class="row"><span class="catico">⚡︎</span><span class="grow name" style="font-weight:400">Stroomuitval</span><span class="chev">›</span></div>
-      <div class="row"><span class="catico">💧</span><span class="grow name" style="font-weight:400">Geen kraanwater</span><span class="chev">›</span></div>
-    </div>
-    <div class="group plain"><div class="field" style="font-size:15px;color:var(--mut)">Spreek dit samen af en bewaar een geprinte versie bij je noodpakket. In een noodsituatie werkt je telefoon misschien niet.</div></div>
-    <h4>Verzamelpunt</h4><div class="group plain"><div class="field">Bij de buren op nummer 12, anders het buurthuis</div></div>
-    <h4>Contacten</h4><div class="group plain"><div class="field">Sanne 06-12345678<br>Opa en oma 055-1234567</div></div>
-    <h4>Afspraken</h4><div class="group plain"><div class="field">Papa haalt de kinderen op school</div></div>
-    <h4>Water, gas en stroom</h4><div class="group plain"><div class="field">Hoofdkraan en meterkast in de gang</div></div>
-    <h4>Checkmoment</h4><div class="group plain"><div class="row"><div class="grow name" style="font-weight:400">Volgende check</div><span class="badge" style="background:rgba(118,118,128,.12);font-size:17px;font-weight:400;padding:6px 11px;border-radius:8px">11 mei 2027</span></div></div>
-    <div class="group plain"><div class="row btnrow">🖨  Maak PDF</div></div></div>${tabs('plan')}`,
+  plan: () => `${status}<div class="navbar"><h1>${t('Noodplan', 'Emergency plan')}</h1></div>
+    <div class="form"><div class="wrap">
+      <div class="fh">${t('Wat te doen bij…', 'What to do when…')}</div><div class="grp">
+        ${[['!', 'NL-Alert of sirene', 'NL-Alert or siren'], ['⚡', 'Stroomuitval', 'Power cut'], ['💧', 'Geen kraanwater', 'No tap water'], ['☁', 'Storm, noodweer of overstroming', 'Storm, extreme weather or flooding']]
+          .map(([i, nl, en]) => `<div class="fr"><span class="ic">${i}</span><span class="grow">${t(nl, en)}</span><span class="chev">›</span></div>`).join('')}</div>
+      <div class="grp"><div class="fr" style="font-size:15px;color:var(--mut)">${t('Spreek dit samen af en bewaar een geprinte versie bij je noodpakket. In een noodsituatie werkt je telefoon misschien niet.', 'Agree on this together and keep a printed copy with your kit. Phones may not work during an emergency.')}</div></div>
+      <div class="fh">${t('Verzamelpunt', 'Meeting point')}</div><div class="grp"><div class="fr">${t('Bij de buren op nummer 12, anders het buurthuis', 'The neighbours at number 12, otherwise the community centre')}</div></div>
+      <div class="fh">${t('Contacten', 'Contacts')}</div><div class="grp"><div class="fr">Sanne 06-12345678<br>${t('Opa en oma', 'Grandma and grandpa')} 055-1234567</div></div>
+      <div class="fh">${t('Afspraken', 'Arrangements')}</div><div class="grp"><div class="fr">${t('Papa haalt de kinderen op school', 'Dad picks up the children from school')}</div></div>
+      <div class="fh">${t('Checkmoment', 'Kit check')}</div><div class="grp"><div class="fr"><span class="grow">${t('Volgende check', 'Next check')}</span><span class="datebtn">${t('11 mei 2027', 'May 11, 2027')}</span></div></div>
+      <div class="grp"><div class="fr link">🖨 ${t('Maak PDF', 'Create PDF')}</div></div></div></div>${tabs('plan')}`,
 
-  set: () => `${status}<div class="nav"><h1>Instellingen</h1></div>
-    <div class="sec"><h4>Huishouden</h4><div class="group plain">
-      <div class="row"><span class="grow name" style="font-weight:400">Volwassenen</span><span class="val">2</span><div class="stepper"><span>−</span><span>+</span></div></div>
-      <div class="row"><span class="grow name" style="font-weight:400">Kinderen</span><span class="val">1</span><div class="stepper"><span>−</span><span>+</span></div></div>
-      <div class="row"><span class="grow name" style="font-weight:400">Dagen voorraad</span><span class="val">3</span><div class="stepper"><span>−</span><span>+</span></div></div>
-    </div>
-    <h4>Herinneringen</h4><div class="group plain">
-      <div class="row"><span class="grow name" style="font-weight:400">Houdbaarheidsherinneringen</span><div class="toggle"></div></div>
-    </div>
-    <h4>Ontdekken</h4>
-    <div class="more"><svg width="56" height="56" viewBox="0 0 512 512" style="border-radius:13px;flex:none"><rect width="512" height="512" rx="116" fill="#121726"/><path d="M132 146v224h100M292 370V146h48a62 62 0 0 1 0 124h-48M338 270l52 100" fill="none" stroke="#fff" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/><circle cx="404" cy="126" r="34" fill="#4C6BFF" stroke="#121726" stroke-width="14"/></svg>
-      <div class="grow"><div class="t">Meer apps van de ontwikkelaar</div><div class="s">Apps voor iPhone, iPad, Apple TV en Homey</div></div><span class="pill">Bekijk</span></div>
-    <div class="foot">${appIcon(64)}Versie: 1.0.0 (1)<br>© 2026 Noodpakket</div></div>${tabs('set')}`,
-
+  set: () => `${status}<div class="navbar"><h1>${t('Instellingen', 'Settings')}</h1></div>
+    <div class="form"><div class="wrap">
+      <div class="fh">${t('Huishouden', 'Household')}</div><div class="grp">
+        ${[['Volwassenen', 'Adults', 2], ['Kinderen', 'Children', 1], ['Huisdieren', 'Pets', 0], ['Dagen voorraad', 'Days of supplies', 3]].map(([nl, en, v]) =>
+          `<div class="fr"><span class="grow">${t(nl, en)}</span><span class="val">${v}</span><div class="stepper"><span>−</span><span>+</span></div></div>`).join('')}</div>
+      <div class="fh">${t('Herinneringen', 'Reminders')}</div><div class="grp"><div class="fr"><span class="grow">${t('Houdbaarheidsherinneringen', 'Expiry reminders')}</span><div class="toggle"></div></div></div>
+      <div class="fh">${t('Ontdekken', 'Discover')}</div>
+      <div class="more"><svg width="56" height="56" viewBox="0 0 512 512" style="border-radius:13px;flex:none"><rect width="512" height="512" rx="116" fill="#121726"/><path d="M132 146v224h100M292 370V146h48a62 62 0 0 1 0 124h-48M338 270l52 100" fill="none" stroke="#fff" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/><circle cx="404" cy="126" r="34" fill="#4C6BFF"/></svg>
+        <div class="grow"><div class="t">${t('Meer apps van de ontwikkelaar', 'More apps from the developer')}</div><div class="s">${t('Apps voor iPhone, iPad, Apple TV en Homey', 'Apps for iPhone, iPad, Apple TV and Homey')}</div></div><span class="b">${t('Bekijk', 'View')}</span></div>
+      <div class="appfoot"><img src="../icon/icon.svg" alt="">${t('Versie', 'Version')}: 1.0.0 (1)<br>© 2026 Noodpakket</div></div></div>${tabs('set')}`,
 };
 document.getElementById('root').innerHTML = `<div class="phone">${screens[screen]()}</div>`;
-// Optional size (iPad) and English text, so the same screens can be used for every App Store set.
-const W = +p.get('w'), H = +p.get('h');
+const W = +P.get('w'), H = +P.get('h');
 if (W && H) { const ph = document.querySelector('.phone'); ph.style.width = W + 'px'; ph.style.height = H + 'px'; }
-if (p.get('lang') === 'en') {
-  document.documentElement.lang = 'en';
-  const EN = {
-    'Noodpakket': 'Emergency kit', 'Zoek in het pakket': 'Search the kit', 'Bijna zover': 'Keep going', 'compleet': 'complete',
-    '13 items voor 3 personen': '13 items for 3 people', 'Batterijen over 23 dagen': 'Batteries in 23 days',
-    'Water en eten': 'Water and food', 'Gezondheid': 'Health', 'Licht en stroom': 'Light and power',
-    'Drinkwater': 'Drinking water', 'Houdbaar eten': 'Long-life food', 'Medicijnen': 'Medicines', 'EHBO-doos': 'First aid kit',
-    'Zaklamp': 'Torch', 'Batterijen': 'Batteries', 'Pleisters': 'Plasters', 'Dierenvoer': 'Pet food', 'Noodradio': 'Emergency radio',
-    'Contant geld': 'Cash', 'Kaarsen en lucifers': 'Candles and matches',
-    'Pakket': 'Kit', 'Houdbaar': 'Expiry', 'Boodschappen': 'Shopping', 'Noodplan': 'Plan', 'Instellingen': 'Settings',
-    'Houdbaarheid': 'Expiry dates', 'Verlopen': 'Expired', 'Binnen 30 dagen': 'Within 30 days', 'Later': 'Later',
-    'Nog nodig: 1 pakken': 'Still needed: 1 packs', 'Nog nodig: 3 dagen': 'Still needed: 3 days', 'Nog nodig: 1 st.': 'Still needed: 1 pcs',
-    'Nog nodig: € 70': 'Still needed: €70',
-    'Vink een item af als je het gekocht hebt: het gaat dan je pakket in.': 'Tick an item when you have bought it: it moves into your kit.',
-    'Scan barcode': 'Scan barcode', 'Natuurlijk mineraalwater 6 × 1,5 L': 'Natural mineral water 6 × 1.5 L', 'Huismerk · 8712345678906': 'Store brand · 8712345678906',
-    'Productgegevens: Open Food Facts (ODbL)': 'Product data: Open Food Facts (ODbL)', 'Toevoegen aan': 'Add to', 'Item': 'Item',
-    'Drinkwater ⌄': 'Drinking water ⌄', 'Hoeveelheid': 'Amount', 'Na toevoegen': 'After adding', 'Houdbaarheidsdatum': 'Expiry date',
-    'Heeft een houdbaarheidsdatum': 'Has an expiry date', 'Verloopt op': 'Expires on', '14 jan 2028': 'Jan 14, 2028',
-    '⌗ Scan datum van verpakking': '⌗ Scan date from packaging', 'Voeg toe': 'Add',
-    'Wat te doen bij…': 'What to do when…', 'NL-Alert of sirene': 'NL-Alert or siren', 'Stroomuitval': 'Power cut', 'Geen kraanwater': 'No tap water',
-    'Spreek dit samen af en bewaar een geprinte versie bij je noodpakket. In een noodsituatie werkt je telefoon misschien niet.':
-      'Agree on this together and keep a printed copy with your kit. Phones may not work during an emergency.',
-    'Verzamelpunt': 'Meeting point', 'Bij de buren op nummer 12, anders het buurthuis': 'The neighbours at number 12, otherwise the community centre',
-    'Contacten': 'Contacts', 'Opa en oma 055-1234567': 'Grandma and grandpa 055-1234567', 'Afspraken': 'Arrangements',
-    'Papa haalt de kinderen op school': 'Dad picks up the children from school', 'Water, gas en stroom': 'Water, gas and electricity',
-    'Hoofdkraan en meterkast in de gang': 'Main tap and fuse box in the hall', 'Checkmoment': 'Kit check', 'Volgende check': 'Next check',
-    '11 mei 2027': 'May 11, 2027', '🖨  Maak PDF': '🖨  Create PDF', 'Huishouden': 'Household', 'Volwassenen': 'Adults', 'Kinderen': 'Children',
-    'Dagen voorraad': 'Days of supplies', 'Herinneringen': 'Reminders', 'Houdbaarheidsherinneringen': 'Expiry reminders', 'Ontdekken': 'Discover',
-    'Meer apps van de ontwikkelaar': 'More apps from the developer', 'Apps voor iPhone, iPad, Apple TV en Homey': 'Apps for iPhone, iPad, Apple TV and Homey',
-    'Bekijk': 'View', 'Versie: 1.0.0 (1)': 'Version: 1.0.0 (1)', 'Informatie': 'Information', 'Geld en documenten': 'Money and documents', 'Kopie van ID-bewijzen': 'Copies of ID documents', 'Warmte en beschutting': 'Warmth and shelter', 'Dekens en warme kleding': 'Blankets and warm clothes', 'Hygiëne': 'Hygiene', 'Wc-papier en vuilniszakken': 'Toilet paper and bin bags', 'Powerbank': 'Power bank', 'Batterijen over 23 dagen': 'Batteries in 23 days',
-  };
-  const units = [[/ dagen\b/g, ' days'], [/ pakken\b/g, ' packs'], [/ st\./g, ' pcs'], [/^(\d+) mei (\d{4})$/, 'May $1, $2'],
-    [/^(\d+) november (\d{4})$/, 'November $1, $2'], [/^(\d+) december (\d{4})$/, 'December $1, $2'],
-    [/^(\d+) augustus (\d{4})$/, 'August $1, $2'], [/^(\d+) januari (\d{4})$/, 'January $1, $2']];
-  const KEYS = Object.keys(EN).sort((x, y) => y.length - x.length);
-  const walker = document.createTreeWalker(document.getElementById('root'), NodeFilter.SHOW_TEXT);
-  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
-  nodes.forEach(n => {
-    const t = n.nodeValue.trim(); if (!t) return;
-    if (EN[t] !== undefined) { n.nodeValue = n.nodeValue.replace(t, EN[t]); return; }
-    let v = t;
-    // Text that also contains an emoji or symbol: translate the longest known phrase inside it.
-    const hit = KEYS.find(k => k.length > 4 && v.includes(k));
-    if (hit) v = v.replace(hit, EN[hit]);
-    units.forEach(([re, to]) => { v = v.replace(re, to); });
-    if (v !== t) n.nodeValue = n.nodeValue.replace(t, v);
-  });
-}
 </script>
 </body>
 </html>

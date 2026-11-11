@@ -141,7 +141,7 @@ fun HeroHeader(
     content: @Composable ColumnScope.() -> Unit = {},
 ) {
     Box(Modifier.fillMaxWidth().statusBarsPadding().padding(start = 20.dp, end = 20.dp, top = 8.dp, bottom = 34.dp)) {
-        if (art.isNotEmpty()) HeroArt(art, Modifier.align(Alignment.TopEnd).offset(x = 8.dp, y = 34.dp))
+        if (art.isNotEmpty()) HeroArt(art, Modifier.align(Alignment.TopEnd).padding(top = 56.dp).offset(x = 8.dp))
         Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(title, color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.ExtraBold,
@@ -156,10 +156,10 @@ fun HeroHeader(
 
 @Composable
 private fun HeroArt(art: List<String>, modifier: Modifier) {
-    Box(modifier.size(190.dp, 200.dp)) {
-        if (art.size > 2) ArtImage(art[2], Modifier.align(Alignment.TopEnd).offset((-10).dp, (-14).dp).size(84.dp).rotate(4f))
-        if (art.size > 1) ArtImage(art[1], Modifier.align(Alignment.TopEnd).offset(0.dp, 92.dp).size(104.dp).rotate(7f))
-        ArtImage(art[0], Modifier.align(Alignment.TopEnd).offset((-86).dp, 52.dp).size(92.dp).rotate(-8f))
+    Box(modifier.size(170.dp, 200.dp)) {
+        if (art.size > 2) ArtImage(art[2], Modifier.align(Alignment.TopEnd).offset((-4).dp, 0.dp).size(76.dp).rotate(5f))
+        if (art.size > 1) ArtImage(art[1], Modifier.align(Alignment.TopEnd).offset(0.dp, 96.dp).size(100.dp).rotate(7f))
+        ArtImage(art[0], Modifier.align(Alignment.TopEnd).offset((-74).dp, 42.dp).size(88.dp).rotate(-8f))
     }
 }
 
