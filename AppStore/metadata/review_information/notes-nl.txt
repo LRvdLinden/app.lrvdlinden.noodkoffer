@@ -1,0 +1,34 @@
+WAT DE APP DOET
+Noodpakket helpt huishoudens in Nederland een noodpakket voor 72 uur samen te stellen en bij te houden, volgens het openbare advies van de overheid (denkvooruit.nl). De app berekent wat een huishouden nodig heeft, houdt houdbaarheidsdatums bij, maakt een boodschappenlijst en bewaart een afdrukbaar noodplan. De app is in het Nederlands en Engels.
+
+ZO TEST JE
+1. Start de app. Doorloop de korte onboarding en vul een huishouden in (bijv. 2 volwassenen, 1 kind, 0 huisdieren). Zet je in de onboarding herinneringen aan, dan wordt om toestemming voor meldingen gevraagd.
+2. Tab "Pakket": checklist met voortgangsring. Tik op een onderdeel om de hoeveelheid aan te passen, een houdbaarheidsdatum te zetten of het op "Niet nodig" te zetten.
+3. Tik op het scanicoon (rechtsboven in Pakket) en scan een willekeurige barcode, bijv. een fles water. De app zoekt het product op en vult naam, hoeveelheid en categorie in. Kies "Scan datum van verpakking" om de houdbaarheidsdatum met de camera te lezen. Pas hier wordt om de camera gevraagd.
+4. Tab "Houdbaar": onderdelen op houdbaarheidsdatum.
+5. Tab "Boodschappen": alles wat nog ontbreekt. Vink af om het aan het pakket toe te voegen.
+6. Tab "Noodplan": verzamelpunt, contacten, medische info. Met de deelknop print je het of bewaar je het als PDF. "Wat te doen bij..." toont korte offline uitleg.
+7. Tab "Instellingen": huishouden, aantal dagen, herinneringen, meer apps.
+8. Voeg de widget "Noodpakket" toe via de widgetgalerij.
+Barcode scannen vereist een toestel met camera (VisionKit DataScanner, A12 of nieuwer). Zonder ondersteunde camera kun je onderdelen handmatig toevoegen.
+
+REGIO / DATA
+De checklist is gebaseerd op Nederlands advies, maar de app werkt overal. Barcodes worden wereldwijd herkend als ze in Open Food Facts / Open Products Facts staan. Een onbekend product toont een formulier om zelf in te vullen; dat is bedoeld gedrag.
+
+DATABRONNEN
+Productgegevens komen van de openbare API's van Open Food Facts en Open Products Facts (ODbL, vermeld in de app). Alleen het barcodenummer wordt verstuurd. De app is onafhankelijk en niet verbonden aan de overheid of de campagne Denk Vooruit.
+
+TOESTEMMINGEN
+- Camera: alleen als de gebruiker op scannen tikt. Verwerking op het toestel. De app werkt ook zonder.
+- Meldingen: lokale herinneringen. De app werkt ook zonder.
+
+ACCOUNT
+Geen login nodig.
+
+AANKOPEN / RECLAME
+Geen in-app aankopen, abonnementen of reclame.
+
+OVERIG
+- Synchronisatie via de privé-iCloud-database van de gebruiker (CloudKit). Geen server van de ontwikkelaar.
+- Een reviewvraag (requestReview) kan na regelmatig gebruik verschijnen, maximaal eens per week.
+- Instellingen bevat een kaart "Meer apps" met een link naar de App Store-pagina van de ontwikkelaar.

@@ -1,0 +1,37 @@
+Are you ready for 72 hours without power, water or internet? The Dutch government advises every household to keep an emergency kit at home. Noodpakket helps you build it, keep it complete and replace things in time.
+
+SCAN IT, DONE
+• Scan a product barcode and the app fills in name, brand, quantity and category
+• Scan the expiry date on the packaging with your camera
+• Products you scanned before are recognised even without internet
+
+ALWAYS COMPLETE
+• Checklist based on the Dutch government's 72-hour advice
+• Quantities calculated for your household: adults, children and pets
+• Choose how many days you want to prepare for
+• Mark items you don't need as "Not needed"
+• Add your own items at any time
+
+NEVER EXPIRED
+• Overview of everything that expires soon
+• Reminders before water, food, medicines or batteries expire
+• Periodic check of your whole kit
+
+SHOPPING LIST
+• Everything that is missing is added automatically, in the right amount
+• Tick off what you bought and it goes straight into your kit
+
+EMERGENCY PLAN
+• Meeting point, contacts, important numbers, medical information and the emergency radio station
+• Print your plan or save it as a PDF
+• Short guidance for NL-Alert, power cuts, drinking water outages, severe weather and when phone and internet are down
+
+WIDGET
+• See on your Home Screen how complete your kit is and what expires first
+
+PRIVACY
+No account, no ads and no tracking. Your data stays on your device and syncs through your own iCloud. When you scan, only the barcode number is looked up in the open databases of Open Food Facts and Open Products Facts.
+
+The app is available in Dutch and English. Noodpakket is an independent app and is not affiliated with the Dutch government or Denk Vooruit. Product data: Open Food Facts and Open Products Facts, available under the Open Database License (ODbL).
+
+Made by Léon van der Linden. Find my other apps inside the app.

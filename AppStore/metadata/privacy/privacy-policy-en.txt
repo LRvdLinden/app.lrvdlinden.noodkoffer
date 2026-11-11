@@ -1,0 +1,21 @@
+Noodpakket Privacy Policy
+Last updated: 11 November 2026
+
+Noodpakket does not collect personal data. No account, no ads, no tracking and no analytics.
+
+Data in the app
+Your household, the contents of your kit with expiry dates and your emergency plan are stored on your own device. On iPhone and iPad they sync, when you are signed in to iCloud, through your own private iCloud database between your own devices. The developer has no access to this data. On Android everything is stored in the app's private storage.
+
+Barcode scanning
+When you scan a product, the app only looks up the barcode number at Open Food Facts and Open Products Facts. No other data is sent. Product data is available under the Open Database License (ODbL).
+
+Camera
+The camera is only used when you scan a barcode or an expiry date yourself. Images are processed on the device and are not stored or sent.
+
+Notifications
+Reminders are local notifications scheduled by your device.
+
+Your rights
+Delete the app to erase all your data. On iPhone, also remove the app's iCloud data in Settings > [your name] > iCloud > Manage Storage.
+
+Contact: https://noodpakket.lrvdlinden.app/support/

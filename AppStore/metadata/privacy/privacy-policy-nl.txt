@@ -1,0 +1,21 @@
+Privacyverklaring Noodpakket
+Laatst bijgewerkt: 11 november 2026
+
+Noodpakket verzamelt geen persoonsgegevens. Geen account, geen advertenties, geen tracking en geen analysediensten.
+
+Gegevens in de app
+Je huishouden, de inhoud van je noodpakket met houdbaarheidsdatums en je noodplan staan op je eigen toestel. Op iPhone en iPad synchroniseren ze, als je bent ingelogd bij iCloud, via je eigen privé-iCloud-database tussen je eigen apparaten. De ontwikkelaar heeft geen toegang tot die gegevens. Op Android staat alles in de privé-opslag van de app.
+
+Barcode scannen
+Scan je een product, dan zoekt de app alleen het barcodenummer op bij Open Food Facts en Open Products Facts. Er gaan geen andere gegevens mee. Productgegevens vallen onder de Open Database License (ODbL).
+
+Camera
+De camera wordt alleen gebruikt als je zelf een barcode of houdbaarheidsdatum scant. Beelden worden op het toestel verwerkt en niet opgeslagen of verstuurd.
+
+Meldingen
+Herinneringen zijn lokale meldingen die je toestel zelf plant.
+
+Je rechten
+Verwijder de app om al je gegevens te wissen. Op iPhone verwijder je ook de app-gegevens in iCloud via Instellingen > [je naam] > iCloud > Beheer opslag.
+
+Contact: https://noodpakket.lrvdlinden.app/support/

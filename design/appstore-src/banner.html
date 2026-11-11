@@ -1,0 +1,121 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Social banners and og:images. Params: W, H, t (title, use | for line break), s (sub), chips (comma list),
+     imgs (comma list of screens, first = front), art=phones|shield, mode=auto|wide|strip|tall, side=left|right,
+     safeX (px kept clear left and right, e.g. FB cover), safeY (px kept clear top and bottom, e.g. stories), cta=1 -->
+<style>
+@font-face { font-family: "Brico"; src: url(fonts/bricolage-grotesque-latin-800-normal.woff2); font-weight: 800; }
+@font-face { font-family: "Brico"; src: url(fonts/bricolage-grotesque-latin-700-normal.woff2); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: var(--W); height: var(--H); overflow: hidden; }
+body { background: radial-gradient(120% 90% at 85% 0%, #3CCB86 0%, #1B9A5E 45%, #0F6E43 100%); font-family: Inter, sans-serif; color: #fff; position: relative; }
+.glow { position: absolute; border-radius: 50%; background: rgba(255,255,255,.07); }
+.text { position: absolute; }
+.brand { display: flex; align-items: center; font-family: Brico, Inter; font-weight: 800; letter-spacing: -.01em; }
+.brand img { border-radius: 22%; box-shadow: 0 16px 40px -16px rgba(0,0,0,.45); }
+h1 { font-family: Brico, Inter; font-weight: 800; letter-spacing: -.025em; line-height: 1.02; }
+p.sub { opacity: .92; font-weight: 500; line-height: 1.32; }
+.chips { display: flex; flex-wrap: wrap; }
+.chip { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.32); border-radius: 999px; font-weight: 700; white-space: nowrap; }
+.cta { display: flex; align-items: center; flex-wrap: wrap; }
+.pill { background: #fff; color: #0F6E43; border-radius: 999px; font-weight: 800; white-space: nowrap; box-shadow: 0 14px 30px -14px rgba(0,0,0,.35); }
+.url { font-weight: 700; opacity: .95; white-space: nowrap; }
+.dev { position: absolute; background: #0B0F0D; box-shadow: 0 50px 100px -40px rgba(0,30,15,.65), 0 0 0 2px rgba(255,255,255,.12) inset; }
+.screen { overflow: hidden; width: 100%; height: 100%; position: relative; }
+.screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.island { position: absolute; left: 50%; transform: translateX(-50%); background: #0B0F0D; border-radius: 999px; z-index: 2; }
+.shield { position: absolute; }
+</style></head>
+<body><div id="root"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const W = +q.get('W'), H = +q.get('H');
+document.documentElement.style.setProperty('--W', W + 'px'); document.documentElement.style.setProperty('--H', H + 'px');
+const a = W / H;
+const mode = q.get('mode') || (a >= 2.4 ? 'strip' : a >= 1.5 ? 'wide' : 'tall');
+const side = q.get('side') || 'left';
+const safeX = +(q.get('safeX') || 0), safeY = +(q.get('safeY') || 0);
+const title = (q.get('t') || '').split('|').join('<br>'), sub = q.get('s') || '';
+const chips = (q.get('chips') || '').split(',').filter(Boolean);
+const imgs = (q.get('imgs') || '').split(',').filter(Boolean);
+const art = q.get('art') || 'phones';
+const cta = q.get('cta') !== '0';
+const root = document.getElementById('root');
+
+const glow = (x, y, r) => `<div class="glow" style="left:${x}px;top:${y}px;width:${r}px;height:${r}px"></div>`;
+function phone(img, w, x, y, rot = 0, z = 1) {
+  const h = w * 2.164, b = w * 0.035, r = w * 0.17;
+  return `<div class="dev" style="z-index:${z};width:${w}px;height:${h}px;left:${x}px;top:${y}px;border-radius:${r}px;padding:${b}px;transform:rotate(${rot}deg)">
+    <div class="screen" style="border-radius:${r - b}px"><div class="island" style="top:${w*0.03}px;width:${w*0.28}px;height:${w*0.083}px"></div><img src="screens/${img}"></div></div>`;
+}
+function shield(size, x, y) {
+  return `<svg class="shield" style="left:${x}px;top:${y}px;width:${size}px;height:${size}px" viewBox="0 0 200 200">
+    <path d="M100 14l70 25v55c0 43-30 73-70 86-40-13-70-43-70-86V39z" fill="#fff" opacity=".96"/>
+    <rect x="72" y="92" width="56" height="44" rx="8" fill="#1B9A5E"/>
+    <path d="M84 92V80a16 16 0 0 1 32 0v12" fill="none" stroke="#1B9A5E" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="100" cy="111" r="6" fill="#fff"/><rect x="97" y="113" width="6" height="12" rx="3" fill="#fff"/></svg>`;
+}
+function textBlock(o) {
+  // o: x, y, w, align, tSize, sSize, icon
+  const al = o.align || 'left', jc = al === 'center' ? 'center' : 'flex-start';
+  return `<div class="text" id="text" style="left:${o.x}px;top:${o.y}px;width:${o.w}px;text-align:${al}">
+    <div class="brand" style="justify-content:${jc};gap:${o.icon*0.32}px;font-size:${o.icon*0.5}px"><img src="icon.svg" style="width:${o.icon}px;height:${o.icon}px">Noodpakket</div>
+    <h1 style="font-size:${o.tSize}px;margin-top:${o.icon*0.42}px">${title}</h1>
+    ${sub ? `<p class="sub" style="font-size:${o.sSize}px;margin-top:${o.sSize*0.6}px">${sub}</p>` : ''}
+    ${chips.length ? `<div class="chips" style="justify-content:${jc};gap:${o.sSize*0.45}px;margin-top:${o.sSize*0.9}px">${chips.map(c => `<span class="chip" style="font-size:${o.sSize*0.78}px;padding:${o.sSize*0.32}px ${o.sSize*0.75}px">${c}</span>`).join('')}</div>` : ''}
+    ${cta ? `<div class="cta" style="justify-content:${jc};gap:${o.sSize*0.7}px;margin-top:${o.sSize*1.0}px">
+      <span class="pill" style="font-size:${o.sSize*0.82}px;padding:${o.sSize*0.42}px ${o.sSize*0.9}px">Gratis voor iPhone, iPad en Android</span>
+      <span class="url" style="font-size:${o.sSize*0.86}px">noodpakket.lrvdlinden.app</span></div>` : ''}
+  </div>`;
+}
+
+let html = '';
+if (mode === 'wide') {
+  const pad = Math.max(W * 0.06, safeX);
+  html += glow(W * 0.55, -H * 0.35, H * 1.1) + glow(-H * 0.3, H * 0.6, H * 0.8);
+  html += textBlock({ x: pad, y: 0, w: W * 0.5, tSize: H * 0.105, sSize: H * 0.04, icon: H * 0.1 });
+  if (art === 'shield') html += shield(H * 0.62, W * 0.64, H * 0.19);
+  else {
+    const pw = H * 0.4;
+    if (imgs[1]) html += phone(imgs[1], pw * 0.9, W * 0.785, H * 0.23, 7, 1);
+    html += phone(imgs[0], pw, W * 0.6, H * 0.12, -4, 2);
+  }
+} else if (mode === 'strip') {
+  const padX = Math.max(W * 0.05, safeX);
+  html += glow(W * 0.6, -H * 0.8, H * 2) + glow(-H * 0.4, H * 0.4, H * 1.2);
+  const pw = H * 0.46, span = imgs[1] ? 1.95 : 1.0;
+  let tw = W * (side === 'right' ? 0.48 : 0.5);
+  if (side !== 'right') tw = Math.min(tw, W - padX - pw * span - padX - H * 0.08);
+  const tx = side === 'right' ? W - padX - tw : padX;
+  const ts = Math.min(H * 0.135, tw * 0.085);
+  html += textBlock({ x: tx, y: 0, w: tw, tSize: ts, sSize: Math.min(H * 0.052, ts * 0.42), icon: Math.min(H * 0.12, ts * 0.95) });
+  const px = side === 'right' ? tx - pw * 2.1 : W - padX - pw * span;
+  if (imgs[1]) html += phone(imgs[1], pw * 0.9, px + pw * 1.0, H * 0.24, 7, 1);
+  html += phone(imgs[0], pw, px, H * 0.12, -4, 2);
+} else {
+  const padX = W * 0.08, top = Math.max(H * 0.06, safeY + H * 0.02);
+  html += glow(W * 0.3, -W * 0.4, W * 1.2) + glow(-W * 0.3, H * 0.55, W * 0.9);
+  html += textBlock({ x: padX, y: top, w: W - padX * 2, align: 'center', tSize: W * (a > 0.95 ? 0.075 : 0.088), sSize: W * (a > 0.95 ? 0.032 : 0.036), icon: W * (a > 0.95 ? 0.085 : 0.1) });
+}
+root.innerHTML = html;
+
+// vertically centre the text in wide/strip, place the phones under the text in tall
+document.fonts.ready.then(() => {
+const t = document.getElementById('text');
+if (mode !== 'tall') {
+  t.style.top = Math.max(0, (H - t.offsetHeight) / 2) + 'px';
+} else {
+  const y0 = t.offsetTop + t.offsetHeight + H * 0.045;
+  const pw = Math.max(W * 0.3, Math.min(W * 0.36, (H - y0) / 1.7));
+  let ph = '';
+  if (art === 'shield') ph += shield(W * 0.5, W * 0.25, y0);
+  else {
+    if (imgs[1]) ph += phone(imgs[1], pw * 0.88, W / 2 - pw * 1.28, y0 + pw * 0.22, -8, 1);
+    if (imgs[2]) ph += phone(imgs[2], pw * 0.88, W / 2 + pw * 0.4, y0 + pw * 0.22, 8, 1);
+    ph += phone(imgs[0], pw, W / 2 - pw / 2, y0, 0, 2);
+  }
+  root.insertAdjacentHTML('beforeend', ph);
+}
+document.body.dataset.ready = '1';
+});
+</script></body></html>

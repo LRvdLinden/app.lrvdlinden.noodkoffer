@@ -120,7 +120,13 @@ const screens = {
     <h4>🔦 Licht en stroom</h4><div class="group">
       ${item('have','Zaklamp','1 st. / 1 st.')}
       ${item('part','Batterijen','1 pakken / 2 pakken', B('b-a','23 dagen'))}
-    </div></div>${tabs('kit')}`,
+      ${item('have','Powerbank','1 st. / 1 st.')}
+    </div>
+    <h4>📻 Informatie</h4><div class="group">${item('miss','Noodradio','0 st. / 1 st.')}</div>
+    <h4>📄 Geld en documenten</h4><div class="group">${item('part','Contant geld','€ 100 / € 170')}${item('have','Kopie van ID-bewijzen','1 st. / 1 st.')}</div>
+    <h4>🔥 Warmte en beschutting</h4><div class="group">${item('have','Dekens en warme kleding','3 st. / 3 st.')}</div>
+    <h4>🧼 Hygiëne</h4><div class="group">${item('have','Wc-papier en vuilniszakken','1 pakken / 1 pakken')}</div>
+    </div>${tabs('kit')}`,
 
   exp: () => `${status}<div class="nav"><h1>Houdbaarheid</h1></div>
     <div class="sec"><h4>Verlopen</h4><div class="group">
@@ -166,6 +172,57 @@ const screens = {
 
 };
 document.getElementById('root').innerHTML = `<div class="phone">${screens[screen]()}</div>`;
+// Optional size (iPad) and English text, so the same screens can be used for every App Store set.
+const W = +p.get('w'), H = +p.get('h');
+if (W && H) { const ph = document.querySelector('.phone'); ph.style.width = W + 'px'; ph.style.height = H + 'px'; }
+if (p.get('lang') === 'en') {
+  document.documentElement.lang = 'en';
+  const EN = {
+    'Noodpakket': 'Emergency kit', 'Zoek in het pakket': 'Search the kit', 'Bijna zover': 'Keep going', 'compleet': 'complete',
+    '13 items voor 3 personen': '13 items for 3 people', 'Batterijen over 23 dagen': 'Batteries in 23 days',
+    'Water en eten': 'Water and food', 'Gezondheid': 'Health', 'Licht en stroom': 'Light and power',
+    'Drinkwater': 'Drinking water', 'Houdbaar eten': 'Long-life food', 'Medicijnen': 'Medicines', 'EHBO-doos': 'First aid kit',
+    'Zaklamp': 'Torch', 'Batterijen': 'Batteries', 'Pleisters': 'Plasters', 'Dierenvoer': 'Pet food', 'Noodradio': 'Emergency radio',
+    'Contant geld': 'Cash', 'Kaarsen en lucifers': 'Candles and matches',
+    'Pakket': 'Kit', 'Houdbaar': 'Expiry', 'Boodschappen': 'Shopping', 'Noodplan': 'Plan', 'Instellingen': 'Settings',
+    'Houdbaarheid': 'Expiry dates', 'Verlopen': 'Expired', 'Binnen 30 dagen': 'Within 30 days', 'Later': 'Later',
+    'Nog nodig: 1 pakken': 'Still needed: 1 packs', 'Nog nodig: 3 dagen': 'Still needed: 3 days', 'Nog nodig: 1 st.': 'Still needed: 1 pcs',
+    'Nog nodig: € 70': 'Still needed: €70',
+    'Vink een item af als je het gekocht hebt: het gaat dan je pakket in.': 'Tick an item when you have bought it: it moves into your kit.',
+    'Scan barcode': 'Scan barcode', 'Natuurlijk mineraalwater 6 × 1,5 L': 'Natural mineral water 6 × 1.5 L', 'Huismerk · 8712345678906': 'Store brand · 8712345678906',
+    'Productgegevens: Open Food Facts (ODbL)': 'Product data: Open Food Facts (ODbL)', 'Toevoegen aan': 'Add to', 'Item': 'Item',
+    'Drinkwater ⌄': 'Drinking water ⌄', 'Hoeveelheid': 'Amount', 'Na toevoegen': 'After adding', 'Houdbaarheidsdatum': 'Expiry date',
+    'Heeft een houdbaarheidsdatum': 'Has an expiry date', 'Verloopt op': 'Expires on', '14 jan 2028': 'Jan 14, 2028',
+    '⌗ Scan datum van verpakking': '⌗ Scan date from packaging', 'Voeg toe': 'Add',
+    'Wat te doen bij…': 'What to do when…', 'NL-Alert of sirene': 'NL-Alert or siren', 'Stroomuitval': 'Power cut', 'Geen kraanwater': 'No tap water',
+    'Spreek dit samen af en bewaar een geprinte versie bij je noodpakket. In een noodsituatie werkt je telefoon misschien niet.':
+      'Agree on this together and keep a printed copy with your kit. Phones may not work during an emergency.',
+    'Verzamelpunt': 'Meeting point', 'Bij de buren op nummer 12, anders het buurthuis': 'The neighbours at number 12, otherwise the community centre',
+    'Contacten': 'Contacts', 'Opa en oma 055-1234567': 'Grandma and grandpa 055-1234567', 'Afspraken': 'Arrangements',
+    'Papa haalt de kinderen op school': 'Dad picks up the children from school', 'Water, gas en stroom': 'Water, gas and electricity',
+    'Hoofdkraan en meterkast in de gang': 'Main tap and fuse box in the hall', 'Checkmoment': 'Kit check', 'Volgende check': 'Next check',
+    '11 mei 2027': 'May 11, 2027', '🖨  Maak PDF': '🖨  Create PDF', 'Huishouden': 'Household', 'Volwassenen': 'Adults', 'Kinderen': 'Children',
+    'Dagen voorraad': 'Days of supplies', 'Herinneringen': 'Reminders', 'Houdbaarheidsherinneringen': 'Expiry reminders', 'Ontdekken': 'Discover',
+    'Meer apps van de ontwikkelaar': 'More apps from the developer', 'Apps voor iPhone, iPad, Apple TV en Homey': 'Apps for iPhone, iPad, Apple TV and Homey',
+    'Bekijk': 'View', 'Versie: 1.0.0 (1)': 'Version: 1.0.0 (1)', 'Informatie': 'Information', 'Geld en documenten': 'Money and documents', 'Kopie van ID-bewijzen': 'Copies of ID documents', 'Warmte en beschutting': 'Warmth and shelter', 'Dekens en warme kleding': 'Blankets and warm clothes', 'Hygiëne': 'Hygiene', 'Wc-papier en vuilniszakken': 'Toilet paper and bin bags', 'Powerbank': 'Power bank', 'Batterijen over 23 dagen': 'Batteries in 23 days',
+  };
+  const units = [[/ dagen\b/g, ' days'], [/ pakken\b/g, ' packs'], [/ st\./g, ' pcs'], [/^(\d+) mei (\d{4})$/, 'May $1, $2'],
+    [/^(\d+) november (\d{4})$/, 'November $1, $2'], [/^(\d+) december (\d{4})$/, 'December $1, $2'],
+    [/^(\d+) augustus (\d{4})$/, 'August $1, $2'], [/^(\d+) januari (\d{4})$/, 'January $1, $2']];
+  const KEYS = Object.keys(EN).sort((x, y) => y.length - x.length);
+  const walker = document.createTreeWalker(document.getElementById('root'), NodeFilter.SHOW_TEXT);
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n => {
+    const t = n.nodeValue.trim(); if (!t) return;
+    if (EN[t] !== undefined) { n.nodeValue = n.nodeValue.replace(t, EN[t]); return; }
+    let v = t;
+    // Text that also contains an emoji or symbol: translate the longest known phrase inside it.
+    const hit = KEYS.find(k => k.length > 4 && v.includes(k));
+    if (hit) v = v.replace(hit, EN[hit]);
+    units.forEach(([re, to]) => { v = v.replace(re, to); });
+    if (v !== t) n.nodeValue = n.nodeValue.replace(t, v);
+  });
+}
 </script>
 </body>
 </html>

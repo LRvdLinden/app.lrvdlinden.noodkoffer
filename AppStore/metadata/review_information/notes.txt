@@ -1,0 +1,34 @@
+WHAT THE APP DOES
+Noodpakket ("emergency kit") helps households in the Netherlands build and maintain a 72-hour emergency kit, following the public advice of the Dutch government (denkvooruit.nl). It calculates what a household needs, tracks expiry dates, creates a shopping list and stores a printable emergency plan. The app is in Dutch and English.
+
+HOW TO TEST
+1. Launch the app. Swipe through the short onboarding and enter a household (for example 2 adults, 1 child, 0 pets). Notification permission is requested only when the user turns on reminders in onboarding or Settings.
+2. Tab "Kit": the checklist with progress ring. Tap an item to change the quantity, set an expiry date or mark it "Not needed".
+3. Tap the scan icon (top right of the Kit tab) and scan any supermarket barcode, e.g. a bottle of water. The app looks up the product and fills in name, quantity and category. Choose "Scan date from packaging" to read the expiry date with the camera. The camera is requested only at this point.
+4. Tab "Expiry": items sorted by expiry date.
+5. Tab "Shopping": everything still missing. Tick an item to add it to the kit.
+6. Tab "Plan": emergency plan (meeting point, contacts, medical info). Use the share button to print or save it as a PDF. "What to do when..." shows short offline guidance.
+7. Tab "Settings": household, number of days, reminders, more apps by the developer.
+8. Add the "Noodpakket" widget from the Home Screen widget gallery.
+Barcode scanning requires a device with a camera (VisionKit DataScanner, A12 or newer). Without a supported camera, items can be added and edited manually.
+
+REGION / DATA NOTES
+The checklist is based on Dutch advice, but the app works in every region. Barcode lookup works for products worldwide that exist in Open Food Facts / Open Products Facts. When a product is unknown, the app shows a form to complete it manually; this is expected behaviour.
+
+DATA SOURCES
+Product data comes from the public APIs of Open Food Facts and Open Products Facts (ODbL licence, attributed in the app). Only the barcode number is sent. The app is independent and is not affiliated with or endorsed by the Dutch government or the Denk Vooruit campaign; this is stated in the app and in the description.
+
+PERMISSIONS
+- Camera: only when the user taps scan (barcode or expiry date). Processed on device. The app works fully without it.
+- Notifications: for local expiry and check-up reminders. The app works without it.
+
+ACCOUNT
+No login required.
+
+IAP / ADS
+The app contains no in-app purchases, subscriptions or ads.
+
+OTHER
+- Data syncs via the user's private iCloud database (CloudKit). No server of the developer is involved.
+- A review prompt (requestReview) may appear after regular use, at most once per week.
+- Settings contains a "More apps" card that links to the developer's App Store page.

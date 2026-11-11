@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Brico"; src: url(fonts/bricolage-grotesque-latin-800-normal.woff2); font-weight: 800; }
+@font-face { font-family: "Brico"; src: url(fonts/bricolage-grotesque-latin-700-normal.woff2); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: var(--W); height: var(--H); overflow: hidden; }
+body { background: radial-gradient(120% 80% at 80% 0%, #3CCB86 0%, #1B9A5E 45%, #0F6E43 100%); font-family: Inter, sans-serif; color: #fff; position: relative; }
+.glow { position: absolute; border-radius: 50%; background: rgba(255,255,255,.08); }
+.head { position: absolute; left: 7%; right: 7%; text-align: center; }
+h1 { font-family: Brico, Inter; font-weight: 800; letter-spacing: -.02em; line-height: 1.04; }
+p { opacity: .9; font-weight: 500; margin-top: .45em; line-height: 1.3; }
+.dev { position: absolute; left: 50%; transform: translateX(-50%); background: #0B0F0D; box-shadow: 0 60px 120px -40px rgba(0,30,15,.6), 0 0 0 2px rgba(255,255,255,.12) inset; }
+.dev img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.screen { overflow: hidden; width: 100%; height: 100%; position: relative; }
+.island { position: absolute; left: 50%; transform: translateX(-50%); background: #0B0F0D; border-radius: 999px; z-index: 2; }
+/* marketing layouts */
+.row { position: absolute; display: flex; align-items: center; }
+.brand { display: flex; align-items: center; }
+.brand img { border-radius: 22%; box-shadow: 0 20px 50px -20px rgba(0,0,0,.4); }
+.chip { display: inline-block; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; font-weight: 700; }
+</style></head>
+<body><div id="root"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const W = +q.get('W'), H = +q.get('H'), kind = q.get('kind');
+document.documentElement.style.setProperty('--W', W + 'px'); document.documentElement.style.setProperty('--H', H + 'px');
+const root = document.getElementById('root');
+const title = q.get('t') || '', sub = q.get('s') || '';
+const glow = (x, y, r) => `<div class="glow" style="left:${x}px;top:${y}px;width:${r}px;height:${r}px"></div>`;
+
+function phone(img, w, x, y, rot = 0) {
+  const h = w * 2.1641, b = w * 0.035, r = w * 0.17;
+  return `<div class="dev" style="width:${w}px;height:${h}px;left:${x}px;top:${y}px;border-radius:${r}px;padding:${b}px;transform:${x === null ? 'translateX(-50%)' : ''} rotate(${rot}deg)">
+    <div class="screen" style="border-radius:${r - b}px"><div class="island" style="top:${w*0.03}px;width:${w*0.28}px;height:${w*0.083}px"></div><img src="${img}"></div></div>`;
+}
+function ipad(img, w, x, y) {
+  const h = w * 1.3333, b = w * 0.022, r = w * 0.06;
+  return `<div class="dev" style="width:${w}px;height:${h}px;left:${x}px;top:${y}px;border-radius:${r}px;padding:${b}px;transform:none">
+    <div class="screen" style="border-radius:${r - b}px"><img src="${img}"></div></div>`;
+}
+
+if (kind === 'iphone' || kind === 'ipad') {
+  const img = q.get('img');
+  const tSize = W * (kind === 'iphone' ? 0.085 : 0.062), sSize = tSize * 0.42;
+  root.innerHTML = glow(-W*0.3, H*0.55, W*0.9) + glow(W*0.6, -W*0.2, W*0.6) +
+    `<div class="head" style="top:${H*0.055}px"><h1 style="font-size:${tSize}px">${title}</h1><p style="font-size:${sSize}px">${sub}</p></div>`;
+  if (kind === 'iphone') {
+    const w = W * 0.78;
+    root.insertAdjacentHTML('beforeend', `<div style="position:absolute;left:${(W-w)/2}px;top:${H*0.26}px">${phone(img, w, 0, 0)}</div>`);
+  } else {
+    const w = W * 0.8;
+    root.insertAdjacentHTML('beforeend', ipad(img, w, (W - w) / 2, H * 0.215));
+  }
+} else {
+  // marketing: header / search banners with three phones and the brand
+  const imgs = q.get('imgs').split(',');
+  const wide = W / H > 1.6;
+  const tSize = wide ? Math.min(W * 0.05, H * 0.105) : W * 0.042, sSize = tSize * 0.42, icon = tSize * 1.4;
+  const pw = Math.min(H * 0.42, W * 0.17);
+  const left = W * 0.07;
+  const start = W * 0.94 - pw * 2.8;
+  root.innerHTML = glow(-W*0.15, H*0.4, H*1.2) + glow(W*0.55, -H*0.5, H*1.1) +
+    `<div class="row" style="left:${left}px;top:0;bottom:0;width:${W*0.4}px"><div>
+       <div class="brand" style="gap:${icon*0.3}px;margin-bottom:${tSize*0.5}px"><img src="icon.svg" style="width:${icon}px;height:${icon}px"><span style="font-family:Brico;font-weight:800;font-size:${tSize*0.7}px">Noodpakket</span></div>
+       <h1 style="font-size:${tSize}px">${title}</h1><p style="font-size:${sSize}px;max-width:90%">${sub}</p>
+       <div style="margin-top:${tSize*0.5}px;display:flex;gap:${sSize*0.6}px;flex-wrap:wrap">${(q.get('chips')||'').split('|').filter(Boolean).map(c => `<span class="chip" style="font-size:${sSize*0.8}px;padding:${sSize*0.35}px ${sSize*0.8}px">${c}</span>`).join('')}</div>
+     </div></div>` +
+    phone(imgs[0], pw, start, H * 0.5 - pw * 1.04, -6) +
+    phone(imgs[2], pw, start + pw * 1.8, H * 0.5 - pw * 1.04, 6) +
+    phone(imgs[1], pw * 1.1, start + pw * 0.85, H * 0.5 - pw * 1.19, 0);
+}
+</script></body></html>
