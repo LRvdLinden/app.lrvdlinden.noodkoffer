@@ -10,11 +10,11 @@ plugins {
 val keystoreFile = System.getenv("ANDROID_KEYSTORE_FILE")?.let { file(it) }?.takeIf { it.exists() }
 
 android {
-    namespace = "app.lrvdlinden.noodkoffer"
+    namespace = "app.lrvdlinden.noodpakket"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "app.lrvdlinden.noodkoffer"
+        applicationId = "app.lrvdlinden.noodpakket"
         minSdk = 26
         targetSdk = 35
         versionCode = (System.getenv("VERSION_CODE") ?: "1").toInt()
@@ -64,5 +64,8 @@ dependencies {
     implementation("androidx.glance:glance-appwidget:1.1.1")
     implementation("androidx.glance:glance-material3:1.1.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
+    implementation("com.google.mlkit:text-recognition:16.0.1")
+    implementation("io.coil-kt:coil-compose:2.7.0")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

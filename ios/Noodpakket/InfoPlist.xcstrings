@@ -1,0 +1,26 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "CFBundleDisplayName": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodpakket"
+          }
+        }
+      }
+    },
+    "NSCameraUsageDescription": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodpakket gebruikt de camera om barcodes en houdbaarheidsdatums op verpakkingen te scannen."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

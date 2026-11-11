@@ -1,0 +1,964 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		027E363A364C451A50CF7314 = {
+			isa = PBXBuildFile;
+			fileRef = 6D1C2C244F27B084508EA42D;
+		};
+		09F4A5E6C9FA08CF3CCA8D0F = {
+			isa = PBXBuildFile;
+			fileRef = E7D0DA834A73CE24442829F3;
+		};
+		11DB0760C147D1592C5522F2 = {
+			isa = PBXBuildFile;
+			fileRef = 54CB27557DADEE9F60CDA26C;
+		};
+		135DAC593CA433B2BFF6600B = {
+			isa = PBXBuildFile;
+			fileRef = 01F5D8A43119B9DDFFD46EC1;
+		};
+		344995CA257B65CA8C965A4F = {
+			isa = PBXBuildFile;
+			fileRef = F8E8B8E537DF91A04C8DD2F0;
+		};
+		36D0187E0DEFB2DD4224D44E = {
+			isa = PBXBuildFile;
+			fileRef = 330376DB6CE7FB4E682C12C6;
+		};
+		38858BE0C9E5D21ABEC18BA6 = {
+			isa = PBXBuildFile;
+			fileRef = 5FCB9A3DD986DD7109C2955E;
+		};
+		3DDA0A29769CD0FF8B0938E6 = {
+			isa = PBXBuildFile;
+			fileRef = 31109720BA7987D5EB2881FB;
+		};
+		3FF95852F5DD6F69CB0F97EF = {
+			isa = PBXBuildFile;
+			fileRef = FBEDB37966650FA04B45869E;
+		};
+		40447D767665D2F736DAF12A = {
+			isa = PBXBuildFile;
+			fileRef = 6FE49FA1378A6D4683758967;
+			settings = {
+				ATTRIBUTES = (
+					RemoveHeadersOnCopy,
+				);
+			};
+		};
+		44F82268ECBFF1F5BA1D4579 = {
+			isa = PBXBuildFile;
+			fileRef = 45DE2FF9607DD6AA0B70AAA6;
+		};
+		4CC88ECF76B3D19031D24E3C = {
+			isa = PBXBuildFile;
+			fileRef = 180BD01B77CD64AADD64A59B;
+		};
+		51F3BA0BDD8989F530D30CF4 = {
+			isa = PBXBuildFile;
+			fileRef = FEEFB93876BC0378B57EA381;
+		};
+		561696BAD88233222E7C4AEB = {
+			isa = PBXBuildFile;
+			fileRef = E88C778458C49A7CB0DEE1D3;
+		};
+		56E44244F8D7CCAF20E0BC6B = {
+			isa = PBXBuildFile;
+			fileRef = E7D0DA834A73CE24442829F3;
+		};
+		59AFD041E1CC3CA23B58E255 = {
+			isa = PBXBuildFile;
+			fileRef = 7A5FE41098C478C487A6EE26;
+		};
+		71755A2AA8463D6EEB3A8593 = {
+			isa = PBXBuildFile;
+			fileRef = 31109720BA7987D5EB2881FB;
+		};
+		72175BBA1857C2E4ECE53ED5 = {
+			isa = PBXBuildFile;
+			fileRef = D099DB4B2A1009E6E3B5F000;
+		};
+		74FC1EBF64DF9F7FB765E3B4 = {
+			isa = PBXBuildFile;
+			fileRef = 6269650B1520335F4FE037E8;
+		};
+		77F358C245C4C1F802AE96A3 = {
+			isa = PBXBuildFile;
+			fileRef = C1F0AAC5C52E23AEB9937679;
+		};
+		9F359046181B1B99B0D19BC0 = {
+			isa = PBXBuildFile;
+			fileRef = 96D2294494CFC88E3B0C4D5A;
+		};
+		A0BCE2A49B9145C7C6E390F1 = {
+			isa = PBXBuildFile;
+			fileRef = 8A6F88C168E85EED43DE9A69;
+		};
+		AFC2A302CA4B7FFA788F0570 = {
+			isa = PBXBuildFile;
+			fileRef = ED5583159D3A1D10DB8E4020;
+		};
+		BCB456917B2453817C9D4988 = {
+			isa = PBXBuildFile;
+			fileRef = 29F7D5BEFA5B96DEE14A98A8;
+		};
+		C0BE91826ED4705C2E2B3F14 = {
+			isa = PBXBuildFile;
+			fileRef = 085C9C671E0DAEB7682B40B1;
+		};
+		C67D9374F3EEE40EAD782C05 = {
+			isa = PBXBuildFile;
+			fileRef = FE782C2FAF22186AB407B74B;
+		};
+		CA98E977ED72200E603EF0CA = {
+			isa = PBXBuildFile;
+			fileRef = 8D210E2FD0AECD0055A8221D;
+		};
+		CE01141A3802E57A3B531E12 = {
+			isa = PBXBuildFile;
+			fileRef = 2F9DE69189D34161E3230601;
+		};
+		CE6EAE7A6F77EF77DD78ACB3 = {
+			isa = PBXBuildFile;
+			fileRef = EC8AFB29166DC243450FE20B;
+		};
+		DE6B2E3A9F66722907CE5FE0 = {
+			isa = PBXBuildFile;
+			fileRef = 1E321447BCBD3885640F7E6A;
+		};
+		EB451C27812D8C4E79CF34D5 = {
+			isa = PBXBuildFile;
+			fileRef = 5FCB9A3DD986DD7109C2955E;
+		};
+		ED333D93F7C55EC98B52B99F = {
+			isa = PBXBuildFile;
+			fileRef = B7C51D65AD33D4208BB81B44;
+		};
+		F4E7CCD8881939E5A87EAAC1 = {
+			isa = PBXBuildFile;
+			fileRef = F9C74C3EC71909CA8B23ED9A;
+		};
+		FC39716260B896E0A5557795 = {
+			isa = PBXBuildFile;
+			fileRef = 2D7048821EEC3EEB71ACFD56;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7D4312AF23511FAF986C076 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46F86FAA6BBF9AC94A7E4595;
+			proxyType = 1;
+			remoteGlobalIDString = D0F33231676C29E80E208426;
+			remoteInfo = NoodpakketWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3ABE6B01AB29D7A7093F3227 = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				40447D767665D2F736DAF12A,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		01F5D8A43119B9DDFFD46EC1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Catalog.swift;
+			sourceTree = "<group>";
+		};
+		085C9C671E0DAEB7682B40B1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = MoreAppsCard.swift;
+			sourceTree = "<group>";
+		};
+		180BD01B77CD64AADD64A59B = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = ReviewPrompter.swift;
+			sourceTree = "<group>";
+		};
+		1E321447BCBD3885640F7E6A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = OnboardingView.swift;
+			sourceTree = "<group>";
+		};
+		2290BAA691DF56446E732E47 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = Info.plist;
+			sourceTree = "<group>";
+		};
+		29F7D5BEFA5B96DEE14A98A8 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = KitView.swift;
+			sourceTree = "<group>";
+		};
+		2D7048821EEC3EEB71ACFD56 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = ScanFlowView.swift;
+			sourceTree = "<group>";
+		};
+		2F9DE69189D34161E3230601 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = InfoView.swift;
+			sourceTree = "<group>";
+		};
+		31109720BA7987D5EB2881FB = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WidgetSnapshot.swift;
+			sourceTree = "<group>";
+		};
+		330376DB6CE7FB4E682C12C6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = ShoppingView.swift;
+			sourceTree = "<group>";
+		};
+		3D3940C9A2F6E28AB8197096 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.entitlements;
+			path = Noodpakket.entitlements;
+			sourceTree = "<group>";
+		};
+		45DE2FF9607DD6AA0B70AAA6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = ProgressRing.swift;
+			sourceTree = "<group>";
+		};
+		54CB27557DADEE9F60CDA26C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = PlanView.swift;
+			sourceTree = "<group>";
+		};
+		571CD3829D85311D5626CD79 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = Noodpakket.app;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FCB9A3DD986DD7109C2955E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Theme.swift;
+			sourceTree = "<group>";
+		};
+		6269650B1520335F4FE037E8 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = SplashView.swift;
+			sourceTree = "<group>";
+		};
+		6AC259A29BF7977DE245D1BD = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = Info.plist;
+			sourceTree = "<group>";
+		};
+		6D1C2C244F27B084508EA42D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = NoodpakketWidget.swift;
+			sourceTree = "<group>";
+		};
+		6EE54DB64040C28AACCA83A5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.entitlements;
+			path = NoodpakketWidget.entitlements;
+			sourceTree = "<group>";
+		};
+		6FE49FA1378A6D4683758967 = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.app-extension";
+			includeInIndex = 0;
+			path = NoodpakketWidget.appex;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7A5FE41098C478C487A6EE26 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = ProductLookup.swift;
+			sourceTree = "<group>";
+		};
+		8A6F88C168E85EED43DE9A69 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.json.xcstrings;
+			path = InfoPlist.xcstrings;
+			sourceTree = "<group>";
+		};
+		8D210E2FD0AECD0055A8221D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = KitSummary.swift;
+			sourceTree = "<group>";
+		};
+		96D2294494CFC88E3B0C4D5A = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xml;
+			path = PrivacyInfo.xcprivacy;
+			sourceTree = "<group>";
+		};
+		B7C51D65AD33D4208BB81B44 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder.assetcatalog;
+			path = Assets.xcassets;
+			sourceTree = "<group>";
+		};
+		C1F0AAC5C52E23AEB9937679 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = NotificationScheduler.swift;
+			sourceTree = "<group>";
+		};
+		D099DB4B2A1009E6E3B5F000 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = SettingsView.swift;
+			sourceTree = "<group>";
+		};
+		E7D0DA834A73CE24442829F3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.json.xcstrings;
+			path = Localizable.xcstrings;
+			sourceTree = "<group>";
+		};
+		E88C778458C49A7CB0DEE1D3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = DateScannerView.swift;
+			sourceTree = "<group>";
+		};
+		EC8AFB29166DC243450FE20B = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = NoodpakketApp.swift;
+			sourceTree = "<group>";
+		};
+		ED5583159D3A1D10DB8E4020 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = AppInfoFooter.swift;
+			sourceTree = "<group>";
+		};
+		F8E8B8E537DF91A04C8DD2F0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = RootView.swift;
+			sourceTree = "<group>";
+		};
+		F9C74C3EC71909CA8B23ED9A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Models.swift;
+			sourceTree = "<group>";
+		};
+		FBEDB37966650FA04B45869E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = ItemEditView.swift;
+			sourceTree = "<group>";
+		};
+		FE782C2FAF22186AB407B74B = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xml;
+			path = PrivacyInfo.xcprivacy;
+			sourceTree = "<group>";
+		};
+		FEEFB93876BC0378B57EA381 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = ExpiryView.swift;
+			sourceTree = "<group>";
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		298754046CCB29E5950BA408 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E4455299BBF8E8C93415864 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		012B989E5EE3E98426492AA6 = {
+			isa = PBXGroup;
+			children = (
+				1E321447BCBD3885640F7E6A,
+				6269650B1520335F4FE037E8,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		55108BA52EF0D65BE38B6D0F = {
+			isa = PBXGroup;
+			children = (
+				E88C778458C49A7CB0DEE1D3,
+				FBEDB37966650FA04B45869E,
+				29F7D5BEFA5B96DEE14A98A8,
+			);
+			path = Kit;
+			sourceTree = "<group>";
+		};
+		588A30EEAD7A47A7785B3BAE = {
+			isa = PBXGroup;
+			children = (
+				EC8AFB29166DC243450FE20B,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		65450BD11F702660A20C92E0 = {
+			isa = PBXGroup;
+			children = (
+				7521B07F0A2403AE4E30BDE5,
+				FDC61E41A14875E35D0440A1,
+				55108BA52EF0D65BE38B6D0F,
+				012B989E5EE3E98426492AA6,
+				8B1B3C180C85A911601FA95E,
+				F8E8B8E537DF91A04C8DD2F0,
+				904C0E73DBF65BD8993E6756,
+				CE466B1751A4697F31521DBD,
+				E229DF638F650531768B6537,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7521B07F0A2403AE4E30BDE5 = {
+			isa = PBXGroup;
+			children = (
+				ED5583159D3A1D10DB8E4020,
+				085C9C671E0DAEB7682B40B1,
+				45DE2FF9607DD6AA0B70AAA6,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8B1B3C180C85A911601FA95E = {
+			isa = PBXGroup;
+			children = (
+				2F9DE69189D34161E3230601,
+				54CB27557DADEE9F60CDA26C,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		8C4FDD7B635240BD562EBB49 = {
+			isa = PBXGroup;
+			children = (
+				D45336440BFE804619532BBF,
+				8D631E04B6004FB38AFF7573,
+				C64F91A36BC1DFFBFBF7BCE4,
+				B23D89B2D2DF3745A003AEB1,
+			);
+			sourceTree = "<group>";
+		};
+		8D631E04B6004FB38AFF7573 = {
+			isa = PBXGroup;
+			children = (
+				6AC259A29BF7977DE245D1BD,
+				6EE54DB64040C28AACCA83A5,
+				6D1C2C244F27B084508EA42D,
+				FE782C2FAF22186AB407B74B,
+			);
+			path = NoodpakketWidget;
+			sourceTree = "<group>";
+		};
+		904C0E73DBF65BD8993E6756 = {
+			isa = PBXGroup;
+			children = (
+				2D7048821EEC3EEB71ACFD56,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		950EF573D8B306F3D9D7B3D6 = {
+			isa = PBXGroup;
+			children = (
+				8D210E2FD0AECD0055A8221D,
+				C1F0AAC5C52E23AEB9937679,
+				7A5FE41098C478C487A6EE26,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B10F8A7AAA22D6C83B68520A = {
+			isa = PBXGroup;
+			children = (
+				180BD01B77CD64AADD64A59B,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B23D89B2D2DF3745A003AEB1 = {
+			isa = PBXGroup;
+			children = (
+				571CD3829D85311D5626CD79,
+				6FE49FA1378A6D4683758967,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C64F91A36BC1DFFBFBF7BCE4 = {
+			isa = PBXGroup;
+			children = (
+				E7D0DA834A73CE24442829F3,
+				5FCB9A3DD986DD7109C2955E,
+				31109720BA7987D5EB2881FB,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CE466B1751A4697F31521DBD = {
+			isa = PBXGroup;
+			children = (
+				D099DB4B2A1009E6E3B5F000,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D45336440BFE804619532BBF = {
+			isa = PBXGroup;
+			children = (
+				588A30EEAD7A47A7785B3BAE,
+				B10F8A7AAA22D6C83B68520A,
+				2290BAA691DF56446E732E47,
+				8A6F88C168E85EED43DE9A69,
+				FE5EBC80F0FCC55E78CADE41,
+				3D3940C9A2F6E28AB8197096,
+				EEB920507E98FB750F75E785,
+				950EF573D8B306F3D9D7B3D6,
+				65450BD11F702660A20C92E0,
+			);
+			path = Noodpakket;
+			sourceTree = "<group>";
+		};
+		E229DF638F650531768B6537 = {
+			isa = PBXGroup;
+			children = (
+				330376DB6CE7FB4E682C12C6,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
+		EEB920507E98FB750F75E785 = {
+			isa = PBXGroup;
+			children = (
+				B7C51D65AD33D4208BB81B44,
+				96D2294494CFC88E3B0C4D5A,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FDC61E41A14875E35D0440A1 = {
+			isa = PBXGroup;
+			children = (
+				FEEFB93876BC0378B57EA381,
+			);
+			path = Expiry;
+			sourceTree = "<group>";
+		};
+		FE5EBC80F0FCC55E78CADE41 = {
+			isa = PBXGroup;
+			children = (
+				01F5D8A43119B9DDFFD46EC1,
+				F9C74C3EC71909CA8B23ED9A,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3CF92D32E5C5A22CDC3CB9A1 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC676CC87B800B6BA6FC3419;
+			buildPhases = (
+				E0F4A87A4F0B9170D4837F93,
+				C1669B63CB7E23A8EE371BE7,
+				3E4455299BBF8E8C93415864,
+				3ABE6B01AB29D7A7093F3227,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				62335A99464688B997E9A475,
+			);
+			name = Noodpakket;
+			productName = Noodpakket;
+			productReference = 571CD3829D85311D5626CD79;
+			productType = "com.apple.product-type.application";
+		};
+		D0F33231676C29E80E208426 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 424509613C78F1838FC9B293;
+			buildPhases = (
+				C7DBF5E9549054F3C5B39061,
+				28219FE2021E72966F432C1D,
+				298754046CCB29E5950BA408,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NoodpakketWidget;
+			productName = NoodpakketWidget;
+			productReference = 6FE49FA1378A6D4683758967;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46F86FAA6BBF9AC94A7E4595 = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					3CF92D32E5C5A22CDC3CB9A1 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					D0F33231676C29E80E208426 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = BEE1607168D4EBCB69E53BCE;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				nl,
+				Base,
+			);
+			mainGroup = 8C4FDD7B635240BD562EBB49;
+			productRefGroup = B23D89B2D2DF3745A003AEB1;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3CF92D32E5C5A22CDC3CB9A1,
+				D0F33231676C29E80E208426,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28219FE2021E72966F432C1D = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C67D9374F3EEE40EAD782C05,
+				56E44244F8D7CCAF20E0BC6B,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1669B63CB7E23A8EE371BE7 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0BCE2A49B9145C7C6E390F1,
+				ED333D93F7C55EC98B52B99F,
+				9F359046181B1B99B0D19BC0,
+				09F4A5E6C9FA08CF3CCA8D0F,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7DBF5E9549054F3C5B39061 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				027E363A364C451A50CF7314,
+				38858BE0C9E5D21ABEC18BA6,
+				71755A2AA8463D6EEB3A8593,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0F4A87A4F0B9170D4837F93 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE6EAE7A6F77EF77DD78ACB3,
+				4CC88ECF76B3D19031D24E3C,
+				135DAC593CA433B2BFF6600B,
+				F4E7CCD8881939E5A87EAAC1,
+				CA98E977ED72200E603EF0CA,
+				77F358C245C4C1F802AE96A3,
+				59AFD041E1CC3CA23B58E255,
+				AFC2A302CA4B7FFA788F0570,
+				C0BE91826ED4705C2E2B3F14,
+				44F82268ECBFF1F5BA1D4579,
+				51F3BA0BDD8989F530D30CF4,
+				561696BAD88233222E7C4AEB,
+				3FF95852F5DD6F69CB0F97EF,
+				BCB456917B2453817C9D4988,
+				DE6B2E3A9F66722907CE5FE0,
+				74FC1EBF64DF9F7FB765E3B4,
+				CE01141A3802E57A3B531E12,
+				11DB0760C147D1592C5522F2,
+				344995CA257B65CA8C965A4F,
+				FC39716260B896E0A5557795,
+				72175BBA1857C2E4ECE53ED5,
+				36D0187E0DEFB2DD4224D44E,
+				EB451C27812D8C4E79CF34D5,
+				3DDA0A29769CD0FF8B0938E6,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		62335A99464688B997E9A475 = {
+			isa = PBXTargetDependency;
+			target = D0F33231676C29E80E208426;
+			targetProxy = C7D4312AF23511FAF986C076;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		49C0CEC03E063A9F456F305A = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Noodpakket/Noodpakket.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EU3UY476T6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Noodpakket/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Noodpakket;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.lrvdlinden.noodpakket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		73814B8554A9BA937A880932 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NoodpakketWidget/NoodpakketWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EU3UY476T6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NoodpakketWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Noodpakket;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.lrvdlinden.noodpakket.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		79202D6F05A2EB0B50AEA796 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8E815F859428C731C129EA10 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NoodpakketWidget/NoodpakketWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EU3UY476T6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NoodpakketWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Noodpakket;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.lrvdlinden.noodpakket.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA9524E20EE286DFD03FCC44 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F24AE82EA64E3C3B526A04FF = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Noodpakket/Noodpakket.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EU3UY476T6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Noodpakket/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Noodpakket;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.lrvdlinden.noodpakket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		424509613C78F1838FC9B293 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E815F859428C731C129EA10,
+				73814B8554A9BA937A880932,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC676CC87B800B6BA6FC3419 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49C0CEC03E063A9F456F305A,
+				F24AE82EA64E3C3B526A04FF,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEE1607168D4EBCB69E53BCE = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79202D6F05A2EB0B50AEA796,
+				BA9524E20EE286DFD03FCC44,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46F86FAA6BBF9AC94A7E4595;
+}

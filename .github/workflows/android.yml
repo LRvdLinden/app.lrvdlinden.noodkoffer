@@ -2,9 +2,9 @@
 # versie heen installeert.
 #
 # - Push naar main (map android/): bouwt en ondertekent, APK als artifact bij de run.
-# - Tag vX.Y.Z (bijv. v1.0.1): bouwt, ondertekent en publiceert een GitHub Release met noodkoffer.apk.
+# - Tag vX.Y.Z (bijv. v1.0.1): bouwt, ondertekent en publiceert een GitHub Release met noodpakket.apk.
 #   Downloadlink die altijd naar de nieuwste versie wijst:
-#   https://github.com/LRvdLinden/app.lrvdlinden.noodkoffer/releases/latest/download/noodkoffer.apk
+#   https://github.com/LRvdLinden/app.lrvdlinden.noodkoffer/releases/latest/download/noodpakket.apk
 #
 # De sleutel komt uit de secrets ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS en
 # ANDROID_KEY_PASSWORD. Die zet de workflow "Android signing" in LRvdLinden/app.lrvdlinden.secrets.
@@ -102,8 +102,8 @@ jobs:
             fi
           fi
           mkdir -p dist
-          cp "$APK" "dist/noodkoffer-${{ steps.version.outputs.name }}.apk"
-          cp "$APK" dist/noodkoffer.apk
+          cp "$APK" "dist/noodpakket-${{ steps.version.outputs.name }}.apk"
+          cp "$APK" dist/noodpakket.apk
 
       - name: Sleutel opruimen
         if: always()
@@ -112,17 +112,17 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: steps.key.outputs.signed == 'true'
         with:
-          name: noodkoffer-${{ steps.version.outputs.name }}
-          path: android/dist/noodkoffer-${{ steps.version.outputs.name }}.apk
+          name: noodpakket-${{ steps.version.outputs.name }}
+          path: android/dist/noodpakket-${{ steps.version.outputs.name }}.apk
 
       - name: Release publiceren
         if: steps.key.outputs.signed == 'true' && startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          name: Noodkoffer ${{ steps.version.outputs.name }}
+          name: Noodpakket ${{ steps.version.outputs.name }}
           body: |
-            Android-versie van Noodkoffer. Installeer `noodkoffer.apk`; een update installeert over de vorige versie heen.
-            Meer info: https://noodkoffer.lrvdlinden.app/support/
+            Android-versie van Noodpakket. Installeer `noodpakket.apk`; een update installeert over de vorige versie heen.
+            Meer info: https://noodpakket.lrvdlinden.app/support/
           files: |
-            android/dist/noodkoffer.apk
-            android/dist/noodkoffer-${{ steps.version.outputs.name }}.apk
+            android/dist/noodpakket.apk
+            android/dist/noodpakket-${{ steps.version.outputs.name }}.apk

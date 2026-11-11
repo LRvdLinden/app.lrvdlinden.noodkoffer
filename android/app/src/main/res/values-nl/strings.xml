@@ -2,7 +2,7 @@
 <resources>
     <string name="widget_name">Noodpakket</string>
     <string name="widget_description">Zie hoe compleet je pakket is en wat als eerste verloopt.</string>
-    <string name="widget_empty">Open Noodkoffer om je pakket in te stellen</string>
+    <string name="widget_empty">Open Noodpakket om je pakket in te stellen</string>
     <string name="channel_expiry">Houdbaarheidsherinneringen</string>
     <string name="notify_expired">Verlopen. Vervang het in je noodpakket.</string>
     <string name="notify_today">Verloopt vandaag. Vervang het in je noodpakket.</string>
@@ -38,8 +38,8 @@
     <string name="item_blankets">Dekens en warme kleding</string>
     <string name="item_hygiene">Wc-papier en vuilniszakken</string>
     <string name="item_petfood">Dierenvoer</string>
-    <string name="hint_water">3 liter per persoon per dag, voor 3 dagen.</string>
-    <string name="hint_food">Eten dat houdbaar is zonder koelkast, voor 3 dagen per persoon.</string>
+    <string name="hint_water">3 liter per persoon per dag, voor het aantal dagen dat je instelt.</string>
+    <string name="hint_food">Eten dat houdbaar is zonder koelkast: één dag eten per persoon per dag.</string>
     <string name="hint_medicines">Je eigen medicijnen voor minstens 3 dagen, en een lijst ervan.</string>
     <string name="hint_firstaid">Pleisters, verband en ontsmettingsmiddel.</string>
     <string name="hint_flashlight">Een zaklamp per huishouden, liefst een opwind- of batterijmodel.</string>
@@ -51,7 +51,7 @@
     <string name="hint_documents">Kopieën van paspoorten of ID-kaarten en belangrijke papieren.</string>
     <string name="hint_blankets">Een deken of slaapzak per persoon.</string>
     <string name="hint_hygiene">Ook vochtige doekjes en handgel.</string>
-    <string name="hint_petfood">Voer en water voor je huisdieren voor 3 dagen.</string>
+    <string name="hint_petfood">Voer en water voor je huisdieren voor het aantal dagen dat je instelt.</string>
     <string name="a11y_percent_complete">Pakket %1$d procent compleet</string>
     <string name="complete_lower">compleet</string>
     <string name="badge_expired">Verlopen</string>
@@ -118,7 +118,7 @@
     <string name="plan_next_check">Volgende check</string>
     <string name="plan_check_footer">Op deze dag krijg je een herinnering om je pakket na te lopen.</string>
     <string name="plan_pdf">Deel of print als PDF</string>
-    <string name="pdf_footer">Gemaakt met Noodkoffer · noodkoffer.lrvdlinden.app</string>
+    <string name="pdf_footer">Gemaakt met Noodpakket · noodpakket.lrvdlinden.app</string>
     <string name="title_settings">Instellingen</string>
     <string name="settings_household">Huishouden</string>
     <string name="adults">Volwassenen</string>
@@ -138,13 +138,97 @@
     <string name="link_welcome">Toon het welkomstscherm</string>
     <string name="link_donate">Steun de ontwikkeling</string>
     <string name="whats_new_title">Wat is nieuw in 1.0</string>
-    <string name="whats_new_text">• Checklist op basis van het 72-uursadvies van de overheid\n• Houdbaarheidsherinneringen\n• Noodplan als PDF\n• Widget voor je beginscherm</string>
+    <string name="whats_new_text">• Scan barcodes: de app vult het product voor je in\n• Boodschappenlijst voor wat ontbreekt\n• Kies voor hoeveel dagen je voorraad wilt\n• Wat te doen bij stroomuitval, NL-Alert en meer\n• Houdbaarheid met herinneringen en datum scannen\n• Noodplan als PDF\n• Back-up en widget</string>
     <string name="onb_title_1">Klaar voor 72 uur</string>
-    <string name="onb_text_1">Als stroom, water of internet uitvalt, moet je je de eerste drie dagen zelf redden. Noodkoffer helpt je je noodpakket samen te stellen en bij te houden.</string>
+    <string name="onb_text_1">Als stroom, water of internet uitvalt, moet je je de eerste drie dagen zelf redden. Noodpakket helpt je je noodpakket samen te stellen en bij te houden.</string>
     <string name="onb_title_2">Wie hoort bij je huishouden?</string>
     <string name="onb_text_2">De app berekent hoeveel water, eten en contant geld je nodig hebt.</string>
     <string name="onb_title_3">Mis nooit meer een houdbaarheidsdatum</string>
     <string name="onb_text_3">Krijg een herinnering 30 en 7 dagen voordat water, batterijen of medicijnen verlopen, en bij je halfjaarlijkse checkmoment.</string>
     <string name="next">Volgende</string>
     <string name="get_started">Aan de slag</string>
+    <string name="tab_shopping">Boodschappen</string>
+    <string name="title_shopping">Boodschappenlijst</string>
+    <string name="shopping_share">Deel lijst</string>
+    <string name="shopping_share_title">Boodschappenlijst voor mijn noodpakket</string>
+    <string name="shopping_empty_title">Niets te kopen</string>
+    <string name="shopping_empty_text">Je pakket is compleet. Wat opraakt of verloopt, komt hier te staan.</string>
+    <string name="shopping_put_in_stock">Zet %1$s in voorraad</string>
+    <string name="shopping_still_needed">Nog nodig: %1$s</string>
+    <string name="shopping_footer">Tik op een item als je het gekocht hebt: het gaat dan je pakket in.</string>
+    <string name="scan_title">Scan barcode</string>
+    <string name="scan_unavailable">De barcodescanner is niet beschikbaar op deze telefoon.</string>
+    <string name="scan_looking_up">Product opzoeken…</string>
+    <string name="scan_unknown">Onbekend product</string>
+    <string name="scan_source">Productgegevens: Open Food Facts (ODbL)</string>
+    <string name="scan_not_found">Niet online gevonden. Vul het één keer in; de volgende keer herkent de app deze barcode meteen.</string>
+    <string name="scan_amount">Hoeveelheid</string>
+    <string name="scan_after_adding">Na toevoegen: %1$s / %2$s</string>
+    <string name="scan_add">Voeg toe</string>
+    <string name="scan_add_to">Toevoegen aan</string>
+    <string name="scan_date">Scan datum van verpakking</string>
+    <string name="scan_attribution">Productgegevens bij het scannen: Open Food Facts en Open Products Facts (ODbL). Alleen de barcode wordt verstuurd.</string>
+    <string name="date_not_found">Geen datum gevonden. Probeer het dichterbij en met goed licht.</string>
+    <string name="not_needed">Niet nodig</string>
+    <string name="not_needed_hint">Verbergt het item uit je pakket en boodschappenlijst.</string>
+    <string name="not_needed_footer">Deze items tellen niet mee in je pakket. Tik erop om ze weer te gebruiken.</string>
+    <string name="days_of_supplies">Dagen voorraad</string>
+    <string name="settings_backup">Back-up</string>
+    <string name="backup_export">Back-up exporteren</string>
+    <string name="backup_import">Back-up terugzetten</string>
+    <string name="backup_footer">Je pakket staat alleen op deze telefoon. Exporteer een back-up om over te stappen naar een nieuwe telefoon.</string>
+    <string name="backup_restored">Back-up teruggezet</string>
+    <string name="backup_invalid">Dit is geen back-up van Noodpakket.</string>
+    <string name="plan_medical">Medische informatie</string>
+    <string name="plan_medical_hint">Medicijnen, allergieën, bloedgroep, huisarts</string>
+    <string name="plan_evacuation">Evacuatieadres</string>
+    <string name="plan_evacuation_hint">Waar je heen kunt, bijvoorbeeld familie buiten je regio</string>
+    <string name="plan_radio">Calamiteitenzender</string>
+    <string name="plan_radio_hint">Je regionale omroep en de FM-frequentie</string>
+    <string name="plan_interval">Herinner me elke</string>
+    <string name="interval_1">Maand</string>
+    <string name="interval_3">3 mnd</string>
+    <string name="interval_6">6 mnd</string>
+    <string name="interval_12">Jaar</string>
+    <string name="info_title">Wat te doen bij…</string>
+    <string name="info_nlalert">NL-Alert of sirene</string>
+    <string name="info_power">Stroomuitval</string>
+    <string name="info_water">Geen kraanwater</string>
+    <string name="info_weather">Storm, extreem weer of overstroming</string>
+    <string name="info_comms">Geen telefoon of internet</string>
+    <string name="info_numbers">Belangrijke nummers</string>
+    <string name="info_source">Gebaseerd op het advies van de overheid (denkvooruit.nl). Noodpakket is een onafhankelijke app.</string>
+    <string-array name="info_nlalert_steps">
+        <item>Lees het NL-Alert-bericht en volg de instructies op.</item>
+        <item>Sirene: ga naar binnen, sluit ramen en deuren en zet mechanische ventilatie uit.</item>
+        <item>Volg het nieuws via je regionale calamiteitenzender en op crisis.nl.</item>
+        <item>Waarschuw de mensen om je heen, zoals buren en bezoekers.</item>
+    </string-array>
+    <string-array name="info_power_steps">
+        <item>Gebruik liever een zaklamp dan kaarsen, en laat kaarsen nooit alleen.</item>
+        <item>Houd koelkast en vriezer zo veel mogelijk dicht.</item>
+        <item>Zet apparaten uit, zodat ze niet allemaal tegelijk aanslaan als de stroom terugkomt.</item>
+        <item>Luister naar de calamiteitenzender op een radio met batterijen of opwinder.</item>
+        <item>Kijk bij buren die misschien hulp nodig hebben.</item>
+    </string-array>
+    <string-array name="info_water_steps">
+        <item>Gebruik je voorraad drinkwater: 3 liter per persoon per dag.</item>
+        <item>Ga zuinig om met water; vochtige doekjes en handgel helpen bij de hygiëne.</item>
+        <item>Werkt de kraan weer, volg dan het advies van je drinkwaterbedrijf, bijvoorbeeld water eerst koken.</item>
+    </string-array>
+    <string-array name="info_weather_steps">
+        <item>Blijf binnen en blijf bij storm uit de buurt van ramen.</item>
+        <item>Leg belangrijke papieren en je noodpakket hoog en makkelijk bereikbaar neer.</item>
+        <item>Volg de instructies van de gemeente en de hulpdiensten op; vertrek als je dat gevraagd wordt.</item>
+    </string-array>
+    <string-array name="info_comms_steps">
+        <item>Gebruik je geprinte noodplan: daar staan het verzamelpunt en de telefoonnummers op.</item>
+        <item>Ga naar het afgesproken verzamelpunt als je elkaar niet kunt bereiken.</item>
+        <item>Werkt 112 niet bij levensgevaar, ga dan naar een brandweerkazerne, politiebureau of ziekenhuis.</item>
+    </string-array>
+    <string-array name="info_numbers_steps">
+        <item>112: spoed, als elke seconde telt.</item>
+        <item>0900-8844: politie, als het geen spoed is.</item>
+        <item>Je gemeente: vaak 14 plus het netnummer (bijvoorbeeld 14 070 in Den Haag).</item>
+    </string-array>
 </resources>

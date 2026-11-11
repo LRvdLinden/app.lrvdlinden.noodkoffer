@@ -1,22 +1,19 @@
-# Noodkoffer voor iOS
+# Noodpakket voor iOS
 
-SwiftUI + SwiftData (iCloud), iOS 17+, iPhone en iPad. Bundle-ID `app.lrvdlinden.noodkoffer`, widget `app.lrvdlinden.noodkoffer.widget`, team EU3UY476T6.
+SwiftUI + SwiftData (iCloud), iOS 17+, iPhone en iPad. Bundle-ID `app.lrvdlinden.noodpakket`, widget `app.lrvdlinden.noodpakket.widget`, team EU3UY476T6.
 
-## Openen in Xcode
+## Openen
 
-```sh
-brew install xcodegen
-cd ios
-xcodegen generate
-open Noodkoffer.xcodeproj
-```
+Open `Noodpakket.xcodeproj` in Xcode en kies het schema **Noodpakket**. Zet bij de App ID in het developer-account:
+iCloud (container `iCloud.app.lrvdlinden.noodpakket`), App Groups (`group.app.lrvdlinden.noodpakket`) en Push Notifications
+(nodig voor CloudKit-sync). Met automatische signing doet Xcode dit meestal zelf.
 
-Zet in het developer-account bij de App ID: iCloud (container `iCloud.app.lrvdlinden.noodkoffer`), App Groups (`group.app.lrvdlinden.noodkoffer`) en Push Notifications (nodig voor CloudKit-sync). Xcode doet dit meestal zelf bij automatische signing.
+Bestanden toegevoegd of verwijderd? Draai `python3 tools/make_xcodeproj.py` om het project opnieuw te maken.
 
 ## Opbouw
 
-- `Noodkoffer/Models` — SwiftData-modellen (`KitItem`, `Household`, `EmergencyPlan`) en de standaardchecklist (Denk vooruit).
-- `Noodkoffer/Services` — samenvatting en lokale meldingen (30/7/0 dagen + checkmoment).
-- `Noodkoffer/Views` — Pakket, Houdbaar, Noodplan (PDF), Instellingen (MoreAppsCard + AppInfoFooter), onboarding en splash.
-- `NoodkofferWidget` — widget klein/middel en toegangsscherm.
+- `Noodpakket/Models` — SwiftData (`KitItem`, `Household`, `EmergencyPlan`, `ScannedProduct`) en de standaardchecklist (Denk vooruit).
+- `Noodpakket/Services` — samenvatting, meldingen (30/7/0 dagen + checkmoment), barcode-opzoeken via Open Food Facts / Open Products Facts.
+- `Noodpakket/Views` — Pakket, Houdbaar, Boodschappen, Noodplan (met "Wat te doen bij…" en PDF), Instellingen, scannen, onboarding.
+- `NoodpakketWidget` — widget klein/middel en toegangsscherm.
 - `Shared` — thema, widget-snapshot en `Localizable.xcstrings` (en + nl).

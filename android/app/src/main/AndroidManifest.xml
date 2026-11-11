@@ -2,15 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Only for looking up a scanned barcode in Open Food Facts. -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".NoodkofferApplication"
+        android:name=".NoodpakketApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Noodkoffer">
+        android:theme="@style/Theme.Noodpakket">
 
         <activity
             android:name=".MainActivity"
@@ -33,6 +35,11 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/kit_widget_info" />
         </receiver>
+
+        <!-- Downloads the barcode scanner module from Google Play services at install time. -->
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="barcode_ui" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

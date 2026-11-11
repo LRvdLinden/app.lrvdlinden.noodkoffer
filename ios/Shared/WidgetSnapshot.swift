@@ -9,7 +9,7 @@ struct WidgetSnapshot: Codable, Equatable {
     var nextItemDate: Date?
     var updatedAt: Date
 
-    static let appGroup = "group.app.lrvdlinden.noodkoffer"
+    static let appGroup = "group.app.lrvdlinden.noodpakket"
     private static let key = "widget.snapshot"
 
     static let placeholder = WidgetSnapshot(

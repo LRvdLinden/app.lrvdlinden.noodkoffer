@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Noodkoffer</string>
+    <string name="app_name" translatable="false">Noodpakket</string>
     <string name="widget_name">Emergency kit</string>
     <string name="widget_description">See how complete your kit is and what expires next.</string>
-    <string name="widget_empty">Open Noodkoffer to set up your kit</string>
+    <string name="widget_empty">Open Noodpakket to set up your kit</string>
     <string name="channel_expiry">Expiry reminders</string>
     <string name="notify_expired">Expired. Replace it in your emergency kit.</string>
     <string name="notify_today">Expires today. Replace it in your emergency kit.</string>
@@ -39,8 +39,8 @@
     <string name="item_blankets">Blankets and warm clothes</string>
     <string name="item_hygiene">Toilet paper and bin bags</string>
     <string name="item_petfood">Pet food</string>
-    <string name="hint_water">3 litres per person per day, for 3 days.</string>
-    <string name="hint_food">Food that keeps without a fridge, for 3 days per person.</string>
+    <string name="hint_water">3 litres per person per day, for the number of days you set.</string>
+    <string name="hint_food">Food that keeps without a fridge: one day of food per person per day.</string>
     <string name="hint_medicines">Your own medicines for at least 3 days, and a list of them.</string>
     <string name="hint_firstaid">Plasters, bandages and disinfectant.</string>
     <string name="hint_flashlight">A torch per household, preferably a wind-up or battery model.</string>
@@ -52,7 +52,7 @@
     <string name="hint_documents">Copies of passports or ID cards and important papers.</string>
     <string name="hint_blankets">One blanket or sleeping bag per person.</string>
     <string name="hint_hygiene">Also wet wipes and hand gel.</string>
-    <string name="hint_petfood">Food and water for your pets for 3 days.</string>
+    <string name="hint_petfood">Food and water for your pets for the number of days you set.</string>
     <string name="a11y_percent_complete">Kit %1$d percent complete</string>
     <string name="complete_lower">complete</string>
     <string name="badge_expired">Expired</string>
@@ -119,7 +119,7 @@
     <string name="plan_next_check">Next check</string>
     <string name="plan_check_footer">You get a reminder on this day to go through your kit.</string>
     <string name="plan_pdf">Share or print as PDF</string>
-    <string name="pdf_footer">Made with Noodkoffer · noodkoffer.lrvdlinden.app</string>
+    <string name="pdf_footer">Made with Noodpakket · noodpakket.lrvdlinden.app</string>
     <string name="title_settings">Settings</string>
     <string name="settings_household">Household</string>
     <string name="adults">Adults</string>
@@ -139,13 +139,97 @@
     <string name="link_welcome">Show the welcome screen</string>
     <string name="link_donate">Support development</string>
     <string name="whats_new_title">What\'s new in 1.0</string>
-    <string name="whats_new_text">• Checklist based on the government\'s 72-hour advice\n• Expiry reminders\n• Emergency plan as PDF\n• Widget for your home screen</string>
+    <string name="whats_new_text">• Scan barcodes: the app fills in the product\n• Shopping list for what is missing\n• Choose how many days of supplies\n• What to do during a power cut, NL-Alert and more\n• Expiry reminders and date scanning\n• Emergency plan as PDF\n• Backup and widget</string>
     <string name="onb_title_1">Ready for 72 hours</string>
-    <string name="onb_text_1">If the power, water or internet fails, you need to manage on your own for the first three days. Noodkoffer helps you build and maintain your emergency kit.</string>
+    <string name="onb_text_1">If the power, water or internet fails, you need to manage on your own for the first three days. Noodpakket helps you build and maintain your emergency kit.</string>
     <string name="onb_title_2">Who is in your household?</string>
     <string name="onb_text_2">The app calculates how much water, food and cash you need.</string>
     <string name="onb_title_3">Never miss an expiry date</string>
     <string name="onb_text_3">Get a reminder 30 and 7 days before water, batteries or medicines expire, and at your half-yearly check.</string>
     <string name="next">Next</string>
     <string name="get_started">Get started</string>
+    <string name="tab_shopping">Shopping</string>
+    <string name="title_shopping">Shopping list</string>
+    <string name="shopping_share">Share list</string>
+    <string name="shopping_share_title">Shopping list for my emergency kit</string>
+    <string name="shopping_empty_title">Nothing to buy</string>
+    <string name="shopping_empty_text">Your kit is complete. Items that run out or expire show up here.</string>
+    <string name="shopping_put_in_stock">Put %1$s in stock</string>
+    <string name="shopping_still_needed">Still needed: %1$s</string>
+    <string name="shopping_footer">Tap an item when you have bought it: it moves into your kit.</string>
+    <string name="scan_title">Scan barcode</string>
+    <string name="scan_unavailable">The barcode scanner is not available on this phone.</string>
+    <string name="scan_looking_up">Looking up product…</string>
+    <string name="scan_unknown">Unknown product</string>
+    <string name="scan_source">Product data: Open Food Facts (ODbL)</string>
+    <string name="scan_not_found">Not found online. Enter it once; next time this barcode is recognised straight away.</string>
+    <string name="scan_amount">Amount</string>
+    <string name="scan_after_adding">After adding: %1$s / %2$s</string>
+    <string name="scan_add">Add</string>
+    <string name="scan_add_to">Add to</string>
+    <string name="scan_date">Scan date from packaging</string>
+    <string name="scan_attribution">Product data from barcode scans: Open Food Facts and Open Products Facts (ODbL). Only the barcode is sent.</string>
+    <string name="date_not_found">No date found. Try again closer and with good light.</string>
+    <string name="not_needed">Not needed</string>
+    <string name="not_needed_hint">Hides the item from your kit and shopping list.</string>
+    <string name="not_needed_footer">These items do not count towards your kit. Tap one to use it again.</string>
+    <string name="days_of_supplies">Days of supplies</string>
+    <string name="settings_backup">Backup</string>
+    <string name="backup_export">Export backup</string>
+    <string name="backup_import">Restore backup</string>
+    <string name="backup_footer">Your kit is stored only on this phone. Export a backup to move to a new phone.</string>
+    <string name="backup_restored">Backup restored</string>
+    <string name="backup_invalid">This is not a Noodpakket backup.</string>
+    <string name="plan_medical">Medical information</string>
+    <string name="plan_medical_hint">Medicines, allergies, blood group, GP</string>
+    <string name="plan_evacuation">Evacuation address</string>
+    <string name="plan_evacuation_hint">Where you can go, for example family outside your region</string>
+    <string name="plan_radio">Emergency broadcaster</string>
+    <string name="plan_radio_hint">Your regional broadcaster and its FM frequency</string>
+    <string name="plan_interval">Remind me every</string>
+    <string name="interval_1">Month</string>
+    <string name="interval_3">3 mo.</string>
+    <string name="interval_6">6 mo.</string>
+    <string name="interval_12">Year</string>
+    <string name="info_title">What to do when…</string>
+    <string name="info_nlalert">NL-Alert or siren</string>
+    <string name="info_power">Power cut</string>
+    <string name="info_water">No tap water</string>
+    <string name="info_weather">Storm, extreme weather or flooding</string>
+    <string name="info_comms">No phone or internet</string>
+    <string name="info_numbers">Important numbers</string>
+    <string name="info_source">Based on the advice of the Dutch government (denkvooruit.nl). Noodpakket is an independent app.</string>
+    <string-array name="info_nlalert_steps">
+        <item>Read the NL-Alert message and follow its instructions.</item>
+        <item>Siren: go inside, close windows and doors, and turn off mechanical ventilation.</item>
+        <item>Follow the news on your regional emergency broadcaster and on crisis.nl.</item>
+        <item>Warn the people around you, such as neighbours and visitors.</item>
+    </string-array>
+    <string-array name="info_power_steps">
+        <item>Use a torch rather than candles, and never leave candles unattended.</item>
+        <item>Keep the fridge and freezer closed as much as possible.</item>
+        <item>Switch off appliances so they do not all start at once when the power returns.</item>
+        <item>Listen to the emergency broadcaster on a battery or wind-up radio.</item>
+        <item>Check on neighbours who may need help.</item>
+    </string-array>
+    <string-array name="info_water_steps">
+        <item>Use your stored drinking water: 3 litres per person per day.</item>
+        <item>Use water sparingly; wet wipes and hand gel help with hygiene.</item>
+        <item>When the tap works again, follow the advice of your water company, for example boiling water first.</item>
+    </string-array>
+    <string-array name="info_weather_steps">
+        <item>Stay indoors and keep away from windows during a storm.</item>
+        <item>Put important papers and your emergency kit somewhere high and easy to reach.</item>
+        <item>Follow the instructions of the municipality and the emergency services; leave when you are told to.</item>
+    </string-array>
+    <string-array name="info_comms_steps">
+        <item>Use your printed emergency plan: meeting point and phone numbers are on it.</item>
+        <item>Go to the agreed meeting point if you cannot reach each other.</item>
+        <item>In a life-threatening situation, go to a fire station, police station or hospital if 112 does not work.</item>
+    </string-array>
+    <string-array name="info_numbers_steps">
+        <item>112: emergencies where every second counts.</item>
+        <item>0900-8844: police, when it is not urgent.</item>
+        <item>Your municipality: often 14 plus the area code (for example 14 070 in The Hague).</item>
+    </string-array>
 </resources>

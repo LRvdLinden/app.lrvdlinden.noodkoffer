@@ -91,12 +91,62 @@
         }
       }
     },
-    "3 litres per person per day, for 3 days.": {
+    "0900-8844: police, when it is not urgent.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "3 liter per persoon per dag, voor 3 dagen."
+            "value": "0900-8844: politie, als het geen spoed is."
+          }
+        }
+      }
+    },
+    "112 · Police 0900-8844 · Made with Noodpakket": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "112 · Politie 0900-8844 · Gemaakt met Noodpakket"
+          }
+        }
+      }
+    },
+    "112: emergencies where every second counts.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "112: spoed, als elke seconde telt."
+          }
+        }
+      }
+    },
+    "3 litres per person per day, for the number of days you set.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 liter per persoon per dag, voor het aantal dagen dat je instelt."
+          }
+        }
+      }
+    },
+    "3 months": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 maanden"
+          }
+        }
+      }
+    },
+    "6 months": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "6 maanden"
           }
         }
       }
@@ -107,6 +157,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Een zaklamp per huishouden, liefst een opwind- of batterijmodel."
+          }
+        }
+      }
+    },
+    "Add": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voeg toe"
           }
         }
       }
@@ -131,6 +191,16 @@
         }
       }
     },
+    "Add to": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toevoegen aan"
+          }
+        }
+      }
+    },
     "Adults": {
       "localizations": {
         "nl": {
@@ -151,6 +221,16 @@
         }
       }
     },
+    "After adding": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Na toevoegen"
+          }
+        }
+      }
+    },
     "Agree on this together and keep a printed copy with your kit. Phones may not work during an emergency.": {
       "localizations": {
         "nl": {
@@ -167,6 +247,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ook vochtige doekjes en handgel."
+          }
+        }
+      }
+    },
+    "Amount": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoeveelheid"
           }
         }
       }
@@ -211,12 +301,32 @@
         }
       }
     },
+    "Barcode number": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barcodenummer"
+          }
+        }
+      }
+    },
     "Based on %lld adults, %lld children and %lld pets.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Op basis van %lld volwassenen, %lld kinderen en %lld huisdieren."
+          }
+        }
+      }
+    },
+    "Based on the advice of the Dutch government (denkvooruit.nl). Noodpakket is an independent app.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebaseerd op het advies van de overheid (denkvooruit.nl). Noodpakket is een onafhankelijke app."
           }
         }
       }
@@ -247,6 +357,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dekens en warme kleding"
+          }
+        }
+      }
+    },
+    "Camera not available": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera niet beschikbaar"
           }
         }
       }
@@ -291,6 +411,16 @@
         }
       }
     },
+    "Check on neighbours who may need help.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kijk bij buren die misschien hulp nodig hebben."
+          }
+        }
+      }
+    },
     "Check quantities and dates, and charge the power bank.": {
       "localizations": {
         "nl": {
@@ -327,6 +457,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kinderen: %lld"
+          }
+        }
+      }
+    },
+    "Choose how many days of supplies": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kies voor hoeveel dagen je voorraad wilt"
           }
         }
       }
@@ -391,6 +531,16 @@
         }
       }
     },
+    "Days of supplies": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dagen voorraad"
+          }
+        }
+      }
+    },
     "Delete": {
       "localizations": {
         "nl": {
@@ -417,6 +567,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Drinkwater"
+          }
+        }
+      }
+    },
+    "Emergency broadcaster": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calamiteitenzender"
           }
         }
       }
@@ -467,6 +627,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Noodradio"
+          }
+        }
+      }
+    },
+    "Evacuation address": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Evacuatieadres"
           }
         }
       }
@@ -581,22 +751,42 @@
         }
       }
     },
-    "Food and water for your pets for 3 days.": {
+    "Follow the instructions of the municipality and the emergency services; leave when you are told to.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Voer en water voor je huisdieren voor 3 dagen."
+            "value": "Volg de instructies van de gemeente en de hulpdiensten op; vertrek als je dat gevraagd wordt."
           }
         }
       }
     },
-    "Food that keeps without a fridge, for 3 days per person.": {
+    "Follow the news on your regional emergency broadcaster and on crisis.nl.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Eten dat houdbaar is zonder koelkast, voor 3 dagen per persoon."
+            "value": "Volg het nieuws via je regionale calamiteitenzender en op crisis.nl."
+          }
+        }
+      }
+    },
+    "Food and water for your pets for the number of days you set.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voer en water voor je huisdieren voor het aantal dagen dat je instelt."
+          }
+        }
+      }
+    },
+    "Food that keeps without a fridge: one day of food per person per day.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eten dat houdbaar is zonder koelkast: één dag eten per persoon per dag."
           }
         }
       }
@@ -651,6 +841,16 @@
         }
       }
     },
+    "Go to the agreed meeting point if you cannot reach each other.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ga naar het afgesproken verzamelpunt als je elkaar niet kunt bereiken."
+          }
+        }
+      }
+    },
     "Half-yearly check": {
       "localizations": {
         "nl": {
@@ -681,6 +881,16 @@
         }
       }
     },
+    "Hides the item from your kit and shopping list, for example a pet food you do not need.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbergt het item uit je pakket en boodschappenlijst, bijvoorbeeld dierenvoer als je geen huisdieren hebt."
+          }
+        }
+      }
+    },
     "Household": {
       "localizations": {
         "nl": {
@@ -701,12 +911,32 @@
         }
       }
     },
-    "If the power, water or internet fails, you need to manage on your own for the first three days. Noodkoffer helps you build and maintain your emergency kit.": {
+    "If the power, water or internet fails, you need to manage on your own for the first three days. Noodpakket helps you build and maintain your emergency kit.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Als stroom, water of internet uitvalt, moet je je de eerste drie dagen zelf redden. Noodkoffer helpt je je noodpakket samen te stellen en bij te houden."
+            "value": "Als stroom, water of internet uitvalt, moet je je de eerste drie dagen zelf redden. Noodpakket helpt je je noodpakket samen te stellen en bij te houden."
+          }
+        }
+      }
+    },
+    "Important numbers": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belangrijke nummers"
+          }
+        }
+      }
+    },
+    "In a life-threatening situation, go to a fire station, police station or hospital if 112 does not work.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Werkt 112 niet bij levensgevaar, ga dan naar een brandweerkazerne, politiebureau of ziekenhuis."
           }
         }
       }
@@ -751,6 +981,16 @@
         }
       }
     },
+    "Keep the fridge and freezer closed as much as possible.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Houd koelkast en vriezer zo veel mogelijk dicht."
+          }
+        }
+      }
+    },
     "Kit": {
       "localizations": {
         "nl": {
@@ -767,6 +1007,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pakket %lld procent compleet"
+          }
+        }
+      }
+    },
+    "Kit check": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checkmoment"
           }
         }
       }
@@ -801,6 +1051,16 @@
         }
       }
     },
+    "Listen to the emergency broadcaster on a battery or wind-up radio.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luister naar de calamiteitenzender op een radio met batterijen of opwinder."
+          }
+        }
+      }
+    },
     "Long-life food": {
       "localizations": {
         "nl": {
@@ -811,12 +1071,22 @@
         }
       }
     },
-    "Made with Noodkoffer · noodkoffer.lrvdlinden.app": {
+    "Look up": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gemaakt met Noodkoffer · noodkoffer.lrvdlinden.app"
+            "value": "Zoek op"
+          }
+        }
+      }
+    },
+    "Looking up product…": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Product opzoeken…"
           }
         }
       }
@@ -831,12 +1101,32 @@
         }
       }
     },
+    "Medical information": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medische informatie"
+          }
+        }
+      }
+    },
     "Medicines": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Medicijnen"
+          }
+        }
+      }
+    },
+    "Medicines, allergies, blood group, GP": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medicijnen, allergieën, bloedgroep, huisarts"
           }
         }
       }
@@ -857,6 +1147,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Geld en documenten"
+          }
+        }
+      }
+    },
+    "Month": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maand"
+          }
+        }
+      }
+    },
+    "NL-Alert or siren": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NL-Alert of sirene"
           }
         }
       }
@@ -961,12 +1271,62 @@
         }
       }
     },
+    "No phone or internet": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen telefoon of internet"
+          }
+        }
+      }
+    },
+    "No tap water": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen kraanwater"
+          }
+        }
+      }
+    },
+    "Not found online. Enter it once; next time this barcode is recognised straight away.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niet online gevonden. Vul het één keer in; de volgende keer herkent de app deze barcode meteen."
+          }
+        }
+      }
+    },
+    "Not needed": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niet nodig"
+          }
+        }
+      }
+    },
     "Notes": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Notities"
+          }
+        }
+      }
+    },
+    "Nothing to buy": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niets te kopen"
           }
         }
       }
@@ -981,12 +1341,12 @@
         }
       }
     },
-    "Open Noodkoffer to set up your kit": {
+    "Open Noodpakket to set up your kit": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Open Noodkoffer om je pakket in te stellen"
+            "value": "Open Noodpakket om je pakket in te stellen"
           }
         }
       }
@@ -1051,12 +1411,32 @@
         }
       }
     },
+    "Point the camera at the barcode": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Richt de camera op de barcode"
+          }
+        }
+      }
+    },
     "Power bank": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Powerbank"
+          }
+        }
+      }
+    },
+    "Power cut": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stroomuitval"
           }
         }
       }
@@ -1071,6 +1451,46 @@
         }
       }
     },
+    "Product data from barcode scans: Open Food Facts and Open Products Facts (ODbL). Only the barcode is sent.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Productgegevens bij het scannen: Open Food Facts en Open Products Facts (ODbL). Alleen de barcode wordt verstuurd."
+          }
+        }
+      }
+    },
+    "Product data: Open Food Facts (ODbL)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Productgegevens: Open Food Facts (ODbL)"
+          }
+        }
+      }
+    },
+    "Put %@ in stock": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zet %@ in voorraad"
+          }
+        }
+      }
+    },
+    "Put important papers and your emergency kit somewhere high and easy to reach.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leg belangrijke papieren en je noodpakket hoog en makkelijk bereikbaar neer."
+          }
+        }
+      }
+    },
     "Quantity": {
       "localizations": {
         "nl": {
@@ -1081,12 +1501,32 @@
         }
       }
     },
+    "Read the NL-Alert message and follow its instructions.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lees het NL-Alert-bericht en volg de instructies op."
+          }
+        }
+      }
+    },
     "Ready for 72 hours": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Klaar voor 72 uur"
+          }
+        }
+      }
+    },
+    "Remind me every": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herinner me elke"
           }
         }
       }
@@ -1117,6 +1557,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bewaar"
+          }
+        }
+      }
+    },
+    "Scan barcode": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scan barcode"
+          }
+        }
+      }
+    },
+    "Scan barcodes: the app fills in the product for you": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scan barcodes: de app vult het product voor je in"
           }
         }
       }
@@ -1161,12 +1621,62 @@
         }
       }
     },
+    "Share list": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deel lijst"
+          }
+        }
+      }
+    },
     "Share or print PDF": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Deel of print PDF"
+          }
+        }
+      }
+    },
+    "Shopping": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boodschappen"
+          }
+        }
+      }
+    },
+    "Shopping list": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boodschappenlijst"
+          }
+        }
+      }
+    },
+    "Shopping list for my emergency kit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boodschappenlijst voor mijn noodpakket"
+          }
+        }
+      }
+    },
+    "Shopping list for what is still missing": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boodschappenlijst voor wat nog ontbreekt"
           }
         }
       }
@@ -1181,12 +1691,52 @@
         }
       }
     },
+    "Siren: go inside, close windows and doors, and turn off mechanical ventilation.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sirene: ga naar binnen, sluit ramen en deuren en zet mechanische ventilatie uit."
+          }
+        }
+      }
+    },
     "Spare batteries for the torch and radio.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Reservebatterijen voor zaklamp en radio."
+          }
+        }
+      }
+    },
+    "Stay indoors and keep away from windows during a storm.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blijf binnen en blijf bij storm uit de buurt van ramen."
+          }
+        }
+      }
+    },
+    "Still needed: %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nog nodig: %@"
+          }
+        }
+      }
+    },
+    "Storm, extreme weather or flooding": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Storm, extreem weer of overstroming"
           }
         }
       }
@@ -1211,12 +1761,42 @@
         }
       }
     },
+    "Switch off appliances so they do not all start at once when the power returns.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zet apparaten uit, zodat ze niet allemaal tegelijk aanslaan als de stroom terugkomt."
+          }
+        }
+      }
+    },
     "The app calculates how much water, food and cash you need.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "De app berekent hoeveel water, eten en contant geld je nodig hebt."
+          }
+        }
+      }
+    },
+    "These items do not count towards your kit. Tap one to use it again.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze items tellen niet mee in je pakket. Tik erop om ze weer te gebruiken."
+          }
+        }
+      }
+    },
+    "Tick an item when you have bought it: it moves into your kit.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vink een item af als je het gekocht hebt: het gaat dan je pakket in."
           }
         }
       }
@@ -1271,12 +1851,72 @@
         }
       }
     },
+    "Type the numbers under the barcode instead.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Typ in plaats daarvan de cijfers onder de barcode."
+          }
+        }
+      }
+    },
     "Unit": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Eenheid"
+          }
+        }
+      }
+    },
+    "Unknown product": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Onbekend product"
+          }
+        }
+      }
+    },
+    "Use a torch rather than candles, and never leave candles unattended.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebruik liever een zaklamp dan kaarsen, en laat kaarsen nooit alleen."
+          }
+        }
+      }
+    },
+    "Use water sparingly; wet wipes and hand gel help with hygiene.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ga zuinig om met water; vochtige doekjes en handgel helpen bij de hygiëne."
+          }
+        }
+      }
+    },
+    "Use your printed emergency plan: meeting point and phone numbers are on it.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebruik je geprinte noodplan: daar staan het verzamelpunt en de telefoonnummers op."
+          }
+        }
+      }
+    },
+    "Use your stored drinking water: 3 litres per person per day.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebruik je voorraad drinkwater: 3 liter per persoon per dag."
           }
         }
       }
@@ -1301,6 +1941,16 @@
         }
       }
     },
+    "Warn the people around you, such as neighbours and visitors.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waarschuw de mensen om je heen, zoals buren en bezoekers."
+          }
+        }
+      }
+    },
     "Water and food": {
       "localizations": {
         "nl": {
@@ -1321,6 +1971,26 @@
         }
       }
     },
+    "What to do during a power cut, NL-Alert and more": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wat te doen bij stroomuitval, NL-Alert en meer"
+          }
+        }
+      }
+    },
+    "What to do when…": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wat te doen bij…"
+          }
+        }
+      }
+    },
     "What's new": {
       "localizations": {
         "nl": {
@@ -1331,12 +2001,32 @@
         }
       }
     },
+    "When the tap works again, follow the advice of your water company, for example boiling water first.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Werkt de kraan weer, volg dan het advies van je drinkwaterbedrijf, bijvoorbeeld water eerst koken."
+          }
+        }
+      }
+    },
     "Where the main tap, gas valve and fuse box are": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Waar de hoofdkraan, gaskraan en meterkast zitten"
+          }
+        }
+      }
+    },
+    "Where you can go, for example family outside your region": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waar je heen kunt, bijvoorbeeld familie buiten je regio"
           }
         }
       }
@@ -1381,6 +2071,16 @@
         }
       }
     },
+    "Year": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jaar"
+          }
+        }
+      }
+    },
     "You get a reminder on this day to go through your kit.": {
       "localizations": {
         "nl": {
@@ -1401,12 +2101,42 @@
         }
       }
     },
+    "Your kit is complete. Items that run out or expire show up here.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je pakket is compleet. Wat opraakt of verloopt, komt hier te staan."
+          }
+        }
+      }
+    },
+    "Your municipality: often 14 plus the area code (for example 14 070 in The Hague).": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je gemeente: vaak 14 plus het netnummer (bijvoorbeeld 14 070 in Den Haag)."
+          }
+        }
+      }
+    },
     "Your own medicines for at least 3 days, and a list of them.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Je eigen medicijnen voor minstens 3 dagen, en een lijst ervan."
+          }
+        }
+      }
+    },
+    "Your regional broadcaster and its FM frequency": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je regionale omroep en de FM-frequentie"
           }
         }
       }
