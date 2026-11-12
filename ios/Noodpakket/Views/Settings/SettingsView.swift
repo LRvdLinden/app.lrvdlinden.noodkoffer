@@ -7,6 +7,7 @@ struct SettingsView: View {
     @AppStorage("onboarding.done") private var onboardingDone = true
     @AppStorage(NotificationScheduler.enabledKey) private var notificationsOn = false
     @AppStorage(MessagesService.enabledKey) private var messagesOn = false
+    @AppStorage(Biometrics.appLockKey) private var appLock = false
     @State private var showWhatsNew = false
 
     static let privacyURL = URL(string: "https://noodpakket.lrvdlinden.app/privacy")!
@@ -16,6 +17,8 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
+                AccountSettingsSection()
+
                 if let h = households.first {
                     Section("Household") {
                         Stepper(value: Binding(get: { h.adults }, set: { h.adults = $0 }), in: 1...12) {
@@ -52,6 +55,20 @@ struct SettingsView: View {
                     }))
                 } footer: {
                     Text("Now and then a short message, for example to check your kit before a storm. Only a random device number, the push token and the app language are stored, without an account. Turn it off to remove them.")
+                }
+
+                if Biometrics.isAvailable {
+                    Section {
+                        Toggle(isOn: Binding(get: { appLock }, set: { on in
+                            Task {
+                                if await Biometrics.authenticate(reason: String(localized: "Confirm to change the app lock.")) { appLock = on }
+                            }
+                        })) {
+                            Label("Lock with \(Biometrics.methodName)", systemImage: Biometrics.symbolName)
+                        }
+                    } footer: {
+                        Text("Noodpakket asks for \(Biometrics.methodName) when you open the app, so your emergency plan and medical information stay private.")
+                    }
                 }
 
                 Section("Appearance") {
@@ -106,6 +123,8 @@ struct WhatsNewView: View {
                     Label("Emergency plan as PDF", systemImage: "doc.richtext")
                     Label("Widget for your home screen", systemImage: "square.grid.2x2")
                     Label("New look with pictures of every item", systemImage: "photo.on.rectangle")
+                    Label("Share one kit with your household (optional account)", systemImage: "person.2.fill")
+                    Label("Lock the app with Face ID", systemImage: "faceid")
                 }
             }
             .navigationTitle("What's new")

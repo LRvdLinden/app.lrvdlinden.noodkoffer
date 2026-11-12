@@ -20,6 +20,16 @@
           }
         }
       }
+    },
+    "NSFaceIDUsageDescription": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodpakket gebruikt Face ID om de app te ontgrendelen als je de vergrendeling hebt aangezet."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -39,6 +39,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Noodpakket uses the camera to scan barcodes and expiry dates on packaging.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Noodpakket uses Face ID to unlock the app when you have turned on the app lock.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

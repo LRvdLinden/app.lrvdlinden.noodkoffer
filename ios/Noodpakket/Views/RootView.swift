@@ -7,6 +7,8 @@ struct RootView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.scenePhase) private var scenePhase
     @AppStorage("onboarding.done") private var onboardingDone = false
+    @AppStorage(Biometrics.appLockKey) private var appLock = false
+    @State private var locked = Biometrics.isAppLockEnabled
     @State private var showSplash = true
     @State private var tab: AppTab = .kit
     @State private var refreshTask: Task<Void, Never>?
@@ -34,6 +36,11 @@ struct RootView: View {
                     .tabItem { Label("Settings", systemImage: "gearshape") }
                     .tag(AppTab.settings)
             }
+            if locked && appLock && !showSplash {
+                LockView { withAnimation(.easeOut(duration: 0.2)) { locked = false } }
+                    .transition(.opacity)
+                    .zIndex(2)
+            }
             if showSplash {
                 SplashView { withAnimation(.easeOut(duration: 0.25)) { showSplash = false } }
                     .transition(.opacity)
@@ -43,14 +50,38 @@ struct RootView: View {
         .fullScreenCover(isPresented: Binding(get: { !onboardingDone && !showSplash }, set: { _ in })) {
             OnboardingView { onboardingDone = true }
         }
-        .reviewPrompt(isCalm: onboardingDone && !showSplash)
+        .reviewPrompt(isCalm: onboardingDone && !showSplash && !(locked && appLock))
         .task {
             KitSync.dedupe(in: context)
             Catalog.seed(in: context)
+            AccountService.shared.attach(context.container)
             scheduleRefresh()
+            await AccountService.shared.syncNow()
         }
-        .onChange(of: changeToken) { _, _ in scheduleRefresh() }
-        .onChange(of: scenePhase) { _, phase in if phase == .active { scheduleRefresh() } }
+        .task(id: scenePhase) {
+            // While the app is open: fetch changes from the household now and then.
+            guard scenePhase == .active else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(90))
+                guard !Task.isCancelled else { return }
+                await AccountService.shared.syncNow()
+            }
+        }
+        .onChange(of: changeToken) { _, _ in
+            scheduleRefresh()
+            AccountService.shared.scheduleSync()
+        }
+        .onChange(of: scenePhase) { _, phase in
+            switch phase {
+            case .active:
+                scheduleRefresh()
+                AccountService.shared.scheduleSync(after: .milliseconds(300))
+            case .background:
+                if appLock { locked = true }
+            default:
+                break
+            }
+        }
         .onOpenURL { url in
             switch url.host() {
             case "check": tab = .kit

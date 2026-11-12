@@ -23,6 +23,10 @@
 			isa = PBXBuildFile;
 			fileRef = 01F5D8A43119B9DDFFD46EC1;
 		};
+		1E95B34A5F6BCB76BFCD6EF0 = {
+			isa = PBXBuildFile;
+			fileRef = 9A509E536981572D90A3668D;
+		};
 		344995CA257B65CA8C965A4F = {
 			isa = PBXBuildFile;
 			fileRef = F8E8B8E537DF91A04C8DD2F0;
@@ -76,6 +80,10 @@
 			isa = PBXBuildFile;
 			fileRef = 7A5FE41098C478C487A6EE26;
 		};
+		5F6067A9C613C92B9CE4858B = {
+			isa = PBXBuildFile;
+			fileRef = D24B9C14AFB11CFAF02DB53C;
+		};
 		6CA02128A376E243C75EFFFE = {
 			isa = PBXBuildFile;
 			fileRef = 8965633ED6A14FB1B63F39FD;
@@ -95,6 +103,14 @@
 		77F358C245C4C1F802AE96A3 = {
 			isa = PBXBuildFile;
 			fileRef = C1F0AAC5C52E23AEB9937679;
+		};
+		7D0DEDD237D24CB47CBEF08E = {
+			isa = PBXBuildFile;
+			fileRef = 5A8C5F99528FE40A60208C7F;
+		};
+		7EBD494442336EE8A25732BA = {
+			isa = PBXBuildFile;
+			fileRef = EF2C4B7447C01E80C922D231;
 		};
 		9F359046181B1B99B0D19BC0 = {
 			isa = PBXBuildFile;
@@ -278,6 +294,12 @@
 			path = Noodpakket.app;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5A8C5F99528FE40A60208C7F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = AppLock.swift;
+			sourceTree = "<group>";
+		};
 		5FCB9A3DD986DD7109C2955E = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.swift;
@@ -351,6 +373,12 @@
 			path = PrivacyInfo.xcprivacy;
 			sourceTree = "<group>";
 		};
+		9A509E536981572D90A3668D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = AccountViews.swift;
+			sourceTree = "<group>";
+		};
 		B7C51D65AD33D4208BB81B44 = {
 			isa = PBXFileReference;
 			lastKnownFileType = folder.assetcatalog;
@@ -367,6 +395,12 @@
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.swift;
 			path = SettingsView.swift;
+			sourceTree = "<group>";
+		};
+		D24B9C14AFB11CFAF02DB53C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = AccountSync.swift;
 			sourceTree = "<group>";
 		};
 		E7D0DA834A73CE24442829F3 = {
@@ -391,6 +425,12 @@
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.swift;
 			path = AppInfoFooter.swift;
+			sourceTree = "<group>";
+		};
+		EF2C4B7447C01E80C922D231 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = AccountService.swift;
 			sourceTree = "<group>";
 		};
 		F8E8B8E537DF91A04C8DD2F0 = {
@@ -539,6 +579,9 @@
 		950EF573D8B306F3D9D7B3D6 = {
 			isa = PBXGroup;
 			children = (
+				EF2C4B7447C01E80C922D231,
+				D24B9C14AFB11CFAF02DB53C,
+				5A8C5F99528FE40A60208C7F,
 				8D210E2FD0AECD0055A8221D,
 				6B0E58799D14D30C2833C5B3,
 				C1F0AAC5C52E23AEB9937679,
@@ -577,6 +620,7 @@
 		CE466B1751A4697F31521DBD = {
 			isa = PBXGroup;
 			children = (
+				9A509E536981572D90A3668D,
 				D099DB4B2A1009E6E3B5F000,
 			);
 			path = Settings;
@@ -752,6 +796,9 @@
 				4CC88ECF76B3D19031D24E3C,
 				135DAC593CA433B2BFF6600B,
 				F4E7CCD8881939E5A87EAAC1,
+				7EBD494442336EE8A25732BA,
+				5F6067A9C613C92B9CE4858B,
+				7D0DEDD237D24CB47CBEF08E,
 				CA98E977ED72200E603EF0CA,
 				B66354A73DE6267F5401DA70,
 				77F358C245C4C1F802AE96A3,
@@ -770,6 +817,7 @@
 				11DB0760C147D1592C5522F2,
 				344995CA257B65CA8C965A4F,
 				FC39716260B896E0A5557795,
+				1E95B34A5F6BCB76BFCD6EF0,
 				72175BBA1857C2E4ECE53ED5,
 				36D0187E0DEFB2DD4224D44E,
 				EB451C27812D8C4E79CF34D5,
@@ -795,7 +843,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noodpakket/Noodpakket.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = EU3UY476T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -824,7 +872,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NoodpakketWidget/NoodpakketWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = EU3UY476T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -883,7 +931,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NoodpakketWidget/NoodpakketWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = EU3UY476T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -940,7 +988,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noodpakket/Noodpakket.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = EU3UY476T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

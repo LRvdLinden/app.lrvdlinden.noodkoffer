@@ -1,13 +1,23 @@
 import SwiftUI
 import SwiftData
 
-/// Three welcome screens: what the app does, the household, and notifications.
+/// Welcome screens: what the app does, the household, notifications, an optional account and (when the device has it)
+/// the app lock with Face ID.
 struct OnboardingView: View {
     var onDone: () -> Void
     @Query private var households: [Household]
     @State private var page = 0
     @State private var notificationsOn = false
     @State private var messagesOn = false
+    @State private var accountSheet: SignInSheet.Mode?
+    @State private var account = AccountService.shared
+    @State private var lockOn = Biometrics.isAppLockEnabled
+    private let showsLock = Biometrics.isAvailable
+    private var lastPage: Int { showsLock ? 4 : 3 }
+    private var buttonTitle: LocalizedStringKey {
+        if page == 3 && !account.isSignedIn { return "Not now" }
+        return page < lastPage ? "Next" : "Get started"
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -15,14 +25,16 @@ struct OnboardingView: View {
                 welcome.tag(0)
                 household.tag(1)
                 notifications.tag(2)
+                accountPage.tag(3)
+                if showsLock { lockPage.tag(4) }
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
 
             Button {
-                if page < 2 { withAnimation { page += 1 } } else { onDone() }
+                if page < lastPage { withAnimation { page += 1 } } else { onDone() }
             } label: {
-                Text(page < 2 ? "Next" : "Get started")
+                Text(buttonTitle)
                     .font(.headline)
                     .foregroundStyle(Theme.purple)
                     .frame(maxWidth: .infinity)
@@ -37,6 +49,63 @@ struct OnboardingView: View {
         .environment(\.colorScheme, .dark)
         .tint(Theme.yellow)
         .interactiveDismissDisabled()
+        .sheet(item: $accountSheet) { mode in
+            SignInSheet(mode: mode).environment(\.colorScheme, .light)
+        }
+    }
+
+    private var accountPage: some View {
+        VStack(spacing: 20) {
+            OnboardingPage(art: ["documents", "cash"],
+                           title: "Together with your household",
+                           text: "With a free account everyone in your household sees the same kit and shopping list, also between iPhone and Android. An account is not required.")
+            VStack(spacing: 0) {
+                if account.isSignedIn {
+                    Label(account.me?.user.email ?? String(localized: "Signed in"), systemImage: "checkmark.circle.fill")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(16)
+                } else {
+                    Button { accountSheet = .signUp } label: {
+                        Label("Create a free account", systemImage: "person.crop.circle.badge.plus")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(16)
+                    }
+                    Divider().padding(.leading, 16)
+                    Button { accountSheet = .signIn } label: {
+                        Label("I already have an account", systemImage: "person.crop.circle")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(16)
+                    }
+                }
+            }
+            .foregroundStyle(.white)
+            .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .padding(.horizontal, 24)
+            Spacer(minLength: 40)
+        }
+    }
+
+    private var lockPage: some View {
+        VStack(spacing: 20) {
+            OnboardingPage(art: ["firstaid", "documents"],
+                           title: "Lock with \(Biometrics.methodName)?",
+                           text: "Your emergency plan can contain medical information. Noodpakket can ask for \(Biometrics.methodName) when you open the app. You can change this later in Settings.")
+            Toggle(isOn: Binding(get: { lockOn }, set: { on in
+                Task {
+                    if !on { lockOn = false; UserDefaults.standard.set(false, forKey: Biometrics.appLockKey); return }
+                    if await Biometrics.authenticate(reason: String(localized: "Confirm to lock Noodpakket with \(Biometrics.methodName).")) {
+                        lockOn = true
+                        UserDefaults.standard.set(true, forKey: Biometrics.appLockKey)
+                    }
+                }
+            })) {
+                Label("Lock with \(Biometrics.methodName)", systemImage: Biometrics.symbolName)
+            }
+            .padding(16)
+            .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .padding(.horizontal, 24)
+            Spacer(minLength: 40)
+        }
     }
 
     private var welcome: some View {

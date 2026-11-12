@@ -12,7 +12,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 NAME = "Noodpakket"
 BUNDLE_ID = "app.lrvdlinden.noodpakket"
 TEAM = "EU3UY476T6"
-VERSION, BUILD = "1.0.0", "1"
+VERSION, BUILD = "1.0.0", "2"
 
 
 def oid(*parts):
@@ -54,6 +54,7 @@ write_plist(f"{NAME}/Info.plist", {
     "UIBackgroundModes": ["remote-notification"],
     "CFBundleURLTypes": [{"CFBundleURLName": BUNDLE_ID, "CFBundleURLSchemes": ["noodpakket"]}],
     "NSCameraUsageDescription": "Noodpakket uses the camera to scan barcodes and expiry dates on packaging.",
+    "NSFaceIDUsageDescription": "Noodpakket uses Face ID to unlock the app when you have turned on the app lock.",
 })
 write_plist(f"{NAME}Widget/Info.plist", {
     **common_info,

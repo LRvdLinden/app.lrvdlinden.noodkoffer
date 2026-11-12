@@ -1,6 +1,16 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "%@ (you)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (jij)"
+          }
+        }
+      }
+    },
     "%@ L": {
       "localizations": {
         "nl": {
@@ -27,6 +37,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ over %2$lld dagen"
+          }
+        }
+      }
+    },
+    "%@ invites you to %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ nodigt je uit voor %2$@"
           }
         }
       }
@@ -101,6 +121,16 @@
         }
       }
     },
+    "%lld invitation(s) waiting": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld uitnodiging(en) wachten"
+          }
+        }
+      }
+    },
     "%lld items for %lld people": {
       "localizations": {
         "nl": {
@@ -127,6 +157,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nog %lld te gaan"
+          }
+        }
+      }
+    },
+    "%lld members · %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld leden · %2$@"
           }
         }
       }
@@ -191,12 +231,52 @@
         }
       }
     },
+    "A household can have at most 10 members.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Een gezin kan hoogstens 10 leden hebben."
+          }
+        }
+      }
+    },
+    "A new email is on its way.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Er is een nieuwe mail onderweg."
+          }
+        }
+      }
+    },
     "A torch per household, preferably a wind-up or battery model.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Een zaklamp per huishouden, liefst een opwind- of batterijmodel."
+          }
+        }
+      }
+    },
+    "Account": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account"
+          }
+        }
+      }
+    },
+    "Account and household": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account en gezin"
           }
         }
       }
@@ -331,6 +411,16 @@
         }
       }
     },
+    "At least 8 characters, with a letter and a number. You will receive an email to confirm your address; the account is active after that.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minstens 8 tekens, met een letter en een cijfer. Je krijgt een mail om je adres te bevestigen; daarna is het account actief."
+          }
+        }
+      }
+    },
     "Automatic": {
       "localizations": {
         "nl": {
@@ -421,6 +511,16 @@
         }
       }
     },
+    "Cancel invitation": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitnodiging intrekken"
+          }
+        }
+      }
+    },
     "Candles and matches": {
       "localizations": {
         "nl": {
@@ -467,6 +567,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Controleer aantallen en datums en laad de powerbank op."
+          }
+        }
+      }
+    },
+    "Check your email": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kijk in je mail"
           }
         }
       }
@@ -531,6 +641,36 @@
         }
       }
     },
+    "Confirm to change the app lock.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bevestig om de vergrendeling te wijzigen."
+          }
+        }
+      }
+    },
+    "Confirm to lock Noodpakket with %@.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bevestig om Noodpakket te vergrendelen met %@."
+          }
+        }
+      }
+    },
+    "Confirm your email address first using the link in the email.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bevestig eerst je e-mailadres via de link in de mail."
+          }
+        }
+      }
+    },
     "Contacts": {
       "localizations": {
         "nl": {
@@ -561,12 +701,42 @@
         }
       }
     },
+    "Could not reach the server. Check your internet connection.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen verbinding met de server. Controleer je internetverbinding."
+          }
+        }
+      }
+    },
     "Create PDF": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Maak PDF"
+          }
+        }
+      }
+    },
+    "Create a free account": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maak een gratis account"
+          }
+        }
+      }
+    },
+    "Create account": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account maken"
           }
         }
       }
@@ -591,12 +761,42 @@
         }
       }
     },
+    "Decline": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weigeren"
+          }
+        }
+      }
+    },
     "Delete": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Verwijder"
+          }
+        }
+      }
+    },
+    "Delete account": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account verwijderen"
+          }
+        }
+      }
+    },
+    "Delete account?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account verwijderen?"
           }
         }
       }
@@ -617,6 +817,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Drinkwater"
+          }
+        }
+      }
+    },
+    "Email": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E-mail"
+          }
+        }
+      }
+    },
+    "Email address": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E-mailadres"
           }
         }
       }
@@ -681,12 +901,32 @@
         }
       }
     },
+    "Enter a valid email address.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vul een geldig e-mailadres in."
+          }
+        }
+      }
+    },
     "Evacuation address": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Evacuatieadres"
+          }
+        }
+      }
+    },
+    "Everyone in the household sees and edits the same kit, shopping list and emergency plan.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iedereen in het gezin ziet en wijzigt hetzelfde pakket, dezelfde boodschappenlijst en hetzelfde noodplan."
           }
         }
       }
@@ -791,12 +1031,32 @@
         }
       }
     },
+    "Face ID": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Face ID"
+          }
+        }
+      }
+    },
     "First aid kit": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "EHBO-doos"
+          }
+        }
+      }
+    },
+    "First name (optional)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voornaam (niet verplicht)"
           }
         }
       }
@@ -877,6 +1137,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bijvoorbeeld waar het ligt"
+          }
+        }
+      }
+    },
+    "Forgot password?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wachtwoord vergeten?"
           }
         }
       }
@@ -971,6 +1241,26 @@
         }
       }
     },
+    "Household members": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gezinsleden"
+          }
+        }
+      }
+    },
+    "Household name": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naam van het gezin"
+          }
+        }
+      }
+    },
     "Hygiene": {
       "localizations": {
         "nl": {
@@ -981,12 +1271,42 @@
         }
       }
     },
+    "I already have an account": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ik heb al een account"
+          }
+        }
+      }
+    },
+    "I have confirmed, sign in": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ik heb bevestigd, inloggen"
+          }
+        }
+      }
+    },
     "If the power, water or internet fails, you need to manage on your own for the first three days. Noodpakket helps you build and maintain your emergency kit.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Als stroom, water of internet uitvalt, moet je je de eerste drie dagen zelf redden. Noodpakket helpt je je noodpakket samen te stellen en bij te houden."
+          }
+        }
+      }
+    },
+    "If there is an account for this address, you will receive an email to choose a new password.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Als er een account bij dit adres hoort, krijg je een mail om een nieuw wachtwoord te kiezen."
           }
         }
       }
@@ -1021,6 +1341,16 @@
         }
       }
     },
+    "Incorrect email address or password.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Onjuist e-mailadres of wachtwoord."
+          }
+        }
+      }
+    },
     "Information": {
       "localizations": {
         "nl": {
@@ -1031,12 +1361,82 @@
         }
       }
     },
+    "Invitation sent to %@.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitnodiging verstuurd naar %@."
+          }
+        }
+      }
+    },
+    "Invitations": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitnodigingen"
+          }
+        }
+      }
+    },
+    "Invite someone": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iemand uitnodigen"
+          }
+        }
+      }
+    },
+    "Invited": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitgenodigd"
+          }
+        }
+      }
+    },
     "Item": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Item"
+          }
+        }
+      }
+    },
+    "Join": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deelnemen"
+          }
+        }
+      }
+    },
+    "Join and replace my kit": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deelnemen en mijn pakket vervangen"
+          }
+        }
+      }
+    },
+    "Join this household?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deelnemen aan dit gezin?"
           }
         }
       }
@@ -1091,12 +1491,52 @@
         }
       }
     },
+    "Last synced": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laatst gesynchroniseerd"
+          }
+        }
+      }
+    },
     "Later": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Later"
+          }
+        }
+      }
+    },
+    "Leave": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verlaten"
+          }
+        }
+      }
+    },
+    "Leave household": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gezin verlaten"
+          }
+        }
+      }
+    },
+    "Leave household?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gezin verlaten?"
           }
         }
       }
@@ -1127,6 +1567,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "Luister naar de calamiteitenzender op een radio met batterijen of opwinder."
+          }
+        }
+      }
+    },
+    "Lock the app with Face ID": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vergrendel de app met Face ID"
+          }
+        }
+      }
+    },
+    "Lock with %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vergrendelen met %@"
+          }
+        }
+      }
+    },
+    "Lock with %@?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vergrendelen met %@?"
           }
         }
       }
@@ -1241,6 +1711,16 @@
         }
       }
     },
+    "Mode": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modus"
+          }
+        }
+      }
+    },
     "Money and documents": {
       "localizations": {
         "nl": {
@@ -1257,6 +1737,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Maand"
+          }
+        }
+      }
+    },
+    "My household": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mijn gezin"
           }
         }
       }
@@ -1321,6 +1811,16 @@
         }
       }
     },
+    "New account": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nieuw account"
+          }
+        }
+      }
+    },
     "New item": {
       "localizations": {
         "nl": {
@@ -1371,6 +1871,16 @@
         }
       }
     },
+    "No email? Check your spam folder. Unconfirmed accounts are deleted after 7 days.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen mail? Kijk in je spammap. Niet-bevestigde accounts worden na 7 dagen verwijderd."
+          }
+        }
+      }
+    },
     "No expiry dates yet": {
       "localizations": {
         "nl": {
@@ -1401,6 +1911,26 @@
         }
       }
     },
+    "Noodpakket asks for %@ when you open the app, so your emergency plan and medical information stay private.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodpakket vraagt om %@ als je de app opent, zodat je noodplan en medische gegevens privé blijven."
+          }
+        }
+      }
+    },
+    "Noodpakket is locked": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noodpakket is vergrendeld"
+          }
+        }
+      }
+    },
     "Not found online. Enter it once; next time this barcode is recognised straight away.": {
       "localizations": {
         "nl": {
@@ -1417,6 +1947,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Niet nodig"
+          }
+        }
+      }
+    },
+    "Not now": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niet nu"
           }
         }
       }
@@ -1461,6 +2001,16 @@
         }
       }
     },
+    "Only the owner of the household can do this.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alleen de eigenaar van het gezin kan dit doen."
+          }
+        }
+      }
+    },
     "Open Noodpakket to set up your kit": {
       "localizations": {
         "nl": {
@@ -1471,12 +2021,52 @@
         }
       }
     },
+    "Optic ID": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optic ID"
+          }
+        }
+      }
+    },
+    "Optional. With a free account your household shares one kit, also between iPhone and Android. Everything also works without an account.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niet verplicht. Met een gratis account deelt je gezin één pakket, ook tussen iPhone en Android. Alles werkt ook zonder account."
+          }
+        }
+      }
+    },
     "Other": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Overig"
+          }
+        }
+      }
+    },
+    "Owner": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eigenaar"
+          }
+        }
+      }
+    },
+    "Password": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wachtwoord"
           }
         }
       }
@@ -1671,6 +2261,26 @@
         }
       }
     },
+    "Remove": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwijderen"
+          }
+        }
+      }
+    },
+    "Remove from household?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uit het gezin verwijderen?"
+          }
+        }
+      }
+    },
     "Replace things before they expire": {
       "localizations": {
         "nl": {
@@ -1741,6 +2351,26 @@
         }
       }
     },
+    "Send invitation": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitnodiging versturen"
+          }
+        }
+      }
+    },
+    "Send the email again": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stuur de mail opnieuw"
+          }
+        }
+      }
+    },
     "Settings": {
       "localizations": {
         "nl": {
@@ -1757,6 +2387,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Deel lijst"
+          }
+        }
+      }
+    },
+    "Share one kit with your household (optional account)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deel één pakket met je gezin (account niet verplicht)"
           }
         }
       }
@@ -1821,12 +2461,52 @@
         }
       }
     },
+    "Sign in": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inloggen"
+          }
+        }
+      }
+    },
+    "Sign out": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uitloggen"
+          }
+        }
+      }
+    },
+    "Signed in": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingelogd"
+          }
+        }
+      }
+    },
     "Siren: go inside, close windows and doors, and turn off mechanical ventilation.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Sirene: ga naar binnen, sluit ramen en deuren en zet mechanische ventilatie uit."
+          }
+        }
+      }
+    },
+    "Something went wrong. Please try again later.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Er ging iets mis. Probeer het later opnieuw."
           }
         }
       }
@@ -1901,6 +2581,36 @@
         }
       }
     },
+    "Sync now": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu synchroniseren"
+          }
+        }
+      }
+    },
+    "Synced %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gesynchroniseerd %@"
+          }
+        }
+      }
+    },
+    "Syncing…": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bezig met synchroniseren…"
+          }
+        }
+      }
+    },
     "The app calculates how much water, food and cash you need.": {
       "localizations": {
         "nl": {
@@ -1911,12 +2621,82 @@
         }
       }
     },
+    "The password is too long.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het wachtwoord is te lang."
+          }
+        }
+      }
+    },
+    "The password needs at least 8 characters.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het wachtwoord moet minstens 8 tekens hebben."
+          }
+        }
+      }
+    },
+    "The shared kit replaces the kit on this device.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het gedeelde pakket komt in de plaats van het pakket op dit apparaat."
+          }
+        }
+      }
+    },
     "These items do not count towards your kit. Tap one to use it again.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Deze items tellen niet mee in je pakket. Tik erop om ze weer te gebruiken."
+          }
+        }
+      }
+    },
+    "They keep their account and start again with their own household.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diegene houdt het account en begint opnieuw met een eigen gezin."
+          }
+        }
+      }
+    },
+    "They receive an email and see the invitation in the app after signing in with this address.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diegene krijgt een mail en ziet de uitnodiging in de app na het inloggen met dit adres."
+          }
+        }
+      }
+    },
+    "This invitation is no longer valid.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze uitnodiging is niet meer geldig."
+          }
+        }
+      }
+    },
+    "This person is already in your household.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze persoon zit al in je gezin."
           }
         }
       }
@@ -1961,6 +2741,16 @@
         }
       }
     },
+    "Together with your household": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Samen met je gezin"
+          }
+        }
+      }
+    },
     "Toilet paper and bin bags": {
       "localizations": {
         "nl": {
@@ -1971,12 +2761,32 @@
         }
       }
     },
+    "Too many attempts. Please try again later.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Te veel pogingen. Probeer het later opnieuw."
+          }
+        }
+      }
+    },
     "Torch": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Zaklamp"
+          }
+        }
+      }
+    },
+    "Touch ID": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touch ID"
           }
         }
       }
@@ -2011,12 +2821,42 @@
         }
       }
     },
+    "Unlock Noodpakket.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ontgrendel Noodpakket."
+          }
+        }
+      }
+    },
+    "Unlock with %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ontgrendel met %@"
+          }
+        }
+      }
+    },
     "Use a torch rather than candles, and never leave candles unattended.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Gebruik liever een zaklamp dan kaarsen, en laat kaarsen nooit alleen."
+          }
+        }
+      }
+    },
+    "Use at least one letter and one number in your password.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebruik minstens één letter en één cijfer in je wachtwoord."
           }
         }
       }
@@ -2101,6 +2941,16 @@
         }
       }
     },
+    "We sent a link to %@. Tap it to activate your account, then sign in here.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We hebben een link gestuurd naar %@. Tik erop om je account te activeren en log daarna hier in."
+          }
+        }
+      }
+    },
     "What to do during a power cut, NL-Alert and more": {
       "localizations": {
         "nl": {
@@ -2137,6 +2987,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Werkt de kraan weer, volg dan het advies van je drinkwaterbedrijf, bijvoorbeeld water eerst koken."
+          }
+        }
+      }
+    },
+    "When you join, the shared kit replaces the kit on this device.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neem je deel, dan komt het gedeelde pakket in de plaats van het pakket op dit apparaat."
           }
         }
       }
@@ -2191,6 +3051,16 @@
         }
       }
     },
+    "With a free account everyone in your household sees the same kit and shopping list, also between iPhone and Android. An account is not required.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Met een gratis account ziet iedereen in je gezin hetzelfde pakket en dezelfde boodschappenlijst, ook tussen iPhone en Android. Een account is niet verplicht."
+          }
+        }
+      }
+    },
     "Within 30 days": {
       "localizations": {
         "nl": {
@@ -2211,12 +3081,62 @@
         }
       }
     },
+    "You are the only member of this household.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je bent het enige lid van dit gezin."
+          }
+        }
+      }
+    },
+    "You cannot invite yourself.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je kunt jezelf niet uitnodigen."
+          }
+        }
+      }
+    },
     "You get a reminder on this day to go through your kit.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Op deze dag krijg je een herinnering om je pakket na te lopen."
+          }
+        }
+      }
+    },
+    "You have been signed out. Please sign in again.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je bent uitgelogd. Log opnieuw in."
+          }
+        }
+      }
+    },
+    "You keep the kit on this device and continue with your own household.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je houdt het pakket op dit apparaat en gaat verder met een eigen gezin."
+          }
+        }
+      }
+    },
+    "Your account is deleted immediately. If you are the last member of your household, the shared data is deleted too. The kit on this device stays.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je account wordt direct verwijderd. Ben je de laatste van je gezin, dan worden ook de gedeelde gegevens verwijderd. Het pakket op dit apparaat blijft staan."
           }
         }
       }
@@ -2237,6 +3157,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Je pakket is compleet. Wat opraakt of verloopt, komt hier te staan."
+          }
+        }
+      }
+    },
+    "Your kit is shared with everyone in your household.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je pakket wordt gedeeld met iedereen in je gezin."
           }
         }
       }
@@ -2287,6 +3217,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "lrvdlinden.app"
+          }
+        }
+      }
+    },
+    "passcode": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "toegangscode"
           }
         }
       }
