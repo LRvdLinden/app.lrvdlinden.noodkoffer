@@ -1,0 +1,14 @@
+name: Data-verkenning (tijdelijk)
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sSL -o g.xml https://organisaties.overheid.nl/archive/exportOO_gemeenten.xml || true
+          ls -la g.xml; head -c 300 g.xml; echo
+          python3 - <<'PY'
+          import re
+          s=open('g.xml',encoding='utf-8',errors='replace').read()
+          i=s.find('Apeldoorn'); print(len(s)); print(s[max(0,i-3000):i+6000])
+          PY
