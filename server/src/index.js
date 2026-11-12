@@ -8,6 +8,7 @@ import {
   randomToken, rateStep, readAdminToken, sameString, sha256, verifyPassword, wins,
 } from "./core.js";
 import { buildMail, sendMail } from "./mail.js";
+import { lokaal } from "./lokaal.js";
 
 const HOUR = 3600_000;
 const DAY = 24 * HOUR;
@@ -610,6 +611,18 @@ export default {
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: c });
     const path = new URL(req.url).pathname.replace(/\/+$/, "") || "/";
     if ((req.method === "GET" || req.method === "HEAD") && path === "/download/android") return downloadAndroid(env, ctx);
+    if (req.method === "GET" && path === "/lokaal") {
+      try {
+        await limit(env, `lokaal:${clientIP(req)}`, HOUR, 60);
+        const r = await lokaal(new URL(req.url).searchParams.get("postcode"), ctx);
+        if (r.ok) ctx?.waitUntil(count(env, "lokaal").catch(() => null));
+        return json(r.ok ? r : { error: r.error }, r.ok ? 200 : r.status, { ...c, "access-control-allow-origin": "*" });
+      } catch (e) {
+        if (e instanceof HttpError) return json({ error: e.code }, e.status, c);
+        console.error("lokaal", e?.stack || e);
+        return json({ error: "server_error" }, 500, c);
+      }
+    }
     if (req.method === "GET" && path === "/download/android/info") {
       const info = await latestAndroid(env, ctx).catch(() => null);
       return json(info ? { version: info.version, published_at: info.published_at, size: info.size } : { version: null }, 200,

@@ -237,3 +237,28 @@ test("Android-download: nieuwste release doorgeven met nette bestandsnaam", asyn
     assert.equal(env.DB.raw.prepare("select n from daily where metric = 'apk'").get().n, 1);
   } finally { globalThis.fetch = real; }
 });
+
+test("lokaal: postcode, rampenzender, waterbedrijf, gemeente", async () => {
+  const { lokaal, cleanPostcode, zenderVoor, waterVoor } = await import("../src/lokaal.js");
+  assert.equal(cleanPostcode("7311 lg"), "7311LG");
+  assert.equal(cleanPostcode("0123AB"), null);
+  assert.equal(cleanPostcode("1234SS"), null);
+  const fake = async () => ({ postcode: "7311LG", woonplaatsnaam: "Apeldoorn", gemeentecode: "0200", gemeentenaam: "Apeldoorn",
+    provincienaam: "Gelderland", centroide_ll: "POINT(5.9617 52.2112)" });
+  const r = await lokaal("7311 LG", null, fake);
+  assert.equal(r.ok, true);
+  assert.equal(r.gemeente.telefoon, "14 055");
+  assert.equal(r.noodzender.omroep, "Omroep Gelderland");
+  assert.equal(r.noodzender.fm[0].mhz, "103.5");
+  assert.equal(r.noodzender.dab, "12B");
+  assert.equal(r.water[0].id, "vitens");
+  assert.equal((await lokaal("7311", null, fake)).error, "bad_postcode");
+  assert.equal((await lokaal("7311LG", null, async () => null)).error, "unknown_postcode");
+  assert.equal(zenderVoor("Zuid-Holland", "Gouda", 52.01, 4.71).omroep, "Omroep West (Radio West)");
+  assert.equal(zenderVoor("Zuid-Holland", "Dordrecht", 51.81, 4.67).omroep, "Radio Rijnmond");
+  assert.equal(zenderVoor("Limburg", "Maastricht", 50.85, 5.69).fm[0].mhz, "95.3");
+  assert.equal(zenderVoor("Overijssel", "Enschede", 52.22, 6.89).fm[0].mhz, "89.4");
+  assert.equal(waterVoor("Noord-Holland", "Amsterdam")[0].id, "waternet");
+  assert.equal(waterVoor("Zuid-Holland", "Leiden")[0].id, "dunea");
+  assert.equal(new Set(waterVoor("Zuid-Holland", "Leiden").map((w) => w.id)).size, waterVoor("Zuid-Holland", "Leiden").length);
+});

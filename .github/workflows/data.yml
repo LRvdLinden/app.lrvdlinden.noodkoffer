@@ -1,0 +1,38 @@
+name: Gegevens gemeenten
+
+# Werkt server/data/gemeenten.json bij uit het register van overheidsorganisaties (organisaties.overheid.nl, CC0):
+# per gemeente het algemene telefoonnummer en de website, voor de belangrijke nummers in het noodplan.
+# Elke maandag, of met de hand. Is er iets veranderd, dan commit hij het en zet hij de server opnieuw live.
+on:
+  schedule:
+    - cron: "41 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - name: Register ophalen en omzetten
+        working-directory: server
+        run: |
+          curl -sSfL --retry 3 -o /tmp/g.xml https://organisaties.overheid.nl/archive/exportOO_gemeenten.xml
+          node tools/gemeenten.mjs /tmp/g.xml > /tmp/gemeenten.json
+          mv /tmp/gemeenten.json data/gemeenten.json
+      - name: Opslaan en server bijwerken
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- server/data/gemeenten.json; then echo "Geen wijzigingen"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add server/data/gemeenten.json
+          git commit -m "Gegevens gemeenten bijgewerkt (organisaties.overheid.nl)"
+          git push
+          gh workflow run server.yml --ref main
