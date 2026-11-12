@@ -5,22 +5,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          strip() { python3 -c "import sys,re,html;s=sys.stdin.read();s=re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>',' ',s);s=re.sub(r'<[^>]+>','\n',s);s=html.unescape(s);print('\n'.join(l.strip() for l in s.splitlines() if l.strip()))"; }
-          for u in \
-            https://www.omroepgelderland.nl/frequenties https://www.gld.nl/frequenties https://www.gld.nl/radio \
-            https://www.rtvoost.nl/frequenties https://www.rtvoost.nl/radio/frequenties \
-            https://www.rtvdrenthe.nl/frequenties https://www.rtvdrenthe.nl/radio \
-            https://www.rtvnoord.nl/frequenties https://www.rtvnoord.nl/radio \
-            https://www.omropfryslan.nl/frekwinsjes https://www.omropfryslan.nl/frequenties https://www.omropfryslan.nl/radio \
-            https://www.omroepflevoland.nl/frequenties https://www.omroepflevoland.nl/radio \
-            https://www.rtvutrecht.nl/frequenties https://www.rtvutrecht.nl/radio \
-            https://www.nhnieuws.nl/frequenties https://www.nhnieuws.nl/radio \
-            https://www.omroepwest.nl/frequenties https://www.omroepwest.nl/radio \
-            https://www.rijnmond.nl/frequenties https://www.rijnmond.nl/radio \
-            https://www.omroepbrabant.nl/rampenzender https://www.omroepbrabant.nl/frequenties \
-            https://www.l1.nl/frequenties https://l1.nl/frequenties https://www.l1nieuws.nl/frequenties \
-            https://www.omroepzeeland.nl/frequenties https://www.omroepzeeland.nl/radio ; do
-            echo "=================== $u"
-            curl -sSL -m 20 -A "Mozilla/5.0" "$u" -o p.html -w "HTTP %{http_code} -> %{url_effective}\n" || true
-            strip < p.html | grep -iE -B1 -A1 "mhz|[0-9]{2,3}[.,][0-9] ?fm|fm ?[0-9]{2,3}[.,][0-9]|dab|kanaal [0-9]{1,2}[a-d]|rampenzender|calamiteit" | head -40
-          done
+          cat > s.py <<'PY'
+          import sys,re,html,json,urllib.request,urllib.parse
+          def get(u):
+              try:
+                  r=urllib.request.urlopen(urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0"}),timeout=20); return r.geturl(), r.read().decode('utf-8','replace')
+              except Exception as e: return u, ""
+          def text(s):
+              s=re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>',' ',s); s=re.sub(r'<[^>]+>','\n',s); s=html.unescape(s)
+              return [l.strip() for l in s.splitlines() if l.strip()]
+          pat=re.compile(r'(mhz|\bfm\b|dab|kanaal\s*\d{1,2}[a-d]|\b\d{2,3}[.,]\d\b)',re.I)
+          for home in sys.argv[1:]:
+              u,h=get(home)
+              links=set()
+              for m in re.finditer(r'href="([^"]+)"',h):
+                  l=m.group(1)
+                  if re.search(r'rampenzender|calamiteit|frequent|ontvang|frekwins|bereik',l,re.I): links.add(urllib.parse.urljoin(u,l))
+              print("=================",home,"->",sorted(links)[:8])
+              for l in sorted(links)[:6]:
+                  lu,lh=get(l); t=text(lh)
+                  hits=[(i,x) for i,x in enumerate(t) if pat.search(x) and len(x)<200]
+                  if hits: print("  ---",lu)
+                  shown=set()
+                  for i,x in hits[:25]:
+                      for j in range(max(0,i-1),min(len(t),i+2)):
+                          if j not in shown: shown.add(j); print("    ",t[j][:160])
+          PY
+          python3 s.py https://www.gld.nl https://www.oost.nl https://www.rtvdrenthe.nl https://www.rtvnoord.nl https://www.omropfryslan.nl https://www.omroepflevoland.nl https://www.rtvutrecht.nl https://www.nhnieuws.nl https://www.omroepwest.nl https://www.rijnmond.nl https://www.l1.nl
