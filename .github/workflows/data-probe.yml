@@ -5,7 +5,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for t in "Omroep_Gelderland" "Radio_Gelderland" "RTV_Oost" "Radio_Oost" "RTV_Drenthe" "Radio_Drenthe" "RTV_Noord" "Radio_Noord" "Omrop_Fryslân" "Omroep_Flevoland" "RTV_Utrecht" "Radio_M_Utrecht" "NH_(omroep)" "NH_Radio" "Omroep_West" "Radio_West" "RTV_Rijnmond" "Radio_Rijnmond" "Omroep_Brabant" "L1_(omroep)" "L1_Radio" "Omroep_Zeeland" "Calamiteitenzender" "Regionale_omroep_(Nederland)"; do
-            echo "=================== $t"
-            curl -sSL "https://nl.wikipedia.org/w/index.php?title=$t&action=raw" | grep -iE "MHz|DAB|frequent|kanaal 1[0-2][A-D]|calamit|redirect" | head -60
+          strip() { python3 -c "import sys,re,html;s=sys.stdin.read();s=re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>',' ',s);s=re.sub(r'<[^>]+>','\n',s);s=html.unescape(s);print('\n'.join(l.strip() for l in s.splitlines() if l.strip()))"; }
+          for u in \
+            https://www.omroepgelderland.nl/frequenties https://www.gld.nl/frequenties https://www.gld.nl/radio \
+            https://www.rtvoost.nl/frequenties https://www.rtvoost.nl/radio/frequenties \
+            https://www.rtvdrenthe.nl/frequenties https://www.rtvdrenthe.nl/radio \
+            https://www.rtvnoord.nl/frequenties https://www.rtvnoord.nl/radio \
+            https://www.omropfryslan.nl/frekwinsjes https://www.omropfryslan.nl/frequenties https://www.omropfryslan.nl/radio \
+            https://www.omroepflevoland.nl/frequenties https://www.omroepflevoland.nl/radio \
+            https://www.rtvutrecht.nl/frequenties https://www.rtvutrecht.nl/radio \
+            https://www.nhnieuws.nl/frequenties https://www.nhnieuws.nl/radio \
+            https://www.omroepwest.nl/frequenties https://www.omroepwest.nl/radio \
+            https://www.rijnmond.nl/frequenties https://www.rijnmond.nl/radio \
+            https://www.omroepbrabant.nl/rampenzender https://www.omroepbrabant.nl/frequenties \
+            https://www.l1.nl/frequenties https://l1.nl/frequenties https://www.l1nieuws.nl/frequenties \
+            https://www.omroepzeeland.nl/frequenties https://www.omroepzeeland.nl/radio ; do
+            echo "=================== $u"
+            curl -sSL -m 20 -A "Mozilla/5.0" "$u" -o p.html -w "HTTP %{http_code} -> %{url_effective}\n" || true
+            strip < p.html | grep -iE -B1 -A1 "mhz|[0-9]{2,3}[.,][0-9] ?fm|fm ?[0-9]{2,3}[.,][0-9]|dab|kanaal [0-9]{1,2}[a-d]|rampenzender|calamiteit" | head -40
           done
