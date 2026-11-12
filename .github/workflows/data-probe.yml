@@ -4,48 +4,28 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
       - run: |
-          cat > s.py <<'PY'
-          import sys,re,html,json,urllib.request,urllib.parse
-          def get(u):
-              try:
-                  r=urllib.request.urlopen(urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0"}),timeout=20); return r.geturl(), r.read().decode('utf-8','replace')
-              except Exception as e: return u, ""
-          def text(s):
-              s=re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>',' ',s); s=re.sub(r'<[^>]+>','\n',s); s=html.unescape(s)
-              return [l.strip() for l in s.splitlines() if l.strip()]
-          pat=re.compile(r'(mhz|\bfm\b|dab|kanaal\s*\d{1,2}[a-d]|\b\d{2,3}[.,]\d\b)',re.I)
-          for home in sys.argv[1:]:
-              u,h=get(home)
-              links=set()
-              for m in re.finditer(r'href="([^"]+)"',h):
-                  l=m.group(1)
-                  if re.search(r'rampenzender|calamiteit|frequent|ontvang|frekwins|bereik',l,re.I): links.add(urllib.parse.urljoin(u,l))
-              print("=================",home,"->",sorted(links)[:8])
-              for l in sorted(links)[:6]:
-                  lu,lh=get(l); t=text(lh)
-                  hits=[(i,x) for i,x in enumerate(t) if pat.search(x) and len(x)<200]
-                  if hits: print("  ---",lu)
-                  shown=set()
-                  for i,x in hits[:25]:
-                      for j in range(max(0,i-1),min(len(t),i+2)):
-                          if j not in shown: shown.add(j); print("    ",t[j][:160])
-          PY
-          cat > d.py <<'PY2'
-          import sys,re,html,urllib.request
-          for u in sys.argv[1:]:
-              try: h=urllib.request.urlopen(urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0"}),timeout=20).read().decode('utf-8','replace')
-              except Exception as e: print("ERR",u,e); continue
-              # ook tekst uit JSON in de pagina (Next.js)
-              h2=re.sub(r'\\u003c','<',h)
-              s=re.sub(r'(?is)<(script|style)[^>]*>(.*?)</\1>',lambda m: ' ' if m.group(1).lower()=='style' else m.group(2),h2)
-              s=re.sub(r'<[^>]+>','\n',s); s=html.unescape(s)
-              t=[l.strip() for l in re.split(r'\n|\\n|","|":"',s) if l.strip()]
-              print("=================",u,len(t))
-              idx=[i for i,x in enumerate(t) if re.search(r'(\bFM\b|MHz|DAB|kanaal \d{1,2}[A-D]|\b(8[7-9]|9\d|10[0-8])[.,]\d\b)',x,re.I) and len(x)<300]
-              seen=set()
-              for i in idx[:60]:
-                  for j in range(max(0,i-2),min(len(t),i+2)):
-                      if j not in seen: seen.add(j); print("   ",t[j][:220])
-          PY2
-          python3 d.py https://www.vitens.nl/service/storingen https://www.vitens.nl/klantenservice https://www.evides.nl/storingen https://www.dunea.nl/storingen https://www.pwn.nl/storingen https://www.waternet.nl/service-en-contact/storingen/ https://www.brabantwater.nl/storingen https://www.wml.nl/storingen https://www.oasen.nl/storingen https://wmd.nl/storingen/ https://waterbedrijfgroningen.nl/storingen/ https://www.nhnieuws.nl/page/calamiteitenzender https://www.nhnieuws.nl/nh-radio https://www.nhnieuws.nl/radio-frequenties
+          npm i playwright@1.49.1 >/dev/null 2>&1 && npx playwright install --with-deps chromium >/dev/null 2>&1
+          cat > p.mjs <<'JS'
+          import { chromium } from "playwright";
+          const urls = process.argv.slice(2);
+          const b = await chromium.launch();
+          const re = /(\bFM\b|MHz|DAB|kanaal \d{1,2}[A-D]|\b0[89]00[\s-]?\d|\b0\d{2,3}[\s-]\d{2,3}|storing)/i;
+          for (const u of urls) {
+            const p = await b.newPage({ userAgent: "Mozilla/5.0 (Macintosh) Chrome/120" });
+            try {
+              await p.goto(u, { waitUntil: "networkidle", timeout: 30000 });
+              for (const t of ["Akkoord", "Accepteren", "Alles accepteren", "Accept"]) { try { await p.getByRole("button", { name: t }).first().click({ timeout: 1500 }); } catch {} }
+              await p.waitForTimeout(1500);
+              const lines = (await p.evaluate(() => document.body.innerText)).split("\n").map((x) => x.trim()).filter(Boolean);
+              console.log("=================", u, "->", p.url(), lines.length);
+              const seen = new Set();
+              lines.forEach((l, i) => { if (re.test(l) && l.length < 250) for (let j = Math.max(0, i - 1); j <= Math.min(lines.length - 1, i + 1); j++) if (!seen.has(j)) { seen.add(j); console.log("    " + lines[j].slice(0, 200)); } });
+            } catch (e) { console.log("ERR", u, e.message.split("\n")[0]); }
+            await p.close();
+          }
+          await b.close();
+          JS
+          node p.mjs https://www.vitens.nl/storingen https://www.vitens.nl/contact https://www.evides.nl/storingen https://www.dunea.nl/contact https://www.pwn.nl/storingen https://www.waternet.nl/contact/ https://www.brabantwater.nl/storingen https://www.wml.nl/contact https://www.oasen.nl/storingen https://wmd.nl/storingen/ https://waterbedrijfgroningen.nl/storingen/ https://www.nhnieuws.nl/calamiteitenzender https://www.nhnieuws.nl/frequenties
