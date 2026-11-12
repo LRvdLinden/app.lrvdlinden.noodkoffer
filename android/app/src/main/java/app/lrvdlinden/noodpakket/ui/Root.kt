@@ -43,7 +43,8 @@ fun NoodpakketRoot(
     onOnboardingDone: (Boolean) -> Unit,
 ) {
     if (!onboardingDone) {
-        OnboardingScreen(state.household, onHousehold = { h -> repo.update { it.copy(household = h) } }) {
+        OnboardingScreen(state.household, onHousehold = { h -> repo.update { it.copy(household = h) } },
+            plan = state.plan, onPlace = { info -> repo.update { it.copy(plan = it.plan.copy(place = info)) } }) {
             onOnboardingDone(true)
         }
         return

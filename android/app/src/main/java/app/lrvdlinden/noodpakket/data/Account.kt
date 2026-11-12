@@ -16,6 +16,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
@@ -349,7 +350,11 @@ object AccountSync {
         put("medical", p.medical); put("evacuation", p.evacuation); put("radioStation", p.radioStation)
         put("utilities", p.utilities); put("notes", p.notes); put("checkIntervalMonths", p.checkIntervalMonths)
         p.nextCheck?.let { put("nextCheck", it) }
+        if (p.contactList.isNotEmpty()) put("contactList", wire.encodeToJsonElement(ListSerializer(PlanContact.serializer()), p.contactList))
+        p.place?.let { put("place", wire.encodeToJsonElement(LocalInfo.serializer(), it)) }
     }
+
+    private val wire = Json { ignoreUnknownKeys = true; explicitNulls = false; encodeDefaults = true }
 
     private fun JsonObject.str(k: String): String? = (this[k] as? JsonPrimitive)?.takeIf { it !is JsonNull }?.contentOrNull
     private fun JsonObject.num(k: String): Double? = (this[k] as? JsonPrimitive)?.doubleOrNull
@@ -407,6 +412,10 @@ object AccountSync {
                         evacuation = data.str("evacuation").orEmpty(), radioStation = data.str("radioStation").orEmpty(),
                         utilities = data.str("utilities").orEmpty(), notes = data.str("notes").orEmpty(),
                         nextCheck = data.str("nextCheck"), checkIntervalMonths = data.int("checkIntervalMonths") ?: 6,
+                        contactList = (data["contactList"] as? JsonArray)?.let {
+                            runCatching { wire.decodeFromJsonElement(ListSerializer(PlanContact.serializer()), it) }.getOrNull()
+                        } ?: emptyList(),
+                        place = (data["place"] as? JsonObject)?.let { runCatching { wire.decodeFromJsonElement(LocalInfo.serializer(), it) }.getOrNull() },
                     )
                     s = s.copy(plan = p)
                     known[key] = Record("plan", id, encode(p)).canonical

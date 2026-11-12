@@ -70,6 +70,10 @@ data class EmergencyPlan(
     val nextCheck: String? = null,
     /** How often the kit check comes back: 1, 3, 6 or 12 months. */
     val checkIntervalMonths: Int = 6,
+    /** Own contacts: GP, family, neighbours… */
+    val contactList: List<PlanContact> = emptyList(),
+    /** Numbers for the place where the household lives (from the postcode). */
+    val place: LocalInfo? = null,
 ) {
     fun withNextCheck(from: java.time.LocalDate = java.time.LocalDate.now()) =
         copy(nextCheck = from.plusMonths(checkIntervalMonths.coerceAtLeast(1).toLong()).toString())
@@ -145,4 +149,55 @@ data class KitSummary(
             )
         }
     }
+}
+
+@Serializable
+data class PlanContact(
+    val id: String = UUID.randomUUID().toString(),
+    val role: ContactRole = ContactRole.family,
+    val name: String = "",
+    val phone: String = "",
+    val note: String = "",
+)
+
+/** Names are the wire format (the same on iPhone), hence lowercase. */
+@Suppress("EnumEntryName")
+@Serializable
+enum class ContactRole(@StringRes val title: Int) {
+    gp(R.string.role_gp), gpOutOfHours(R.string.role_gp_ooh), dentist(R.string.role_dentist), pharmacy(R.string.role_pharmacy),
+    family(R.string.role_family), neighbours(R.string.role_neighbours), work(R.string.role_work), school(R.string.role_school),
+    vet(R.string.role_vet), insurance(R.string.role_insurance), other(R.string.role_other),
+}
+
+/** Numbers for a postcode, from the Noodpakket API (/lokaal). */
+@Serializable
+data class LocalInfo(
+    val postcode: String = "",
+    val woonplaats: String = "",
+    val provincie: String = "",
+    val gemeente: Gemeente = Gemeente(),
+    val noodzender: Zender? = null,
+    val water: List<Water> = emptyList(),
+    val wijkagent: String? = null,
+    /** The water company the household confirmed; null = the first suggestion. */
+    val waterKeuze: String? = null,
+) {
+    @Serializable data class Gemeente(val code: String = "", val naam: String = "", val telefoon: String? = null, val site: String? = null)
+    @Serializable data class FM(val mhz: String = "", val gebied: String = "")
+    @Serializable data class Zender(val omroep: String = "", val site: String? = null, val dab: String? = null, val fm: List<FM> = emptyList())
+    @Serializable data class Water(val id: String = "", val naam: String = "", val telefoon: String? = null,
+                                   val toelichting: String? = null, val site: String? = null)
+
+    val chosenWater: Water? get() = water.firstOrNull { it.id == waterKeuze } ?: water.firstOrNull()
+}
+
+/** National numbers in the Netherlands (checked November 2026). */
+enum class NationalNumber(@StringRes val title: Int, @StringRes val note: Int, val number: String) {
+    POLICE(R.string.nr_police, R.string.nr_police_note, "0900-8844"),
+    FIRE(R.string.nr_fire, R.string.nr_fire_note, "0900-0904"),
+    POWER(R.string.nr_power, R.string.nr_power_note, "0800-9009"),
+    CRIME(R.string.nr_crime, R.string.nr_crime_note, "0800-7000"),
+    FRAUD(R.string.nr_fraud, R.string.nr_fraud_note, "088-786 73 72"),
+    SUICIDE(R.string.nr_113, R.string.nr_113_note, "0800-0113"),
+    ANIMAL(R.string.nr_animal, R.string.nr_animal_note, "144"),
 }

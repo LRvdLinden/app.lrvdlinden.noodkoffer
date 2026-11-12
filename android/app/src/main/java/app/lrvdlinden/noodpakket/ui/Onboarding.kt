@@ -1,6 +1,8 @@
 package app.lrvdlinden.noodpakket.ui
 
 import app.lrvdlinden.noodpakket.data.Account
+import app.lrvdlinden.noodpakket.data.EmergencyPlan
+import app.lrvdlinden.noodpakket.data.LocalInfo
 import androidx.compose.foundation.clickable
 import androidx.compose.runtime.collectAsState
 
@@ -56,7 +58,8 @@ import app.lrvdlinden.noodpakket.notify.Reminders
 
 /** Welcome screens: what the app does, the household, reminders, an optional account and (when available) the app lock. */
 @Composable
-fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onDone: () -> Unit) {
+fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, plan: EmergencyPlan, onPlace: (LocalInfo) -> Unit,
+                     onDone: () -> Unit) {
     val context = LocalContext.current
     var page by remember { mutableIntStateOf(0) }
     var reminders by remember { mutableStateOf(Reminders.isEnabled(context)) }
@@ -69,7 +72,7 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
     val lockAvailable = remember { AppLock.isAvailable(context) }
     var lockOn by remember { mutableStateOf(AppLock.isEnabled(context)) }
     val lockConfirm = stringResource(R.string.lock_confirm_change)
-    val last = if (lockAvailable) 4 else 3
+    val last = if (lockAvailable) 5 else 4
     val messagesPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         Messages.setEnabled(context, granted); messages = granted
     }
@@ -98,7 +101,26 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
                                 Count(stringResource(R.string.pets), household.pets, 0..12) { onHousehold(household.copy(pets = it)) }
                             }
                         }
-                        3 -> {
+                        2 -> {
+                            ArtImage("radio", Modifier.size(140.dp))
+                            Page(R.string.onb_title_place, R.string.onb_text_place)
+                            Spacer(Modifier.height(20.dp))
+                            Card {
+                                Box(Modifier.padding(16.dp)) {
+                                    val place = plan.place
+                                    if (place != null) {
+                                        Column {
+                                            Text("✓ ${place.woonplaats} · ${place.gemeente.naam}", fontWeight = FontWeight.Bold)
+                                            place.noodzender?.let { z -> z.fm.firstOrNull()?.let { Text("${z.omroep} · FM ${it.mhz}") } }
+                                            place.gemeente.telefoon?.let { Text(stringResource(R.string.nr_gemeente_short, it)) }
+                                        }
+                                    } else {
+                                        PostcodeCard(dark = true) { info -> onPlace(info) }
+                                    }
+                                }
+                            }
+                        }
+                        4 -> {
                             ArtImage("documents", Modifier.size(140.dp))
                             Page(R.string.onb_title_account, R.string.onb_text_account)
                             Spacer(Modifier.height(20.dp))
@@ -113,7 +135,7 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
                                 }
                             }
                         }
-                        4 -> {
+                        5 -> {
                             ArtImage("firstaid", Modifier.size(140.dp))
                             Page(R.string.onb_title_lock, R.string.onb_text_lock)
                             Spacer(Modifier.height(20.dp))
@@ -172,7 +194,8 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
                 colors = ButtonDefaults.buttonColors(containerColor = Brand.yellow, contentColor = Brand.purple),
             ) {
                 Text(stringResource(when {
-                    page == 3 && !account.signedIn -> R.string.not_now
+                    page == 2 && plan.place == null -> R.string.skip
+                    page == 4 && !account.signedIn -> R.string.not_now
                     page < last -> R.string.next
                     else -> R.string.get_started
                 }), fontWeight = FontWeight.Bold)

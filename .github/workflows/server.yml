@@ -122,10 +122,13 @@ jobs:
           S=$(curl -s -o /dev/null -w '%{http_code}' "$URL/me")
           L=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"niemand@example.com","password":"Onjuist123"}' "$URL/auth/login")
           echo "zonder inlog /me: $S (verwacht 401), onjuiste inlog: $L (verwacht 401)"
+          K=$(curl -s "$URL/lokaal?postcode=7311LG" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{const j=JSON.parse(s);console.log(j.ok?`${j.woonplaats}: gemeente ${j.gemeente.telefoon}, ${j.noodzender?.omroep} FM ${j.noodzender?.fm?.[0]?.mhz}, water ${j.water?.[0]?.naam}`:"fout "+s)}catch{console.log("fout "+s.slice(0,200))}})')
+          echo "lokaal 7311LG: $K"
           {
             echo "### API: $URL"
             echo "- health: \`$H\`"
             echo "- /me zonder inlog: $S · onjuiste inlog: $L"
+            echo "- /lokaal 7311LG: $K"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Testmail

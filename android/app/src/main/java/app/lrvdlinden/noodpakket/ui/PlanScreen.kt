@@ -8,6 +8,13 @@ import android.graphics.pdf.PdfDocument
 import android.text.Layout
 import android.text.StaticLayout
 import android.text.TextPaint
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.filled.Call
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -70,8 +77,14 @@ fun PlanScreen(state: KitState, repo: KitRepository, modifier: Modifier = Modifi
     val plan = state.plan
     var pickingDate by remember { mutableStateOf(false) }
     var topic by remember { mutableStateOf<InfoTopic?>(null) }
+    var numbersOpen by remember { mutableStateOf(false) }
     val scroll = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     fun set(transform: (EmergencyPlan) -> EmergencyPlan) = repo.update { it.copy(plan = transform(it.plan)) }
+
+    if (numbersOpen) {
+        NumbersScreen(plan, onPlan = { t -> set(t) }, onBack = { numbersOpen = false }, modifier = modifier)
+        return
+    }
 
     Scaffold(
         modifier = modifier.nestedScroll(scroll.nestedScrollConnection),
@@ -82,6 +95,25 @@ fun PlanScreen(state: KitState, repo: KitRepository, modifier: Modifier = Modifi
             Modifier.fillMaxSize().padding(inner).verticalScroll(rememberScrollState()).padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
+            Row(
+                Modifier.fillMaxWidth().padding(top = 8.dp).clip(RoundedCornerShape(20.dp))
+                    .background(MaterialTheme.colorScheme.surfaceContainer).clickable { numbersOpen = true }.padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp),
+            ) {
+                Box(Modifier.size(48.dp).clip(RoundedCornerShape(14.dp)).background(Brand.yellow), contentAlignment = Alignment.Center) {
+                    Icon(Icons.Filled.Call, null, tint = Brand.purple)
+                }
+                Column(Modifier.weight(1f)) {
+                    Text(stringResource(R.string.numbers_title), fontWeight = FontWeight.Bold)
+                    val parts = mutableListOf<String>()
+                    plan.place?.let { pl -> parts += pl.woonplaats; pl.noodzender?.fm?.firstOrNull()?.let { parts += "FM ${it.mhz}" } }
+                        ?: run { parts += stringResource(R.string.numbers_add_postcode) }
+                    parts += if (plan.contactList.isEmpty()) stringResource(R.string.numbers_no_contacts)
+                        else stringResource(R.string.numbers_contacts_count, plan.contactList.size)
+                    Text(parts.joinToString(" · "), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+            }
+
             SectionHeader(stringResource(R.string.info_title), Modifier.padding(start = 0.dp))
             Card {
                 InfoTopic.entries.forEachIndexed { i, t ->
@@ -159,10 +191,26 @@ private fun PlanField(title: Int, hint: Int, value: String, onChange: (String) -
     )
 }
 
-/** Renders the plan to an A4 PDF and opens the share sheet (print, save, send). */
-private fun sharePlanPdf(context: Context, plan: EmergencyPlan) {
+/** Renders the card with important numbers (and, with [includePlan], the plan) to an A4 PDF and opens the share sheet. */
+fun sharePlanPdf(context: Context, plan: EmergencyPlan, includePlan: Boolean = true) {
     val doc = PdfDocument()
-    val page = doc.startPage(PdfDocument.PageInfo.Builder(595, 842, 1).create())
+    val card = doc.startPage(PdfDocument.PageInfo.Builder(595, 842, 1).create())
+    drawNumbersPage(context, card.canvas, plan)
+    doc.finishPage(card)
+    if (includePlan) drawPlanPage(context, doc, plan)
+    val name = context.getString(if (includePlan) R.string.title_plan else R.string.numbers_title)
+    val dir = File(context.cacheDir, "pdf").apply { mkdirs() }
+    val file = File(dir, "$name.pdf")
+    file.outputStream().use { doc.writeTo(it) }
+    doc.close()
+    val uri = FileProvider.getUriForFile(context, context.packageName + ".files", file)
+    val send = Intent(Intent.ACTION_SEND).setType("application/pdf").putExtra(Intent.EXTRA_STREAM, uri)
+        .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+    context.startActivity(Intent.createChooser(send, context.getString(R.string.plan_pdf)))
+}
+
+private fun drawPlanPage(context: Context, doc: PdfDocument, plan: EmergencyPlan) {
+    val page = doc.startPage(PdfDocument.PageInfo.Builder(595, 842, 2).create())
     val canvas = page.canvas
     val margin = 48f
     val width = (595 - 2 * margin).toInt()
@@ -189,13 +237,4 @@ private fun sharePlanPdf(context: Context, plan: EmergencyPlan) {
     }
     canvas.drawText(context.getString(R.string.pdf_footer), margin, 842 - margin / 2, label)
     doc.finishPage(page)
-
-    val dir = File(context.cacheDir, "pdf").apply { mkdirs() }
-    val file = File(dir, context.getString(R.string.title_plan) + ".pdf")
-    file.outputStream().use { doc.writeTo(it) }
-    doc.close()
-    val uri = FileProvider.getUriForFile(context, context.packageName + ".files", file)
-    val send = Intent(Intent.ACTION_SEND).setType("application/pdf").putExtra(Intent.EXTRA_STREAM, uri)
-        .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-    context.startActivity(Intent.createChooser(send, context.getString(R.string.plan_pdf)))
 }
