@@ -12,7 +12,7 @@ jobs:
           import { chromium } from "playwright";
           const urls = process.argv.slice(2);
           const b = await chromium.launch();
-          const re = /(\bFM\b|MHz|DAB|kanaal \d{1,2}[A-D]|\b0[89]00[\s-]?\d|\b0\d{2,3}[\s-]\d{2,3}|storing)/i;
+          const re = /(.*NH Radio.*|Noord-Holland|Amsterdam|Alkmaar|Hilversum|Den Helder|\bFM\b|MHz|DAB|kanaal \d{1,2}[A-D]|\b0[89]00[\s-]?\d|\b0\d{2,3}[\s-]\d{2,3}|storing)/i;
           for (const u of urls) {
             const p = await b.newPage({ userAgent: "Mozilla/5.0 (Macintosh) Chrome/120" });
             try {
@@ -28,4 +28,4 @@ jobs:
           }
           await b.close();
           JS
-          node p.mjs https://www.vitens.nl/storingen https://www.vitens.nl/contact https://www.evides.nl/storingen https://www.dunea.nl/contact https://www.pwn.nl/storingen https://www.waternet.nl/contact/ https://www.brabantwater.nl/storingen https://www.wml.nl/contact https://www.oasen.nl/storingen https://wmd.nl/storingen/ https://waterbedrijfgroningen.nl/storingen/ https://www.nhnieuws.nl/calamiteitenzender https://www.nhnieuws.nl/frequenties
+          node p.mjs https://www.pwn.nl/klantenservice https://www.pwn.nl/contact https://www.brabantwater.nl/contact https://www.oasen.nl/contact https://www.oasen.nl/klantenservice https://www.wml.nl/storingen-en-werkzaamheden https://www.wml.nl/klantenservice https://www.nhnieuws.nl/frequenties https://www.nhnieuws.nl/hoe-ontvang-je-nh https://www.rtvutrecht.nl/meer/calamiteitenzender
