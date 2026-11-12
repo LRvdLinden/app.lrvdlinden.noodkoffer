@@ -141,9 +141,13 @@ struct OnboardingView: View {
     }
 
     private var welcome: some View {
-        OnboardingPage(art: ["water", "radio", "food"], showsIcon: true,
-                       title: "Ready for 72 hours",
-                       text: "If the power, water or internet fails, you need to manage on your own for the first three days. Noodpakket helps you build and maintain your emergency kit.")
+        VStack(spacing: 20) {
+            OnboardingPage(art: ["water", "radio", "food"], showsIcon: true,
+                           title: "Ready for 72 hours",
+                           text: "If the power, water or internet fails, you need to manage on your own for the first three days. Noodpakket helps you build and maintain your emergency kit.")
+            // Same room below as the other pages, so the text is centred and stays clear of the page dots.
+            Spacer(minLength: 40)
+        }
     }
 
     private var household: some View {
