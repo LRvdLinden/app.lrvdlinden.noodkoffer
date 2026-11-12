@@ -170,7 +170,7 @@ private struct NumbersPrintView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
                 VStack(alignment: .leading, spacing: 1) {
                     Text("Important numbers").font(.system(size: 24, weight: .heavy)).foregroundStyle(.white)
-                    Text(place.map { "\($0.woonplaats) · \($0.gemeente.naam)" } ?? String(localized: "Hang this where everyone can find it"))
+                    Text(place.map { "\($0.woonplaats) · \($0.postcode)" } ?? String(localized: "Hang this where everyone can find it"))
                         .font(.system(size: 11, weight: .medium)).foregroundStyle(.white.opacity(0.8))
                 }
                 Spacer()

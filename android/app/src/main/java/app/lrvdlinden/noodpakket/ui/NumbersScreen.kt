@@ -440,7 +440,7 @@ fun drawNumbersPage(context: Context, canvas: Canvas, plan: EmergencyPlan) {
     // header
     fill.color = purple; canvas.drawRect(0f, 0f, 595f, 92f, fill)
     canvas.drawText(context.getString(R.string.numbers_title), m, 46f, text(24f, 0xFFFFFFFF.toInt(), true))
-    canvas.drawText(place?.let { "${it.woonplaats} · ${it.gemeente.naam}" } ?: context.getString(R.string.card_hang), m, 66f,
+    canvas.drawText(place?.let { "${it.woonplaats} · ${it.postcode}" } ?: context.getString(R.string.card_hang), m, 66f,
         text(11f, 0xCCFFFFFF.toInt()))
     fill.color = yellow; canvas.drawRoundRect(RectF(475f, 20f, 565f, 72f), 12f, 12f, fill)
     canvas.drawText(context.getString(R.string.nr_112).uppercase(), 487f, 36f, text(8f, purple, true))
