@@ -1,0 +1,22 @@
+# Cloudflare Worker: accounts, gezinnen en synchronisatie voor Noodpakket.
+# Wordt gedeployd door de GitHub-workflow "Server" (database_id wordt daar ingevuld).
+name = "noodpakket-api"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[triggers]
+crons = ["17 3 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "noodpakket"
+database_id = "__D1_DATABASE_ID__"
+
+[vars]
+SITE = "https://noodpakket.lrvdlinden.app"
+APP_SCHEME = "noodpakket"
+
+[observability]
+enabled = true
