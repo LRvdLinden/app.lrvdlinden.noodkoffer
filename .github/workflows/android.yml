@@ -1,10 +1,10 @@
 # Bouwt de Android-app (APK) en ondertekent hem altijd met dezelfde sleutel, zodat elke update over de vorige
 # versie heen installeert.
 #
-# - Push naar main (map android/): bouwt en ondertekent, APK als artifact bij de run.
-# - Tag vX.Y.Z (bijv. v1.0.1): bouwt, ondertekent en publiceert een GitHub Release met noodpakket.apk.
-#   Downloadlink die altijd naar de nieuwste versie wijst:
-#   https://github.com/LRvdLinden/app.lrvdlinden.noodkoffer/releases/latest/download/noodpakket.apk
+# - Push naar main (map android/) of met de hand: bouwt, ondertekent en publiceert meteen een release v1.0.<run>.
+# - Tag vX.Y.Z (bijv. v1.1.0): idem, met dat versienummer.
+# Elke release wordt de nieuwste; de site downloadt altijd die versie via
+#   https://noodpakket.lrvdlinden.app/download/android/  (stuurt door naar de API, die noodpakket.apk doorgeeft)
 #
 # De sleutel komt uit de secrets ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS en
 # ANDROID_KEY_PASSWORD. Die zet de workflow "Android signing" in LRvdLinden/app.lrvdlinden.secrets.
@@ -49,7 +49,7 @@ jobs:
           if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
             NAME="${GITHUB_REF_NAME#v}"
           else
-            NAME="1.0.0-dev.${GITHUB_RUN_NUMBER}"
+            NAME="1.0.${GITHUB_RUN_NUMBER}"
           fi
           # versionCode moet bij elke update hoger worden: het runnummer van deze workflow stijgt altijd.
           CODE=$(( 100 + GITHUB_RUN_NUMBER ))
@@ -116,13 +116,16 @@ jobs:
           path: android/dist/noodpakket-${{ steps.version.outputs.name }}.apk
 
       - name: Release publiceren
-        if: steps.key.outputs.signed == 'true' && startsWith(github.ref, 'refs/tags/v')
+        if: steps.key.outputs.signed == 'true' && (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main')
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: v${{ steps.version.outputs.name }}
+          target_commitish: ${{ github.sha }}
+          make_latest: true
           name: Noodpakket ${{ steps.version.outputs.name }}
           body: |
             Android-versie van Noodpakket. Installeer `noodpakket.apk`; een update installeert over de vorige versie heen.
-            Meer info: https://noodpakket.lrvdlinden.app/support/
+            Download: https://noodpakket.lrvdlinden.app/download/android/ · Meer info: https://noodpakket.lrvdlinden.app/support/
           files: |
             android/dist/noodpakket.apk
             android/dist/noodpakket-${{ steps.version.outputs.name }}.apk

@@ -7,7 +7,7 @@ plugins {
 
 // Release signing comes from the environment (GitHub Actions secrets), never from files in the repo.
 // Every release is signed with the same key, so updates install over the previous version.
-val keystoreFile = System.getenv("ANDROID_KEYSTORE_FILE")?.let { file(it) }?.takeIf { it.exists() }
+val keystoreFile = System.getenv("ANDROID_KEYSTORE_FILE")?.takeIf { it.isNotBlank() }?.let { file(it) }?.takeIf { it.exists() }
 
 android {
     namespace = "app.lrvdlinden.noodpakket"

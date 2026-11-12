@@ -209,3 +209,31 @@ test("CORS alleen voor de site; rate limit bij inloggen", async () => {
   assert.equal(last.status, 429);
   assert.equal((await call("GET", "/health")).body.ok, true);
 });
+
+test("Android-download: nieuwste release doorgeven met nette bestandsnaam", async () => {
+  const { env } = setup();
+  const real = globalThis.fetch;
+  const seen = [];
+  globalThis.fetch = async (url) => {
+    seen.push(String(url));
+    if (String(url).includes("/releases/latest") && String(url).includes("api.github.com")) {
+      return new Response(JSON.stringify({ tag_name: "v1.0.12", published_at: "2026-11-12T10:00:00Z",
+        assets: [{ name: "noodpakket.apk", size: 4, browser_download_url: "https://github.com/x/releases/download/v1.0.12/noodpakket.apk" }] }));
+    }
+    return new Response("APK!", { headers: { "content-length": "4" } });
+  };
+  const waits = [];
+  const ctx = { waitUntil: (p) => waits.push(p) };
+  try {
+    const res = await worker.fetch(new Request("https://api.test/download/android"), env, ctx);
+    assert.equal(res.status, 200);
+    assert.equal(res.headers.get("content-type"), "application/vnd.android.package-archive");
+    assert.match(res.headers.get("content-disposition"), /Noodpakket-1\.0\.12\.apk/);
+    assert.equal(await res.text(), "APK!");
+    assert.ok(seen.at(-1).endsWith("/v1.0.12/noodpakket.apk"));
+    await Promise.all(waits);
+    const info = await (await worker.fetch(new Request("https://api.test/download/android/info"), env, ctx)).json();
+    assert.equal(info.version, "1.0.12");
+    assert.equal(env.DB.raw.prepare("select n from daily where metric = 'apk'").get().n, 1);
+  } finally { globalThis.fetch = real; }
+});

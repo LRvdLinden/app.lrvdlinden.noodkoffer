@@ -20,7 +20,7 @@ Productgegevens komen van de openbare API's van Open Food Facts en Open Products
 
 TOESTEMMINGEN
 - Camera: alleen als de gebruiker op scannen tikt. Verwerking op het toestel. De app werkt ook zonder.
-- Meldingen: lokale herinneringen. De app werkt ook zonder.
+- Meldingen: lokale herinneringen en (alleen als de gebruiker het aanzet) Berichten van Noodpakket. De app werkt ook zonder.
 
 ACCOUNT
 Geen login nodig.
@@ -30,5 +30,6 @@ Geen in-app aankopen, abonnementen of reclame.
 
 OVERIG
 - Synchronisatie via de privé-iCloud-database van de gebruiker (CloudKit). Geen server van de ontwikkelaar.
+- Berichten van Noodpakket (Instellingen en laatste welkomscherm, standaard uit): bij aanzetten registreert de app zich voor pushmeldingen en stuurt het pushtoken met een willekeurige apparaat-ID, de taal en het platform naar de server van de ontwikkelaar, alleen voor af en toe een bericht over de app. Uitzetten verwijdert de registratie. Geen reclame van derden.
 - Een reviewvraag (requestReview) kan na regelmatig gebruik verschijnen, maximaal eens per week.
 - Instellingen bevat een kaart "Meer apps" met een link naar de App Store-pagina van de ontwikkelaar.

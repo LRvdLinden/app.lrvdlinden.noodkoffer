@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noodpakket voor Android downloaden</title>
+  <meta name="description" content="Download de nieuwste versie van Noodpakket voor Android (APK).">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://noodpakket.lrvdlinden.app/download/android/">
+  <meta name="theme-color" content="#3C175B">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="../../img/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../api.js"></script>
+</head>
+<body>
+  <header class="top"><div class="wrap"><a class="brand" href="../../"><img src="../../img/icon.svg" alt="">Noodpakket</a>
+  <nav><a class="keep" href="../../privacy/">Privacy</a><a class="keep" href="../../support/">Support</a></nav></div></header>
+  <main class="doc">
+    <h1>Je download start</h1>
+    <p>De nieuwste versie van Noodpakket voor Android wordt gedownload. <span data-apk-version hidden></span></p>
+    <p><a class="btn green" id="dl" href="https://noodpakket-api.noodpakket.workers.dev/download/android">Start de download niet? Tik hier</a></p>
+    <h2>Installeren</h2>
+    <ul>
+      <li>Open het gedownloade bestand <em>Noodpakket-….apk</em>. Vraagt Android om toestemming, sta dan <em>installeren uit deze bron</em> toe voor je browser.</li>
+      <li>Een update installeer je op dezelfde manier; je gegevens blijven staan.</li>
+      <li>Meer hulp: <a href="../../support/#android">De Android-app installeren</a>.</li>
+    </ul>
+  </main>
+  <footer class="site"><div class="wrap"><div class="fine">
+    <nav><a href="../../">Home</a><a href="../../privacy/">Privacyverklaring</a><a href="../../support/">Support</a><a href="https://lrvdlinden.app">Meer apps</a></nav>
+    <div>© <span class="year">2026</span> Noodpakket</div></div></div></footer>
+  <script>
+    document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+    var url = window.NOODPAKKET_API + '/download/android';
+    document.getElementById('dl').href = url;
+    setTimeout(function () { window.location.href = url; }, 400);
+  </script>
+</body>
+</html>

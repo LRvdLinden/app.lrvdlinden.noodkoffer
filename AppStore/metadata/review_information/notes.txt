@@ -20,7 +20,7 @@ Product data comes from the public APIs of Open Food Facts and Open Products Fac
 
 PERMISSIONS
 - Camera: only when the user taps scan (barcode or expiry date). Processed on device. The app works fully without it.
-- Notifications: for local expiry and check-up reminders. The app works without it.
+- Notifications: for local expiry and check-up reminders, and (opt-in) for "Messages from Noodpakket". The app works without it.
 
 ACCOUNT
 No login required.
@@ -30,5 +30,6 @@ The app contains no in-app purchases, subscriptions or ads.
 
 OTHER
 - Data syncs via the user's private iCloud database (CloudKit). No server of the developer is involved.
+- "Messages from Noodpakket" (Settings and the last onboarding page, off by default): when the user turns it on, the app registers for push notifications and sends the push token with a random device ID, the app language and the platform to the developer's server, only to deliver occasional messages about the app (for example a new feature or seasonal check-up advice). Turning it off removes the registration. No marketing from third parties.
 - A review prompt (requestReview) may appear after regular use, at most once per week.
 - Settings contains a "More apps" card that links to the developer's App Store page.

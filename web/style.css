@@ -277,3 +277,4 @@ footer.site { padding: 48px 0 40px; border-top: 1px solid var(--line); }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .sheet, .ring .arc, .meter i { transition: none; }
 }
+.apk-version { display: block; margin-top: 10px; font-size: 14px; opacity: .8; }

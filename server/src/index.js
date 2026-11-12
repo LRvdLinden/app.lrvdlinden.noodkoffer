@@ -508,6 +508,45 @@ async function adminStats(req, env) {
   }, 200);
 }
 
+// ---------- Android-download (altijd de nieuwste release) ----------
+
+const REPO = "LRvdLinden/app.lrvdlinden.noodkoffer";
+const UA = { "user-agent": "noodpakket-api" };
+
+/** Nieuwste release (tag, datum, grootte), 10 minuten in de cache zodat GitHub niet bij elke bezoeker wordt gevraagd. */
+async function latestAndroid(env, ctx) {
+  const cache = globalThis.caches?.default;
+  const key = new Request("https://cache.noodpakket/android-latest");
+  const hit = cache && (await cache.match(key));
+  if (hit) return hit.json();
+  const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { ...UA, accept: "application/vnd.github+json" } });
+  if (!res.ok) return null;
+  const r = await res.json();
+  const apk = (r.assets || []).find((a) => a.name === "noodpakket.apk");
+  if (!apk) return null;
+  const info = { version: String(r.tag_name || "").replace(/^v/, ""), published_at: r.published_at, size: apk.size, url: apk.browser_download_url };
+  if (cache) ctx?.waitUntil(cache.put(key, new Response(JSON.stringify(info), { headers: { "cache-control": "max-age=600", "content-type": "application/json" } })));
+  return info;
+}
+
+async function downloadAndroid(env, ctx) {
+  const info = await latestAndroid(env, ctx).catch(() => null);
+  const src = info?.url || `https://github.com/${REPO}/releases/latest/download/noodpakket.apk`;
+  const res = await fetch(src, { headers: UA, redirect: "follow" });
+  if (!res.ok || !res.body) return new Response(null, { status: 302, headers: { location: `${env.SITE}/support/#android` } });
+  ctx?.waitUntil(count(env, "apk").catch(() => null));
+  const name = info?.version ? `Noodpakket-${info.version}.apk` : "Noodpakket.apk";
+  const headers = {
+    "content-type": "application/vnd.android.package-archive",
+    "content-disposition": `attachment; filename="${name}"`,
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+  };
+  const len = res.headers.get("content-length");
+  if (len) headers["content-length"] = len;
+  return new Response(res.body, { status: 200, headers });
+}
+
 // ---------- onderhoud (cron) ----------
 
 export async function cleanup(env, now = Date.now()) {
@@ -555,10 +594,16 @@ const routes = {
 };
 
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
     const c = cors(req, env);
     if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: c });
     const path = new URL(req.url).pathname.replace(/\/+$/, "") || "/";
+    if ((req.method === "GET" || req.method === "HEAD") && path === "/download/android") return downloadAndroid(env, ctx);
+    if (req.method === "GET" && path === "/download/android/info") {
+      const info = await latestAndroid(env, ctx).catch(() => null);
+      return json(info ? { version: info.version, published_at: info.published_at, size: info.size } : { version: null }, 200,
+        { ...c, "access-control-allow-origin": "*", "cache-control": "public, max-age=300" });
+    }
     if (req.method === "GET" && (path === "/" || path === "/health")) {
       return json({ ok: true, service: "noodpakket-api", mail: !!(env.SMTP_HOST && env.SMTP_USER && env.SMTP_PASSWORD) }, 200, c);
     }
