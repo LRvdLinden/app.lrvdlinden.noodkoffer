@@ -12,6 +12,11 @@ on:
   pull_request:
     paths: ["server/**"]
   workflow_dispatch:
+    inputs:
+      mailtest:
+        description: "Na de deploy een testmail naar het afzenderadres (SMTP_FROM) sturen"
+        type: boolean
+        default: false
 
 concurrency:
   group: server
@@ -122,3 +127,18 @@ jobs:
             echo "- health: \`$H\`"
             echo "- /me zonder inlog: $S · onjuiste inlog: $L"
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Testmail
+        if: steps.cf.outputs.ok == 'true' && github.event_name == 'workflow_dispatch' && inputs.mailtest
+        env:
+          BEHEER_USER: ${{ secrets.BEHEER_USER }}
+          BEHEER_PASSWORD: ${{ secrets.BEHEER_PASSWORD }}
+        run: |
+          URL=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
+          TOKEN=$(node -e 'fetch(process.argv[1] + "/admin/login", {method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({user:process.env.BEHEER_USER,password:process.env.BEHEER_PASSWORD})}).then(r=>r.json()).then(j=>console.log(j.token||""))' "$URL")
+          [ -n "$TOKEN" ] || { echo "::error::Inloggen op /admin mislukt"; exit 1; }
+          echo "::add-mask::$TOKEN"
+          R=$(curl -s -X POST -H "authorization: Bearer $TOKEN" "$URL/admin/mailtest")
+          echo "Testmail: $R"
+          echo "- testmail: \`$R\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "$R" | grep -q '"ok":true' || { echo "::error::Testmail mislukt; controleer SMTP_HOST/SMTP_PORT/SMTP_USER/SMTP_PASSWORD en kijk in de Worker-logs (wrangler tail)"; exit 1; }

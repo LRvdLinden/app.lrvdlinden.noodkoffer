@@ -508,6 +508,16 @@ async function adminStats(req, env) {
   }, 200);
 }
 
+/** Testmail naar het afzenderadres zelf, om de SMTP-instellingen te controleren. */
+async function adminMailtest(req, env) {
+  if (!(await readAdminToken(env.ADMIN_SECRET, bearer(req)))) fail(401, "unauthorized");
+  const fromRaw = env.SMTP_FROM || env.SMTP_USER || "";
+  const to = (/<([^>]+)>/.exec(fromRaw)?.[1] || fromRaw).trim();
+  if (!cleanEmail(to)) fail(503, "not_configured");
+  const ok = await sendMail(env, to, buildMail("confirm", "nl", `${env.SITE}/bevestigen/?t=testmail-niet-gebruiken-0000`));
+  return json({ ok, to: to.replace(/^(.).*(@.*)$/, "$1…$2") }, ok ? 200 : 502);
+}
+
 // ---------- Android-download (altijd de nieuwste release) ----------
 
 const REPO = "LRvdLinden/app.lrvdlinden.noodkoffer";
@@ -591,6 +601,7 @@ const routes = {
   "POST /sync": async (r, e) => sync(r, e, await auth(r, e)),
   "POST /admin/login": (r, e) => adminLogin(r, e),
   "GET /admin/stats": (r, e) => adminStats(r, e),
+  "POST /admin/mailtest": (r, e) => adminMailtest(r, e),
 };
 
 export default {
