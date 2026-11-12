@@ -5,10 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl -sSL -o g.xml https://organisaties.overheid.nl/archive/exportOO_gemeenten.xml || true
-          ls -la g.xml; head -c 300 g.xml; echo
-          python3 - <<'PY'
-          import re
-          s=open('g.xml',encoding='utf-8',errors='replace').read()
-          i=s.find('Apeldoorn'); print(len(s)); print(s[max(0,i-3000):i+6000])
-          PY
+          for t in "Omroep_Gelderland" "Radio_Gelderland" "RTV_Oost" "Radio_Oost" "RTV_Drenthe" "Radio_Drenthe" "RTV_Noord" "Radio_Noord" "Omrop_Fryslân" "Omroep_Flevoland" "RTV_Utrecht" "Radio_M_Utrecht" "NH_(omroep)" "NH_Radio" "Omroep_West" "Radio_West" "RTV_Rijnmond" "Radio_Rijnmond" "Omroep_Brabant" "L1_(omroep)" "L1_Radio" "Omroep_Zeeland" "Calamiteitenzender" "Regionale_omroep_(Nederland)"; do
+            echo "=================== $t"
+            curl -sSL "https://nl.wikipedia.org/w/index.php?title=$t&action=raw" | grep -iE "MHz|DAB|frequent|kanaal 1[0-2][A-D]|calamit|redirect" | head -60
+          done
