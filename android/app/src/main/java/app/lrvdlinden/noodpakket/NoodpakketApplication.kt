@@ -1,6 +1,7 @@
 package app.lrvdlinden.noodpakket
 
 import android.app.Application
+import app.lrvdlinden.noodpakket.data.Account
 import app.lrvdlinden.noodpakket.data.KitRepository
 import app.lrvdlinden.noodpakket.notify.Messages
 import app.lrvdlinden.noodpakket.notify.Reminders
@@ -21,7 +22,10 @@ class NoodpakketApplication : Application() {
         super.onCreate()
         Reminders.createChannel(this)
         Messages.createChannel(this)
+        Account.init(this)
         KitRepository.get(this) { state ->
+            // With an account: send the change to the household.
+            Account.scheduleSync()
             // After a change (debounced while typing): refresh the widget and check reminders.
             refresh?.cancel()
             refresh = scope.launch {

@@ -76,6 +76,11 @@ fun SettingsScreen(
         Messages.setEnabled(context, granted); messagesOn = granted
     }
     var whatsNew by remember { mutableStateOf(false) }
+    var accountOpen by remember { mutableStateOf(false) }
+    var signIn by remember { mutableStateOf<Boolean?>(null) }
+    var lockOn by remember { mutableStateOf(AppLock.isEnabled(context)) }
+    val lockAvailable = remember { AppLock.isAvailable(context) }
+    val lockConfirm = stringResource(R.string.lock_confirm_change)
     val permission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         Reminders.setEnabled(context, granted); remindersOn = granted
     }
@@ -90,12 +95,20 @@ fun SettingsScreen(
     fun open(url: String) = context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
     fun household(transform: (Household) -> Household) = repo.update { it.copy(household = transform(it.household)) }
 
+    if (accountOpen) {
+        AccountScreen(onBack = { accountOpen = false }, modifier = modifier)
+        return
+    }
+    signIn?.let { signUp -> SignInDialog(startWithSignUp = signUp) { signIn = null } }
+
     Scaffold(
         modifier = modifier.nestedScroll(scroll.nestedScrollConnection),
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         topBar = { LargeTopAppBar(title = { Text(stringResource(R.string.title_settings)) }, scrollBehavior = scroll, colors = brandTopBarColors()) },
     ) { inner ->
         Column(Modifier.fillMaxSize().padding(inner).verticalScroll(rememberScrollState()).padding(horizontal = 16.dp)) {
+            AccountSettingsCard(onOpen = { accountOpen = true }, onSignIn = { signIn = it })
+
             SectionHeader(stringResource(R.string.settings_household))
             Card {
                 Counter(stringResource(R.string.adults), state.household.adults, 1..12) { v -> household { it.copy(adults = v) } }
@@ -137,6 +150,21 @@ fun SettingsScreen(
             }
             Text(stringResource(R.string.messages_footer), style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(start = 16.dp, top = 6.dp, end = 16.dp))
+
+            if (lockAvailable) {
+                SectionHeader(stringResource(R.string.lock_section))
+                Card {
+                    Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Text(stringResource(R.string.lock_toggle), Modifier.weight(1f))
+                        Switch(checked = lockOn, onCheckedChange = { on ->
+                            val activity = context as? androidx.fragment.app.FragmentActivity ?: return@Switch
+                            AppLock.authenticate(activity, lockConfirm) { ok -> if (ok) { AppLock.setEnabled(context, on); lockOn = on } }
+                        })
+                    }
+                }
+                Text(stringResource(R.string.lock_footer), style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(start = 16.dp, top = 6.dp, end = 16.dp))
+            }
 
             SectionHeader(stringResource(R.string.settings_appearance))
             SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
