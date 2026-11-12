@@ -851,6 +851,16 @@
         }
       }
     },
+    "For example before a storm. Optional.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bijvoorbeeld voor een storm. Niet verplicht."
+          }
+        }
+      }
+    },
     "For example the neighbours at number 12, or the community centre": {
       "localizations": {
         "nl": {
@@ -1201,6 +1211,26 @@
         }
       }
     },
+    "Messages from Noodpakket": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berichten van Noodpakket"
+          }
+        }
+      }
+    },
+    "Messages from Noodpakket, for example before a storm (optional)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berichten van Noodpakket, bijvoorbeeld voor een storm (niet verplicht)"
+          }
+        }
+      }
+    },
     "Missing": {
       "localizations": {
         "nl": {
@@ -1407,6 +1437,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Niets te kopen"
+          }
+        }
+      }
+    },
+    "Now and then a short message, for example to check your kit before a storm. Only a random device number, the push token and the app language are stored, without an account. Turn it off to remove them.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Af en toe een kort bericht, bijvoorbeeld om je pakket na te lopen voor een storm. Er wordt alleen een willekeurig apparaatnummer, het pushtoken en de taal van de app bewaard, zonder account. Zet het uit om ze te verwijderen."
           }
         }
       }

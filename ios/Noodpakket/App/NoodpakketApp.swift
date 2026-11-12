@@ -3,6 +3,7 @@ import SwiftData
 
 @main
 struct NoodpakketApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @AppStorage("ui.appearance") private var appearance: AppearanceSetting = .system
 
     let container: ModelContainer = {

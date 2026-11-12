@@ -7,6 +7,7 @@ struct OnboardingView: View {
     @Query private var households: [Household]
     @State private var page = 0
     @State private var notificationsOn = false
+    @State private var messagesOn = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -79,16 +80,31 @@ struct OnboardingView: View {
             OnboardingPage(art: ["batteries", "medicines"],
                            title: "Never miss an expiry date",
                            text: "Get a reminder 30 and 7 days before water, batteries or medicines expire, and at your half-yearly check.")
-            Toggle("Reminders", isOn: $notificationsOn)
-                .padding(16)
-                .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-                .padding(.horizontal, 24)
-                .onChange(of: notificationsOn) { _, on in
-                    Task {
-                        if on { notificationsOn = await NotificationScheduler.requestAuthorization() }
-                        else { UserDefaults.standard.set(false, forKey: NotificationScheduler.enabledKey) }
+            VStack(spacing: 0) {
+                Toggle("Reminders", isOn: $notificationsOn)
+                    .padding(16)
+                    .onChange(of: notificationsOn) { _, on in
+                        Task {
+                            if on { notificationsOn = await NotificationScheduler.requestAuthorization() }
+                            else { UserDefaults.standard.set(false, forKey: NotificationScheduler.enabledKey) }
+                        }
+                    }
+                Divider().padding(.leading, 16)
+                Toggle(isOn: $messagesOn) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Messages from Noodpakket")
+                        Text("For example before a storm. Optional.").font(.caption).foregroundStyle(.white.opacity(0.7))
                     }
                 }
+                .padding(16)
+                .onChange(of: messagesOn) { _, on in
+                    Task {
+                        if on { messagesOn = await MessagesService.enable() } else { await MessagesService.disable() }
+                    }
+                }
+            }
+            .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .padding(.horizontal, 24)
             Spacer(minLength: 40)
         }
     }

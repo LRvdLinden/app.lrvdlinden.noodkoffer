@@ -1,6 +1,10 @@
 import json, re, os, glob, sys
 
 NL = {
+"Messages from Noodpakket": "Berichten van Noodpakket",
+"Now and then a short message, for example to check your kit before a storm. Only a random device number, the push token and the app language are stored, without an account. Turn it off to remove them.": "Af en toe een kort bericht, bijvoorbeeld om je pakket na te lopen voor een storm. Er wordt alleen een willekeurig apparaatnummer, het pushtoken en de taal van de app bewaard, zonder account. Zet het uit om ze te verwijderen.",
+"For example before a storm. Optional.": "Bijvoorbeeld voor een storm. Niet verplicht.",
+"Messages from Noodpakket, for example before a storm (optional)": "Berichten van Noodpakket, bijvoorbeeld voor een storm (niet verplicht)",
 "For %lld people · %lld days": "Voor %lld personen · %lld dagen",
 "%lld items to go": "Nog %lld te gaan",
 "%@: expired. Replace it soon.": "%@: verlopen. Vervang het snel.",

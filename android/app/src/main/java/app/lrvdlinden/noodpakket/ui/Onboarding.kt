@@ -47,6 +47,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import app.lrvdlinden.noodpakket.R
 import app.lrvdlinden.noodpakket.data.Household
+import app.lrvdlinden.noodpakket.notify.Messages
 import app.lrvdlinden.noodpakket.notify.Reminders
 
 /** Three welcome screens: what the app does, the household, and reminders. */
@@ -57,6 +58,10 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
     var reminders by remember { mutableStateOf(Reminders.isEnabled(context)) }
     val permission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         Reminders.setEnabled(context, granted); reminders = granted
+    }
+    var messages by remember { mutableStateOf(Messages.isEnabled(context)) }
+    val messagesPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        Messages.setEnabled(context, granted); messages = granted
     }
 
     BrandDarkTheme {
@@ -93,6 +98,20 @@ fun OnboardingScreen(household: Household, onHousehold: (Household) -> Unit, onD
                                             permission.launch(android.Manifest.permission.POST_NOTIFICATIONS)
                                         } else {
                                             Reminders.setEnabled(context, on); reminders = on
+                                        }
+                                    })
+                                }
+                                Row(Modifier.fillMaxWidth().padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                                    Column(Modifier.weight(1f)) {
+                                        Text(stringResource(R.string.messages_toggle))
+                                        Text(stringResource(R.string.messages_onboarding), style = MaterialTheme.typography.bodySmall,
+                                            color = Color.White.copy(alpha = 0.7f))
+                                    }
+                                    Switch(checked = messages, onCheckedChange = { on ->
+                                        if (on && Build.VERSION.SDK_INT >= 33 && !Reminders.hasPermission(context)) {
+                                            messagesPermission.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                                        } else {
+                                            Messages.setEnabled(context, on); messages = on
                                         }
                                     })
                                 }

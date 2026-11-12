@@ -100,6 +100,10 @@
 			isa = PBXBuildFile;
 			fileRef = 96D2294494CFC88E3B0C4D5A;
 		};
+		A0049EA82BDE5A43EE6D48C8 = {
+			isa = PBXBuildFile;
+			fileRef = 26C8BB4A39B59FF799F408E4;
+		};
 		A0BCE2A49B9145C7C6E390F1 = {
 			isa = PBXBuildFile;
 			fileRef = 8A6F88C168E85EED43DE9A69;
@@ -107,6 +111,10 @@
 		AFC2A302CA4B7FFA788F0570 = {
 			isa = PBXBuildFile;
 			fileRef = ED5583159D3A1D10DB8E4020;
+		};
+		B66354A73DE6267F5401DA70 = {
+			isa = PBXBuildFile;
+			fileRef = 6B0E58799D14D30C2833C5B3;
 		};
 		BCB456917B2453817C9D4988 = {
 			isa = PBXBuildFile;
@@ -209,6 +217,12 @@
 			path = Info.plist;
 			sourceTree = "<group>";
 		};
+		26C8BB4A39B59FF799F408E4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = AppDelegate.swift;
+			sourceTree = "<group>";
+		};
 		29F7D5BEFA5B96DEE14A98A8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.swift;
@@ -280,6 +294,12 @@
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.xml;
 			path = Info.plist;
+			sourceTree = "<group>";
+		};
+		6B0E58799D14D30C2833C5B3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = MessagesService.swift;
 			sourceTree = "<group>";
 		};
 		6D1C2C244F27B084508EA42D = {
@@ -445,6 +465,7 @@
 		588A30EEAD7A47A7785B3BAE = {
 			isa = PBXGroup;
 			children = (
+				26C8BB4A39B59FF799F408E4,
 				EC8AFB29166DC243450FE20B,
 			);
 			path = App;
@@ -519,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				8D210E2FD0AECD0055A8221D,
+				6B0E58799D14D30C2833C5B3,
 				C1F0AAC5C52E23AEB9937679,
 				7A5FE41098C478C487A6EE26,
 			);
@@ -725,11 +747,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0049EA82BDE5A43EE6D48C8,
 				CE6EAE7A6F77EF77DD78ACB3,
 				4CC88ECF76B3D19031D24E3C,
 				135DAC593CA433B2BFF6600B,
 				F4E7CCD8881939E5A87EAAC1,
 				CA98E977ED72200E603EF0CA,
+				B66354A73DE6267F5401DA70,
 				77F358C245C4C1F802AE96A3,
 				59AFD041E1CC3CA23B58E255,
 				AFC2A302CA4B7FFA788F0570,

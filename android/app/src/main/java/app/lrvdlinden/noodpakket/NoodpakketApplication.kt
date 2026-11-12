@@ -2,6 +2,7 @@ package app.lrvdlinden.noodpakket
 
 import android.app.Application
 import app.lrvdlinden.noodpakket.data.KitRepository
+import app.lrvdlinden.noodpakket.notify.Messages
 import app.lrvdlinden.noodpakket.notify.Reminders
 import app.lrvdlinden.noodpakket.widget.KitWidget
 import androidx.glance.appwidget.updateAll
@@ -19,6 +20,7 @@ class NoodpakketApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         Reminders.createChannel(this)
+        Messages.createChannel(this)
         KitRepository.get(this) { state ->
             // After a change (debounced while typing): refresh the widget and check reminders.
             refresh?.cancel()
@@ -29,5 +31,6 @@ class NoodpakketApplication : Application() {
             }
         }
         if (Reminders.isEnabled(this)) Reminders.schedule(this)
+        if (Messages.isEnabled(this)) Messages.schedule(this)
     }
 }

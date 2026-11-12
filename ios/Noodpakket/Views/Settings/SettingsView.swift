@@ -6,6 +6,7 @@ struct SettingsView: View {
     @AppStorage("ui.appearance") private var appearance: AppearanceSetting = .system
     @AppStorage("onboarding.done") private var onboardingDone = true
     @AppStorage(NotificationScheduler.enabledKey) private var notificationsOn = false
+    @AppStorage(MessagesService.enabledKey) private var messagesOn = false
     @State private var showWhatsNew = false
 
     static let privacyURL = URL(string: "https://noodpakket.lrvdlinden.app/privacy")!
@@ -41,6 +42,16 @@ struct SettingsView: View {
                     Text("Reminders")
                 } footer: {
                     Text("Reminders arrive 30 and 7 days before an item expires, on the day itself and at your half-yearly check.")
+                }
+
+                Section {
+                    Toggle("Messages from Noodpakket", isOn: Binding(get: { messagesOn }, set: { on in
+                        Task {
+                            if on { messagesOn = await MessagesService.enable() } else { await MessagesService.disable(); messagesOn = false }
+                        }
+                    }))
+                } footer: {
+                    Text("Now and then a short message, for example to check your kit before a storm. Only a random device number, the push token and the app language are stored, without an account. Turn it off to remove them.")
                 }
 
                 Section("Appearance") {
@@ -91,6 +102,7 @@ struct WhatsNewView: View {
                     Label("Shopping list for what is still missing", systemImage: "cart")
                     Label("Choose how many days of supplies", systemImage: "calendar")
                     Label("What to do during a power cut, NL-Alert and more", systemImage: "info.circle")
+                    Label("Messages from Noodpakket, for example before a storm (optional)", systemImage: "bell.badge")
                     Label("Emergency plan as PDF", systemImage: "doc.richtext")
                     Label("Widget for your home screen", systemImage: "square.grid.2x2")
                     Label("New look with pictures of every item", systemImage: "photo.on.rectangle")

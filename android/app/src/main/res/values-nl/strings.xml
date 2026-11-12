@@ -75,6 +75,10 @@
     <string name="search_kit">Zoek in het pakket</string>
     <string name="expiry_subtitle">Vervang spullen voordat ze verlopen</string>
     <string name="shopping_items_to_buy">%1$d dingen te kopen</string>
+    <string name="channel_messages">Berichten van Noodpakket</string>
+    <string name="messages_toggle">Berichten van Noodpakket</string>
+    <string name="messages_onboarding">Bijvoorbeeld voor een storm. Niet verplicht.</string>
+    <string name="messages_footer">Af en toe een kort bericht, bijvoorbeeld om je pakket na te lopen voor een storm. De app kijkt elke paar uur of er iets nieuws is en stuurt alleen een willekeurig apparaatnummer en de taal van de app mee, zonder account.</string>
     <string name="title_kit">Noodpakket</string>
     <string name="add_item">Item toevoegen</string>
     <string name="kit_complete">Je noodpakket is compleet</string>
@@ -146,7 +150,7 @@
     <string name="link_welcome">Toon het welkomstscherm</string>
     <string name="link_donate">Steun de ontwikkeling</string>
     <string name="whats_new_title">Wat is nieuw in 1.0</string>
-    <string name="whats_new_text">• Scan barcodes: de app vult het product voor je in\n• Boodschappenlijst voor wat ontbreekt\n• Kies voor hoeveel dagen je voorraad wilt\n• Wat te doen bij stroomuitval, NL-Alert en meer\n• Houdbaarheid met herinneringen en datum scannen\n• Noodplan als PDF\n• Back-up en widget\n• Nieuw uiterlijk met een afbeelding bij elk onderdeel</string>
+    <string name="whats_new_text">• Scan barcodes: de app vult het product voor je in\n• Boodschappenlijst voor wat ontbreekt\n• Kies voor hoeveel dagen je voorraad wilt\n• Wat te doen bij stroomuitval, NL-Alert en meer\n• Houdbaarheid met herinneringen en datum scannen\n• Noodplan als PDF\n• Back-up en widget\n• Nieuw uiterlijk met een afbeelding bij elk onderdeel\n• Berichten van Noodpakket (niet verplicht)</string>
     <string name="onb_title_1">Klaar voor 72 uur</string>
     <string name="onb_text_1">Als stroom, water of internet uitvalt, moet je je de eerste drie dagen zelf redden. Noodpakket helpt je je noodpakket samen te stellen en bij te houden.</string>
     <string name="onb_title_2">Wie hoort bij je huishouden?</string>

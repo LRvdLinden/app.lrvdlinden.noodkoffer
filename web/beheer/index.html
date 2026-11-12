@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noodpakket beheer</title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://vbhkewgyujzgbukkbtml.supabase.co; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<style>
+:root {
+  --paper: #F2F5F9; --card: #FFFFFF; --ink: #1E1428; --muted: #62586E; --line: #E7E1EE;
+  --blue: #5A2E85; --blue-soft: #EFE6F8; --bad: #C0262D; --warn: #B4530D; --good: #1B9A5E;
+  --purple: #3C175B; --yellow: #F4B943;
+  --iphone: #5A2E85; --ipad: #E08A1E; --mac: #0F8A8A; --android: #2E8B57; --other: #8A91A3;
+  --display: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121016; --card: #1E1A24; --ink: #F2EEF6; --muted: #A79DB3; --line: #2E2836;
+    --blue: #C9A6F0; --blue-soft: #3A2152; --bad: #FF7A80; --warn: #F2A15E; --good: #3CCB86;
+    --iphone: #C9A6F0; --ipad: #F5B731; --mac: #3FC1C1; --android: #5CC488; --other: #7C8396;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--paper); color: var(--ink); font: 15px/1.5 var(--body); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 20px 16px 48px; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 20px; }
+header .actions { display: flex; gap: 8px; }
+@media (max-width: 520px) { header .spacer { display: none; } header .actions { width: 100%; } header .actions button { flex: 1; justify-content: center; } }
+header img { width: 40px; height: 40px; border-radius: 9px; }
+header h1 { font: 800 22px/1.1 var(--display); margin: 0; letter-spacing: -.01em; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+header .spacer { flex: 1; }
+button, .btn { font: 600 14px var(--body); border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--ink); padding: 8px 14px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+button.primary { background: var(--yellow); border-color: var(--yellow); color: var(--purple); }
+button:disabled { opacity: .55; cursor: default; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+.login { max-width: 380px; margin: 8vh auto 0; text-align: center; }
+.login img { width: 84px; height: 84px; border-radius: 19px; }
+.login h1 { font: 800 24px var(--display); margin: 16px 0 4px; }
+.login p.sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
+.login form { display: grid; gap: 10px; text-align: left; }
+input { font: 15px var(--body); padding: 11px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); width: 100%; }
+input:focus { outline: 2px solid var(--blue); outline-offset: 0; }
+.login .hint { color: var(--muted); font-size: 12.5px; margin-top: 14px; }
+.err { color: var(--bad); font-size: 13.5px; min-height: 1.2em; margin: 0; }
+.note { font-size: 13.5px; color: var(--muted); margin-bottom: 16px; }
+.note.warn { color: var(--warn); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.tile .label { font-weight: 600; font-size: 13.5px; display: flex; align-items: center; gap: 6px; }
+.tile .label i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.tile .num { font: 800 30px/1.15 var(--display); font-variant-numeric: tabular-nums; margin-top: 4px; }
+.tile .small { color: var(--muted); font-size: 12px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+@media (max-width: 720px) { .grid2 { grid-template-columns: 1fr; } }
+h2 { font: 800 17px var(--display); margin: 0 0 10px; }
+.row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.row:first-of-type { border-top: 0; }
+.row span:last-child { font-variant-numeric: tabular-nums; font-weight: 600; }
+.row small { display: block; color: var(--muted); font-size: 12px; font-weight: 400; }
+.foot { color: var(--muted); font-size: 12.5px; margin-top: 10px; }
+.chart-head { display: flex; justify-content: space-between; align-items: baseline; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+.legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; margin-right: 5px; vertical-align: -1px; }
+svg.chart { width: 100%; height: 220px; display: block; }
+svg.chart text { fill: var(--muted); font: 11px var(--body); }
+svg.chart .grid { stroke: var(--line); }
+.tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--paper); font-size: 12px; padding: 6px 8px; border-radius: 8px; white-space: nowrap; opacity: 0; transition: opacity .1s; z-index: 5; }
+.updated { text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 18px; }
+.fb-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.fb-head h2 { margin: 0; }
+.badge { background: var(--blue); color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 12px; font-weight: 700; }
+.fb-head label { margin-left: auto; font-size: 13.5px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.fb { border-top: 1px solid var(--line); padding: 12px 0; }
+.fb:first-of-type { border-top: 0; }
+.fb .top { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; }
+.fb .state { margin-left: auto; font-size: 12px; font-weight: 700; }
+.fb .state.new { color: var(--blue); }
+.fb .state.done { color: var(--muted); }
+.fb .title { font-size: 14px; margin-top: 4px; }
+.fb .msg { background: var(--paper); border-radius: 10px; padding: 8px 10px; margin-top: 6px; font-size: 14px; white-space: pre-wrap; }
+.fb .meta { color: var(--muted); font-size: 12.5px; margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.fb .meta a { color: var(--blue); }
+.fb .acts { display: flex; gap: 8px; margin-top: 8px; }
+.fb .acts button { padding: 5px 10px; font-size: 13px; }
+[hidden] { display: none !important; }
+.hero { background: linear-gradient(var(--purple), #2E0F47); color: #fff; border-radius: 22px; padding: 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.hero img { width: 48px; height: 48px; border-radius: 11px; }
+.hero h1 { font: 800 24px/1.1 var(--display); margin: 0; color: #fff; }
+.hero p { margin: 2px 0 0; color: rgba(255,255,255,.75); font-size: 13px; }
+.hero .spacer { flex: 1; }
+.hero .actions button { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.2); color: #fff; }
+@media (max-width: 560px) { .hero { flex-wrap: wrap; } .hero .spacer { display: none; } .hero .actions { width: 100%; display: flex; gap: 8px; } .hero .actions button { flex: 1; justify-content: center; } }
+.build { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.build:first-of-type { border-top: 0; }
+.build a { color: inherit; text-decoration: none; flex: 1; min-width: 0; }
+.build small { display: block; color: var(--muted); font-size: 12px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.pill { font-size: 11px; font-weight: 800; padding: 1px 7px; border-radius: 99px; background: var(--yellow); color: var(--purple); margin-left: 6px; }
+.form { display: grid; gap: 10px; }
+.form label { font-size: 13px; font-weight: 600; display: grid; gap: 4px; }
+textarea, select { font: 15px var(--body); padding: 11px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); width: 100%; }
+textarea { min-height: 90px; resize: vertical; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
+.count { color: var(--muted); font-size: 12px; font-weight: 400; }
+.preview { background: linear-gradient(var(--purple), #2E0F47); border-radius: 18px; padding: 14px; }
+.notif { background: rgba(255,255,255,.88); color: #1E1428; border-radius: 16px; padding: 10px 12px; display: flex; gap: 10px; backdrop-filter: blur(10px); }
+.notif img { width: 36px; height: 36px; border-radius: 8px; }
+.notif .h { display: flex; justify-content: space-between; font-size: 12px; color: #6B6177; font-weight: 600; }
+.notif b { display: block; font-size: 14px; }
+.notif p { margin: 0; font-size: 14px; white-space: pre-wrap; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.ok { color: var(--good); font-size: 13.5px; min-height: 1.2em; margin: 0; }
+.msg { border-top: 1px solid var(--line); padding: 10px 0; }
+.msg:first-of-type { border-top: 0; }
+.msg .t { font-weight: 700; font-size: 14px; display: flex; gap: 8px; align-items: center; }
+.msg .t .w { margin-left: auto; color: var(--warn); font-size: 12px; }
+.msg.withdrawn .t span:first-child { text-decoration: line-through; }
+.msg .b { color: var(--muted); font-size: 14px; white-space: pre-wrap; margin-top: 2px; }
+.msg .m { color: var(--muted); font-size: 12.5px; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.msg .m button { padding: 3px 9px; font-size: 12.5px; }
+
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <section id="login" class="login" hidden>
+    <img src="/img/icon.svg" alt="">
+    <h1>Noodpakket beheer</h1>
+    <p class="sub">Downloads, Android-builds en berichten aan gebruikers</p>
+    <form id="loginForm" class="card" autocomplete="on">
+      <input id="user" name="username" placeholder="Gebruikersnaam" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+      <input id="pass" name="password" type="password" placeholder="Wachtwoord" autocomplete="current-password" required>
+      <p class="err" id="loginErr" role="alert"></p>
+      <button class="primary" id="loginBtn" type="submit">Inloggen</button>
+    </form>
+    <p class="hint">De gedeelde beheer-inlog, dezelfde als in LRbeheer. Je sessie geldt 12 uur en blijft alleen in dit tabblad.</p>
+  </section>
+
+  <section id="app" hidden>
+    <header class="hero">
+      <img src="/img/icon.svg" alt="">
+      <div>
+        <h1>Noodpakket beheer</h1>
+        <p>Downloads, Android-builds en berichten</p>
+      </div>
+      <div class="spacer"></div>
+      <div class="actions">
+        <button id="refresh" type="button">Vernieuwen</button>
+        <button id="logout" type="button">Uitloggen</button>
+      </div>
+    </header>
+
+    <p class="err" id="appErr" role="alert"></p>
+    <p class="note warn" id="ascNote" hidden>App Store Connect is nog niet gekoppeld; alleen Android wordt geteld. Zet <code>APPSTORE_CONNECT_P8</code> en <code>VENDOR_APPSTORE_CONNECT</code> in app.lrvdlinden.secrets en start <em>LRbeheer push</em>.</p>
+
+    <div class="tiles">
+      <div class="card tile"><div class="label" style="color:var(--blue)">Totaal</div><div class="num" id="tTotal">–</div><div class="small">Apple + Android</div></div>
+      <div class="card tile"><div class="label"><i style="background:var(--iphone)"></i>iPhone</div><div class="num" id="tIphone">–</div></div>
+      <div class="card tile"><div class="label"><i style="background:var(--ipad)"></i>iPad</div><div class="num" id="tIpad">–</div></div>
+      <div class="card tile"><div class="label"><i style="background:var(--android)"></i>Android</div><div class="num" id="tAndroid">–</div><div class="small">APK-downloads</div></div>
+      <div class="card tile"><div class="label"><i style="background:var(--yellow)"></i>Ontvangers</div><div class="num" id="tDevices">–</div><div class="small">Berichten aan</div></div>
+    </div>
+
+    <div class="card">
+      <div class="chart-head"><h2>Downloads per dag</h2><span class="foot" style="margin:0">30 dagen</span></div>
+      <svg class="chart" id="chart" role="img" aria-label="Downloads per dag"></svg>
+      <div class="legend">
+        <span><i style="background:var(--iphone)"></i>iPhone</span>
+        <span><i style="background:var(--ipad)"></i>iPad</span>
+        <span><i style="background:var(--other)"></i>Overig</span>
+        <span><i style="background:var(--android)"></i>Android</span>
+      </div>
+      <p class="foot" id="chartEmpty" hidden>Nog geen downloads in de afgelopen 30 dagen. Android telt per dag vanaf de eerste meting; Apple komt een dag later binnen.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Android-builds</h2>
+        <div id="buildRows"></div>
+        <p class="foot"><a href="https://github.com/LRvdLinden/app.lrvdlinden.noodkoffer/actions/workflows/android.yml" target="_blank" rel="noopener noreferrer" style="color:var(--blue)">Alle builds op GitHub</a></p>
+      </div>
+      <div class="card">
+        <h2>Android</h2>
+        <div id="androidRows"></div>
+        <p class="foot">Downloads van de APK in GitHub Releases, ook via de vaste link op de website.</p>
+      </div>
+      <div class="card">
+        <h2>Apple</h2>
+        <div id="appleRows"></div>
+        <p class="foot">Uit de dagelijkse verkoopoverzichten van App Store Connect; die komen een dag later binnen.</p>
+      </div>
+      <div class="card">
+        <h2>Ontvangers van berichten</h2>
+        <div id="deviceRows"></div>
+        <p class="foot">Alleen apparaten waarop Berichten van Noodpakket aan staat. Geen account of persoonsgegevens.</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Nieuw bericht</h2>
+        <form class="form" id="msgForm" autocomplete="off">
+          <label>Titel <span class="count" id="cTitle">0/80</span><input id="mTitle" maxlength="80" required></label>
+          <label>Tekst <span class="count" id="cBody">0/400</span><textarea id="mBody" maxlength="400"></textarea></label>
+          <label>Link (optioneel)<input id="mUrl" type="url" placeholder="https://"></label>
+          <div class="two">
+            <label>Apparaten<select id="mPlatform"><option value="all">Alle apparaten</option><option value="apple">iPhone en iPad</option><option value="android">Android</option></select></label>
+            <label>Taal van de app<select id="mLang"><option value="all">Alle talen</option><option value="nl">Nederlands</option><option value="en">Engels</option></select></label>
+          </div>
+          <p class="foot" style="margin:0">Bereik ongeveer <b id="reach">–</b> apparaten. iPhone en iPad krijgen direct een pushmelding; Android haalt nieuwe berichten zelf op, binnen een paar uur.</p>
+          <div class="btns">
+            <button type="button" id="testBtn">Test naar mijn LRbeheer</button>
+            <button type="submit" class="primary" id="sendBtn">Versturen</button>
+          </div>
+          <p class="err" id="msgErr" role="alert"></p>
+          <p class="ok" id="msgOk" role="status"></p>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Voorbeeld</h2>
+        <div class="preview"><div class="notif"><img src="/img/icon.svg" alt=""><div style="flex:1"><div class="h"><span>Noodpakket</span><span>nu</span></div><b id="pTitle">Titel van je bericht</b><p id="pBody"></p></div></div></div>
+        <p class="foot">Gebruik berichten alleen voor wat er echt toe doet, zoals een oproep om je pakket na te lopen.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h2>Verstuurd</h2>
+      <div id="msgList"></div>
+    </div>
+    <p class="updated" id="updated"></p>
+  </section>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+(() => {
+  "use strict";
+  const API = "https://vbhkewgyujzgbukkbtml.supabase.co/functions/v1/lrbeheer";
+  const KEY = "noodpakket.beheer.session";
+  const $ = (id) => document.getElementById(id);
+  const nf = new Intl.NumberFormat("nl-NL");
+  const dShort = new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short" });
+  const dLong = new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "long", year: "numeric" });
+  const dTime = new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  const rel = new Intl.RelativeTimeFormat("nl-NL", { numeric: "auto" });
+
+  const store = {
+    get() { try { const s = JSON.parse(sessionStorage.getItem(KEY) || "null"); return s && s.expires * 1000 > Date.now() + 60000 ? s : null; } catch { return null; } },
+    set(v) { try { sessionStorage.setItem(KEY, JSON.stringify(v)); } catch { /* alleen in geheugen */ } mem = v; },
+    clear() { try { sessionStorage.removeItem(KEY); } catch { /* leeg */ } mem = null; },
+  };
+  let mem = store.get();
+  let stats = null;
+
+  const ERRORS = { bad_title: "De titel moet 3 tot 80 tekens zijn.", bad_body: "De tekst mag hoogstens 400 tekens zijn.", bad_url: "De link moet met https:// beginnen." };
+  async function call(body, token) {
+    const headers = { "Content-Type": "application/json" };
+    if (token) headers.Authorization = "Bearer " + token;
+    let r;
+    try { r = await fetch(API, { method: "POST", headers, body: JSON.stringify(body), cache: "no-store", credentials: "omit" }); }
+    catch { throw new Error("Geen verbinding met de server."); }
+    if (r.status === 401) { const e = new Error(body.action === "noodpakket_login" ? "Onjuiste gebruikersnaam of wachtwoord." : "Je sessie is verlopen. Log opnieuw in."); e.auth = true; throw e; }
+    if (r.status === 503) throw new Error("Het Noodpakket-beheer is nog niet ingesteld op de server.");
+    if (r.status === 409) throw new Error("Dit bericht is net al verstuurd.");
+    if (r.status === 400) { let c = ""; try { c = (await r.json()).error; } catch { /* leeg */ } throw new Error(ERRORS[c] || "Het bericht klopt niet."); }
+    if (!r.ok) throw new Error("De server gaf HTTP " + r.status + ".");
+    return r.json();
+  }
+
+  function show(signedIn) {
+    $("login").hidden = signedIn;
+    $("app").hidden = !signedIn;
+    if (!signedIn) setTimeout(() => $("user").focus(), 0);
+  }
+  function authFail(err) { store.clear(); show(false); $("loginErr").textContent = err.message; }
+
+  $("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = $("loginBtn");
+    btn.disabled = true; btn.textContent = "Bezig…"; $("loginErr").textContent = "";
+    try {
+      const r = await call({ action: "noodpakket_login", user: $("user").value.trim(), password: $("pass").value });
+      store.set({ token: r.token, expires: r.expires });
+      $("pass").value = "";
+      show(true);
+      load();
+    } catch (err) {
+      $("loginErr").textContent = err.message;
+    } finally {
+      btn.disabled = false; btn.textContent = "Inloggen";
+    }
+  });
+  $("logout").addEventListener("click", () => { store.clear(); show(false); });
+  $("refresh").addEventListener("click", () => load());
+
+  let busy = false;
+  async function load() {
+    if (!mem || busy) return;
+    busy = true; $("refresh").disabled = true; $("refresh").textContent = "Bezig…";
+    try {
+      stats = await call({ action: "noodpakket_stats" }, mem.token);
+      render(stats);
+      $("appErr").textContent = "";
+    } catch (err) {
+      if (err.auth) authFail(err); else $("appErr").textContent = err.message;
+    } finally {
+      busy = false; $("refresh").disabled = false; $("refresh").textContent = "Vernieuwen";
+    }
+  }
+
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text !== undefined) n.textContent = text; return n; };
+  function row(label, value, sub) {
+    const r = el("div", "row");
+    const l = el("span", "", label);
+    if (sub) l.appendChild(el("small", "", sub));
+    r.append(l, el("span", "", value));
+    return r;
+  }
+  const parseDay = (d) => { const [y, m, dd] = d.split("-").map(Number); return new Date(y, m - 1, dd); };
+  function ago(iso) {
+    const s = (new Date(iso).getTime() - Date.now()) / 1000;
+    const a = Math.abs(s);
+    if (a < 3600) return rel.format(Math.round(s / 60), "minute");
+    if (a < 86400) return rel.format(Math.round(s / 3600), "hour");
+    return rel.format(Math.round(s / 86400), "day");
+  }
+
+  function render(s) {
+    const dev = (n) => (s.apple.by_device && s.apple.by_device[n]) || 0;
+    const t = s.apple.totals || {};
+    const d = s.devices || { apple: 0, android: 0, nl: 0, en: 0 };
+    $("ascNote").hidden = !!s.apple.configured;
+    $("tTotal").textContent = nf.format((t.download || 0) + (s.android.total || 0));
+    $("tIphone").textContent = nf.format(dev("iPhone"));
+    $("tIpad").textContent = nf.format(dev("iPad"));
+    $("tAndroid").textContent = nf.format(s.android.total || 0);
+    $("tDevices").textContent = nf.format(d.apple + d.android);
+
+    const apple = $("appleRows"); apple.replaceChildren();
+    apple.append(row("Eerste downloads", nf.format(t.download || 0)), row("Opnieuw gedownload", nf.format(t.redownload || 0)), row("Updates", nf.format(t.update || 0)));
+    if (s.apple.last_day) apple.append(row("Laatste dag van App Store Connect", dLong.format(parseDay(s.apple.last_day))));
+
+    const android = $("androidRows"); android.replaceChildren();
+    if (!s.android.available) android.append(el("p", "note warn", "GitHub was niet bereikbaar; probeer het zo opnieuw."));
+    for (const r of s.android.releases || []) {
+      const when = r.published_at ? dTime.format(new Date(r.published_at)) : "";
+      const line = row(r.name, nf.format(r.downloads), when);
+      if (r.tag === s.android.latest) line.firstChild.insertBefore(el("span", "pill", "Nieuwste"), line.firstChild.childNodes[1] || null);
+      android.append(line);
+    }
+    if (!(s.android.releases || []).length && s.android.available) android.append(el("p", "foot", "Nog geen release. Een tag vX.Y.Z maakt een release met noodpakket.apk."));
+
+    const builds = $("buildRows"); builds.replaceChildren();
+    if (!(s.builds || []).length) builds.append(el("p", "foot", "Nog geen builds, of GitHub was niet bereikbaar."));
+    for (const b of s.builds || []) {
+      const run = b.status !== "completed";
+      const state = ["queued", "waiting", "pending"].includes(b.status) ? "In de wachtrij" : run ? "Bezig"
+        : ({ success: "Gelukt", cancelled: "Geannuleerd", skipped: "Overgeslagen" })[b.conclusion] || "Mislukt";
+      const color = run ? "var(--warn)" : b.conclusion === "success" ? "var(--good)" : "var(--bad)";
+      const line = el("div", "build");
+      const dot = el("span", "dot"); dot.style.background = color;
+      const a = el("a", "", b.title || "Build"); if (/^https:\/\/github\.com\//.test(b.url)) { a.href = b.url; a.target = "_blank"; a.rel = "noopener noreferrer"; }
+      a.append(el("small", "", state + " · " + ago(b.created_at) + (b.branch ? " · " + b.branch : "")));
+      line.append(dot, a);
+      builds.append(line);
+    }
+    if ((s.builds || [])[0]?.status === "queued") builds.append(el("p", "note warn", "Staat een build lang in de wachtrij, kijk dan in GitHub Actions naar de limieten van je account."));
+
+    const devices = $("deviceRows"); devices.replaceChildren();
+    devices.append(row("iPhone en iPad (pushmelding)", nf.format(d.apple)), row("Android (laatste 30 dagen actief)", nf.format(d.android)),
+      row("Nederlands", nf.format(d.nl)), row("Engels", nf.format(d.en)));
+
+    renderMessages(s.messages || []);
+    updateReach();
+    lastDays = (s.days || []).map((x) => ({ ...x, other: (x.other || 0) + (x.Mac || 0) }));
+    drawChart(lastDays);
+    $("updated").textContent = s.synced_at ? "Bijgewerkt " + dTime.format(new Date(s.synced_at)) : "";
+  }
+
+  // ---- berichten ----
+  const AUDIENCE = { all: "Alle apparaten", apple: "iPhone en iPad", android: "Android" };
+  const LANGS = { all: "Alle talen", nl: "Nederlands", en: "Engels" };
+  function renderMessages(list) {
+    const box = $("msgList"); box.replaceChildren();
+    if (!list.length) { box.append(el("p", "foot", "Nog geen berichten verstuurd.")); return; }
+    for (const m of list) {
+      const d = el("div", "msg" + (m.withdrawn ? " withdrawn" : ""));
+      const t = el("div", "t"); t.append(el("span", "", m.title));
+      if (m.withdrawn) t.append(el("span", "w", "Ingetrokken"));
+      d.append(t);
+      if (m.body) d.append(el("div", "b", m.body));
+      const meta = el("div", "m");
+      meta.append(el("span", "", dTime.format(new Date(m.at))), el("span", "", AUDIENCE[m.platform] + " · " + LANGS[m.lang]));
+      if (m.platform !== "android") meta.append(el("span", "", "iPhone/iPad: " + nf.format(m.sent_apple) + (m.failed_apple ? " (" + nf.format(m.failed_apple) + " mislukt)" : "")));
+      if (m.platform !== "apple") meta.append(el("span", "", "Android: " + nf.format(m.fetched_android) + " opgehaald"));
+      const again = el("button", "", "Opnieuw gebruiken"); again.type = "button";
+      again.addEventListener("click", () => { $("mTitle").value = m.title; $("mBody").value = m.body; $("mUrl").value = m.url || ""; $("mPlatform").value = m.platform; $("mLang").value = m.lang; preview(); updateReach(); scrollTo({ top: $("msgForm").offsetTop - 20, behavior: "smooth" }); });
+      meta.append(again);
+      if (!m.withdrawn) {
+        const w = el("button", "", "Intrekken"); w.type = "button";
+        w.addEventListener("click", async () => {
+          if (!confirm("Dit bericht intrekken? Android haalt het dan niet meer op; iPhone en iPad hebben het al.")) return;
+          try { await call({ action: "noodpakket_message_delete", id: m.id }, mem.token); load(); }
+          catch (err) { if (err.auth) authFail(err); else $("appErr").textContent = err.message; }
+        });
+        meta.append(w);
+      }
+      d.append(meta);
+      box.append(d);
+    }
+  }
+  function draft() {
+    return { title: $("mTitle").value.trim(), body: $("mBody").value.trim(), url: $("mUrl").value.trim(), platform: $("mPlatform").value, lang: $("mLang").value };
+  }
+  function reach() {
+    const d = stats?.devices; if (!d) return 0;
+    const m = draft();
+    const n = m.platform === "apple" ? d.apple : m.platform === "android" ? d.android : d.apple + d.android;
+    if (m.lang === "all" || !(d.nl + d.en)) return n;
+    return Math.round(n * (m.lang === "nl" ? d.nl : d.en) / (d.nl + d.en));
+  }
+  function updateReach() { $("reach").textContent = nf.format(reach()); }
+  function preview() {
+    const m = draft();
+    $("pTitle").textContent = m.title || "Titel van je bericht";
+    $("pTitle").style.opacity = m.title ? 1 : .5;
+    $("pBody").textContent = m.body;
+    $("cTitle").textContent = m.title.length + "/80";
+    $("cBody").textContent = m.body.length + "/400";
+  }
+  for (const id of ["mTitle", "mBody", "mUrl"]) $(id).addEventListener("input", preview);
+  for (const id of ["mPlatform", "mLang"]) $(id).addEventListener("change", updateReach);
+  function check(m) {
+    if (m.title.length < 3 || m.title.length > 80) return ERRORS.bad_title;
+    if (m.body.length > 400) return ERRORS.bad_body;
+    if (m.url && !/^https:\/\/\S+$/i.test(m.url)) return ERRORS.bad_url;
+    return "";
+  }
+  async function send(test) {
+    const m = draft();
+    $("msgErr").textContent = ""; $("msgOk").textContent = "";
+    const bad = check(m); if (bad) { $("msgErr").textContent = bad; return; }
+    if (!test && !confirm("Bericht versturen naar ongeveer " + nf.format(reach()) + " apparaten?\n\n" + m.title + "\n\nDit kan niet worden teruggedraaid op iPhone en iPad.")) return;
+    $("sendBtn").disabled = true; $("testBtn").disabled = true;
+    try {
+      const r = await call({ action: "noodpakket_send", ...m, ...(test ? { test: true } : {}) }, mem.token);
+      if (test) $("msgOk").textContent = "Testmelding verstuurd naar " + nf.format(r.sent || 0) + " apparaten met LRbeheer.";
+      else {
+        $("msgOk").textContent = m.platform === "android" ? "Verstuurd. Android-toestellen halen het bericht binnen een paar uur op."
+          : "Verstuurd naar " + nf.format(r.sent_apple || 0) + " iPhones en iPads; Android haalt het binnen een paar uur op.";
+        $("msgForm").reset(); preview(); load();
+      }
+    } catch (err) {
+      if (err.auth) authFail(err); else $("msgErr").textContent = err.message;
+    } finally {
+      $("sendBtn").disabled = false; $("testBtn").disabled = false;
+    }
+  }
+  $("msgForm").addEventListener("submit", (e) => { e.preventDefault(); send(false); });
+  $("testBtn").addEventListener("click", () => send(true));
+
+  // ---- grafiek ----
+  let lastDays = null;
+  const SERIES = [["iPhone", "--iphone"], ["iPad", "--ipad"], ["other", "--other", "Overig"], ["android", "--android", "Android"]];
+  function drawChart(days) {
+    const svg = $("chart");
+    const NS = "http://www.w3.org/2000/svg";
+    svg.replaceChildren();
+    const total = days.reduce((a, d) => a + SERIES.reduce((b, [k]) => b + (d[k] || 0), 0), 0);
+    $("chartEmpty").hidden = total > 0;
+    svg.style.display = total > 0 ? "" : "none";
+    if (!total) return;
+    const W = Math.max(320, svg.clientWidth || 600), H = 220, L = 34, R = 6, T = 8, B = 24;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const max = Math.max(1, ...days.map((d) => SERIES.reduce((b, [k]) => b + (d[k] || 0), 0)));
+    const step = niceStep(max);
+    const top = Math.ceil(max / step) * step;
+    const y = (v) => T + (H - T - B) * (1 - v / top);
+    for (let v = 0; v <= top; v += step) {
+      const ln = document.createElementNS(NS, "line");
+      ln.setAttribute("x1", L); ln.setAttribute("x2", W - R); ln.setAttribute("y1", y(v)); ln.setAttribute("y2", y(v)); ln.setAttribute("class", "grid");
+      const tx = document.createElementNS(NS, "text");
+      tx.setAttribute("x", L - 6); tx.setAttribute("y", y(v) + 4); tx.setAttribute("text-anchor", "end"); tx.textContent = nf.format(v);
+      svg.append(ln, tx);
+    }
+    const slot = (W - L - R) / days.length, bw = Math.max(3, Math.min(22, slot * 0.7));
+    const css = getComputedStyle(document.documentElement);
+    days.forEach((d, i) => {
+      const x = L + slot * i + (slot - bw) / 2;
+      let acc = 0;
+      const g = document.createElementNS(NS, "g");
+      for (const [k, varName] of SERIES) {
+        const v = d[k] || 0;
+        if (!v) continue;
+        const rect = document.createElementNS(NS, "rect");
+        rect.setAttribute("x", x); rect.setAttribute("width", bw);
+        rect.setAttribute("y", y(acc + v)); rect.setAttribute("height", Math.max(0, y(acc) - y(acc + v)));
+        rect.setAttribute("rx", 2); rect.setAttribute("fill", css.getPropertyValue(varName).trim());
+        g.append(rect);
+        acc += v;
+      }
+      const hit = document.createElementNS(NS, "rect");
+      hit.setAttribute("x", L + slot * i); hit.setAttribute("width", slot); hit.setAttribute("y", T); hit.setAttribute("height", H - T - B); hit.setAttribute("fill", "transparent");
+      hit.addEventListener("pointerenter", (e) => tip(e, d));
+      hit.addEventListener("pointermove", (e) => tip(e, d));
+      hit.addEventListener("pointerleave", () => { $("tip").style.opacity = 0; });
+      g.append(hit);
+      svg.append(g);
+      if ((days.length - 1 - i) % 7 === 0) {
+        const tx = document.createElementNS(NS, "text");
+        tx.setAttribute("x", L + slot * i + slot / 2); tx.setAttribute("y", H - 6); tx.setAttribute("text-anchor", "middle");
+        tx.textContent = dShort.format(parseDay(d.day));
+        svg.append(tx);
+      }
+    });
+  }
+  function niceStep(max) {
+    const raw = max / 4, p = Math.pow(10, Math.floor(Math.log10(raw)));
+    const n = raw / p;
+    return Math.max(1, (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * p);
+  }
+  function tip(e, d) {
+    const t = $("tip");
+    const parts = SERIES.filter(([k]) => d[k]).map(([k, , label]) => (label || k) + " " + nf.format(d[k]));
+    t.textContent = dShort.format(parseDay(d.day)) + ": " + (parts.length ? parts.join(" · ") : "geen");
+    t.style.opacity = 1;
+    const x = Math.min(window.innerWidth - t.offsetWidth - 8, e.clientX + 12);
+    t.style.left = Math.max(8, x) + "px"; t.style.top = (e.clientY - 36) + "px";
+  }
+  addEventListener("resize", () => { if (lastDays) drawChart(lastDays); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (lastDays) drawChart(lastDays); });
+
+  preview();
+  show(!!mem);
+  if (mem) load();
+})();
+</script>
+</body>
+</html>

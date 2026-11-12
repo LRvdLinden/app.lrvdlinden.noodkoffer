@@ -56,6 +56,7 @@ import app.lrvdlinden.noodpakket.R
 import app.lrvdlinden.noodpakket.data.Household
 import app.lrvdlinden.noodpakket.data.KitRepository
 import app.lrvdlinden.noodpakket.data.KitState
+import app.lrvdlinden.noodpakket.notify.Messages
 import app.lrvdlinden.noodpakket.notify.Reminders
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -70,6 +71,10 @@ fun SettingsScreen(
 ) {
     val context = LocalContext.current
     var remindersOn by remember { mutableStateOf(Reminders.isEnabled(context) && Reminders.hasPermission(context)) }
+    var messagesOn by remember { mutableStateOf(Messages.isEnabled(context) && Reminders.hasPermission(context)) }
+    val messagesPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        Messages.setEnabled(context, granted); messagesOn = granted
+    }
     var whatsNew by remember { mutableStateOf(false) }
     val permission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         Reminders.setEnabled(context, granted); remindersOn = granted
@@ -116,6 +121,21 @@ fun SettingsScreen(
                 }
             }
             Text(stringResource(R.string.reminders_footer), style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(start = 16.dp, top = 6.dp, end = 16.dp))
+
+            Card(Modifier.padding(top = 12.dp)) {
+                Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Text(stringResource(R.string.messages_toggle), Modifier.weight(1f))
+                    Switch(checked = messagesOn, onCheckedChange = { on ->
+                        if (on && Build.VERSION.SDK_INT >= 33 && !Reminders.hasPermission(context)) {
+                            messagesPermission.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                        } else {
+                            Messages.setEnabled(context, on); messagesOn = on
+                        }
+                    })
+                }
+            }
+            Text(stringResource(R.string.messages_footer), style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(start = 16.dp, top = 6.dp, end = 16.dp))
 
             SectionHeader(stringResource(R.string.settings_appearance))

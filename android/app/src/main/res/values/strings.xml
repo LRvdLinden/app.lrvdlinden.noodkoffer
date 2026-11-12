@@ -76,6 +76,10 @@
     <string name="search_kit">Search the kit</string>
     <string name="expiry_subtitle">Replace things before they expire</string>
     <string name="shopping_items_to_buy">%1$d items to buy</string>
+    <string name="channel_messages">Messages from Noodpakket</string>
+    <string name="messages_toggle">Messages from Noodpakket</string>
+    <string name="messages_onboarding">For example before a storm. Optional.</string>
+    <string name="messages_footer">Now and then a short message, for example to check your kit before a storm. The app checks for new messages every few hours and only sends a random device number and the app language, without an account.</string>
     <string name="title_kit">Emergency kit</string>
     <string name="add_item">Add item</string>
     <string name="kit_complete">Your kit is complete</string>
@@ -147,7 +151,7 @@
     <string name="link_welcome">Show the welcome screen</string>
     <string name="link_donate">Support development</string>
     <string name="whats_new_title">What\'s new in 1.0</string>
-    <string name="whats_new_text">• Scan barcodes: the app fills in the product\n• Shopping list for what is missing\n• Choose how many days of supplies\n• What to do during a power cut, NL-Alert and more\n• Expiry reminders and date scanning\n• Emergency plan as PDF\n• Backup and widget\n• New look with pictures of every item</string>
+    <string name="whats_new_text">• Scan barcodes: the app fills in the product\n• Shopping list for what is missing\n• Choose how many days of supplies\n• What to do during a power cut, NL-Alert and more\n• Expiry reminders and date scanning\n• Emergency plan as PDF\n• Backup and widget\n• New look with pictures of every item\n• Messages from Noodpakket (optional)</string>
     <string name="onb_title_1">Ready for 72 hours</string>
     <string name="onb_text_1">If the power, water or internet fails, you need to manage on your own for the first three days. Noodpakket helps you build and maintain your emergency kit.</string>
     <string name="onb_title_2">Who is in your household?</string>
