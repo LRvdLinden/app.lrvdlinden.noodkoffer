@@ -429,6 +429,24 @@ textarea { min-height: 90px; resize: vertical; }
   // ---- berichten ----
   const AUDIENCE = { all: "Alle apparaten", apple: "iPhone en iPad", android: "Android" };
   const LANGS = { all: "Alle talen", nl: "Nederlands", en: "Engels" };
+  // Waarom APNs een melding weigerde
+  const APNS_WHY = {
+    apns_BadDeviceToken: "het pushtoken past niet bij deze omgeving (Xcode-build of TestFlight). Zet Berichten in de app uit en weer aan.",
+    apns_BadEnvironmentKeyInToken: "de APNs-sleutel mag niet voor deze omgeving. Test met TestFlight, of zet de sleutel in Apple Developer op Sandbox en Production.",
+    apns_TopicDisallowed: "de APNs-sleutel mag geen meldingen sturen voor app.lrvdlinden.noodpakket. Zet de sleutel in Apple Developer op het hele team (of voeg deze app toe).",
+    apns_BadTopic: "de APNs-sleutel mag geen meldingen sturen voor app.lrvdlinden.noodpakket.",
+    apns_DeviceTokenNotForTopic: "het pushtoken hoort bij een andere app dan app.lrvdlinden.noodpakket.",
+    apns_InvalidProviderToken: "de APNs-sleutel of het Team ID klopt niet. Controleer APN_KEY_ID, APN_P8_CERT en TEAM_ID en start LRbeheer push.",
+    apns_bad_key: "de APNs-sleutel kon niet worden gelezen. Controleer APN_P8_CERT en start LRbeheer push.",
+    apns_Unregistered: "dit apparaat is niet meer aangemeld.",
+    apns_unreachable: "APNs was niet bereikbaar. Probeer het zo opnieuw.",
+  };
+  function explain(errors) {
+    const e = Object.entries(errors || {}).sort((a, b) => b[1] - a[1])[0];
+    if (!e) return "";
+    return "Niet afgeleverd: " + (APNS_WHY[e[0]] || "APNs weigerde de melding (" + e[0].replace("apns_", "") + ").");
+  }
+
   function renderMessages(list) {
     const box = $("msgList"); box.replaceChildren();
     if (!list.length) { box.append(el("p", "foot", "Nog geen berichten verstuurd.")); return; }
@@ -438,6 +456,7 @@ textarea { min-height: 90px; resize: vertical; }
       if (m.withdrawn) t.append(el("span", "w", "Ingetrokken"));
       d.append(t);
       if (m.body) d.append(el("div", "b", m.body));
+      if (m.failed_apple && explain(m.errors)) { const w = el("div", "b", explain(m.errors)); w.style.color = "var(--red, #C8372F)"; d.append(w); }
       const meta = el("div", "m");
       meta.append(el("span", "", dTime.format(new Date(m.at))), el("span", "", AUDIENCE[m.platform] + " · " + LANGS[m.lang]));
       if (m.platform !== "android") meta.append(el("span", "", "iPhone/iPad: " + nf.format(m.sent_apple) + (m.failed_apple ? " (" + nf.format(m.failed_apple) + " mislukt)" : "")));
@@ -493,8 +512,11 @@ textarea { min-height: 90px; resize: vertical; }
     $("sendBtn").disabled = true; $("testBtn").disabled = true;
     try {
       const r = await call({ action: "noodpakket_send", ...m, ...(test ? { test: true } : {}) }, mem.token);
-      if (test) $("msgOk").textContent = "Testmelding verstuurd naar " + nf.format(r.sent || 0) + " apparaten met LRbeheer.";
-      else {
+      if (test) {
+        $("msgOk").textContent = "Testmelding verstuurd naar " + nf.format(r.sent || 0) + " apparaten met LRbeheer.";
+        if (r.failed) $("msgErr").textContent = explain(r.errors);
+      } else {
+        if (r.failed_apple) $("msgErr").textContent = explain(r.errors);
         $("msgOk").textContent = m.platform === "android" ? "Verstuurd. Android-toestellen halen het bericht binnen een paar uur op."
           : "Verstuurd naar " + nf.format(r.sent_apple || 0) + " iPhones en iPads; Android haalt het binnen een paar uur op.";
         $("msgForm").reset(); preview(); load();
