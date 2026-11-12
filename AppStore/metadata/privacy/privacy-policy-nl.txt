@@ -1,5 +1,5 @@
 Privacyverklaring Noodpakket
-Laatst bijgewerkt: 11 november 2026
+Laatst bijgewerkt: 12 november 2026
 
 Noodpakket verzamelt geen persoonsgegevens. Geen account, geen advertenties, geen tracking en geen analysediensten.
 
@@ -14,6 +14,9 @@ De camera wordt alleen gebruikt als je zelf een barcode of houdbaarheidsdatum sc
 
 Meldingen
 Herinneringen zijn lokale meldingen die je toestel zelf plant.
+
+Berichten van Noodpakket
+Zet je Berichten van Noodpakket aan, dan krijg je af en toe een kort bericht van de ontwikkelaar, bijvoorbeeld om je pakket na te lopen voor een storm. Daarvoor bewaart de server een willekeurig apparaatnummer dat de app zelf maakt, de taal en versie van de app en op iPhone en iPad het pushtoken van Apple. Een Android-telefoon vraagt elke paar uur zelf of er een nieuw bericht is. Er is geen account en er gaan geen naam, e-mailadres, locatie of gegevens uit je pakket mee. Zet je het uit, dan wordt de aanmelding op iPhone en iPad direct verwijderd; een Android-telefoon die niets meer vraagt, wordt na een half jaar automatisch verwijderd.
 
 Je rechten
 Verwijder de app om al je gegevens te wissen. Op iPhone verwijder je ook de app-gegevens in iCloud via Instellingen > [je naam] > iCloud > Beheer opslag.

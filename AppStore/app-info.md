@@ -23,12 +23,14 @@ Onbeperkte webtoegang: **No**. Gebruikersgegenereerde content/chat: **No**. Kans
 Verwachte uitkomst: **4+**.
 
 ## App Privacy (privacylabel)
-**Data Not Collected.**
+**Data Collected → Identifiers → Device ID**
+- *Linked to the user*: **No**. *Used for tracking*: **No**. *Purpose*: **App Functionality**.
+- Alleen als de gebruiker *Berichten van Noodpakket* aanzet: een willekeurig apparaatnummer (door de app gemaakt) en het APNs-pushtoken, met de taal en versie van de app, om berichten te kunnen sturen. Uitzetten verwijdert de aanmelding van de server.
 - Geen account, analytics, crash-SDK, advertenties of tracking (geen ATT-prompt).
 - Gegevens staan lokaal en in de privé-iCloud-database van de gebruiker (CloudKit); de ontwikkelaar kan er niet bij. Apple telt dit niet als verzameling door de ontwikkelaar.
 - Barcode-opzoeking: alleen het barcodenummer gaat naar Open Food Facts / Open Products Facts, niet gekoppeld aan de gebruiker of een identifier.
 - Camera: alleen on-device verwerking (VisionKit), niets opgeslagen of verstuurd.
-- `PrivacyInfo.xcprivacy`: geen tracking, geen verzamelde datatypes; required-reason API UserDefaults (CA92.1, app group 1C8F.1).
+- `PrivacyInfo.xcprivacy`: geen tracking; verzameld datatype Device ID (niet gekoppeld, App Functionality); required-reason API UserDefaults (CA92.1, app group 1C8F.1).
 - Externe SDK's: geen.
 
 ## App Accessibility (Accessibility Nutrition Labels)

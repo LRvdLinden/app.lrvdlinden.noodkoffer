@@ -16,6 +16,6 @@ De screenshots zijn **nagebouwd** vanuit de SwiftUI-schermen (HTML, `design/mock
 1. Maak de app aan in App Store Connect (bundle ID `app.lrvdlinden.noodpakket`, SKU idem) en zet het Apple ID in `app-info.md`.
 2. Vul per taal naam, ondertitel, promotietekst, beschrijving, trefwoorden en URL's in uit `metadata/<taal>/`.
 3. Upload de screenshots per toestelgrootte; zet de marketingafbeeldingen bij de header- en zoekresultaatassets.
-4. Privacylabel: Data Not Collected. Leeftijd: alles None → 4+.
+4. Privacylabel: Identifiers → Device ID (niet gekoppeld, geen tracking, App Functionality), alleen voor Berichten van Noodpakket. Leeftijd: alles None → 4+.
 5. App Review: notities uit `notes.txt`, contactgegevens invullen (staan als TODO), geen demo-account nodig.
 6. Categorie Lifestyle, secundair Utilities. Copyright: `© 2026 Léon van der Linden`.

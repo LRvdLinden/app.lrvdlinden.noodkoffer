@@ -1,5 +1,5 @@
 Noodpakket Privacy Policy
-Last updated: 11 November 2026
+Last updated: 12 November 2026
 
 Noodpakket does not collect personal data. No account, no ads, no tracking and no analytics.
 
@@ -14,6 +14,9 @@ The camera is only used when you scan a barcode or an expiry date yourself. Imag
 
 Notifications
 Reminders are local notifications scheduled by your device.
+
+Messages from Noodpakket
+If you turn on Messages from Noodpakket, you will now and then get a short message from the developer, for example to check your kit before a storm. For this, the server stores a random device number created by the app, the app language and version, and on iPhone and iPad the Apple push token. An Android phone checks for new messages itself every few hours. There is no account, and no name, email address, location or kit data is sent. If you turn it off, the registration is removed right away on iPhone and iPad; an Android phone that stops checking is removed automatically after six months.
 
 Your rights
 Delete the app to erase all your data. On iPhone, also remove the app's iCloud data in Settings > [your name] > iCloud > Manage Storage.
