@@ -6,6 +6,7 @@ import SwiftData
 struct OnboardingView: View {
     var onDone: () -> Void
     @Query private var households: [Household]
+    @Query private var plans: [EmergencyPlan]
     @State private var page = 0
     @State private var notificationsOn = false
     @State private var messagesOn = false
@@ -13,9 +14,10 @@ struct OnboardingView: View {
     @State private var account = AccountService.shared
     @State private var lockOn = Biometrics.isAppLockEnabled
     private let showsLock = Biometrics.isAvailable
-    private var lastPage: Int { showsLock ? 4 : 3 }
+    private var lastPage: Int { showsLock ? 5 : 4 }
     private var buttonTitle: LocalizedStringKey {
-        if page == 3 && !account.isSignedIn { return "Not now" }
+        if page == 2 && plans.first?.place == nil { return "Skip" }
+        if page == 4 && !account.isSignedIn { return "Not now" }
         return page < lastPage ? "Next" : "Get started"
     }
 
@@ -24,9 +26,10 @@ struct OnboardingView: View {
             TabView(selection: $page) {
                 welcome.tag(0)
                 household.tag(1)
-                notifications.tag(2)
-                accountPage.tag(3)
-                if showsLock { lockPage.tag(4) }
+                placePage.tag(2)
+                notifications.tag(3)
+                accountPage.tag(4)
+                if showsLock { lockPage.tag(5) }
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
@@ -51,6 +54,35 @@ struct OnboardingView: View {
         .interactiveDismissDisabled()
         .sheet(item: $accountSheet) { mode in
             SignInSheet(mode: mode).environment(\.colorScheme, .light)
+        }
+    }
+
+    private var placePage: some View {
+        VStack(spacing: 20) {
+            OnboardingPage(art: ["radio", "documents"],
+                           title: "Where do you live?",
+                           text: "Noodpakket fills in the numbers for your municipality, your emergency broadcaster and your water company.")
+            Group {
+                if let place = plans.first?.place {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Label(place.woonplaats + " · " + place.gemeente.naam, systemImage: "checkmark.circle.fill").font(.headline)
+                        if let z = place.noodzender, let fm = z.fm.first {
+                            Text(verbatim: "\(z.omroep) · FM \(fm.mhz)").font(.subheadline).foregroundStyle(.white.opacity(0.8))
+                        }
+                        if let tel = place.gemeente.telefoon {
+                            Text("Municipality: \(tel)").font(.subheadline).foregroundStyle(.white.opacity(0.8))
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                } else {
+                    PostcodeCard(dark: true) { info in plans.first?.place = info }
+                }
+            }
+            .foregroundStyle(.white)
+            .padding(16)
+            .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .padding(.horizontal, 24)
+            Spacer(minLength: 40)
         }
     }
 

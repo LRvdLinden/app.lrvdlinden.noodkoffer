@@ -95,6 +95,10 @@ final class EmergencyPlan {
     var nextCheck: Date?
     /// How often the kit check reminder comes back (1, 3, 6 or 12 months).
     var checkIntervalMonths: Int = 6
+    /// Own contacts (GP, family, neighbours…) as JSON, see `contactList`.
+    var contactsData: String = ""
+    /// Numbers for the place where the household lives, as JSON, see `place`.
+    var placeData: String = ""
     init() {}
 
     /// The fields in print order.

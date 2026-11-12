@@ -171,6 +171,16 @@
         }
       }
     },
+    "%lld own contacts": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld eigen contacten"
+          }
+        }
+      }
+    },
     "0900-8844: police, when it is not urgent.": {
       "localizations": {
         "nl": {
@@ -191,12 +201,32 @@
         }
       }
     },
+    "112, your municipality, the emergency broadcaster, your GP and family, ready to call and to print.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "112, je gemeente, de rampenzender, je huisarts en familie: direct te bellen en te printen."
+          }
+        }
+      }
+    },
     "112: emergencies where every second counts.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "112: spoed, als elke seconde telt."
+          }
+        }
+      }
+    },
+    "113 Zelfmoordpreventie, day and night": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "113 Zelfmoordpreventie, dag en nacht"
           }
         }
       }
@@ -291,6 +321,16 @@
         }
       }
     },
+    "Add a contact": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contact toevoegen"
+          }
+        }
+      }
+    },
     "Add expiry dates to water, food, batteries and medicines in your kit.": {
       "localizations": {
         "nl": {
@@ -317,6 +357,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Toevoegen aan"
+          }
+        }
+      }
+    },
+    "Add your postcode": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vul je postcode in"
           }
         }
       }
@@ -361,6 +411,16 @@
         }
       }
     },
+    "Also for your community police officer": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ook voor je wijkagent"
+          }
+        }
+      }
+    },
     "Also wet wipes and hand gel.": {
       "localizations": {
         "nl": {
@@ -377,6 +437,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hoeveelheid"
+          }
+        }
+      }
+    },
+    "Animal in need": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dier in nood"
+          }
+        }
+      }
+    },
+    "Another water company?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ander waterbedrijf?"
           }
         }
       }
@@ -491,6 +571,26 @@
         }
       }
     },
+    "Call %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bel %@"
+          }
+        }
+      }
+    },
+    "Call 112, emergency": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bel 112, spoed"
+          }
+        }
+      }
+    },
     "Camera not available": {
       "localizations": {
         "nl": {
@@ -551,6 +651,16 @@
         }
       }
     },
+    "Change": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wijzig"
+          }
+        }
+      }
+    },
     "Check on neighbours who may need help.": {
       "localizations": {
         "nl": {
@@ -567,6 +677,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Controleer aantallen en datums en laad de powerbank op."
+          }
+        }
+      }
+    },
+    "Check whether the water company is yours; in some regions there are several.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controleer of dit jouw waterbedrijf is; in sommige regio's zijn er meer."
           }
         }
       }
@@ -631,6 +751,16 @@
         }
       }
     },
+    "Community police officer": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wijkagent"
+          }
+        }
+      }
+    },
     "Complete": {
       "localizations": {
         "nl": {
@@ -667,6 +797,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bevestig eerst je e-mailadres via de link in de mail."
+          }
+        }
+      }
+    },
+    "Contact": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contact"
           }
         }
       }
@@ -801,6 +941,26 @@
         }
       }
     },
+    "Delete contact": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verwijder contact"
+          }
+        }
+      }
+    },
+    "Dentist": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tandarts"
+          }
+        }
+      }
+    },
     "Done": {
       "localizations": {
         "nl": {
@@ -837,6 +997,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "E-mailadres"
+          }
+        }
+      }
+    },
+    "Emergency": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spoed"
           }
         }
       }
@@ -901,12 +1071,32 @@
         }
       }
     },
+    "Enter a Dutch postcode, for example 1234 AB.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vul een Nederlandse postcode in, bijvoorbeeld 1234 AB."
+          }
+        }
+      }
+    },
     "Enter a valid email address.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Vul een geldig e-mailadres in."
+          }
+        }
+      }
+    },
+    "Enter your postcode to fill in the numbers for your municipality, your emergency broadcaster and your water company.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vul je postcode in, dan staan de nummers van je gemeente, je rampenzender en je waterbedrijf erbij."
           }
         }
       }
@@ -1041,6 +1231,36 @@
         }
       }
     },
+    "Family": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Familie"
+          }
+        }
+      }
+    },
+    "Find yours on politie.nl": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoek de jouwe op politie.nl"
+          }
+        }
+      }
+    },
+    "Fire brigade (no emergency)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brandweer (geen spoed)"
+          }
+        }
+      }
+    },
     "First aid kit": {
       "localizations": {
         "nl": {
@@ -1141,6 +1361,16 @@
         }
       }
     },
+    "For example your GP, the out-of-hours GP, family outside your region and the neighbours.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bijvoorbeeld je huisarts, de huisartsenpost, familie buiten je regio en de buren."
+          }
+        }
+      }
+    },
     "Forgot password?": {
       "localizations": {
         "nl": {
@@ -1151,12 +1381,42 @@
         }
       }
     },
+    "Fraud helpdesk": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fraudehelpdesk"
+          }
+        }
+      }
+    },
     "Fully charged; check the charge every six months.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Volledig opgeladen; controleer de lading elk halfjaar."
+          }
+        }
+      }
+    },
+    "GP": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huisarts"
+          }
+        }
+      }
+    },
+    "General number": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Algemeen nummer"
           }
         }
       }
@@ -1197,6 +1457,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Halfjaarlijks checkmoment"
+          }
+        }
+      }
+    },
+    "Hang this card where everyone can find it, for example inside the meter cupboard. Official information during a crisis: crisis.nl and the emergency broadcaster. Made with Noodpakket.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hang deze kaart zichtbaar op, bijvoorbeeld aan de binnenkant van de meterkast. Officiële informatie bij een crisis: crisis.nl en de rampenzender. Gemaakt met Noodpakket."
+          }
+        }
+      }
+    },
+    "Hang this where everyone can find it": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hang zichtbaar in huis"
           }
         }
       }
@@ -1357,6 +1637,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Informatie"
+          }
+        }
+      }
+    },
+    "Insurance": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verzekering"
           }
         }
       }
@@ -1541,6 +1831,16 @@
         }
       }
     },
+    "Life-threatening danger, fire or crime in progress": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Levensgevaar, brand of een misdrijf op dit moment"
+          }
+        }
+      }
+    },
     "Light": {
       "localizations": {
         "nl": {
@@ -1631,6 +1931,16 @@
         }
       }
     },
+    "Make a card for the meter cupboard": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maak een meterkastkaart"
+          }
+        }
+      }
+    },
     "Mark as complete": {
       "localizations": {
         "nl": {
@@ -1677,6 +1987,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Verzamelpunt"
+          }
+        }
+      }
+    },
+    "Meld Misdaad Anoniem": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meld Misdaad Anoniem"
           }
         }
       }
@@ -1741,6 +2061,26 @@
         }
       }
     },
+    "Municipality %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gemeente %@"
+          }
+        }
+      }
+    },
+    "Municipality: %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gemeente: %@"
+          }
+        }
+      }
+    },
     "My household": {
       "localizations": {
         "nl": {
@@ -1781,12 +2121,52 @@
         }
       }
     },
+    "National numbers": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Landelijke nummers"
+          }
+        }
+      }
+    },
+    "National outage number of the grid operators": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Landelijk storingsnummer van de netbeheerders"
+          }
+        }
+      }
+    },
+    "Near you": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bij jou in de buurt"
+          }
+        }
+      }
+    },
     "Needed": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Nodig"
+          }
+        }
+      }
+    },
+    "Neighbours": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buren"
           }
         }
       }
@@ -1961,6 +2341,16 @@
         }
       }
     },
+    "Note (optional)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notitie (niet verplicht)"
+          }
+        }
+      }
+    },
     "Notes": {
       "localizations": {
         "nl": {
@@ -2051,6 +2441,26 @@
         }
       }
     },
+    "Out-of-hours GP": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huisartsenpost"
+          }
+        }
+      }
+    },
+    "Own contacts": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eigen contacten"
+          }
+        }
+      }
+    },
     "Owner": {
       "localizations": {
         "nl": {
@@ -2101,6 +2511,26 @@
         }
       }
     },
+    "Pharmacy": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apotheek"
+          }
+        }
+      }
+    },
+    "Phone number": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telefoonnummer"
+          }
+        }
+      }
+    },
     "Plan": {
       "localizations": {
         "nl": {
@@ -2131,6 +2561,26 @@
         }
       }
     },
+    "Police (no emergency)": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Politie (geen spoed)"
+          }
+        }
+      }
+    },
+    "Postcode": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Postcode"
+          }
+        }
+      }
+    },
     "Power bank": {
       "localizations": {
         "nl": {
@@ -2147,6 +2597,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Stroomuitval"
+          }
+        }
+      }
+    },
+    "Power or gas outage": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Storing stroom of gas"
+          }
+        }
+      }
+    },
+    "Print it and hang it where everyone can find it, for example inside the meter cupboard. Phones may not work during an emergency.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Print hem en hang hem zichtbaar op, bijvoorbeeld in de meterkast. In een noodsituatie werkt je telefoon misschien niet."
           }
         }
       }
@@ -2207,6 +2677,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hoeveelheid"
+          }
+        }
+      }
+    },
+    "Questions and non-urgent help": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vragen en hulp zonder spoed"
           }
         }
       }
@@ -2291,12 +2771,42 @@
         }
       }
     },
+    "Report animal cruelty or an animal in distress": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meld dierenmishandeling of een dier in nood"
+          }
+        }
+      }
+    },
+    "Report crime anonymously": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meld misdaad anoniem"
+          }
+        }
+      }
+    },
     "Save": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Bewaar"
+          }
+        }
+      }
+    },
+    "Scams, phishing and identity fraud": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oplichting, phishing en identiteitsfraude"
           }
         }
       }
@@ -2327,6 +2837,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Scan datum van verpakking"
+          }
+        }
+      }
+    },
+    "School or childcare": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "School of opvang"
           }
         }
       }
@@ -2407,6 +2927,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Deel of print PDF"
+          }
+        }
+      }
+    },
+    "Share or print the card": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deel of print de kaart"
           }
         }
       }
@@ -2501,6 +3031,16 @@
         }
       }
     },
+    "Skip": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overslaan"
+          }
+        }
+      }
+    },
     "Something went wrong. Please try again later.": {
       "localizations": {
         "nl": {
@@ -2547,6 +3087,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Storm, extreem weer of overstroming"
+          }
+        }
+      }
+    },
+    "Suicide prevention": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zelfmoordpreventie"
           }
         }
       }
@@ -2701,6 +3251,16 @@
         }
       }
     },
+    "This postcode was not found.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze postcode is niet gevonden."
+          }
+        }
+      }
+    },
     "Tick an item when you have bought it: it moves into your kit.": {
       "localizations": {
         "nl": {
@@ -2787,6 +3347,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Touch ID"
+          }
+        }
+      }
+    },
+    "Tune a battery or wind-up radio to it now.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stel een radio op batterijen of met opwinder er nu alvast op in."
           }
         }
       }
@@ -2901,6 +3471,16 @@
         }
       }
     },
+    "Vet": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dierenarts"
+          }
+        }
+      }
+    },
     "Warmth and shelter": {
       "localizations": {
         "nl": {
@@ -2931,6 +3511,16 @@
         }
       }
     },
+    "Water outage · %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waterstoring · %@"
+          }
+        }
+      }
+    },
     "Water, gas and electricity": {
       "localizations": {
         "nl": {
@@ -2947,6 +3537,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "We hebben een link gestuurd naar %@. Tik erop om je account te activeren en log daarna hier in."
+          }
+        }
+      }
+    },
+    "Website": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Website"
           }
         }
       }
@@ -3001,6 +3601,16 @@
         }
       }
     },
+    "Where do you live?": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waar woon je?"
+          }
+        }
+      }
+    },
     "Where the main tap, gas valve and fuse box are": {
       "localizations": {
         "nl": {
@@ -3017,6 +3627,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Waar je heen kunt, bijvoorbeeld familie buiten je regio"
+          }
+        }
+      }
+    },
+    "Who": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wie"
           }
         }
       }
@@ -3067,6 +3687,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Binnen 30 dagen"
+          }
+        }
+      }
+    },
+    "Work": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Werk"
           }
         }
       }
@@ -3181,12 +3811,32 @@
         }
       }
     },
+    "Your own contacts": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je eigen contacten"
+          }
+        }
+      }
+    },
     "Your own medicines for at least 3 days, and a list of them.": {
       "localizations": {
         "nl": {
           "stringUnit": {
             "state": "translated",
             "value": "Je eigen medicijnen voor minstens 3 dagen, en een lijst ervan."
+          }
+        }
+      }
+    },
+    "Your postcode is only used to look up these numbers and is not stored on our server.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je postcode wordt alleen gebruikt om deze nummers op te zoeken en niet op onze server bewaard."
           }
         }
       }
@@ -3217,6 +3867,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "lrvdlinden.app"
+          }
+        }
+      }
+    },
+    "no own contacts yet": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "nog geen eigen contacten"
           }
         }
       }

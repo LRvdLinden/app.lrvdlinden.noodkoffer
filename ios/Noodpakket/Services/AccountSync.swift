@@ -165,7 +165,19 @@ enum AccountSync {
             "checkIntervalMonths": p.checkIntervalMonths,
         ]
         if let n = p.nextCheck { d["nextCheck"] = day.string(from: n) }
+        if let list = jsonObject(p.contactsData) as? [Any], !list.isEmpty { d["contactList"] = list }
+        if let place = jsonObject(p.placeData) as? [String: Any] { d["place"] = place }
         return d
+    }
+
+    private static func jsonObject(_ s: String) -> Any? {
+        s.isEmpty ? nil : try? JSONSerialization.jsonObject(with: Data(s.utf8))
+    }
+
+    private static func jsonString(_ o: Any?) -> String {
+        guard let o, JSONSerialization.isValidJSONObject(o),
+              let d = try? JSONSerialization.data(withJSONObject: o, options: [.sortedKeys]) else { return "" }
+        return String(data: d, encoding: .utf8) ?? ""
     }
 
     private static func apply(_ c: [String: Any], context: ModelContext, state: inout State) {
@@ -225,6 +237,8 @@ enum AccountSync {
             p.notes = data["notes"] as? String ?? ""
             p.checkIntervalMonths = (data["checkIntervalMonths"] as? NSNumber)?.intValue ?? 6
             p.nextCheck = (data["nextCheck"] as? String).flatMap { day.date(from: $0) }
+            p.contactsData = jsonString(data["contactList"] as? [Any])
+            p.placeData = jsonString(data["place"] as? [String: Any])
             state.known[key] = record("plan", id, encode(p)).json
         default:
             break
