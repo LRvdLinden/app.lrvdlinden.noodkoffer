@@ -11,7 +11,7 @@
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   // Slide in while scrolling
-  const groups = ['.section-head', '.stat', '.card', '#vragen details', '.platform', '.steps li'];
+  const groups = ['.section-head', '.stat', '.card', '.feature', '#vragen details', '.platform', '.steps li'];
   const items = [];
   groups.forEach(sel => document.querySelectorAll(sel).forEach((el, i) => {
     el.classList.add('reveal');
