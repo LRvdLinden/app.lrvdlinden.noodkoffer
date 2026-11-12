@@ -79,7 +79,7 @@
     <string name="channel_messages">Messages from Noodpakket</string>
     <string name="messages_toggle">Messages from Noodpakket</string>
     <string name="messages_onboarding">For example before a storm. Optional.</string>
-    <string name="messages_footer">Now and then a short message, for example to check your kit before a storm. The app checks for new messages every few hours and only sends a random device number and the app language, without an account.</string>
+    <string name="messages_footer">Now and then a short message, for example to check your kit before a storm. The app checks for new messages about every 15 minutes and only sends a random device number and the app language, without an account.</string>
     <string name="title_kit">Emergency kit</string>
     <string name="add_item">Add item</string>
     <string name="kit_complete">Your kit is complete</string>

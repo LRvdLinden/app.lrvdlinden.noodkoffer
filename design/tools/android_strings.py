@@ -80,7 +80,7 @@ S = {  # key: (en, nl)
  "channel_messages": ("Messages from Noodpakket", "Berichten van Noodpakket"),
  "messages_toggle": ("Messages from Noodpakket", "Berichten van Noodpakket"),
  "messages_onboarding": ("For example before a storm. Optional.", "Bijvoorbeeld voor een storm. Niet verplicht."),
- "messages_footer": ("Now and then a short message, for example to check your kit before a storm. The app checks for new messages every few hours and only sends a random device number and the app language, without an account.", "Af en toe een kort bericht, bijvoorbeeld om je pakket na te lopen voor een storm. De app kijkt elke paar uur of er iets nieuws is en stuurt alleen een willekeurig apparaatnummer en de taal van de app mee, zonder account."),
+ "messages_footer": ("Now and then a short message, for example to check your kit before a storm. The app checks for new messages about every 15 minutes and only sends a random device number and the app language, without an account.", "Af en toe een kort bericht, bijvoorbeeld om je pakket na te lopen voor een storm. De app kijkt ongeveer elk kwartier of er iets nieuws is en stuurt alleen een willekeurig apparaatnummer en de taal van de app mee, zonder account."),
  "title_kit": ("Emergency kit", "Noodpakket"),
  "add_item": ("Add item", "Item toevoegen"),
  "kit_complete": ("Your kit is complete", "Je noodpakket is compleet"),

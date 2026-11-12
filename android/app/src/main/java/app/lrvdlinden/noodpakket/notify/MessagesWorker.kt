@@ -31,7 +31,7 @@ import java.util.UUID
 import java.util.concurrent.TimeUnit
 
 /**
- * "Messages from Noodpakket" on Android: every few hours the app asks the central function for new messages and shows
+ * "Messages from Noodpakket" on Android: about every 15 minutes (the shortest interval Android allows for background work) the app asks the central function for new messages and shows
  * them as a notification. Opt-in; only a random device number, the app language and the app version are sent
  * (no account, no Google services needed).
  */
@@ -78,8 +78,8 @@ object Messages {
         val network = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
         val wm = WorkManager.getInstance(context)
         wm.enqueueUniquePeriodicWork(
-            WORK, ExistingPeriodicWorkPolicy.KEEP,
-            PeriodicWorkRequestBuilder<MessagesWorker>(3, TimeUnit.HOURS).setConstraints(network).build(),
+            WORK, ExistingPeriodicWorkPolicy.UPDATE,
+            PeriodicWorkRequestBuilder<MessagesWorker>(15, TimeUnit.MINUTES).setConstraints(network).build(),
         )
         wm.enqueue(OneTimeWorkRequestBuilder<MessagesWorker>().setConstraints(network).build())
     }

@@ -222,7 +222,7 @@ textarea { min-height: 90px; resize: vertical; }
             <label>Apparaten<select id="mPlatform"><option value="all">Alle apparaten</option><option value="apple">iPhone en iPad</option><option value="android">Android</option></select></label>
             <label>Taal van de app<select id="mLang"><option value="all">Alle talen</option><option value="nl">Nederlands</option><option value="en">Engels</option></select></label>
           </div>
-          <p class="foot" style="margin:0">Bereik ongeveer <b id="reach">–</b> apparaten. iPhone en iPad krijgen direct een pushmelding; Android haalt nieuwe berichten zelf op, binnen een paar uur.</p>
+          <p class="foot" style="margin:0">Bereik ongeveer <b id="reach">–</b> apparaten. iPhone en iPad krijgen direct een pushmelding; Android haalt nieuwe berichten zelf op, meestal binnen een kwartier.</p>
           <div class="btns">
             <button type="button" id="testBtn">Test naar mijn LRbeheer</button>
             <button type="submit" class="primary" id="sendBtn">Versturen</button>
@@ -517,8 +517,8 @@ textarea { min-height: 90px; resize: vertical; }
         if (r.failed) $("msgErr").textContent = explain(r.errors);
       } else {
         if (r.failed_apple) $("msgErr").textContent = explain(r.errors);
-        $("msgOk").textContent = m.platform === "android" ? "Verstuurd. Android-toestellen halen het bericht binnen een paar uur op."
-          : "Verstuurd naar " + nf.format(r.sent_apple || 0) + " iPhones en iPads; Android haalt het binnen een paar uur op.";
+        $("msgOk").textContent = m.platform === "android" ? "Verstuurd. Android-toestellen halen het bericht meestal binnen een kwartier op."
+          : "Verstuurd naar " + nf.format(r.sent_apple || 0) + " iPhones en iPads; Android haalt het meestal binnen een kwartier op.";
         $("msgForm").reset(); preview(); load();
       }
     } catch (err) {

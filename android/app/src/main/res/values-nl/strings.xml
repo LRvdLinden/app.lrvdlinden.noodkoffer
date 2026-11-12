@@ -78,7 +78,7 @@
     <string name="channel_messages">Berichten van Noodpakket</string>
     <string name="messages_toggle">Berichten van Noodpakket</string>
     <string name="messages_onboarding">Bijvoorbeeld voor een storm. Niet verplicht.</string>
-    <string name="messages_footer">Af en toe een kort bericht, bijvoorbeeld om je pakket na te lopen voor een storm. De app kijkt elke paar uur of er iets nieuws is en stuurt alleen een willekeurig apparaatnummer en de taal van de app mee, zonder account.</string>
+    <string name="messages_footer">Af en toe een kort bericht, bijvoorbeeld om je pakket na te lopen voor een storm. De app kijkt ongeveer elk kwartier of er iets nieuws is en stuurt alleen een willekeurig apparaatnummer en de taal van de app mee, zonder account.</string>
     <string name="title_kit">Noodpakket</string>
     <string name="add_item">Item toevoegen</string>
     <string name="kit_complete">Je noodpakket is compleet</string>
