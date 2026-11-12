@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Noodpakket beheer</title>
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://vbhkewgyujzgbukkbtml.supabase.co; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://vbhkewgyujzgbukkbtml.supabase.co https://noodpakket-api.noodpakket.workers.dev; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -192,7 +192,7 @@ textarea { min-height: 90px; resize: vertical; }
       <div class="card">
         <h2>Android</h2>
         <div id="androidRows"></div>
-        <p class="foot">Downloads van de APK in GitHub Releases, ook via de vaste link op de website.</p>
+        <p class="foot">Downloads van de APK per release. De site (noodpakket.lrvdlinden.app/download/android/) geeft altijd de nieuwste door.</p>
       </div>
       <div class="card">
         <h2>Apple</h2>
@@ -203,6 +203,11 @@ textarea { min-height: 90px; resize: vertical; }
         <h2>Ontvangers van berichten</h2>
         <div id="deviceRows"></div>
         <p class="foot">Alleen apparaten waarop Berichten van Noodpakket aan staat. Geen account of persoonsgegevens.</p>
+      </div>
+      <div class="card">
+        <h2>Accounts en gezinnen</h2>
+        <div id="accountRows"><p class="foot">Laden…</p></div>
+        <p class="foot">Een account is niet verplicht; alleen wie het pakket met het gezin deelt, maakt er een. Niet-bevestigde accounts verdwijnen na 7 dagen. Bron: de Noodpakket-API (Cloudflare).</p>
       </div>
     </div>
 
@@ -291,6 +296,7 @@ textarea { min-height: 90px; resize: vertical; }
     try {
       const r = await call({ action: "noodpakket_login", user: $("user").value.trim(), password: $("pass").value });
       store.set({ token: r.token, expires: r.expires });
+      await workerLogin($("user").value.trim(), $("pass").value);
       $("pass").value = "";
       show(true);
       load();
@@ -300,7 +306,39 @@ textarea { min-height: 90px; resize: vertical; }
       btn.disabled = false; btn.textContent = "Inloggen";
     }
   });
-  $("logout").addEventListener("click", () => { store.clear(); show(false); });
+  $("logout").addEventListener("click", () => { store.clear(); try { sessionStorage.removeItem(KEY + ".worker"); } catch { /* leeg */ } show(false); });
+
+  // Accounts staan op de eigen Noodpakket-API; zelfde beheer-inlog, eigen token (12 uur, alleen dit tabblad).
+  const WORKER = "https://noodpakket-api.noodpakket.workers.dev";
+  function workerToken() { try { const w = JSON.parse(sessionStorage.getItem(KEY + ".worker") || "null"); return w && w.expires * 1000 > Date.now() + 60000 ? w.token : null; } catch { return null; } }
+  async function workerLogin(user, password) {
+    try {
+      const r = await fetch(WORKER + "/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ user, password }), credentials: "omit" });
+      if (r.ok) { const j = await r.json(); sessionStorage.setItem(KEY + ".worker", JSON.stringify({ token: j.token, expires: j.expires })); }
+    } catch { /* accounts blijven dan leeg */ }
+  }
+  async function loadAccounts() {
+    const box = $("accountRows");
+    const t = workerToken();
+    if (!t) { box.replaceChildren(el("p", "foot", "Log uit en opnieuw in om de accounts te zien.")); return; }
+    try {
+      const r = await fetch(WORKER + "/admin/stats", { headers: { Authorization: "Bearer " + t }, cache: "no-store", credentials: "omit" });
+      if (r.status === 401) { sessionStorage.removeItem(KEY + ".worker"); box.replaceChildren(el("p", "foot", "Log uit en opnieuw in om de accounts te zien.")); return; }
+      if (!r.ok) throw new Error();
+      const a = await r.json();
+      const sum = (k) => (a.days || []).reduce((n, d) => n + (d[k] || 0), 0);
+      box.replaceChildren(
+        row("Accounts (bevestigd)", nf.format(a.confirmed), a.unconfirmed ? nf.format(a.unconfirmed) + " nog niet bevestigd" : ""),
+        row("Actief", nf.format(a.active_30d), "laatste 30 dagen ingelogd"),
+        row("Gedeelde gezinnen", nf.format(a.shared_households), nf.format(a.shared_members) + " leden"),
+        row("Open uitnodigingen", nf.format(a.open_invites)),
+        row("Nieuwe accounts", nf.format(sum("signup")), "30 dagen"),
+        row("Lid geworden van een gezin", nf.format(sum("joined")), "30 dagen"),
+        row("Tegengehouden bots", nf.format(sum("bot")), "30 dagen"),
+        row("APK via de site", nf.format(sum("apk")), "30 dagen"),
+      );
+    } catch { box.replaceChildren(el("p", "foot", "De Noodpakket-API was niet bereikbaar.")); }
+  }
   $("refresh").addEventListener("click", () => load());
 
   let busy = false;
@@ -310,6 +348,7 @@ textarea { min-height: 90px; resize: vertical; }
     try {
       stats = await call({ action: "noodpakket_stats" }, mem.token);
       render(stats);
+      loadAccounts();
       $("appErr").textContent = "";
     } catch (err) {
       if (err.auth) authFail(err); else $("appErr").textContent = err.message;
