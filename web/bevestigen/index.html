@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-mailadres bevestigen | Noodpakket</title>
+  <meta name="description" content="Bevestig het e-mailadres van je Noodpakket-account.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://noodpakket.lrvdlinden.app/bevestigen/">
+  <meta name="theme-color" content="#3C175B">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../img/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="top"><div class="wrap"><a class="brand" href="../"><img src="../img/icon.svg" alt="">Noodpakket</a>
+  <nav><a class="keep" href="../privacy/">Privacy</a><a class="keep" href="../support/">Support</a></nav></div></header>
+  <main class="doc acct">
+    <h1 data-en="Confirm your email">E-mailadres bevestigen</h1>
+    <div class="panel"><div id="confirm-state" class="state"></div>
+      <div id="after-ok" hidden>
+        <div class="row"><a class="btn primary" href="../#download" data-en="Get the app">Download de app</a><a class="btn ghost" href="../gezin/" data-en="Share with your household">Delen met je gezin</a></div>
+      </div>
+      <div id="resend" hidden>
+        <h2 style="font-size:18px;margin:24px 0 12px" data-t="resend"></h2>
+        <form id="resend-form">
+          <label><span data-t="email"></span><input type="email" name="email" autocomplete="email" required></label>
+          <button class="btn primary" type="submit" data-t="resend"></button>
+          <p id="resend-msg" class="msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer class="site"><div class="wrap"><div class="fine">
+    <nav><a href="../">Home</a><a href="../privacy/">Privacyverklaring</a><a href="../support/">Support</a><a href="https://lrvdlinden.app">Meer apps</a></nav>
+    <div>© <span class="year">2026</span> Noodpakket</div></div></div></footer>
+  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
+  <script src="../api.js"></script>
+  <script src="../account.js"></script>
+</body>
+</html>

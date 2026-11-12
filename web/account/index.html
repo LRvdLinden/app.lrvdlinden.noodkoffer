@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Je account | Noodpakket</title>
+  <meta name="description" content="Kies een nieuw wachtwoord of beheer en verwijder je Noodpakket-account.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://noodpakket.lrvdlinden.app/account/">
+  <meta name="theme-color" content="#3C175B">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../img/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="top"><div class="wrap"><a class="brand" href="../"><img src="../img/icon.svg" alt="">Noodpakket</a>
+  <nav><a class="keep" href="../privacy/">Privacy</a><a class="keep" href="../support/">Support</a></nav></div></header>
+  <main class="doc acct">
+    <h1 data-en="Your account">Je account</h1>
+    <p data-en="An account is optional. It lets you share your kit with your household. Everything in the app also works without one.">Een account is niet verplicht. Je deelt er je noodpakket mee met je gezin; alles in de app werkt ook zonder.</p>
+
+    <section id="reset" class="panel" hidden>
+      <h2 style="margin-top:0" data-en="Choose a new password">Nieuw wachtwoord kiezen</h2>
+      <form id="reset-form">
+        <label><span data-t="newPw"></span><input type="password" name="pw" autocomplete="new-password" minlength="8" required><span class="hint" data-t="newPwHint"></span></label>
+        <label><span data-t="repeat"></span><input type="password" name="pw2" autocomplete="new-password" minlength="8" required></label>
+        <button class="btn primary" type="submit" data-t="save"></button>
+        <p id="reset-msg" class="msg" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="signin" class="panel">
+      <h2 style="margin-top:0" data-en="Sign in to manage or delete your account">Inloggen om je account te beheren of te verwijderen</h2>
+      <form id="login-form">
+        <label><span data-t="email"></span><input type="email" name="email" autocomplete="email" required></label>
+        <label><span data-t="password"></span><input type="password" name="pw" autocomplete="current-password" required></label>
+        <button class="btn primary" type="submit" data-t="login"></button>
+        <p id="login-msg" class="msg" aria-live="polite"></p>
+      </form>
+      <details style="margin-top:8px"><summary data-t="forgot"></summary>
+        <form id="forgot-form" style="margin-top:12px">
+          <label><span data-t="email"></span><input type="email" name="email" autocomplete="email" required></label>
+          <button class="btn ghost" type="submit" data-t="sendLink"></button>
+          <p id="forgot-msg" class="msg" aria-live="polite"></p>
+        </form>
+      </details>
+    </section>
+
+    <section id="me" class="panel" hidden>
+      <p><span data-t="signedIn"></span> <strong id="me-email"></strong><br><span data-t="household"></span>: <span id="me-household"></span></p>
+      <div class="row"><button class="btn ghost" id="logout" type="button" data-t="logout"></button></div>
+      <h2 style="font-size:18px;margin:28px 0 8px" data-t="del"></h2>
+      <p data-t="delConfirm"></p>
+      <form id="delete-form">
+        <label><span data-t="password"></span><input type="password" name="pw" autocomplete="current-password" required></label>
+        <button class="btn danger" type="submit" data-t="del"></button>
+        <p id="delete-msg" class="msg" aria-live="polite"></p>
+      </form>
+    </section>
+    <p id="done-msg" class="msg" aria-live="polite"></p>
+  </main>
+  <footer class="site"><div class="wrap"><div class="fine">
+    <nav><a href="../">Home</a><a href="../privacy/">Privacyverklaring</a><a href="../support/">Support</a><a href="https://lrvdlinden.app">Meer apps</a></nav>
+    <div>© <span class="year">2026</span> Noodpakket</div></div></div></footer>
+  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
+  <script src="../api.js"></script>
+  <script src="../account.js"></script>
+</body>
+</html>

@@ -278,3 +278,27 @@ footer.site { padding: 48px 0 40px; border-top: 1px solid var(--line); }
   .sheet, .ring .arc, .meter i { transition: none; }
 }
 .apk-version { display: block; margin-top: 10px; font-size: 14px; opacity: .8; }
+
+/* Accountpagina's (bevestigen, wachtwoord, gezin) */
+.acct { max-width: 520px; }
+.acct .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; margin-top: 24px; box-shadow: 0 18px 40px -30px rgba(40,10,60,.45); }
+.acct .state { display: flex; gap: 14px; align-items: flex-start; }
+.acct .state .dot { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 20px; background: var(--g-soft); color: var(--purple); }
+.acct .state.ok .dot { background: #DDF3E8; color: var(--ok); }
+.acct .state.err .dot { background: #FCE4E4; color: var(--red); }
+.acct .state h2 { margin: 2px 0 6px; font-size: 22px; }
+.acct .state p { margin: 0; }
+.acct form { display: grid; gap: 14px; }
+.acct label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; color: var(--ink); }
+.acct input[type=email], .acct input[type=password], .acct input[type=text] { font: inherit; padding: 13px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.acct input:focus { outline: 3px solid rgba(90,46,133,.25); border-color: var(--g); }
+.acct .hint { font-size: 14px; color: var(--muted); font-weight: 400; }
+.acct .msg { min-height: 1.4em; font-size: 15px; margin: 0; }
+.acct .msg.err { color: var(--red); }
+.acct .msg.ok { color: var(--ok); }
+.acct .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.acct button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 700; }
+.acct button.btn[disabled] { opacity: .6; cursor: default; transform: none; }
+.acct .btn.danger { background: #fff; color: var(--red); border: 1px solid #F3C4C5; }
+.acct ol.steps-plain { padding-left: 20px; color: var(--muted); }
+.acct ol.steps-plain li { margin: 6px 0; }

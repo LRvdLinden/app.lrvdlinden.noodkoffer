@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /beheer/
+Disallow: /bevestigen/
+Disallow: /account/
+Disallow: /download/
+
 Sitemap: https://noodpakket.lrvdlinden.app/sitemap.xml
