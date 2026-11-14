@@ -1,0 +1,78 @@
+name: Review-account
+
+# Maakt (of herstelt) het demo-account voor Apple App Review in de Noodpakket-database: al bevestigd, met eigen gezin.
+# Alleen de PBKDF2-hash en salt gaan mee als invoer; het wachtwoord zelf staat nergens in deze repo.
+# Controleert daarnaast welke demo-barcodes Open Food Facts / Open Products Facts kennen.
+on:
+  workflow_dispatch:
+    inputs:
+      email:
+        description: "E-mailadres van het review-account"
+        default: "appreview@noodpakket.lrvdlinden.app"
+      hash:
+        description: "PBKDF2-hash (base64)"
+        required: true
+      salt:
+        description: "Salt (base64)"
+        required: true
+      barcodes:
+        description: "Barcodes om te controleren (spatie-gescheiden)"
+        default: "5449000000996 8710398527257 8718452231428 5410013108009 3068320114453 4005808263707"
+
+permissions:
+  contents: read
+
+jobs:
+  account:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - run: npm ci
+      - name: Account in D1
+        env:
+          EMAIL: ${{ inputs.email }}
+          HASH: ${{ inputs.hash }}
+          SALT: ${{ inputs.salt }}
+        run: |
+          node -e '
+            const q = s => "\x27" + String(s).replace(/\x27/g, "\x27\x27") + "\x27";
+            const e = process.env.EMAIL.trim().toLowerCase(), now = Date.now(), id = require("crypto").randomUUID();
+            if (!/^[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(e)) throw new Error("ongeldig e-mailadres");
+            const sql = `insert into users (id, email, pass_hash, pass_salt, name, lang, confirmed_at, created_at)
+              values (${q(id)}, ${q(e)}, ${q(process.env.HASH)}, ${q(process.env.SALT)}, ${q("App Review")}, ${q("en")}, ${now}, ${now})
+              on conflict(email) do update set pass_hash = excluded.pass_hash, pass_salt = excluded.pass_salt,
+                confirmed_at = coalesce(users.confirmed_at, excluded.confirmed_at);`;
+            require("fs").writeFileSync("review.sql", sql);'
+          npx wrangler d1 execute noodpakket --remote --file review.sql
+          npx wrangler d1 execute noodpakket --remote --command "select email, name, confirmed_at is not null as bevestigd, household_id from users where email = '$(echo "$EMAIL" | tr A-Z a-z)'"
+          rm -f review.sql
+      - name: Inloggen controleren
+        env:
+          EMAIL: ${{ inputs.email }}
+        run: |
+          # Zonder wachtwoord: een onjuist wachtwoord moet 401 geven (account bestaat, is bevestigd)
+          C=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' \
+            -d "{\"email\":\"$EMAIL\",\"password\":\"Onjuist-wachtwoord-1\"}" https://noodpakket-api.noodpakket.workers.dev/auth/login)
+          echo "onjuist wachtwoord: $C (verwacht 401)"
+
+  barcodes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open Food Facts / Open Products Facts
+        env:
+          CODES: ${{ inputs.barcodes }}
+        run: |
+          for c in $CODES; do
+            for host in world.openfoodfacts.org world.openproductsfacts.org; do
+              R=$(curl -s -A "Noodpakket-review-check/1.0" "https://$host/api/v2/product/$c.json?fields=product_name,brands,quantity,categories_tags")
+              echo "$c $host: $(echo "$R" | head -c 400)"
+            done
+          done
