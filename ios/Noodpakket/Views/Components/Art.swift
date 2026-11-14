@@ -208,6 +208,36 @@ struct CardRow<Content: View>: View {
 
 /// Purple navigation bar for the form screens (plan, settings).
 extension View {
+    /// Root screen of a tab: our own purple header with a large white title instead of the system navigation bar,
+    /// whose large title did not show on the purple background.
+    func brandRootTitle(_ title: LocalizedStringKey) -> some View {
+        self
+            .navigationTitle(title)
+            .toolbar(.hidden, for: .navigationBar)
+            .safeAreaInset(edge: .top, spacing: 0) {
+                Text(title)
+                    .font(.system(size: 34, weight: .bold, design: .rounded))
+                    .foregroundStyle(.white)
+                    .accessibilityAddTraits(.isHeader)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 6)
+                    .padding(.bottom, 16)
+                    .background(Theme.purple.ignoresSafeArea(edges: .top))
+            }
+    }
+
+    /// Pushed screen: inline title, always drawn in white on the purple bar.
+    func brandInlineTitle(_ title: Text) -> some View {
+        self
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    title.font(.system(.headline, design: .rounded).weight(.semibold)).foregroundStyle(.white).lineLimit(1)
+                }
+            }
+    }
+
     func brandNavigationBar() -> some View {
         self
             .toolbarBackground(Theme.purple, for: .navigationBar)

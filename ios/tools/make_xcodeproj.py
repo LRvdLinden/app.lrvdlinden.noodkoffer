@@ -12,7 +12,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 NAME = "Noodpakket"
 BUNDLE_ID = "app.lrvdlinden.noodpakket"
 TEAM = "EU3UY476T6"
-VERSION, BUILD = "1.0.0", "5"
+VERSION, BUILD = "1.0.0", "6"
 
 
 def oid(*parts):

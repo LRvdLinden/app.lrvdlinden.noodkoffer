@@ -309,6 +309,8 @@ struct AccountView: View {
             }
         }
         .navigationTitle("Account")
+        .brandNavigationBar()
+        .brandInlineTitle(Text("Account"))
         .refreshable { try? await account.refresh(); await account.syncNow() }
         .task { try? await account.refresh() }
         .alert("Invite someone", isPresented: $showInvite) {

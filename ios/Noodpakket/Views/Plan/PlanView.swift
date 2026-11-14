@@ -15,7 +15,7 @@ struct PlanView: View {
                     ProgressView()
                 }
             }
-            .navigationTitle("Emergency plan")
+            .brandRootTitle("Emergency plan")
             .navigationDestination(for: String.self) { id in
                 if id == "numbers", let plan = plans.first {
                     NumbersView(plan: plan)

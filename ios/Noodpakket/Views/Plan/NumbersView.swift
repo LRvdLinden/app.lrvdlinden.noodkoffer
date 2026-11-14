@@ -73,7 +73,7 @@ struct NumbersView: View {
         }
         .background(Theme.canvas)
         .navigationTitle("Important numbers")
-        .navigationBarTitleDisplayMode(.inline)
+        .brandInlineTitle(Text("Important numbers"))
         .brandNavigationBar()
         .sheet(item: $editing) { contact in
             ContactEditSheet(contact: contact) { updated in

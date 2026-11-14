@@ -65,5 +65,6 @@ struct InfoDetailView: View {
         }
         .brandNavigationBar()
         .navigationTitle(Text(topic.title))
+        .brandInlineTitle(Text(topic.title))
     }
 }

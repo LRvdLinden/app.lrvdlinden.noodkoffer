@@ -101,7 +101,7 @@ struct SettingsView: View {
             }
             .tint(Theme.accent)
             .brandNavigationBar()
-            .navigationTitle("Settings")
+            .brandRootTitle("Settings")
             .sheet(isPresented: $showWhatsNew) { WhatsNewView() }
         }
     }
