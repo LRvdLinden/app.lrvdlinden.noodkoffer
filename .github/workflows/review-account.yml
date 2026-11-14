@@ -17,7 +17,7 @@ on:
         required: true
       barcodes:
         description: "Barcodes om te controleren (spatie-gescheiden)"
-        default: "5449000000996 8710398527257 8718452231428 5410013108009 3068320114453 4005808263707"
+        default: "5410013108009 5000394052543 5000394203907 4008496559749 5000394018815 4008496556007 5000394002869"
 
 permissions:
   contents: read
@@ -36,6 +36,11 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 24 }
       - run: npm ci
+      - name: D1-id invullen
+        run: |
+          ID=$(npx wrangler d1 list --json 2>/dev/null | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const i=s.indexOf("[");const d=JSON.parse(s.slice(i)).find(x=>x.name==="noodpakket");console.log(d?d.uuid:"")})')
+          [ -n "$ID" ] || { echo "::error::D1-database noodpakket niet gevonden"; exit 1; }
+          sed -i "s/__D1_DATABASE_ID__/$ID/" wrangler.toml
       - name: Account in D1
         env:
           EMAIL: ${{ inputs.email }}
