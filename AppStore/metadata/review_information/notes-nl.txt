@@ -1,35 +1,38 @@
 WAT DE APP DOET
-Noodpakket helpt huishoudens in Nederland een noodpakket voor 72 uur samen te stellen en bij te houden, volgens het openbare advies van de overheid (denkvooruit.nl). De app berekent wat een huishouden nodig heeft, houdt houdbaarheidsdatums bij, maakt een boodschappenlijst en bewaart een afdrukbaar noodplan. De app is in het Nederlands en Engels.
+Noodpakket helpt huishoudens in Nederland een noodpakket voor 72 uur samen te stellen en bij te houden, volgens het openbare advies van de overheid (denkvooruit.nl). De app berekent wat een huishouden nodig heeft, houdt houdbaarheidsdatums bij, maakt een boodschappenlijst, bewaart een afdrukbaar noodplan met belangrijke telefoonnummers en kan één pakket delen binnen een gezin. De app is in het Nederlands en Engels en werkt op iPhone en iPad.
+
+ACCOUNT (OPTIONEEL)
+Alles werkt zonder account. Een account is alleen nodig om één pakket met je gezin te delen. De demo-inlog staat in de inlogvelden van App Review Information; het demo-account is al bevestigd en krijgt bij de eerste keer inloggen een eigen gezin.
+Inloggen: onboardingpagina "Samen met je gezin" of Instellingen → Account en gezin → Inloggen. Daar zie je het gezin en de leden, kun je een ander e-mailadres uitnodigen of het account verwijderen. Wijzigingen in pakket en plan synchroniseren dan tussen de apparaten van het gezin.
 
 ZO TEST JE
-1. Start de app. Doorloop de korte onboarding en vul een huishouden in (bijv. 2 volwassenen, 1 kind, 0 huisdieren). Zet je in de onboarding herinneringen aan, dan wordt om toestemming voor meldingen gevraagd.
-2. Tab "Pakket": checklist met voortgangsring. Tik op een onderdeel om de hoeveelheid aan te passen, een houdbaarheidsdatum te zetten of het op "Niet nodig" te zetten.
-3. Tik op het scanicoon (rechtsboven in Pakket) en scan een willekeurige barcode, bijv. een fles water. De app zoekt het product op en vult naam, hoeveelheid en categorie in. Kies "Scan datum van verpakking" om de houdbaarheidsdatum met de camera te lezen. Pas hier wordt om de camera gevraagd.
+1. Start de app en doorloop de onboarding: grootte van het huishouden (bijv. 2 volwassenen, 1 kind), postcode (bijv. 7311 LG), herinneringen, optioneel account, optioneel Face ID-slot. Elke stap is over te slaan.
+2. Tab "Pakket": checklist met voortgangsring. Tik op een onderdeel om aantal of houdbaarheidsdatum te wijzigen of het op "Niet nodig" te zetten.
+3. Scannen: tik op het scanicoon (rechtsboven in Pakket). Gebruik het meegestuurde demovel (Noodpakket-review-barcodes): Spa Reine water en Varta AAA-batterijen worden herkend en ingevuld; de DataMatrix-code vult ook de houdbaarheidsdatum 31-12-2027 in; "Scan datum van verpakking" leest de gedrukte datum. Pas hier wordt om de camera gevraagd. Zonder camera: typ 5410013108009.
 4. Tab "Houdbaar": onderdelen op houdbaarheidsdatum.
-5. Tab "Boodschappen": alles wat nog ontbreekt. Vink af om het aan het pakket toe te voegen.
-6. Tab "Noodplan": verzamelpunt, contacten, medische info. Met de deelknop print je het of bewaar je het als PDF. "Wat te doen bij..." toont korte offline uitleg.
-7. Tab "Instellingen": huishouden, aantal dagen, herinneringen, meer apps.
+5. Tab "Boodschappen": alles wat nog ontbreekt. Vink iets af om het aan het pakket toe te voegen.
+6. Tab "Noodplan": verzamelplekken, medische info en "Belangrijke nummers": landelijke nummers (112, politie enz.), lokale nummers bij de postcode (gemeente, regionale noodzender, waterbedrijf) en eigen contacten (huisarts, familie). Deelknop: afdrukken of als PDF bewaren, met een kaart voor de meterkast. "Wat te doen bij..." geeft offline uitleg.
+7. Tab "Instellingen": huishouden, aantal dagen, herinneringen, Berichten van Noodpakket, Face ID-slot, account, meer apps van de ontwikkelaar.
 8. Voeg de widget "Noodpakket" toe via de widgetgalerij.
-Barcode scannen vereist een toestel met camera (VisionKit DataScanner, A12 of nieuwer). Zonder ondersteunde camera kun je onderdelen handmatig toevoegen.
 
-REGIO / DATA
-De checklist is gebaseerd op Nederlands advies, maar de app werkt overal. Barcodes worden wereldwijd herkend als ze in Open Food Facts / Open Products Facts staan. Een onbekend product toont een formulier om zelf in te vullen; dat is bedoeld gedrag.
+REGIO / GEGEVENS
+De checklist volgt Nederlands advies, maar de app werkt overal. Lokale nummers bestaan alleen voor Nederlandse postcodes; elders blijft die kaart leeg. Onbekende barcodes openen een kort formulier dat je één keer invult; dat is de bedoeling.
 
-DATABRONNEN
-Productgegevens komen van de openbare API's van Open Food Facts en Open Products Facts (ODbL, vermeld in de app). Alleen het barcodenummer wordt verstuurd. De app is onafhankelijk en niet verbonden aan de overheid of de campagne Denk Vooruit.
+GEGEVENSBRONNEN
+Productgegevens: openbare API's van Open Food Facts en Open Products Facts (ODbL, vermeld in de app); alleen de barcode wordt verstuurd. Lokale nummers: server van de ontwikkelaar, met PDOK Locatieserver (open data van de overheid) en de open lijst van gemeenten van organisaties.overheid.nl; alleen de postcode wordt verstuurd. De app is onafhankelijk en niet verbonden aan de overheid of de campagne Denk Vooruit.
 
 TOESTEMMINGEN
-- Camera: alleen als de gebruiker op scannen tikt. Verwerking op het toestel. De app werkt ook zonder.
-- Meldingen: lokale herinneringen en (alleen als de gebruiker het aanzet) Berichten van Noodpakket. De app werkt ook zonder.
+- Camera: alleen als je op scannen tikt. Verwerking op het apparaat.
+- Meldingen: lokale houdbaarheids- en halfjaarlijkse controleherinneringen en (opt-in) Berichten van Noodpakket.
+- Face ID: alleen als je het app-slot aanzet.
+De app werkt volledig als je een van deze weigert.
 
-ACCOUNT
-Geen login nodig.
+SERVERS EN SYNCHRONISATIE
+Zonder account blijven gegevens op het apparaat en in de eigen privé iCloud-database (CloudKit). Met een account worden pakket en plan van het gezin op de server van de ontwikkelaar (Cloudflare, EU) bewaard om ze te delen; account en gegevens zijn in de app te verwijderen. Berichten van Noodpakket (standaard uit) bewaart alleen de pushtoken, een willekeurig apparaat-ID en de taal van de app.
 
 AANKOPEN / RECLAME
-Geen in-app aankopen, abonnementen of reclame.
+Geen in-app-aankopen, abonnementen of reclame.
 
 OVERIG
-- Synchronisatie via de privé-iCloud-database van de gebruiker (CloudKit). Geen server van de ontwikkelaar.
-- Berichten van Noodpakket (Instellingen en laatste welkomscherm, standaard uit): bij aanzetten registreert de app zich voor pushmeldingen en stuurt het pushtoken met een willekeurige apparaat-ID, de taal en het platform naar de server van de ontwikkelaar, alleen voor af en toe een bericht over de app. Uitzetten verwijdert de registratie. Geen reclame van derden.
-- Een reviewvraag (requestReview) kan na regelmatig gebruik verschijnen, maximaal eens per week.
-- Instellingen bevat een kaart "Meer apps" met een link naar de App Store-pagina van de ontwikkelaar.
+- Na regelmatig gebruik kan een beoordelingsvraag (requestReview) verschijnen, hooguit eens per week.
+- Instellingen heeft een kaart "Meer apps" naar de App Store-pagina van de ontwikkelaar.

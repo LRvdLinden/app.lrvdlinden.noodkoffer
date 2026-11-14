@@ -17,5 +17,5 @@ De screenshots zijn **nagebouwd** vanuit de SwiftUI-schermen (HTML, `design/mock
 2. Vul per taal naam, ondertitel, promotietekst, beschrijving, trefwoorden en URL's in uit `metadata/<taal>/`.
 3. Upload de screenshots per toestelgrootte; zet de marketingafbeeldingen bij de header- en zoekresultaatassets.
 4. Privacylabel: Identifiers → Device ID (niet gekoppeld, geen tracking, App Functionality), alleen voor Berichten van Noodpakket. Leeftijd: alles None → 4+.
-5. App Review: notities uit `notes.txt`, contactgegevens invullen (staan als TODO), geen demo-account nodig.
+5. App Review: notities uit `notes.txt`; Sign-in required aan met het demo-account appreview@noodpakket.lrvdlinden.app (wachtwoord staat niet in de repo; opnieuw instellen via workflow Review-account). Voeg Noodpakket-review-barcodes.png toe als bijlage.
 6. Categorie Lifestyle, secundair Utilities. Copyright: `© 2026 Léon van der Linden`.

@@ -1,35 +1,38 @@
 WHAT THE APP DOES
-Noodpakket ("emergency kit") helps households in the Netherlands build and maintain a 72-hour emergency kit, following the public advice of the Dutch government (denkvooruit.nl). It calculates what a household needs, tracks expiry dates, creates a shopping list and stores a printable emergency plan. The app is in Dutch and English.
+Noodpakket ("emergency kit") helps households in the Netherlands build and maintain a 72-hour emergency kit, following the public advice of the Dutch government (denkvooruit.nl). It calculates what a household needs, tracks expiry dates, creates a shopping list, stores a printable emergency plan with important phone numbers, and can share one kit within a household. The app is in Dutch and English and works on iPhone and iPad.
+
+ACCOUNT (OPTIONAL)
+Every feature works without an account. An account is only needed to share one kit with household members. Demo credentials are in the Sign-in fields of App Review Information; the demo account is already confirmed and gets its own household on first sign-in.
+Sign in: onboarding page "Together with your household" or Settings → Account and household → Sign in. There you see the household and its members, can invite another email address or delete the account. Changes to the kit and plan then sync between devices of the household.
 
 HOW TO TEST
-1. Launch the app. Swipe through the short onboarding and enter a household (for example 2 adults, 1 child, 0 pets). Notification permission is requested only when the user turns on reminders in onboarding or Settings.
-2. Tab "Kit": the checklist with progress ring. Tap an item to change the quantity, set an expiry date or mark it "Not needed".
-3. Tap the scan icon (top right of the Kit tab) and scan any supermarket barcode, e.g. a bottle of water. The app looks up the product and fills in name, quantity and category. Choose "Scan date from packaging" to read the expiry date with the camera. The camera is requested only at this point.
+1. Launch the app and go through the onboarding: household size (e.g. 2 adults, 1 child), postcode (e.g. 7311 LG), reminders, optional account, optional Face ID lock. Every step can be skipped.
+2. Tab "Kit": checklist with progress ring. Tap an item to change the quantity, set an expiry date or mark it "Not needed".
+3. Scanning: tap the scan icon (top right of the Kit tab). Use the attached demo sheet (Noodpakket-review-barcodes): Spa Reine water and Varta AAA batteries are recognised and filled in; the DataMatrix code also fills in the expiry date 31-12-2027; "Scan date from packaging" reads the printed date. The camera is requested only at this point. Without a camera, type 5410013108009.
 4. Tab "Expiry": items sorted by expiry date.
 5. Tab "Shopping": everything still missing. Tick an item to add it to the kit.
-6. Tab "Plan": emergency plan (meeting point, contacts, medical info). Use the share button to print or save it as a PDF. "What to do when..." shows short offline guidance.
-7. Tab "Settings": household, number of days, reminders, more apps by the developer.
+6. Tab "Plan": meeting points, medical info and "Important numbers": national numbers (112, police, etc.), local numbers for the entered postcode (municipality, regional emergency radio station, water company) and own contacts (GP, family). Share button: print or save as PDF, including a one-page card for the meter cupboard. "What to do when..." shows offline guidance.
+7. Tab "Settings": household, number of days, reminders, Messages from Noodpakket, Face ID lock, account, more apps by the developer.
 8. Add the "Noodpakket" widget from the Home Screen widget gallery.
-Barcode scanning requires a device with a camera (VisionKit DataScanner, A12 or newer). Without a supported camera, items can be added and edited manually.
 
 REGION / DATA NOTES
-The checklist is based on Dutch advice, but the app works in every region. Barcode lookup works for products worldwide that exist in Open Food Facts / Open Products Facts. When a product is unknown, the app shows a form to complete it manually; this is expected behaviour.
+The checklist follows Dutch advice but the app works everywhere. Local numbers only exist for Dutch postcodes; elsewhere that card can be left empty. Unknown barcodes open a short form to fill in once; this is expected.
 
 DATA SOURCES
-Product data comes from the public APIs of Open Food Facts and Open Products Facts (ODbL licence, attributed in the app). Only the barcode number is sent. The app is independent and is not affiliated with or endorsed by the Dutch government or the Denk Vooruit campaign; this is stated in the app and in the description.
+Product data: public APIs of Open Food Facts and Open Products Facts (ODbL, attributed in the app); only the barcode is sent. Local numbers: the developer's server, using PDOK Locatieserver (Dutch government open data) and the open list of municipalities from organisaties.overheid.nl; only the postcode is sent. The app is independent and not affiliated with the Dutch government or the Denk Vooruit campaign.
 
 PERMISSIONS
-- Camera: only when the user taps scan (barcode or expiry date). Processed on device. The app works fully without it.
-- Notifications: for local expiry and check-up reminders, and (opt-in) for "Messages from Noodpakket". The app works without it.
+- Camera: only when the user taps scan. Processed on device.
+- Notifications: local expiry and half-yearly check reminders, and (opt-in) Messages from Noodpakket.
+- Face ID: only when the user turns on the app lock.
+The app works fully when any of these is declined.
 
-ACCOUNT
-No login required.
+SERVERS AND SYNC
+Without an account, data stays on the device and in the user's private iCloud database (CloudKit). With an account, the kit and plan of the household are stored on the developer's server (Cloudflare, EU) to share them; the account and its data can be deleted in the app. Messages from Noodpakket (off by default) stores only the push token, a random device ID and the app language.
 
 IAP / ADS
-The app contains no in-app purchases, subscriptions or ads.
+No in-app purchases, subscriptions or ads.
 
 OTHER
-- Data syncs via the user's private iCloud database (CloudKit). No server of the developer is involved.
-- "Messages from Noodpakket" (Settings and the last onboarding page, off by default): when the user turns it on, the app registers for push notifications and sends the push token with a random device ID, the app language and the platform to the developer's server, only to deliver occasional messages about the app (for example a new feature or seasonal check-up advice). Turning it off removes the registration. No marketing from third parties.
 - A review prompt (requestReview) may appear after regular use, at most once per week.
-- Settings contains a "More apps" card that links to the developer's App Store page.
+- Settings has a "More apps" card linking to the developer's App Store page.
