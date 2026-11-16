@@ -1,0 +1,30 @@
+name: Website ZIP
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/website-zip.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Maak uploadklare website-ZIP
+        run: |
+          cd web
+          zip -q -r ../noodpakket-web.zip .
+          cd ..
+          unzip -t noodpakket-web.zip | tail -1
+      - name: Website als ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: noodpakket-web
+          path: noodpakket-web.zip
+          retention-days: 30
