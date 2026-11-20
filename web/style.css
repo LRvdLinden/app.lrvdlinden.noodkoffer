@@ -205,6 +205,12 @@ section { padding: 88px 0; }
 .platform.ios { background: linear-gradient(140deg, #2E0F47, #5A2E85); }
 .platform.android { background: linear-gradient(140deg, #FFCB5E, #E9A428); color: var(--purple); }
 .platform.android .btn { background: var(--purple); color: #fff; }
+/* Officiële maat bij App Store-badge: zwarte Android-badge in Noodpakket-geel. */
+.android-download-badge { display: inline-block; width: 244px; max-width: 100%; line-height: 0; border-radius: 12px; text-decoration: none; transition: transform .2s ease, filter .2s ease; }
+.android-download-badge img { width: 244px; max-width: 100%; height: auto; display: block; }
+.android-download-badge:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.android-download-badge:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; }
+
 .platform h3 { font-size: 26px; margin: 0 0 8px; }
 .platform p { margin: 0 0 22px; opacity: .85; }
 .platform .btn { background: #fff; color: var(--ink); }
